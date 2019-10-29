@@ -6,38 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-qitian.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-yuqi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-fee-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee-add.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee-list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/shouju.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/wuye_dao/target/" />
@@ -72,14 +41,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="33" selection-start-line="8" selection-start-column="8" selection-end-line="12" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="44" selection-start-line="5" selection-start-column="25" selection-end-line="7" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -133,7 +138,6 @@
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" />
@@ -156,6 +160,7 @@
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" />
       </list>
     </option>
   </component>
@@ -240,23 +245,6 @@
               <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -277,6 +265,17 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -483,17 +482,24 @@
       <option name="project" value="LOCAL" />
       <updated>1572333877880</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="wuye">
+      <created>1572338003612</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1572338003612</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11637000" />
+    <option name="totallyTimeSpent" value="13510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29749393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24656427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -535,37 +541,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="wuye" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="33" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_dao/src/main/resources/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wuye_dao/src/main/resources/mybatis.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -707,13 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -884,10 +852,50 @@
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="33" selection-start-line="8" selection-start-column="8" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="44" selection-start-line="5" selection-start-column="25" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
         </state>
       </provider>
     </entry>
