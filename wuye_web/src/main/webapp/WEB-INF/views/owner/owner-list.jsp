@@ -13,7 +13,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>套房信息管理 </title>
+    <title>业主列表 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,9 @@
     <link href="./assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
     <link href="./assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="./assets/page.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/vendors/star/star-rating.css">
    
+    
     <!-- Custom styles for this template -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,50 +33,14 @@
     <![endif]-->
   </head>
   <body class="">
-    <!--[if lt IE 10]>
-    <div id="browser-warning" class="contextual bg-danger center navbar-fixed-top">
-      <div class="container">
-        <i class="glyphicon glyphicon-warning-sign"></i> 目前 物业管理系统不支持 IE 10 以下浏览器使用，请升级浏览器或更换浏览器。推荐使用 Chrome 浏览器。
-      </div>
-    </div>
-    <![endif]-->
-
-    <!--头部主标题导航-->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#/backend/">
-            物业管理系统
-            <span class="badge">1.0</span>
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <!--头部菜单-->
-          <ul class="nav navbar-nav">
-            <li><a href="control-data.jsp">欠费管理</a></li>
-            <li ><a href="room-list.jsp">套房管理</a></li>
-           <li><a href="cost-list.jsp">收费管理</a></li>
-             <li  class="active"><a href="owner-list.jsp">业主管理</a></li>
-          </ul>
-          <!-- #头部菜单-->
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">Saturn</li>
-                <li><a href="#">退出</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- #头部主标题导航--> 
-    <div class="list-container have-subhead">
-          
+  <jsp:include page="../head.jsp">
+    <jsp:param name="menu" value="owner" />
+  </jsp:include>
+        
+    <!-- <div class="list-container have-subhead ab"> -->
+      
         <!--头部副标题导航-->
-        <nav class="navbar navbar-fixed-top subhead">
+        <nav class="navbar navbar-fixed-top subhead ab">
           <div class="navbar-collapse collapse">
             <ul class="sub-list">
               <li class='bread'>
@@ -87,25 +53,215 @@
                 <a href="owner-add.jsp">业主入住</a>
               </li> 
             </ul>
+            <ul class="sub-btns">
+              <li>
+                <a href="#" class="btn btn-sm btn-default">
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                  导出 excel 表
+                </a>
+              </li>
+            </ul>
           </div>
         </nav>
-        <!-- #头部副标题导航-->    
-
+        <!-- #头部副标题导航-->  
         <!--页面主体-->
-        <div class="list-container have-subhead">
+          <div class="list-container have-subhead ab">
 
-          <!--页面左侧-->
-          <div class="sidebar">
-            <h1>返回</h1>
-            <!--查询表单-->
-            <p><a href="owner-list.jsp">&lt; 查看业主列表</a></p>
+            <!--页面左侧-->
+            <div class="sidebar">
+              <h1>按条件查询</h1>
+              <!--查询表单-->
+              <form method="get">
+               <div class="form-group">
+                    <label>请选择楼栋</label>
+                        <select class="form-control chosen" name="status">
+                          <option value="1">一栋</option>
+                          <option value="2">二栋</option>
+                          <option value="3">三栋</option>
+                        </select>
+                  </div>
+                <div class="form-group">
+                  
+                  <label>请输入 单元房号/业主姓名/电话号码</label>
+                  <input  type="text" class="form-control" name="word" value="" placeholder="">
+                </div>
 
+                <div class="form-group" >
+                    <label>请选择几星住户</label></br>
+                        <select style="width:47%;display: inline;" class="form-control chosen" name="status">
+                          <option value="1">1星</option>
+                          <option value="2">2星</option>
+                          <option value="3">3星</option>
+                          <option value="4">4星</option>
+                          <option value="5">5星</option>
+                        </select>至<select style="width:47%;display: inline;" class="form-control chosen" name="status">
+                          <option value="1">1星</option>
+                          <option value="2">2星</option>
+                          <option value="3">3星</option>
+                          <option value="4">4星</option>
+                          <option value="5">5星</option>
+                        </select>
+                  </div>
+                <!--div class="form-group">
+                  <label>注册时间</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control datepicker" name="date[from]" value="" placeholder="0000-00-00">
+                    <span class="input-group-addon">至</span>
+                    <input type="text" class="form-control datepicker" name="date[to]" value="" placeholder="0000-00-00">
+                  </div>
+                </div-->
+                <div class="form-group-btns">
+                  <button type="submit" class="btn btn-sm btn-primary">筛选</button>
+                  <a href="#" class="btn btn-sm btn-default">重置</a>
+                </div>
+              </form>
+
+            </div>
+
+            <!--页面右侧-->
+            <div class="main">
+
+              <!--列表头部-->
+              <div>
+                <h5>
+                  <!--列表的标题-->
+                  业主列表
+                  <!--迷你页码-->
+                  <span class="pagination-total pull-right">
+                    查询结果: 660 条记录，当前 1/66 页
+                    <!--上一页-->
+                    <a href="#" class="btn btn-xs btn-default">
+                      <span class="glyphicon glyphicon glyphicon-menu-left"></span>
+                    </a>
+                    <!--下一页-->
+                    <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
+                      <span class="glyphicon glyphicon glyphicon-menu-right"></span>
+                    </a>
+                  </span>
+                </h5>
+              </div>
+              <!-- #列表头部-->
+
+              <!--列表-->
+              <div>
+                <table class="table table-striped ">
+                  <thead>
+                    <tr>
+                      <th>楼栋号</th>
+                      <th>单元房号</th>
+                      <th>业主姓名</th>
+                      <th>性别</th>
+                      <th>证件号码</th>
+                      <th>联系电话</th>
+                      <th>星级</th>
+                      <th width="150">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>十栋</td>
+                      <td>洋房三单元601</td>
+                      <td>张三</td>
+                      <td>男</td>
+                      <td>456478131464</td>
+                      <td>13333333333</td>
+                      <td style="width: 200px;"><input  name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" ></td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                  <span class="glyphicon glyphicon-pencil"></span>
+                                  更改
+                            </button>
+                        <button class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                       </button> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>十一栋</td>
+                      <td>洋房三单元602</td>
+                      <td>李四</td>
+                      <td>男</td>
+                      <td>456478131464</td>
+                      <td>14444444444</td>
+                     <td style="width: 200px;"><input  name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" ></td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                  <span class="glyphicon glyphicon-pencil"></span>
+                                  更改
+                            </button>
+                        <button class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                       </button> 
+
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>十二栋</td>
+                      <td>洋房三单元603</td>
+                      <td>王五</td>
+                       <td>男</td>
+                      <td>456478131464</td>
+                      <td>15555555555</td>
+                     <td style="width: 200px; "><input  name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" ></td>
+                     
+                      <td>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                  <span class="glyphicon glyphicon-pencil"></span>
+                                  更改
+                            </button>
+                        <button class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                       </button> 
+                      </td>
+                    </tr>    
+                  </tbody>
+                </table>
+
+              </div>
+              <!-- #列表-->
+
+              <!--页码-->
+              <nav class="pull-right">
+                <ul class="pagination pagination-sm">
+                  <ul class="pagination">
+                    <li class="disabled"><span>&laquo;</span></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="#">65</a></li>
+                    <li><a href="#">66</a></li>
+                    <li><a href="#" rel="next">&raquo;</a></li>
+                  </ul>
+                </ul>
+              </nav>
+              <!-- #页码-->
+              
+            </div>
           </div>
+    </div>
+    <!-- /container -->
 
-          <!--页面右侧-->
-          <div class="main">
 
-            <div>
+    <!-- 添加备注弹出框 -->
+                              <div style="z-index: 9999"  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <div  class="modal-dialog" style="width: 800px;" role="document" >
+                                     <div  class="modal-content"  >
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <!-- <h4 class="modal-title" id="myModalLabel">修改记录列表</h4> -->
+                                              <div>
               <ul class="nav nav-tabs" role="tablist" id="ulbody">
                 <li role="presentation" class="active">
                   <a href="#base" aria-controls="base" role="tab" data-toggle="tab" >套房信息更改</a>
@@ -114,13 +270,13 @@
                   <a href="#person" aria-controls="person" role="tab" data-toggle="tab" >业主信息更改</a>
                 </li>
                 <li role="presentation">
-                  <a href="#file" aria-controls="file" role="tab" data-toggle="tab" >相关文件</a>
+                  <a href="#file" aria-controls="file" role="tab" data-toggle="tab" >相关文件更改</a>
                 </li>
                 <li role="presentation">
-                  <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab" id="time">业主信息修改记录</a>
+                  <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab" >业主信息修改记录</a>
                 </li>
                 <li role="presentation">
-                  <a href="#fee" aria-controls="fee" role="tab" data-toggle="tab" id="jiaofei">物业费缴费记录</a>
+                  <a href="#star" aria-controls="tstar" role="tab" data-toggle="tab" >业主星级管理</a>
                 </li>
               </ul>
               <!-- Tab panes -->
@@ -200,12 +356,7 @@
                                 </select>
                               </td>
                             </tr> 
-                            <tr>
-                              <td class="form-title">物业费用</td>
-                              <td>
-                                47.6元/月（选择了「户型」和「物业费标准」，系统会自动计算该楼层的物业费用） 
-                              </td>
-                            </tr>
+                           
                             
                           </tbody>
                         </table>
@@ -225,10 +376,11 @@
                   </form>
                 </div>
                 <!--业主信息-->
+                
                 <div role="tabpanel" class="tab-pane " id="person" >
                   <br />
-                  <div class="row">
-                    <div class="col-md-6">
+                  <div >
+                    <div >
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -258,7 +410,7 @@
                   </div>
                   <h5>添加业主</h5>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div >
                         <form>
                           <table class="form-table">
                             <tbody>
@@ -333,6 +485,7 @@
                     </tbody>
                   </table>
                   <!--页码-->
+                   
               <nav class="pull-right">
                 <ul class="pagination pagination-sm">
                   <ul class="pagination">
@@ -352,10 +505,12 @@
                   </ul>
                 </ul>
               </nav>
+           
               <!-- #页码-->
-                  <br />
-                  <h5>添加文件</h5>
+                  
+                   <h5 style="margin-top: 120px">添加文件</h5>
                   <div>
+
                     <form>
                       <table class="form-table">
                         <tbody>
@@ -378,7 +533,7 @@
                           <tr>
                             <td class="form-title"></td>
                             <td>
-                              <a href="#" class="btn btn-primary">保存</a>
+                             <button type="submit" class="btn btn-primary">保存</button>
                             </td>
                           </tr>
                         </tbody>
@@ -390,7 +545,7 @@
                 <!--修改记录-->
              <div role="tabpanel" class="tab-pane " id="timeline" >
                   <br />
-                  <table class="table table-striped">
+                  <table class="table table-striped" >
                     <thead>
                       <tr>
                         <th>管理员</th>
@@ -421,8 +576,10 @@
                       </tr>
                     </tbody>
                   </table>
-                   <!--页码-->
-              <nav class="pull-right">
+                 
+                     <!--页码-->
+                     <div class="yema">
+              <nav class="pull-right ">
                 <ul class="pagination pagination-sm">
                   <ul class="pagination">
                     <li class="disabled"><span>&laquo;</span></li>
@@ -441,8 +598,10 @@
                   </ul>
                 </ul>
               </nav>
+              </div>
               <!-- #页码-->
-                  <br />
+                 
+                  <br /> <br />
                   <h5>添加备注</h5>
                   <div>
                     <form>
@@ -459,7 +618,7 @@
                           <tr>
                             <td class="form-title"></td>
                             <td>
-                              <button  class="btn btn-primary">保存</button>
+                              <button type="submit" class="btn btn-primary">保存</button>
                             </td>
                           </tr>
                         </tbody>
@@ -467,48 +626,40 @@
                     </form>
                   </div>
                 </div>
+               
 
-                <!--物业费缴费记录-->
-                <div role="tabpanel" class="tab-pane" id="fee">
+
+
+
+                <!--业主星级管理-->
+             <div role="tabpanel" class="tab-pane " id="star" >
                   <br />
-                  <table class="table table-striped">
+                  <table class="table table-striped" >
                     <thead>
                       <tr>
-                        <th>缴费日期</th>
-                        <th>收款人</th>
-                        <th>付款方式</th>
-                        <th>物业费期限</th>
-                        <th>打印收据</th>
+                        <th>管理员</th>
+                        <th>备注</th>
+                        <th>发布时间</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>2016-09-14 14:59:30</td>
                         <td>管理员A</td>
-                        <td>现金</td>
-                        <td>2016-10-01 至 2017-09-30</td>
-                        <td>
-                          <a href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
+                        <td>把星级降为4星级，由于不及时缴纳物业费</td>
+                        <td>2016-09-09 12:34:27</td>
                       </tr>
                       <tr>
-                        <td>2017-09-28 12:23:34</td>
-                        <td>微信号：世纪花城公众号</td>
-                        <td>微信转账（流水号：001293847567894836）</td>
-                        <td>2017-10-01 至 2018-09-30</td>
-                        <td>
-                          <a href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
+                        <td>管理员B</td>
+                        <td>提升用户为5星级，由于信用优秀</td>
+                        <td>2016-09-09 09:08:07</td>
                       </tr>
+                      
                     </tbody>
                   </table>
-
-                  <!--页码-->
-              <nav class="pull-right">
+                 
+                     <!--页码-->
+                     <div class="yema">
+              <nav class="pull-right ">
                 <ul class="pagination pagination-sm">
                   <ul class="pagination">
                     <li class="disabled"><span>&laquo;</span></li>
@@ -527,67 +678,79 @@
                   </ul>
                 </ul>
               </nav>
+              </div>
               <!-- #页码-->
+                 
+                  <br /> <br />
+                  <h5>添加备注</h5>
+                  <div>
+                    <form>
+                      <table class="form-table">
+                        <tbody>
+                          <tr>
+                            <td class="form-title">
+                              星级
+                            </td>
+                            <td>
+                              <input id="comment" name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="form-title">
+                              备注
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" name="title" value="" placeholder="">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="form-title"></td>
+                            <td>
+                              <button type="submit" class="btn btn-primary">保存</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
                 </div>
+
+
+
               </div>
 
             </div>
           </div>
         </div>
-    </div> 
-    <!-- /container -->
+                              <!--弹框结束-->
 
-
-    <script src="./assets/vendors/jquery-1.11.1.min.js"></script>
-    <script src="./assets/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="./assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
-    <script src="./assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="./assets/vendors/chosen/chosen.jquery.min.js"></script>
-    <script src="./assets/vendors/lodash.min.js"></script>
-    <script src="./assets/vendors/jquery.confirm.min.js"></script>
-    <script src="./assets/yoozi.js"></script>
+  <script src="./assets/vendors/jquery-1.11.1.min.js"></script> 
+  <script src="./assets/vendors/bootstrap/bootstrap.min.js"></script> 
+    <!-- <script src="./assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
+    <script src="./assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script> -->
+    <script src="./assets/vendors/chosen/chosen.jquery.min.js"></script> 
+   <!--  <script src="./assets/vendors/lodash.min.js"></script> -->
+   <!-- <script src="./assets/vendors/jquery.confirm.min.js"></script>  -->
+   <!--  <script src="./assets/yoozi.js"></script>
     <script src="./assets/common.js"></script>
-    <script type="text/javascript">
-
+ -->
+    <script src="./assets/vendors/star/star-rating.js"></script>
+   <!--  <script src="./assets/vendors/jquery-3.2.1.min.js"></script> 
+ -->
+    <!-- <script type="text/javascript">
       $(document).ready(function(){
-        //下拉列表添加 chosen
-        yoozi.chosen('.chosen');
+
+        //日期选择
+        yoozi.datapicker('.datepicker');
 
       });
-    </script>
-  
-   <script type="text/javascript"> 
-    $(function() {
-        　　$.getUrlParam = function(name) {
-        　　　　var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        　　　　var r = window.location.search.substr(1).match(reg);
-        　　　　if(r != null) return unescape(r[2]);
-        　　　　return null;
-        　　}
-        　　var url_status = $.getUrlParam('process');
-        　　if(url_status == 1) {
-        　　　　$('#base').click();
-        　　} else if(url_status == 2) {
-        　　　　$('#time').click();
-        　　} else if(url_status == 3) {
-        　　　　$('#jiaofei').click();
-        　　}
-        });
-</script>
-<!-- <script> 
-      $(function () { 
-
-          $('#ulbody li:eq(3) a').tab('show'); //初始化显示第三个tab 
-          $('#ulbody a:last').tab('show');//初始化显示最后一个tab 
-        $('#ulbody a').click(function (e) { 
-          e.preventDefault();//阻止a链接的跳转行为 
-          $(this).tab('show');//显示当前选中的链接及关联的content 
-        }) 
-      }) 
     </script> -->
-
-    
-
-    
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $("#comment").rating();           
+            });
+        </script>
+                                  </div>
+                              </div>
   </body>
 </html>

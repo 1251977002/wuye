@@ -33,45 +33,9 @@
     
   </head>
   <body class="">
-    <!--[if lt IE 10]>
-    <div id="browser-warning" class="contextual bg-danger center navbar-fixed-top">
-      <div class="container">
-        <i class="glyphicon glyphicon-warning-sign"></i> 目前 物业管理系统不支持 IE 10 以下浏览器使用，请升级浏览器或更换浏览器。推荐使用 Chrome 浏览器。
-      </div>
-    </div>
-    <![endif]-->
-
-    <!--头部主标题导航-->
-    <nav  class="navbar navbar-inverse navbar-fixed-top ab">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#/backend/">
-            物业管理系统
-            <span class="badge">1.0</span>
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <!--头部菜单-->
-          <ul class="nav navbar-nav">
-            <li class="active" ><a href="control-data.jsp">欠费管理</a></li>
-            <li ><a href="room-list.jsp">套房管理</a></li>
-            <li><a href="cost-list.jsp">收费管理</a></li>
-              <li ><a href="owner-list.jsp">业主管理</a></li>
-          </ul>
-          <!-- #头部菜单-->
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">Saturn</li>
-                <li><a href="#">退出</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- #头部主标题导航-->    
+  <jsp:include page="../head.jsp">
+    <jsp:param name="menu" value="control" />
+  </jsp:include>
         
     <!-- <div class="list-container have-subhead" >  -->
       
