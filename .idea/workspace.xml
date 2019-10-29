@@ -2,23 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ca09db6-a8d0-48c1-bc47-256056a14978" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wuye_dao/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_dao/src/main/resources/mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_service/src/main/resources/applicationContext-service.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_service/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_shiro/src/main/java/com/dz/shiro/ShiroDbRealm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/succ.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-data.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-qitian.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-yuqi.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-fee-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/shouju.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_dao/src/main/resources/applicationContext-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_dao/src/main/resources/applicationContext-dao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_shiro/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_shiro/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_shiro/src/main/resources/applicationContext-shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_shiro/src/main/resources/applicationContext-shiro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/succ.jsp" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -74,15 +80,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wuye_web/src/main/resources/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
@@ -91,13 +88,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wuye_service/src/main/resources/log4j.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="464">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-add.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -139,15 +141,6 @@
                 <element signature="e#376#377#0" expanded="true" />
                 <element signature="e#423#424#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/succ.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -411,6 +404,16 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -423,7 +426,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/wuye_service/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -433,10 +436,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\javaproject\wuye\wuye_web\src\main\webapp\WEB-INF\views" />
+      <recent name="D:\javaproject\wuye\wuye_web\src\main\webapp\static" />
       <recent name="D:\javaproject\wuye\wuye_service\src\main\resources" />
       <recent name="D:\javaproject\wuye\wuye_web\src\main\webapp" />
       <recent name="D:\javaproject\wuye\wuye_shiro\src\main\java\com\dz\shiro" />
-      <recent name="D:\javaproject\wuye\wuye_dao\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -461,7 +465,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572322046130</updated>
-      <workItem from="1572322047752" duration="6159000" />
+      <workItem from="1572322047752" duration="6750000" />
     </task>
     <task id="LOCAL-00001" summary="wuye">
       <created>1572322983016</created>
@@ -477,15 +481,28 @@
       <option name="project" value="LOCAL" />
       <updated>1572323352398</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="wuye">
+      <created>1572331682627</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572331682627</updated>
+    </task>
+    <task id="LOCAL-00004" summary="wuye">
+      <created>1572331972733</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572331972733</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6159000" />
+    <option name="totallyTimeSpent" value="6750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -493,7 +510,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25214592" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25214592" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" />
       <window_info anchor="bottom" id="Terminal" />
@@ -504,12 +521,12 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11963882" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21218961" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" visible="true" weight="0.17060086" />
+      <window_info anchor="right" id="Maven" visible="true" weight="0.06276824" />
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Database" weight="0.3299356" />
@@ -721,10 +738,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wuye_service/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="464">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-add.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
