@@ -9,6 +9,6 @@ public class TestController {
 
 @RequestMapping("test")
     public String test(){
-        return "building/building-list";
+        return "bbs/bbs-show";
     }
 }
