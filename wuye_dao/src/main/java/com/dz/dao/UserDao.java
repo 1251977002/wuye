@@ -1,4 +1,8 @@
 package com.dz.dao;
 
-public class UserDao {
+
+import org.apache.ibatis.annotations.Select;
+
+public interface UserDao {
+
 }
