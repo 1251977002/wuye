@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +13,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>楼盘列表 </title>
+    <title>业主列表 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +21,8 @@
     <link href="./assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
     <link href="./assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="./assets/page.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="./assets/vendors/star/star-rating.css">
+   
     
     <!-- Custom styles for this template -->
 
@@ -38,7 +42,7 @@
     <![endif]-->
 
     <!--头部主标题导航-->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top ab">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#/backend/">
@@ -49,10 +53,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-           <li><a href="control-data.html">欠费管理</a></li>
-            <li class="active" ><a href="room-list.html">套房管理</a></li>
-            <li><a href="cost-list.html">收费管理</a></li>
-             <li ><a href="owner-list.html">业主管理</a></li>
+            <li><a href="control-data.jsp">欠费管理</a></li>
+            <li><a href="room-list.jsp">套房管理</a></li>
+            <li><a href="cost-list.jsp">收费管理</a></li>
+            <li class="active"><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -69,49 +73,21 @@
     </nav>
     <!-- #头部主标题导航-->    
         
-    <div class="list-container have-subhead">
+    <!-- <div class="list-container have-subhead ab"> -->
       
         <!--头部副标题导航-->
-        <nav class="navbar navbar-fixed-top subhead">
+        <nav class="navbar navbar-fixed-top subhead ab">
           <div class="navbar-collapse collapse">
             <ul class="sub-list">
               <li class='bread'>
-                套房管理:
+                业主管理:
               </li>
               <li class='active'>
-                <a href="room-list.html">套房列表</a>
+                <a href="owner-list.jsp">业主列表</a>
               </li>
               <li>
-                <a href="room-add.html">添加套房</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li >
-                <a href="house-list.html">楼栋列表</a>
-              </li>
-              <li >
-                <a href="house-add.html">添加楼栋</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="building-list.html">单元列表</a>
-              </li>
-              <li>
-                <a href="building-add.html">添加单元</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="type-list.html">户型列表</a>
-              </li>
-              <li>
-                <a href="type-add.html">添加户型</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="fee-list.html">物业费标准列表</a>
-              </li>
-              <li>
-                <a href="fee-add.html">物业费标准管理</a>
-              </li>
+                <a href="owner-add.jsp">业主入住</a>
+              </li> 
             </ul>
             <ul class="sub-btns">
               <li>
@@ -125,14 +101,14 @@
         </nav>
         <!-- #头部副标题导航-->  
         <!--页面主体-->
-          <div class="list-container have-subhead">
+          <div class="list-container have-subhead ab">
 
             <!--页面左侧-->
             <div class="sidebar">
               <h1>按条件查询</h1>
               <!--查询表单-->
               <form method="get">
-                <div class="form-group">
+               <div class="form-group">
                     <label>请选择楼栋</label>
                         <select class="form-control chosen" name="status">
                           <option value="1">一栋</option>
@@ -143,8 +119,25 @@
                 <div class="form-group">
                   
                   <label>请输入 单元房号/业主姓名/电话号码</label>
-                  <input type="text" class="form-control" name="word" value="" placeholder="">
+                  <input  type="text" class="form-control" name="word" value="" placeholder="">
                 </div>
+
+                <div class="form-group" >
+                    <label>请选择几星住户</label></br>
+                        <select style="width:47%;display: inline;" class="form-control chosen" name="status">
+                          <option value="1">1星</option>
+                          <option value="2">2星</option>
+                          <option value="3">3星</option>
+                          <option value="4">4星</option>
+                          <option value="5">5星</option>
+                        </select>至<select style="width:47%;display: inline;" class="form-control chosen" name="status">
+                          <option value="1">1星</option>
+                          <option value="2">2星</option>
+                          <option value="3">3星</option>
+                          <option value="4">4星</option>
+                          <option value="5">5星</option>
+                        </select>
+                  </div>
                 <!--div class="form-group">
                   <label>注册时间</label>
                   <div class="input-group">
@@ -168,7 +161,7 @@
               <div>
                 <h5>
                   <!--列表的标题-->
-                  套房列表
+                  业主列表
                   <!--迷你页码-->
                   <span class="pagination-total pull-right">
                     查询结果: 660 条记录，当前 1/66 页
@@ -187,17 +180,16 @@
 
               <!--列表-->
               <div>
-                <table class="table table-striped table-hover">
+                <table class="table table-striped ">
                   <thead>
                     <tr>
                       <th>楼栋号</th>
                       <th>单元房号</th>
-                      <th>户型</th>
-                      <th>物业费</th>
                       <th>业主姓名</th>
+                      <th>性别</th>
+                      <th>证件号码</th>
                       <th>联系电话</th>
-                      <th>物业费到期时间</th>
-                      <th>逾期时间</th>
+                      <th>星级</th>
                       <th width="150">操作</th>
                     </tr>
                   </thead>
@@ -205,80 +197,68 @@
                     <tr>
                       <td>十栋</td>
                       <td>洋房三单元601</td>
-                     <!--  <td>601</td> -->
-                      <td>三房两厅（119平米）</td>
-                      <td>47.6元/年</td>
                       <td>张三</td>
+                      <td>男</td>
+                      <td>456478131464</td>
                       <td>13333333333</td>
-                      <td>2018-02-17</td>
-                      <td>0天</td>
+                      <td style="width: 200px;"><input  name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" ></td>
+                      
                       <td>
-                       <!--  <a href="owner-edit.html" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          更改
-                        </a> -->
                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                                   <span class="glyphicon glyphicon-pencil"></span>
                                   更改
                             </button>
-                        <a href="#" class="btn btn-xs btn-danger">
+                        <button class="btn btn-xs btn-danger">
                           <span class="glyphicon glyphicon-remove"></span>
                           删除
-                        </a>
+                       </button> 
                       </td>
                     </tr>
                     <tr>
                       <td>十一栋</td>
                       <td>洋房三单元602</td>
-                     <!--  <td>602</td> -->
-                      <td>两房两厅（89平米）</td>
-                      <td>35.6元/年</td>
                       <td>李四</td>
+                      <td>男</td>
+                      <td>456478131464</td>
                       <td>14444444444</td>
-                      <td>2018-09-17 <span class="label label-default">已延期</span></td>
-                      <td>5天</td>
+                     <td style="width: 200px;"><input  name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" ></td>
+                      
                       <td>
-                       <!--  <a href="owner-edit.html" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          更改
-                        </a> -->
-                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                                   <span class="glyphicon glyphicon-pencil"></span>
                                   更改
                             </button>
-                        <a href="#" class="btn btn-xs btn-danger">
+                        <button class="btn btn-xs btn-danger">
                           <span class="glyphicon glyphicon-remove"></span>
                           删除
-                        </a>
+                       </button> 
+
+                        
                       </td>
                     </tr>
                     <tr>
                       <td>十二栋</td>
                       <td>洋房三单元603</td>
-                      <!-- <td>603</td> -->
-                      <td>四房两厅（139平米）</td>
-                      <td>55.6元/年</td>
                       <td>王五</td>
+                       <td>男</td>
+                      <td>456478131464</td>
                       <td>15555555555</td>
-                      <td>2017-09-17 <span class="label label-warning">七天内到期</span></td>
-                      <td>0天</td>
+                     <td style="width: 200px; "><input  name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" ></td>
+                     
                       <td>
-                       <!--  <a href="owner-edit.html" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          更改
-                        </a> -->
-                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                                   <span class="glyphicon glyphicon-pencil"></span>
                                   更改
                             </button>
-                        <a href="#" class="btn btn-xs btn-danger">
+                        <button class="btn btn-xs btn-danger">
                           <span class="glyphicon glyphicon-remove"></span>
                           删除
-                        </a>
+                       </button> 
                       </td>
                     </tr>    
                   </tbody>
                 </table>
+
               </div>
               <!-- #列表-->
 
@@ -308,15 +288,17 @@
           </div>
     </div>
     <!-- /container -->
-     <!-- 添加备注弹出框 -->
+
+
+    <!-- 添加备注弹出框 -->
                               <div style="z-index: 9999"  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                  <div  class="modal-dialog"  role="document" >
+                                  <div  class="modal-dialog" style="width: 800px;" role="document" >
                                      <div  class="modal-content"  >
                                          <div class="modal-header">
                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <!-- <h4 class="modal-title" id="myModalLabel">修改记录列表</h4> -->
                                               <div>
-               <ul class="nav nav-tabs" role="tablist" id="ulbody">
+              <ul class="nav nav-tabs" role="tablist" id="ulbody">
                 <li role="presentation" class="active">
                   <a href="#base" aria-controls="base" role="tab" data-toggle="tab" >套房信息更改</a>
                 </li>
@@ -324,12 +306,14 @@
                   <a href="#person" aria-controls="person" role="tab" data-toggle="tab" >业主信息更改</a>
                 </li>
                 <li role="presentation">
-                  <a href="#file" aria-controls="file" role="tab" data-toggle="tab" >相关文件</a>
+                  <a href="#file" aria-controls="file" role="tab" data-toggle="tab" >相关文件更改</a>
                 </li>
                 <li role="presentation">
-                  <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab" id="time">业主信息修改记录</a>
+                  <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab" >业主信息修改记录</a>
                 </li>
-                
+                <li role="presentation">
+                  <a href="#star" aria-controls="tstar" role="tab" data-toggle="tab" >业主星级管理</a>
+                </li>
               </ul>
               <!-- Tab panes -->
               <div class="tab-content">
@@ -408,12 +392,7 @@
                                 </select>
                               </td>
                             </tr> 
-                            <tr>
-                              <td class="form-title">物业费用</td>
-                              <td>
-                                47.6元/月（选择了「户型」和「物业费标准」，系统会自动计算该楼层的物业费用） 
-                              </td>
-                            </tr>
+                           
                             
                           </tbody>
                         </table>
@@ -424,7 +403,7 @@
                           <tbody>
                             <tr>
                               <td class="form-title"></td>
-                              <a href="owner-list.html"  class="btn btn-primary btn-lg btn-block">  保存</a>
+                              <a href="owner-list.jsp"  class="btn btn-primary btn-lg btn-block">  保存</a>
                               </td>
                             </tr>
                           </tbody>
@@ -433,10 +412,11 @@
                   </form>
                 </div>
                 <!--业主信息-->
+                
                 <div role="tabpanel" class="tab-pane " id="person" >
                   <br />
-                  <div class="row">
-                    <div class="col-md-6">
+                  <div >
+                    <div >
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -466,7 +446,7 @@
                   </div>
                   <h5>添加业主</h5>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div >
                         <form>
                           <table class="form-table">
                             <tbody>
@@ -541,6 +521,7 @@
                     </tbody>
                   </table>
                   <!--页码-->
+                   
               <nav class="pull-right">
                 <ul class="pagination pagination-sm">
                   <ul class="pagination">
@@ -560,10 +541,12 @@
                   </ul>
                 </ul>
               </nav>
+           
               <!-- #页码-->
-                  <br />
-                  <h5>添加文件</h5>
+                  
+                   <h5 style="margin-top: 120px">添加文件</h5>
                   <div>
+
                     <form>
                       <table class="form-table">
                         <tbody>
@@ -586,7 +569,7 @@
                           <tr>
                             <td class="form-title"></td>
                             <td>
-                              <a href="#" class="btn btn-primary">保存</a>
+                             <button type="submit" class="btn btn-primary">保存</button>
                             </td>
                           </tr>
                         </tbody>
@@ -598,7 +581,7 @@
                 <!--修改记录-->
              <div role="tabpanel" class="tab-pane " id="timeline" >
                   <br />
-                  <table class="table table-striped">
+                  <table class="table table-striped" >
                     <thead>
                       <tr>
                         <th>管理员</th>
@@ -629,8 +612,10 @@
                       </tr>
                     </tbody>
                   </table>
-                   <!--页码-->
-              <nav class="pull-right">
+                 
+                     <!--页码-->
+                     <div class="yema">
+              <nav class="pull-right ">
                 <ul class="pagination pagination-sm">
                   <ul class="pagination">
                     <li class="disabled"><span>&laquo;</span></li>
@@ -649,8 +634,10 @@
                   </ul>
                 </ul>
               </nav>
+              </div>
               <!-- #页码-->
-                  <br />
+                 
+                  <br /> <br />
                   <h5>添加备注</h5>
                   <div>
                     <form>
@@ -667,7 +654,95 @@
                           <tr>
                             <td class="form-title"></td>
                             <td>
-                              <button  class="btn btn-primary">保存</button>
+                              <button type="submit" class="btn btn-primary">保存</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+               
+
+
+
+
+                <!--业主星级管理-->
+             <div role="tabpanel" class="tab-pane " id="star" >
+                  <br />
+                  <table class="table table-striped" >
+                    <thead>
+                      <tr>
+                        <th>管理员</th>
+                        <th>备注</th>
+                        <th>发布时间</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>管理员A</td>
+                        <td>把星级降为4星级，由于不及时缴纳物业费</td>
+                        <td>2016-09-09 12:34:27</td>
+                      </tr>
+                      <tr>
+                        <td>管理员B</td>
+                        <td>提升用户为5星级，由于信用优秀</td>
+                        <td>2016-09-09 09:08:07</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                 
+                     <!--页码-->
+                     <div class="yema">
+              <nav class="pull-right ">
+                <ul class="pagination pagination-sm">
+                  <ul class="pagination">
+                    <li class="disabled"><span>&laquo;</span></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="#">65</a></li>
+                    <li><a href="#">66</a></li>
+                    <li><a href="#" rel="next">&raquo;</a></li>
+                  </ul>
+                </ul>
+              </nav>
+              </div>
+              <!-- #页码-->
+                 
+                  <br /> <br />
+                  <h5>添加备注</h5>
+                  <div>
+                    <form>
+                      <table class="form-table">
+                        <tbody>
+                          <tr>
+                            <td class="form-title">
+                              星级
+                            </td>
+                            <td>
+                              <input id="comment" name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="2" >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="form-title">
+                              备注
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" name="title" value="" placeholder="">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="form-title"></td>
+                            <td>
+                              <button type="submit" class="btn btn-primary">保存</button>
                             </td>
                           </tr>
                         </tbody>
@@ -676,29 +751,42 @@
                   </div>
                 </div>
 
-               
-                 
-                  
-                </div>
 
 
-    <script src="./assets/vendors/jquery-1.11.1.min.js"></script>
-    <script src="./assets/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="./assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
-    <script src="./assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="./assets/vendors/chosen/chosen.jquery.min.js"></script>
-    <script src="./assets/vendors/lodash.min.js"></script>
-    <script src="./assets/vendors/jquery.confirm.min.js"></script>
-    <script src="./assets/yoozi.js"></script>
+              </div>
+
+            </div>
+          </div>
+        </div>
+                              <!--弹框结束-->
+
+  <script src="./assets/vendors/jquery-1.11.1.min.js"></script> 
+  <script src="./assets/vendors/bootstrap/bootstrap.min.js"></script> 
+    <!-- <script src="./assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
+    <script src="./assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script> -->
+    <script src="./assets/vendors/chosen/chosen.jquery.min.js"></script> 
+   <!--  <script src="./assets/vendors/lodash.min.js"></script> -->
+   <!-- <script src="./assets/vendors/jquery.confirm.min.js"></script>  -->
+   <!--  <script src="./assets/yoozi.js"></script>
     <script src="./assets/common.js"></script>
-
-    <script type="text/javascript">
+ -->
+    <script src="./assets/vendors/star/star-rating.js"></script>
+   <!--  <script src="./assets/vendors/jquery-3.2.1.min.js"></script> 
+ -->
+    <!-- <script type="text/javascript">
       $(document).ready(function(){
 
         //日期选择
         yoozi.datapicker('.datepicker');
 
       });
-    </script>
+    </script> -->
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $("#comment").rating();           
+            });
+        </script>
+                                  </div>
+                              </div>
   </body>
 </html>

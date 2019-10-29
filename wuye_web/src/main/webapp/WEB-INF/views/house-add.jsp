@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +13,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>楼栋列表 </title>
+    <title>添加楼栋 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -49,10 +52,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-            <li><a href="control-data.html">欠费管理</a></li>
-            <li class="active" ><a href="room-list.html">套房管理</a></li>
-              <li><a href="cost-list.html">收费管理</a></li>
-               <li ><a href="owner-list.html">业主管理</a></li>
+            <li><a href="control-data.jsp">欠费管理</a></li>
+            <li class="active" ><a href="room-list.jsp">套房管理</a></li>
+            <li><a href="cost-list.jsp">收费管理</a></li>
+             <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -67,10 +70,10 @@
         </div>
       </div>
     </nav>
-    <!-- #头部主标题导航-->    
-        
+
+    <!-- #头部主标题导航--> 
     <div class="list-container have-subhead">
-      
+          
         <!--头部副标题导航-->
         <nav class="navbar navbar-fixed-top subhead">
           <div class="navbar-collapse collapse">
@@ -79,152 +82,115 @@
                 套房管理:
               </li>
               <li>
-                <a href="room-list.html">套房列表</a>
+                <a href="room-list.jsp">套房列表</a>
               </li>
               <li>
-                <a href="room-add.html">添加套房</a>
+                <a href="room-add.jsp">添加套房</a>
               </li>
               <li role="separator" class="divider"></li>
+              <li>
+                <a href="house-list.jsp">楼栋列表</a>
+              </li>
               <li class='active'>
-                <a href="house-list.html">楼栋列表</a>
+                <a href="house-add.jsp">添加楼栋</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="building-list.jsp">单元列表</a>
               </li>
               <li >
-                <a href="house-add.html">添加楼栋</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li >
-                <a href="building-list.html">单元列表</a>
-              </li>
-              <li>
-                <a href="building-add.html">添加单元</a>
+                <a href="building-add.jsp">添加单元</a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="type-list.html">户型列表</a>
+                <a href="type-list.jsp">户型列表</a>
               </li>
               <li>
-                <a href="type-add.html">添加户型</a>
+                <a href="type-add.jsp">添加户型</a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="fee-list.html">物业费标准列表</a>
+                <a href="fee-list.jsp">物业费标准列表</a>
               </li>
               <li>
-                <a href="fee-add.html">物业费标准管理</a>
+                <a href="fee-add.jsp">物业费标准管理</a>
               </li>
             </ul>
           </div>
         </nav>
-        <!-- #头部副标题导航-->  
+        <!-- #头部副标题导航-->    
+
         <!--页面主体-->
-          <div class="list-container have-subhead">
+        <div class="list-container have-subhead">
 
-            <!--页面左侧-->
-            <div class="sidebar">
-              <h1>返回</h1>
-              <!--查询表单-->
-              <p><a href="room-list.html">&lt; 查看套房列表</a></p>
+          <!--页面左侧-->
+          <div class="sidebar">
+            <h1>返回</h1>
+            <!--查询表单-->
+            <p><a href="room-list.jsp">&lt; 查看套房列表</a></p>
 
-            </div>
+          </div>
 
-            <!--页面右侧-->
-            <div class="main">
+          <!--页面右侧-->
+          <div class="main">
 
-              <!--列表头部-->
+            <form class="form-horizontal" enctype="multipart/form-data"  action="#/backend/admin/product" method="post">
+              <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
+              <input type="hidden" name="id" value="0"/>
+
               <div>
-                <h5>单元管理</h5>
+                <h5>
+                  楼栋信息
+                  <span class="pagination-total pull-right">
+                    带 <span class="text-danger">*</span> 为必填项
+                  </span>
+                </h5>
               </div>
-              <!-- #列表头部-->
 
-              <!--列表-->
+              
               <div>
-                <table class="table table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>楼栋名称</th>
-                      <th>备注</th>
-                      <th width="150">操作</th>
-                    </tr>
-                  </thead>
+                <table class="form-table">
                   <tbody>
                     <tr>
-                      <td>一栋</td>
-                      <td></td>
+                      <td class="form-title">
+                        <span class="text-danger">*</span>楼栋名称
+                      </td>
                       <td>
-                        <a href="#" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          编辑
-                        </a>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
+                        <input type="text" class="form-control" name="title" value="" placeholder="">
                       </td>
                     </tr>
+
                     <tr>
-                      <td>二栋</td>
-                      <td></td>
+                      <td class="form-title">
+                        备注
+                      </td>
                       <td>
-                        <a href="#" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          编辑
-                        </a>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
+                        <textarea class="form-control" name="title"></textarea>
                       </td>
                     </tr>
-                    <tr>
-                      <td>三栋</td>
-                      <td></td>
-                      <td>
-                        <a href="#" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          编辑
-                        </a>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>四栋</td>
-                      <td></td>
-                      <td>
-                        <a href="#" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          编辑
-                        </a>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>五栋</td>
-                      <td></td>
-                      <td>
-                        <a href="#" class="btn btn-xs btn-primary">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          编辑
-                        </a>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
-                      </td>
-                    </tr>   
+
                   </tbody>
                 </table>
               </div>
-              <!-- #列表-->
-              
-            </div>
+
+              <!--保存按钮-->
+              <div>
+                <table class="table form-table">
+                  <tbody>
+                    <tr>
+                      <td class="form-title"></td>
+                      <td>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">保存</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </form>
           </div>
-    </div>
+        </div>
+    </div> 
     <!-- /container -->
 
     <script src="./assets/vendors/jquery-1.11.1.min.js"></script>
@@ -236,12 +202,11 @@
     <script src="./assets/vendors/jquery.confirm.min.js"></script>
     <script src="./assets/yoozi.js"></script>
     <script src="./assets/common.js"></script>
-
     <script type="text/javascript">
-      $(document).ready(function(){
 
-        //日期选择
-        yoozi.datapicker('.datepicker');
+      $(document).ready(function(){
+        //下拉列表添加 chosen
+        yoozi.chosen('.chosen');
 
       });
     </script>

@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,10 +52,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-           <li><a href="control-data.html">欠费管理</a></li>
-            <li ><a href="room-list.html">套房管理</a></li>
-            <li class="active" ><a href="cost-list.html">收费管理</a></li>
-             <li ><a href="owner-list.html">业主管理</a></li>
+           <li><a href="control-data.jsp">欠费管理</a></li>
+            <li ><a href="room-list.jsp">套房管理</a></li>
+            <li class="active" ><a href="cost-list.jsp">收费管理</a></li>
+             <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -80,10 +83,10 @@
               </li>
               
               <li >
-                <a href="cost-list.html">物业费账单</a>  
+                <a href="cost-list.jsp">物业费账单</a>
               </li>
               <li class='active'>
-                <a href="cost-add.html">收取物业费</a>  
+                <a href="cost-add.jsp">收取物业费</a>
               </li>
             </ul>
             <ul class="sub-btns">
@@ -264,13 +267,12 @@
                                                         <div class="modal-content">
                                                           <h3>缴费成功</h3>
                                                           <div class="fee">
-                                                          <a target="_blank"  href='shouju.html'> <button type="submit"  class="btn btn-primary btn-sm " >打印收据</button> </a>
+                                                          <a target="_blank"  href='shouju.jsp'> <button type="submit" class="btn btn-primary btn-sm " >打印收据</button> </a>
                                                           <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回</button>
                                                           </div>
                                                         </div>
                                                       </div>
                                                     </div>
-                              <!--  <a href='cost-fee-list.html'> <button type="submit"  class="btn btn-primary btn-lg ">收款</button> </a> -->
                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
                                <div id="fade" ></div>
 

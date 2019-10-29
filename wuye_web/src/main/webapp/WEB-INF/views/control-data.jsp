@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,10 +53,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-            <li class="active" ><a href="control-data.html">欠费管理</a></li>
-            <li ><a href="room-list.html">套房管理</a></li>
-             <li><a href="cost-list.html">收费管理</a></li>
-               <li ><a href="owner-list.html">业主管理</a></li>
+            <li class="active" ><a href="control-data.jsp">欠费管理</a></li>
+            <li ><a href="room-list.jsp">套房管理</a></li>
+             <li><a href="cost-list.jsp">收费管理</a></li>
+               <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -80,14 +83,14 @@
                 物业费逾期管理:
               </li>
               <li class='active'>
-                <a href="control-data.html">欠费概况</a>
+                <a href="control-data.jsp">欠费概况</a>
               </li>
                <li >
-                <a href="control-yuqi.html">已逾期用户列表</a>
+                <a href="control-yuqi.jsp">已逾期用户列表</a>
                 
               </li>
                <li >
-                <a href="control-qitian.html">七天内到期的用户列表</a>
+                <a href="control-qitian.jsp">七天内到期的用户列表</a>
               </li>
             </ul>
             
@@ -101,7 +104,7 @@
             <div class="sidebar">
             <h1>查看</h1>
             <!--查询表单-->
-            <p><a href="control-yuqi.html
+            <p><a href="control-yuqi.jsp
               ">&lt; 查看已逾期用户</a></p>
 
           </div>
@@ -130,7 +133,7 @@
                        
             <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-          <div class="info-box blue-bg" ">
+          <div class="info-box blue-bg">
                         <h4>已逾期用户数</h4>
             <div class="count">6</div>          
           </div><!--/.info-box-->     

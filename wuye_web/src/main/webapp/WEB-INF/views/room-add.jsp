@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +13,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>添加业主 </title>
+    <title>添加楼盘 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +23,6 @@
 
     <link rel="stylesheet" type="text/css" href="assets/vendors/webuploader/webuploader.css" />
     <link rel="stylesheet" type="text/css" href="assets/page.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/vendors/star/star-rating.css">
     
 
     
@@ -53,10 +55,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-          <li><a href="control-data.html">欠费管理</a></li>
-            <li  ><a href="room-list.html">套房管理</a></li>
-            <li><a href="cost-list.html">收费管理</a></li>
-             <li class="active"><a href="owner-list.html">业主管理</a></li>
+           <li><a href="control-data.jsp">欠费管理</a></li>
+            <li class="active" ><a href="room-list.jsp">套房管理</a></li>
+           <li><a href="cost-list.jsp">收费管理</a></li>
+             <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -80,14 +82,42 @@
           <div class="navbar-collapse collapse">
             <ul class="sub-list">
               <li class='bread'>
-                业主管理:
+                套房管理:
               </li>
-              <li >
-                <a href="owner-list.html">业主列表</a>
+              <li>
+                <a href="room-list.jsp">套房列表</a>
               </li>
               <li class='active'>
-                <a href="owner-add.html">业主入住</a>
-              </li> 
+                <a href="room-add.jsp">添加套房</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li >
+                <a href="house-list.jsp">楼栋列表</a>
+              </li>
+              <li >
+                <a href="house-add.jsp">添加楼栋</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="building-list.jsp">单元列表</a>
+              </li>
+              <li>
+                <a href="building-add.jsp">添加单元</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="type-list.jsp">户型列表</a>
+              </li>
+              <li>
+                <a href="type-add.jsp">添加户型</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="fee-list.jsp">物业费标准列表</a>
+              </li>
+              <li>
+                <a href="fee-add.jsp">物业费标准管理</a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -100,8 +130,8 @@
           <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="owner-list.html
-              ">&lt; 查看业主列表</a></p>
+            <p><a href="room-list.jsp
+              ">&lt; 查看套房列表</a></p>
 
           </div>
 
@@ -114,7 +144,7 @@
 
               <div>
                 <h5>
-                  业主信息
+                  套房信息
                   <span class="pagination-total pull-right">
                     带 <span class="text-danger">*</span> 为必填项
                   </span>
@@ -185,7 +215,7 @@
 
 
                       <tr>
-                      <td class="form-title"><span class="text-danger">*</span>
+                      <td class="form-title">
                         户主姓名
                       </td>
                       <td>
@@ -195,23 +225,13 @@
 
 
                      <tr>
-                      <td class="form-title"><span class="text-danger">*</span>
+                      <td class="form-title">
                         联系方式
                       </td>
                       <td>
                         <input type="text" class="form-control" name="title" value="" placeholder="">
                       </td>
                     </tr>
-                    <tr>
-                              <td class="form-title">
-                                <span class="text-danger">*</span>星级
-                              </td>
-                              <td>
-                                <input id="comment" name="comment" class="rating"  min="0" max="5" step="1" data-size="xss" value="5" >
-                                  
-                                </select>
-                              </td>
-                            </tr> 
                     <tr style="height: 100px;">
                         <td class="form-title">
                            上传文件
@@ -227,7 +247,7 @@
                                           </div>
                                       </div>
                                       <div class="statusBar" style="display:none;">
-                                          <div class="progress" ">
+                                          <div class="progress">
                                               <span class="text" >0%</span>
                                               <span class="percentage" ></span>
                                           </div><div class="info" ></div>
@@ -242,13 +262,18 @@
                            <!--  <input type="file" id="exampleInputFile"> -->
                         </td>
                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+                    </tr>
                    
                 <table class="table form-table">
                   <tbody>
                     <tr>
                       <td class="form-title"></td>
                       <td>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">保存</button>
+                       <a href="owner-list.jsp" class="btn btn-primary btn-lg btn-block"> 保存</a>
                       </td>
                     </tr>
                   </tbody>
@@ -287,12 +312,7 @@
       });
     </script>
 
- <script src="./assets/vendors/star/star-rating.js"></script>
-    <script type="text/javascript">
-            $(document).ready(function(){
-                $("#comment").rating();           
-            });
-        </script>
+
 
     
     

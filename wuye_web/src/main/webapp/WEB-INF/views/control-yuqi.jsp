@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,10 +53,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-            <li class="active" ><a href="control-data.html">欠费管理</a></li>
-            <li ><a href="room-list.html">套房管理</a></li>
-            <li><a href="cost-list.html">收费管理</a></li>
-              <li ><a href="owner-list.html">业主管理</a></li>
+            <li class="active" ><a href="control-data.jsp">欠费管理</a></li>
+            <li ><a href="room-list.jsp">套房管理</a></li>
+            <li><a href="cost-list.jsp">收费管理</a></li>
+              <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -80,15 +83,15 @@
                 物业费逾期管理:
               </li>
               <li >
-                <a href="control-data.html">欠费概况</a>
+                <a href="control-data.jsp">欠费概况</a>
                 
               </li>
               <li class='active'>
-                <a href="control-yuqi.html">已逾期用户列表</a>
+                <a href="control-yuqi.jsp">已逾期用户列表</a>
                 
               </li>
                <li>
-                <a href="control-qitian.html">七天内到期的用户列表</a>
+                <a href="control-qitian.jsp">七天内到期的用户列表</a>
               </li>
             </ul>
             <ul class="sub-btns">
@@ -202,15 +205,15 @@
                         </button>
 
                         <!-- 添加备注弹出框 -->
-                        <div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document" >
                             <div class="modal-content"  >
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">修改记录列表</h4>
+                                <h4 class="modal-title" >修改记录列表</h4>
                               </div>
                               <div class="modal-body">
-                                 <div role="tabpanel" class="tab-pane " id="timeline" >
+                                 <div role="tabpanel" class="tab-pane " >
                                           <br />
                                           <table class="table table-striped">
                                             <thead>

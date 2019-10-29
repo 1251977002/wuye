@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +13,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>物业费标准列表 </title>
+    <title>单元列表 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -49,10 +52,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-           <li><a href="control-data.html">欠费管理</a></li>
-            <li class="active" ><a href="room-list.html">套房管理</a></li>
-              <li><a href="cost-list.html">收费管理</a></li>
-               <li ><a href="owner-list.html">业主管理</a></li>
+            <li><a href="control-data.jsp">欠费管理</a></li>
+            <li class="active" ><a href="room-list.jsp">套房管理</a></li>
+              <li><a href="cost-list.jsp">收费管理</a></li>
+               <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -79,38 +82,38 @@
                 套房管理:
               </li>
               <li>
-                <a href="room-list.html">套房列表</a>
+                <a href="room-list.jsp">套房列表</a>
               </li>
               <li>
-                <a href="room-add.html">添加套房</a>
+                <a href="room-add.jsp">添加套房</a>
               </li>
               <li role="separator" class="divider"></li>
-               <li >
-                <a href="house-list.html">楼栋列表</a>
+              <li >
+                <a href="house-list.jsp">楼栋列表</a>
               </li>
               <li >
-                <a href="house-add.html">添加楼栋</a>
-              </li>
-               <li role="separator" class="divider"></li>
-              <li>
-                <a href="building-list.html">单元列表</a>
-              </li>
-              <li>
-                <a href="building-add.html">添加单元</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="type-list.html">户型列表</a>
-              </li>
-              <li>
-                <a href="type-add.html">添加户型</a>
+                <a href="house-add.jsp">添加楼栋</a>
               </li>
               <li role="separator" class="divider"></li>
               <li class='active'>
-                <a href="fee-list.html">物业费标准列表</a>
+                <a href="building-list.jsp">单元列表</a>
               </li>
               <li>
-                <a href="fee-add.html">物业费标准管理</a>
+                <a href="building-add.jsp">添加单元</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="type-list.jsp">户型列表</a>
+              </li>
+              <li>
+                <a href="type-add.jsp">添加户型</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="fee-list.jsp">物业费标准列表</a>
+              </li>
+              <li>
+                <a href="fee-add.jsp">物业费标准管理</a>
               </li>
             </ul>
           </div>
@@ -123,7 +126,7 @@
             <div class="sidebar">
               <h1>返回</h1>
               <!--查询表单-->
-              <p><a href="room-list.html">&lt; 查看套房列表</a></p>
+              <p><a href="room-list.jsp">&lt; 查看套房列表</a></p>
 
             </div>
 
@@ -132,7 +135,7 @@
 
               <!--列表头部-->
               <div>
-                <h5>物业费标准管理</h5>
+                <h5>单元管理</h5>
               </div>
               <!-- #列表头部-->
 
@@ -141,16 +144,14 @@
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr>
-                      <th>名称</th>
-                      <th>收费标准</th>
+                      <th>单元名称</th>
                       <th>备注</th>
                       <th width="150">操作</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>洋房A</td>
-                      <td>0.4元/平米/年</td>
+                      <td>洋房一单元</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -164,8 +165,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>洋房B</td>
-                      <td>0.5元/平米/年</td>
+                      <td>洋房二单元</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -179,8 +179,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>联排别墅</td>
-                      <td>0.6元/平米/年</td>
+                      <td>洋房三单元</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -194,8 +193,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>独栋别墅</td>
-                      <td>0.7元/平米/年</td>
+                      <td>别墅区一街</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -208,7 +206,20 @@
                         </a>
                       </td>
                     </tr>
-
+                    <tr>
+                      <td>别墅区二街</td>
+                      <td></td>
+                      <td>
+                        <a href="#" class="btn btn-xs btn-primary">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                          编辑
+                        </a>
+                        <a href="#" class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                        </a>
+                      </td>
+                    </tr>   
                   </tbody>
                 </table>
               </div>

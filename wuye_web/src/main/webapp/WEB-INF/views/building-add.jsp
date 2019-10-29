@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +13,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>添加楼栋 </title>
+    <title>添加单元 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -49,10 +52,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-            <li><a href="control-data.html">欠费管理</a></li>
-            <li class="active" ><a href="room-list.html">套房管理</a></li>
-            <li><a href="cost-list.html">收费管理</a></li>
-             <li ><a href="owner-list.html">业主管理</a></li>
+            <li><a href="control-data.jsp">欠费管理</a></li>
+            <li class="active" ><a href="room-list.jsp">套房管理</a></li>
+            <li><a href="cost-list.jsp">收费管理</a></li>
+             <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -79,38 +82,38 @@
                 套房管理:
               </li>
               <li>
-                <a href="room-list.html">套房列表</a>
+                <a href="room-list.jsp">套房列表</a>
               </li>
               <li>
-                <a href="room-add.html">添加套房</a>
+                <a href="room-add.jsp">添加套房</a>
               </li>
               <li role="separator" class="divider"></li>
-              <li>
-                <a href="house-list.html">楼栋列表</a>
-              </li>
-              <li class='active'>
-                <a href="house-add.html">添加楼栋</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="building-list.html">单元列表</a>
+              <li >
+                <a href="house-list.jsp">楼栋列表</a>
               </li>
               <li >
-                <a href="building-add.html">添加单元</a>
+                <a href="house-add.jsp">添加楼栋</a>
+              </li>
+               <li role="separator" class="divider"></li>
+              <li>
+                <a href="building-list.jsp">单元列表</a>
+              </li>
+              <li class='active'>
+                <a href="building-add.jsp">添加单元</a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="type-list.html">户型列表</a>
+                <a href="type-list.jsp">户型列表</a>
               </li>
               <li>
-                <a href="type-add.html">添加户型</a>
+                <a href="type-add.jsp">添加户型</a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="fee-list.html">物业费标准列表</a>
+                <a href="fee-list.jsp">物业费标准列表</a>
               </li>
               <li>
-                <a href="fee-add.html">物业费标准管理</a>
+                <a href="fee-add.jsp">物业费标准管理</a>
               </li>
             </ul>
           </div>
@@ -124,7 +127,7 @@
           <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="room-list.html">&lt; 查看套房列表</a></p>
+            <p><a href="room-list.jsp">&lt; 查看套房列表</a></p>
 
           </div>
 
@@ -137,7 +140,7 @@
 
               <div>
                 <h5>
-                  楼栋信息
+                  单元信息
                   <span class="pagination-total pull-right">
                     带 <span class="text-danger">*</span> 为必填项
                   </span>
@@ -150,7 +153,7 @@
                   <tbody>
                     <tr>
                       <td class="form-title">
-                        <span class="text-danger">*</span>楼栋名称
+                        <span class="text-danger">*</span>单元名称
                       </td>
                       <td>
                         <input type="text" class="form-control" name="title" value="" placeholder="">

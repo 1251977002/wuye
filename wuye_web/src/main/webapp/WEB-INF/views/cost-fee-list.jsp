@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,10 +53,10 @@
         <div class="navbar-collapse collapse">
           <!--头部菜单-->
           <ul class="nav navbar-nav">
-            <li ><a href="control-data.html">欠费管理</a></li>
-            <li ><a href="room-list.html">套房管理</a></li>
-             <li class="active" ><a href="cost-list.html">收费管理</a></li>
-               <li ><a href="owner-list.html">业主管理</a></li>
+            <li ><a href="control-data.jsp">欠费管理</a></li>
+            <li ><a href="room-list.jsp">套房管理</a></li>
+             <li class="active" ><a href="cost-list.jsp">收费管理</a></li>
+               <li ><a href="owner-list.jsp">业主管理</a></li>
           </ul>
           <!-- #头部菜单-->
           <ul class="nav navbar-nav navbar-right">
@@ -80,10 +83,10 @@
                 收费管理:
               </li>
               <li class='active'>
-                <a href="cost-list.html">物业费账单</a>
+                <a href="cost-list.jsp">物业费账单</a>
               </li>
               <li >
-                <a href="cost-add.html">收取物业费</a>
+                <a href="cost-add.jsp">收取物业费</a>
               </li>
                
             </ul>
@@ -98,7 +101,7 @@
             <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="cost-list.html
+            <p><a href="cost-list.jsp
               ">&lt; 查看物业费账单列表</a></p>
 
           </div>
@@ -146,7 +149,7 @@
                       <td>现金</td>
                       <td>2017-10-01 至 2018-09-30</td>
                       
-                        <td><a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                        <td><a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -159,7 +162,7 @@
                       <td>现金</td>
                       <td>2017-10-01 至 2018-09-30</td>
                       
-                        <td><a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                        <td><a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -172,7 +175,7 @@
                       <td>现金</td>
                       <td>2017-10-01 至 2018-09-30</td>
                       
-                        <td><a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                        <td><a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -236,7 +239,7 @@
                         <td>现金</td>
                         <td>2016-10-01 至 2017-09-30</td>
                         <td>
-                          <a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -247,7 +250,7 @@
                         <td>微信转账（流水号：001293847567894836）</td>
                         <td>2017-10-01 至 2018-09-30</td>
                         <td>
-                          <a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -259,7 +262,7 @@
                         <td>现金</td>
                         <td>2016-10-01 至 2017-09-30</td>
                         <td>
-                          <a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -271,7 +274,7 @@
                         <td>现金</td>
                         <td>2016-10-01 至 2017-09-30</td>
                         <td>
-                          <a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
@@ -283,7 +286,7 @@
                         <td>现金</td>
                         <td>2016-10-01 至 2017-09-30</td>
                         <td>
-                          <a target="_blank" href="shouju.html" class="btn btn-xs btn-primary">
+                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                           </a>
                         </td>
