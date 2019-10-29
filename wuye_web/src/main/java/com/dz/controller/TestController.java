@@ -2,14 +2,13 @@ package com.dz.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/user/")
+@RequestMapping(value = "/user/")
 public class TestController {
 
 @RequestMapping("test")
     public String test(){
-        return "building-list";
+        return "bbs/bbs-show";
     }
 }

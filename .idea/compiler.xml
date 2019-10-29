@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wuye_shiro" />
-        <module name="wuye_pojo" />
         <module name="wuye_dao" />
-        <module name="wuye_service" />
+        <module name="wuye_pojo" />
         <module name="wuye_web" />
+        <module name="wuye_shiro" />
+        <module name="wuye_service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

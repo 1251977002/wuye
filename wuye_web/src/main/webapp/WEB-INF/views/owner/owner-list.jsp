@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,12 +17,12 @@
     <title>业主列表 </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-    <link href="./assets/vendors/chosen/chosen.min.css" rel="stylesheet">
-    <link href="./assets/page.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./assets/vendors/star/star-rating.css">
+    <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
+    <link href="${basePath}assets/page.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${basePath}assets/vendors/star/star-rating.css">
    
     
     <!-- Custom styles for this template -->
@@ -33,45 +34,9 @@
     <![endif]-->
   </head>
   <body class="">
-    <!--[if lt IE 10]>
-    <div id="browser-warning" class="contextual bg-danger center navbar-fixed-top">
-      <div class="container">
-        <i class="glyphicon glyphicon-warning-sign"></i> 目前 物业管理系统不支持 IE 10 以下浏览器使用，请升级浏览器或更换浏览器。推荐使用 Chrome 浏览器。
-      </div>
-    </div>
-    <![endif]-->
-
-    <!--头部主标题导航-->
-    <nav class="navbar navbar-inverse navbar-fixed-top ab">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#/backend/">
-            物业管理系统
-            <span class="badge">1.0</span>
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <!--头部菜单-->
-          <ul class="nav navbar-nav">
-            <li><a href="control-data.jsp">欠费管理</a></li>
-            <li><a href="room-list.jsp">套房管理</a></li>
-            <li><a href="cost-list.jsp">收费管理</a></li>
-            <li class="active"><a href="owner-list.jsp">业主管理</a></li>
-          </ul>
-          <!-- #头部菜单-->
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">Saturn</li>
-                <li><a href="#">退出</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- #头部主标题导航-->    
+  <jsp:include page="../head.jsp">
+    <jsp:param name="menu" value="owner" />
+  </jsp:include>
         
     <!-- <div class="list-container have-subhead ab"> -->
       
@@ -403,7 +368,7 @@
                           <tbody>
                             <tr>
                               <td class="form-title"></td>
-                              <a href="owner-list.jsp"  class="btn btn-primary btn-lg btn-block">  保存</a>
+                              <a href="owner-list.jsp" class="btn btn-primary btn-lg btn-block">  保存</a>
                               </td>
                             </tr>
                           </tbody>
@@ -760,17 +725,17 @@
         </div>
                               <!--弹框结束-->
 
-  <script src="./assets/vendors/jquery-1.11.1.min.js"></script> 
-  <script src="./assets/vendors/bootstrap/bootstrap.min.js"></script> 
+  <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
+  <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
     <!-- <script src="./assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
     <script src="./assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script> -->
-    <script src="./assets/vendors/chosen/chosen.jquery.min.js"></script> 
+    <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
    <!--  <script src="./assets/vendors/lodash.min.js"></script> -->
    <!-- <script src="./assets/vendors/jquery.confirm.min.js"></script>  -->
    <!--  <script src="./assets/yoozi.js"></script>
     <script src="./assets/common.js"></script>
  -->
-    <script src="./assets/vendors/star/star-rating.js"></script>
+    <script src="${basePath}assets/vendors/star/star-rating.js"></script>
    <!--  <script src="./assets/vendors/jquery-3.2.1.min.js"></script> 
  -->
     <!-- <script type="text/javascript">

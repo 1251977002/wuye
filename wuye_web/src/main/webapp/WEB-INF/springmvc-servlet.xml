@@ -28,7 +28,7 @@
     </bean>
     <!--静态资源访问-->
     <mvc:resources location="/static/" mapping="/static/**"/>
-
+    <mvc:resources location="/assets/" mapping="/assets/**"/>
     <!-- <mvc:view-controller path="/cc" view-name="index/index"/>-->
 
     <!--拦截器-->
