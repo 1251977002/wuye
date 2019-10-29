@@ -86,6 +86,13 @@
             <artifactId>jsqlparser</artifactId>
             <version>3.0</version>
         </dependency>
+        <!--jspapi-->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
         <!--servlet-->
         <dependency>
             <groupId>javax.servlet</groupId>

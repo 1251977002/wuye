@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,11 +17,11 @@
     <title>物业费缴纳</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-    <link href="./assets/vendors/chosen/chosen.min.css" rel="stylesheet">
-    <link href="./assets/page.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
+    <link href="${basePath}assets/page.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
 
@@ -35,7 +36,7 @@
       <div class="con">
           <div class="header">
             <div class="logo">
-              <img src="./assets/images/logo.jpg">
+              <img src="${basePath}assets/images/logo.jpg">
             
             <div class="title" >
               <h2>仙桃世纪花城物业服务有限公司</h2>

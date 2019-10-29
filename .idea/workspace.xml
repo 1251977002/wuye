@@ -6,37 +6,36 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="wuye">
+      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/basepath/basepath.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-qitian.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control-yuqi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-fee-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee-add.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee-list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/shouju.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,15 +70,96 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="288">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -97,7 +177,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>html</find>
+      <find>/</find>
+      <find>./</find>
     </findStrings>
+    <replaceStrings>
+      <replace>${basePath}</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,10 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-add.html" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-add.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-list.html" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.html" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-add.html" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner-add.jsp" />
@@ -129,33 +210,37 @@
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs-list.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee/fee-add.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/basepath/basepatj.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/basepath/basepath.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee/fee-add.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp" />
         <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" />
-        <option value="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" />
+        <option value="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp" />
       </list>
     </option>
   </component>
@@ -169,7 +254,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../apache-maven-3.5.0" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../apache-maven-3.5.0-bin/apache-maven-3.5.0" />
         <option name="userSettingsFile" value="D:\maven\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -198,9 +283,9 @@
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="9" />
-    <option name="y" value="72" />
-    <option name="width" value="1413" />
+    <option name="x" value="8" />
+    <option name="y" value="71" />
+    <option name="width" value="1414" />
     <option name="height" value="960" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -278,12 +363,122 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="basepath" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="building" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="cost" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="house" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="notice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="owner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="room" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuye" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="type" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -326,7 +521,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.43">
+  <component name="RunManager" selected="Maven.wuye">
     <configuration name="wuye" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -353,7 +548,8 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 8.5.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.43" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
         <artifact name="wuye_web:war exploded">
           <settings>
@@ -434,12 +630,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7ca09db6-a8d0-48c1-bc47-256056a14978" name="Default Changelist" comment="" />
+      <changelist id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="" />
       <created>1572322046130</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572322046130</updated>
       <workItem from="1572322047752" duration="6750000" />
+      <workItem from="1572338747596" duration="3761000" />
     </task>
     <task id="LOCAL-00001" summary="wuye">
       <created>1572322983016</created>
@@ -487,13 +684,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11637000" />
+    <option name="totallyTimeSpent" value="15398000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29749393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3016086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -501,11 +698,11 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Application Servers" weight="0.3285968" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932975" weight="0.5495751" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37833038" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.55239785" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.29320112" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -516,10 +713,11 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4987874" weight="0.3285968" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.22554567" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.22520107" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.3299356" />
@@ -535,13 +733,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="wuye" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -623,13 +814,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/succ.jsp" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wuye_service/src/main/resources/applicationContext-service.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -644,13 +828,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee/fee-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="70" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee/fee-list.jsp" />
     <entry file="file://$PROJECT_DIR$/wuye_dao/src/main/java/com/dz/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -682,13 +860,6 @@
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/static/0e40fd7ec815601b52b8a5bb580f8190fff026a31e915-OjFEjM_fw658.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -696,149 +867,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="36" selection-end-column="16" />
-          <folding>
-            <element signature="e#4763#4767#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="32" column="8" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee/fee-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/fee/fee-add.jsp" />
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
@@ -846,45 +875,199 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="37" selection-start-line="37" selection-end-line="39" selection-end-column="14" />
+        <state relative-caret-position="521">
+          <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp">
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/springmvc-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+        <state relative-caret-position="432">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp">
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/basepath/basepath.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="144">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/bbs/bbs-show.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="70" lean-forward="true" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-fee-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/cost-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/cost/shouju.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="39" selection-end-column="16" />
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="288">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
