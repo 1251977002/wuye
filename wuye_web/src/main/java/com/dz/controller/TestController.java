@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/user/")
+@RequestMapping(value = "/user/")
 public class TestController {
 
 @RequestMapping("test")
     public String test(){
-        return "bbs/bbs-post";
+        return "bbs/bbs-show";
     }
 }

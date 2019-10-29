@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,11 +17,11 @@
     <title>套房信息管理 </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-    <link href="./assets/vendors/chosen/chosen.min.css" rel="stylesheet">
-    <link href="./assets/page.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
+    <link href="${basePath}assets/page.css" rel="stylesheet">
    
     <!-- Custom styles for this template -->
 
@@ -502,15 +503,15 @@
     <!-- /container -->
 
 
-    <script src="./assets/vendors/jquery-1.11.1.min.js"></script>
-    <script src="./assets/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="./assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
-    <script src="./assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="./assets/vendors/chosen/chosen.jquery.min.js"></script>
-    <script src="./assets/vendors/lodash.min.js"></script>
-    <script src="./assets/vendors/jquery.confirm.min.js"></script>
-    <script src="./assets/yoozi.js"></script>
-    <script src="./assets/common.js"></script>
+    <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
+    <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
+    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
+    <script src="${basePath}assets/vendors/lodash.min.js"></script>
+    <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
+    <script src="${basePath}assets/yoozi.js"></script>
+    <script src="${basePath}assets/common.js"></script>
     <script type="text/javascript">
 
       $(document).ready(function(){
