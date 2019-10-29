@@ -7,13 +7,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/user/")
 public class TestController {
+
 @RequestMapping("test")
     public String test(){
-        return "succ";
-    }
-    @RequestMapping("findByPage")
-    @ResponseBody
-    public String  findByPage() {
-        return "sghsgdgada";
+        return "building-list";
     }
 }
