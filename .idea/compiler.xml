@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wuye_service" />
+        <module name="wuye_pojo" />
+        <module name="wuye_dao" />
+        <module name="wuye_shiro" />
+        <module name="wuye_web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="service" target="1.5" />
+      <module name="shiro" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
