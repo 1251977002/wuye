@@ -22,8 +22,8 @@
     <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
     <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="${basePath}assets/page.css" rel="stylesheet">
-    <link rel="stylesheet" href="${basePath}assets/vendors/AdminLTE.min.css" />
-    <link rel="stylesheet" href="${basePath}assets/vendors/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/AdminLTE.min.css" />
+	  <link rel="stylesheet" href="/assets/vendors/font-awesome.min.css"/>
   </head>
   <body class="">
       <jsp:include page="../head.jsp">
