@@ -5,26 +5,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Yoozi Inc.">
-    <meta name="robots" content="noindex,nofollow">
-    <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
-    <link rel="icon" href="">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="description" content="">
+	  <meta name="author" content="Yoozi Inc.">
+	  <meta name="robots" content="noindex,nofollow">
+	  <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
+	  <link rel="icon" href="">
 
-    <title>社区论坛</title>
+	  <title>社区论坛</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+	  <!-- Bootstrap core CSS -->
+	  <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-    <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
-    <link href="${basePath}assets/page.css" rel="stylesheet">
-    <link rel="stylesheet" href="${basePath}assets/vendors/AdminLTE.min.css"/>
-      <link rel="stylesheet" href="${basePath}assets/vendors/font-awesome.min.css"/>
-
+	  <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+	  <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
+	  <link href="${basePath}assets/page.css" rel="stylesheet">
+	  <link rel="stylesheet" href="${basePath}assets/vendors/AdminLTE.min.css"/>
+	  <link rel="stylesheet" href="${basePath}assets/vendors/font-awesome.min.css"/>
   </head>
   <body class="">
       <jsp:include page="../head.jsp">
