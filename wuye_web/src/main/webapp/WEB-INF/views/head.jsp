@@ -5,7 +5,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#/backend/">
                 物业管理系统
-
             </a>
         </div>
         <div class="navbar-collapse collapse">
