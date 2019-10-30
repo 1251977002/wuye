@@ -35,7 +35,7 @@
   </head>
   <body class="">
   <jsp:include page="../head.jsp">
-    <jsp:param name="menu" value="owner" />
+    <jsp:param name="menu" value="user" />
   </jsp:include>
         
     <!-- <div class="list-container have-subhead ab"> -->
@@ -48,10 +48,10 @@
                 业主管理:
               </li>
               <li class='active'>
-                <a href="owner-list.jsp">业主列表</a>
+                <a href="user-list.jsp">业主列表</a>
               </li>
               <li>
-                <a href="owner-add.jsp">业主入住</a>
+                <a href="user-add.jsp">业主入住</a>
               </li> 
             </ul>
             <ul class="sub-btns">
@@ -368,7 +368,7 @@
                           <tbody>
                             <tr>
                               <td class="form-title"></td>
-                              <a href="owner-list.jsp" class="btn btn-primary btn-lg btn-block">  保存</a>
+                              <a href="user-list.jsp" class="btn btn-primary btn-lg btn-block">  保存</a>
                               </td>
                             </tr>
                           </tbody>

@@ -14,10 +14,11 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>单元列表 </title>
+    <title>楼栋列表 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+
     <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
     <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="${basePath}assets/page.css" rel="stylesheet">
@@ -33,57 +34,51 @@
   </head>
   <body class="">
   <jsp:include page="../head.jsp">
-    <jsp:param name="menu" value="building" />
+    <jsp:param name="menu" value="room" />
   </jsp:include>
         
     <div class="list-container have-subhead">
-      
-        <!--头部副标题导航-->
-        <nav class="navbar navbar-fixed-top subhead">
-          <div class="navbar-collapse collapse">
-            <ul class="sub-list">
-              <li class='bread'>
-                套房管理:
-              </li>
-              <li>
-                <a href="../room/room-list.jsp">套房列表</a>
-              </li>
-              <li>
-                <a href="../room/room-add.jsp">添加套房</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li >
-                <a href="../house/house-list.jsp">楼栋列表</a>
-              </li>
-              <li >
-                <a href="../house/house-add.jsp">添加楼栋</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li class='active'>
-                <a href="building-list.jsp">单元列表</a>
-              </li>
-              <li>
-                <a href="building-add.jsp">添加单元</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../type/type-list.jsp">户型列表</a>
-              </li>
-              <li>
-                <a href="../type/type-add.jsp">添加户型</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../fee/fee-list.jsp">物业费标准列表</a>
-              </li>
-              <li>
-                <a href="../fee/fee-add.jsp">物业费标准管理</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <!-- #头部副标题导航-->  
-        <!--页面主体-->
+
+      <!--头部副标题导航-->
+      <nav class="navbar navbar-fixed-top subhead">
+        <div class="navbar-collapse collapse">
+          <ul class="sub-list">
+            <li class='bread'>
+              套房管理:
+            </li>
+            <li>
+              <a href="room-list.jsp">套房列表</a>
+            </li>
+            <li>
+              <a href="room-add.jsp">添加套房</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li class='active'>
+              <a href="../building/building-list.jsp">楼栋列表</a>
+            </li>
+            <li >
+              <a href="../building/building-add.jsp">添加楼栋</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="../unit/unit-list.jsp">单元列表</a>
+            </li>
+            <li>
+              <a href="../unit/unit-add.jsp">添加单元</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="../model/model-list.jsp">户型列表</a>
+            </li>
+            <li>
+              <a href="../model/model-add.jsp">添加户型</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- #头部副标题导航-->
+
+      <!--页面主体-->
           <div class="list-container have-subhead">
 
             <!--页面左侧-->
@@ -108,14 +103,14 @@
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr>
-                      <th>单元名称</th>
+                      <th>楼栋名称</th>
                       <th>备注</th>
                       <th width="150">操作</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>洋房一单元</td>
+                      <td>一栋</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -129,7 +124,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>洋房二单元</td>
+                      <td>二栋</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -143,7 +138,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>洋房三单元</td>
+                      <td>三栋</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -157,7 +152,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>别墅区一街</td>
+                      <td>四栋</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">
@@ -171,7 +166,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>别墅区二街</td>
+                      <td>五栋</td>
                       <td></td>
                       <td>
                         <a href="#" class="btn btn-xs btn-primary">

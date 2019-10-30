@@ -48,14 +48,14 @@
                 物业费逾期管理:
               </li>
               <li class='active'>
-                <a href="control-data.jsp">欠费概况</a>
+                <a href="owe-data.jsp">欠费概况</a>
               </li>
                <li >
-                <a href="control-yuqi.jsp">已逾期用户列表</a>
+                <a href="owe-yuqi.jsp">已逾期用户列表</a>
                 
               </li>
                <li >
-                <a href="control-qitian.jsp">七天内到期的用户列表</a>
+                <a href="owe-qitian.jsp">七天内到期的用户列表</a>
               </li>
             </ul>
             
@@ -69,7 +69,7 @@
             <div class="sidebar">
             <h1>查看</h1>
             <!--查询表单-->
-            <p><a href="control-yuqi.jsp
+            <p><a href="owe-yuqi.jsp
               ">&lt; 查看已逾期用户</a></p>
 
           </div>

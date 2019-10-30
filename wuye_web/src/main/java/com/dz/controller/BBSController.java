@@ -3,6 +3,6 @@ package com.dz.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class UserController {
-    //业主
+public class BBSController {
+    //社区论坛
 }

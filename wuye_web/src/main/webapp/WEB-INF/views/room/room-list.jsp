@@ -38,61 +38,47 @@
   </jsp:include>
         
     <div class="list-container have-subhead">
-      
-        <!--头部副标题导航-->
-        <nav class="navbar navbar-fixed-top subhead">
-          <div class="navbar-collapse collapse">
-            <ul class="sub-list">
-              <li class='bread'>
-                套房管理:
-              </li>
-              <li class='active'>
-                <a href="room-list.jsp">套房列表</a>
-              </li>
-              <li>
-                <a href="room-add.jsp">添加套房</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li >
-                <a href="../house/house-list.jsp">楼栋列表</a>
-              </li>
-              <li >
-                <a href="../house/house-add.jsp">添加楼栋</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../building/building-list.jsp">单元列表</a>
-              </li>
-              <li>
-                <a href="../building/building-add.jsp">添加单元</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../type/type-list.jsp">户型列表</a>
-              </li>
-              <li>
-                <a href="../type/type-add.jsp">添加户型</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../fee/fee-list.jsp">物业费标准列表</a>
-              </li>
-              <li>
-                <a href="../fee/fee-add.jsp">物业费标准管理</a>
-              </li>
-            </ul>
-            <ul class="sub-btns">
-              <li>
-                <a href="#" class="btn btn-sm btn-default">
-                  <span class="glyphicon glyphicon-list-alt"></span>
-                  导出 excel 表
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <!-- #头部副标题导航-->  
-        <!--页面主体-->
+
+      <!--头部副标题导航-->
+      <nav class="navbar navbar-fixed-top subhead">
+        <div class="navbar-collapse collapse">
+          <ul class="sub-list">
+            <li class='bread'>
+              套房管理:
+            </li>
+            <li class='active'>
+              <a href="room-list.jsp">套房列表</a>
+            </li>
+            <li>
+              <a href="room-add.jsp">添加套房</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li >
+              <a href="../building/building-list.jsp">楼栋列表</a>
+            </li>
+            <li >
+              <a href="../building/building-add.jsp">添加楼栋</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="../unit/unit-list.jsp">单元列表</a>
+            </li>
+            <li>
+              <a href="../unit/unit-add.jsp">添加单元</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="../model/model-list.jsp">户型列表</a>
+            </li>
+            <li>
+              <a href="../model/model-add.jsp">添加户型</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- #头部副标题导航-->
+
+      <!--页面主体-->
           <div class="list-container have-subhead">
 
             <!--页面左侧-->
