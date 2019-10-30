@@ -16,6 +16,8 @@ public class User implements Serializable {
     private int buildingid;
     private int houseid;
     private String unitname;
+    private String buildingname;
+    private String housenum;
     private int roleid;
     private Propert propert;
 
@@ -83,16 +85,16 @@ public class User implements Serializable {
         this.owemoney = owemoney;
     }
 
-    public int getBuildingid() {
-        return buildingid;
+    public String getBuildingname() {
+        return buildingname;
     }
 
-    public void setBuildingid(int buildingid) {
-        this.buildingid = buildingid;
+    public void setBuildingname(String buildingname) {
+        this.buildingname = buildingname;
     }
 
-    public int getHouseid() {
-        return houseid;
+    public String getHousenum() {
+        return housenum;
     }
 
     public void setHouseid(int houseid) {

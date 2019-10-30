@@ -15,9 +15,9 @@ public class BuildingController {
     //楼栋
     @Autowired
     private BuildingService buildingService;
-
     @RequestMapping(value = "findAll",produces = "application/json;charset=utf-8")
-    public @ResponseBody List<Building> findAll(){
+    @ResponseBody
+    public List<Building> findAll(){
         List<Building> buildingList = buildingService.findAll();
         return buildingList;
     }

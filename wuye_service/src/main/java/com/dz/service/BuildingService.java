@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class BuildingService {
-
     @Autowired
     private BuidlingDao buidlingDao;
 
