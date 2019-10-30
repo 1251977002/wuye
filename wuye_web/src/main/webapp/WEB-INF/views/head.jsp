@@ -5,7 +5,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#/backend/">
                 物业管理系统
-                <span class="badge">1.0</span>
+
             </a>
         </div>
         <div class="navbar-collapse collapse">
