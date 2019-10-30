@@ -58,26 +58,25 @@
               </li>
               <li role="separator" class="divider"></li>
               <li >
-                <a href="../house/house-list.jsp">楼栋列表</a>
+                <a href="../building/building-list.jsp">楼栋列表</a>
               </li>
               <li >
-                <a href="../house/house-add.jsp">添加楼栋</a>
+                <a href="../building/building-add.jsp">添加楼栋</a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="../building/building-list.jsp">单元列表</a>
+                <a href="../unit/unit-list.jsp">单元列表</a>
               </li>
               <li>
-                <a href="../building/building-add.jsp">添加单元</a>
+                <a href="../unit/unit-add.jsp">添加单元</a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="../type/type-list.jsp">户型列表</a>
+                <a href="../model/model-list.jsp">户型列表</a>
               </li>
               <li>
-                <a href="../type/type-add.jsp">添加户型</a>
+                <a href="../model/model-add.jsp">添加户型</a>
               </li>
-
             </ul>
           </div>
         </nav>
