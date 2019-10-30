@@ -75,21 +75,17 @@
               <form method="get">
                 <div class="form-group">
                     <label>请选择楼栋</label>
-                        <select class="form-control chosen" name="status">
-                          <option value="1">一栋</option>
-                          <option value="2">二栋</option>
-                          <option value="3">三栋</option>
+                        <select class="form-control chosen" id="build" name="status">
+
                         </select>
                 </div>
                 <div class="form-group">
-                  <label>请输入 单元房号/业主姓名/电话号码</label>
-                  <input type="text" class="form-control" name="word" value="" placeholder="">
-                  
-
+                  <label>请输入 业主姓名</label>
+                  <input type="text" class="form-control username" name="word" value="" placeholder="">
                 </div>
                
                 <div class="form-group-btns">
-                  <button type="submit" class="btn btn-sm btn-primary">查询</button>
+                  <button type="submit" class="btn btn-sm btn-primary findinfo">查询</button>
                   <a href="#" class="btn btn-sm btn-default">重置</a>
                 </div>
               </form>
@@ -113,7 +109,7 @@
               <!--列表-->
               <div>
                <!-- #列表头部-->
-                        <table class="form-table">
+                        <table class="form-table infolist">
                           <tbody>
                             
                             <tr>
@@ -218,9 +214,8 @@
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                       </form>
-                  <table class="table form-table">
+              </div>
+                <table class="table form-table">
                           <tbody>
                             <tr>
                               
@@ -248,9 +243,6 @@
                         </table>
               </div>
               <!-- #列表-->
-
-              
-              
             </div>
           </div>
     </div>
@@ -265,20 +257,161 @@
     <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
     <script src="${basePath}assets/yoozi.js"></script>
     <script src="${basePath}assets/common.js"></script>
+    <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+    <script src="${basePath}assets/mustache.js"></script>
+    <script id="template" type="x-tmpl-mustache">
+        <tbody>
+            <tr>
+                <td class="form-title">
+                    <span class="text-danger">*</span>楼栋号
+                </td>
+                <td>一栋</td>
+            </tr>
+            <tr>
+                <td class="form-title">
+                     <span class="text-danger">*</span>单元房号
+                </td>
+                <td>三单元401</td>
+            </tr>
+
+                            <tr>
+                              <td class="form-title">
+                                户主姓名
+                              </td>
+                              <td>
+                                张三
+                              </td>
+                            </tr>
+
+                             <tr>
+                                <td class="form-title">
+                                  户型
+                                </td>
+                                <td>
+                                  三房两厅（119平米）
+                                </td>
+                              </tr>
+                            <tr>
+                              <td class="form-title">
+                               标准物业费
+                              </td>
+                              <td>
+                                47.6元/年
+                              </td>
+                            </tr>
+                             <tr>
+                              <td class="form-title">
+                               往年欠费
+                              </td>
+                              <td>
+                                ￥0
+                              </td>
+                            </tr>
+                             <tr>
+                              <td class="form-title">
+                               滞纳金
+                              </td>
+                              <td>
+                               ￥0
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="form-title">
+                                <span class="text-danger">*</span>缴费周期
+                              </td>
+                              <td>
+                                <select class="form-control chosen" name="status">
+                                  <option value="1">一年</option>
+                                  <option value="2">两年</option>
+                                  <option value="3">三年</option>
+                                  <option value="4">四年</option>
+                                  <option value="5">五年</option>
+                                </select>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="form-title">合计应交金额</td>
+                              <td>
+                                47.6元/年（[往年欠费]+[滞纳金]+[物业费标准]*「缴费周期」，系统会自动计算该楼层的物业费用）
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="form-title">
+                                <span class="text-danger">*</span>缴纳方式
+                              </td>
+                              <td>
+                                <select class="form-control chosen" name="status">
+                                  <option value="1">现金</option>
+                                  <option value="1">支付宝</option>
+                                  <option value="2">微信</option>
+                                  <option value="2">银行卡</option>
+
+                                </select>
+                              </td>
+                            </tr>
+                            <tr>
+                                <td class="form-title">
+                                  收款说明
+                                </td>
+                                <td>
+                                  <textarea class="form-control" name="title"></textarea>
+                                </td>
+                            </tr>
+        </tbody>
+    </script>
+
 
     <script type="text/javascript">
       $(document).ready(function(){
 
         //日期选择
         yoozi.datapicker('.datepicker');
+        //页面加载时自动生成楼栋
+          $.get("/building/findAll",function (json) {
+              $("#build").empty();
+              $(json).each(function () {
+                  var opt = "<option value="+this.id+">" + this.name + "</option>";
+                  $("#build").append(opt);
+              });
+          });
+
+          //当点击“查询”时，异步找出此人的信息
+          $(".findinfo").click(function () {
+              showInfo();
+              /*$(this).parent("li").addClass("active");
+              $(this).parent("li").siblings().removeClass("active");*/
+          });
+
+          function showInfo() {
+              $.ajax({
+                  type:"GET",
+                  url:"/cost/findByBidAndUid",
+                  data:{
+                      buildingid:$("#build").val(),
+                      username:$(".username").val(),
+                  },
+                  success:function (json) {
+                      var template = $('#template').html();
+                      Mustache.parse(template);
+                      $(".infolist").html("");
+                      $(json).each(function () {
+                          var rendered = Mustache.render(template, this);
+                          $(".infolist").append(rendered);
+                      });
+                  }
+
+              });
+
+          }
+
+
+
+
 
       });
     </script>
-     <!-- <script type="text/javascript">
-         function ulrHtml(num){
-                     var toUrl = "room-edit.html?"+num;   
-             window.open(toUrl);         
-        }
-</script> -->
+
   </body>
 </html>

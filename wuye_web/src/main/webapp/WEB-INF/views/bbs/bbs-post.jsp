@@ -39,10 +39,10 @@
                                论坛管理:
               </li>
               <li>
-                <a href="bbs-list.jsp">帖子列表</a>
+                <a href="/bbs/bbslist">帖子列表</a>
               </li>
                <li class='active' >
-                <a href="bbs-post.jsp">我要发贴</a>
+                <a href="#">我要发贴</a>
               </li>
             </ul>
             
@@ -54,7 +54,7 @@
           <!--页面左侧-->
           <div class="sidebar">
             <h1>我要发贴</h1>
-            <p><a href="bbs-post.jsp">&lt; 去发贴</a></p>
+            <p><a href="#">&lt; 去发贴</a></p>
           </div>
 
           <!--页面右侧-->
@@ -72,19 +72,19 @@
 				            </div>
 				            <!-- /.box-header -->
 				            <div class="box-body">
-										<form class="form-horizontal">
+										<form class="form-horizontal" method="post" action="/bbs/saveBBS">
 										  <div class="form-group">
 												<label class="control-label col-sm-2">标题</label>
 												<div class="col-sm-10">
-												  <input type="text" class="form-control">
+												  <input type="text" class="form-control" name="title" id="title">
 												  
 												</div>
 										  </div>
 										  
 										  <div class="form-group">
-												<label class="control-label col-sm-2" >内容</label>
+												<label class="control-label col-sm-2"  >内容</label>
 												<div class="col-sm-10">
-													<textarea class="form-control" name="" id="" rows="10"></textarea>
+													<textarea class="form-control" name="content" id="title" rows="10"></textarea>
 												</div>
 										  </div>
 										 
@@ -126,13 +126,17 @@
     <script src="${basePath}assets/yoozi.js"></script>
     <script src="${basePath}assets/common.js"></script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
       $(document).ready(function(){
 
         //日期选择
-        yoozi.datapicker('.datepicker');
+          yoozi.datapicker('.datepicker');
 
-      });
+      });   
+        $(function () {
+
+            
+        })
     </script>
   </body>
 </html>
