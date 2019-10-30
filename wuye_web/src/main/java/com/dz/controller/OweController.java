@@ -3,6 +3,6 @@ package com.dz.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class UserController {
-    //业主
+public class OweController {
+    //欠费管理
 }

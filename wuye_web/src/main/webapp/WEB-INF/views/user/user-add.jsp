@@ -37,7 +37,7 @@
 </head>
 <body class="">
 <jsp:include page="../head.jsp">
-    <jsp:param name="menu" value="owner" />
+    <jsp:param name="menu" value="user" />
 </jsp:include>
 
 <!-- #头部主标题导航-->
@@ -51,10 +51,10 @@
                     业主管理:
                 </li>
                 <li>
-                    <a href="owner-list.jsp">业主列表</a>
+                    <a href="user-list.jsp">业主列表</a>
                 </li>
                 <li class='active'>
-                    <a href="owner-add.jsp">业主入住</a>
+                    <a href="user-add.jsp">业主入住</a>
                 </li>
             </ul>
         </div>
@@ -68,7 +68,7 @@
         <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="owner-list.jsp
+            <p><a href="user-list.jsp
               ">&lt; 查看业主列表</a></p>
 
         </div>
