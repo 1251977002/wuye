@@ -14,7 +14,9 @@ public class User {
     private double owemoney;
     private int buildingid;
     private int houseid;
+    private String unitname;
     private int roleid;
+    private Propert propert;
 
     public int getId() {
         return id;
@@ -104,5 +106,19 @@ public class User {
         this.roleid = roleid;
     }
 
+    public Propert getPropert() {
+        return propert;
+    }
 
+    public void setPropert(Propert propert) {
+        this.propert = propert;
+    }
+
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
 }
