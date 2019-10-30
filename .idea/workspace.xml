@@ -6,38 +6,28 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="1">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/BBSController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/BuildingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/CostController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/ModelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/NoticeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/OweController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/RoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/UnitController.java" afterDir="false" />
+    <list default="true" id="470eb2a0-f7cf-458c-b6b8-c324dcc96607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/BBS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/BBSComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Building.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Building_unit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/House.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/OWE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Pay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Propert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Record.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Role_permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/Unit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/User_family.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_pojo/src/main/java/com/dz/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/building/building-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-data.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owe/owe-data.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-qitian.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owe/owe-qitian.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/control/control-yuqi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owe/owe-yuqi.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/unit/unit-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/house/house-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/unit/unit-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/admin/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/notice/notice-post.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/user/user-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/user/user-edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/owner/owner-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/user/user-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/room/room-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/model/model-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/type/type-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wuye_web/src/main/webapp/WEB-INF/views/model/model-list.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,80 +62,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/CostController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/ModelController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/NoticeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/OweController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/RoomController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/AdminController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wuye_web/src/main/java/com/dz/controller/UnitController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -287,64 +204,37 @@
             <path>
               <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
               <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_pojo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
               <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_pojo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
               <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_pojo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
               <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_pojo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
               <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
+              <item name="wuye_pojo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wuye" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wuye" type="462c0819:PsiDirectoryNode" />
-              <item name="wuye_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -508,7 +398,7 @@
       <updated>1572322046130</updated>
       <workItem from="1572322047752" duration="6750000" />
       <workItem from="1572338747596" duration="5095000" />
-      <workItem from="1572397173280" duration="4611000" />
+      <workItem from="1572397173280" duration="5531000" />
     </task>
     <task id="LOCAL-00001" summary="wuye">
       <created>1572322983016</created>
@@ -601,15 +491,28 @@
       <option name="project" value="LOCAL" />
       <updated>1572397644674</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="web">
+      <created>1572401889253</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1572401889253</updated>
+    </task>
+    <task id="LOCAL-00015" summary="1">
+      <created>1572401991925</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1572401991925</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22017000" />
+    <option name="totallyTimeSpent" value="22937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2506063" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -652,6 +555,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="wuye" />
     <MESSAGE value="Merge branch 'master' of https://github.com/1251977002/wuye&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="web" />
     <MESSAGE value="1" />
     <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
