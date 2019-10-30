@@ -1,8 +1,9 @@
 package com.dz.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;

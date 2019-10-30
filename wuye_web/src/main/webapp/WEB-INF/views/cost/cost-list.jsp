@@ -154,10 +154,10 @@
     <tr>
        <td>{{buildingname}}</td>
        <td>{{housename}}</td>
-       <td>{{username}}</td>
+       <td>{{user.username}}</td>
        <td>{{begintime}}</td>
        <td>{{endtime}}</td>
-       <td>￥{{owemoney}}</td>
+       <td>￥{{user.owemoney}}</td>
        <td>55.6元/年</td>
        <td class="color">￥55.6(往年欠费+标准物业费)</td>
        <td><!-- 添加备注按钮 -->
@@ -197,11 +197,11 @@
                                     </tr>
                                     <tr>
                                         <td class="form-title">户主姓名</td>
-                                        <td>{{userid}}</td>
+                                        <td>{{user.username}}</td>
                                     </tr>
                                     <tr>
                                          <td class="form-title">户型</td>
-                                         <td> 三房两厅（119平米）</td>
+                                         <td>{{user.unitname}}</td>
                                     </tr>
                                     <tr>
                                          <td class="form-title"> 物业费标准</td>
@@ -209,7 +209,7 @@
                                     </tr>
                                     <tr>
                                          <td class="form-title">往年欠费</td>
-                                         <td>￥0</td>
+                                         <td>￥{{user.owemoney}}</td>
                                     </tr>
                                     <tr>
                                          <td class="form-title">
