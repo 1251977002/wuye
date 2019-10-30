@@ -6,7 +6,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-e
+          quiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Yoozi Inc.">
@@ -14,7 +15,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>添加楼栋 </title>
+    <title>户型列表 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +37,7 @@
   <jsp:include page="../head.jsp">
     <jsp:param name="menu" value="room" />
   </jsp:include>
-    <!-- #头部主标题导航--> 
+        
     <div class="list-container have-subhead">
 
       <!--头部副标题导航-->
@@ -56,7 +57,7 @@
             <li >
               <a href="../building/building-list.jsp">楼栋列表</a>
             </li>
-            <li class='active'>
+            <li >
               <a href="../building/building-add.jsp">添加楼栋</a>
             </li>
             <li role="separator" class="divider"></li>
@@ -67,7 +68,7 @@
               <a href="../unit/unit-add.jsp">添加单元</a>
             </li>
             <li role="separator" class="divider"></li>
-            <li>
+            <li class='active'>
               <a href="../model/model-list.jsp">户型列表</a>
             </li>
             <li>
@@ -78,78 +79,92 @@
       </nav>
       <!-- #头部副标题导航-->
 
-
       <!--页面主体-->
-        <div class="list-container have-subhead">
+          <div class="list-container have-subhead">
 
-          <!--页面左侧-->
-          <div class="sidebar">
-            <h1>返回</h1>
-            <!--查询表单-->
-            <p><a href="../room/room-list.jsp">&lt; 查看套房列表</a></p>
+            <!--页面左侧-->
+            <div class="sidebar">
+              <h1>返回</h1>
+              <!--查询表单-->
+              <p><a href="../room/room-list.jsp">&lt; 查看套房列表</a></p>
 
-          </div>
+            </div>
 
-          <!--页面右侧-->
-          <div class="main">
+            <!--页面右侧-->
+            <div class="main">
 
-            <form class="form-horizontal" enctype="multipart/form-data"  action="#/backend/admin/product" method="post">
-              <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
-              <input type="hidden" name="id" value="0"/>
-
+              <!--列表头部-->
               <div>
-                <h5>
-                  楼栋信息
-                  <span class="pagination-total pull-right">
-                    带 <span class="text-danger">*</span> 为必填项
-                  </span>
-                </h5>
+                <h5>户型管理</h5>
               </div>
+              <!-- #列表头部-->
 
+              <!--列表-->
+              <div>
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>户型名称</th>
+                      <th>面积</th>
+                      <th>备注</th>
+                      <th width="150">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>三房两厅</td>
+                      <td>119平米</td>
+                      <td></td>
+                      <td>
+                        <a href="#" class="btn btn-xs btn-primary">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                          编辑
+                        </a>
+                        <a href="#" class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>两房两厅</td>
+                      <td>89平米</td>
+                      <td></td>
+                      <td>
+                        <a href="#" class="btn btn-xs btn-primary">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                          编辑
+                        </a>
+                        <a href="#" class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>四房两厅</td>
+                      <td>139平米</td>
+                      <td></td>
+                      <td>
+                        <a href="#" class="btn btn-xs btn-primary">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                          编辑
+                        </a>
+                        <a href="#" class="btn btn-xs btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                          删除
+                        </a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- #列表-->
               
-              <div>
-                <table class="form-table">
-                  <tbody>
-                    <tr>
-                      <td class="form-title">
-                        <span class="text-danger">*</span>楼栋名称
-                      </td>
-                      <td>
-                        <input type="text" class="form-control" name="title" value="" placeholder="">
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="form-title">
-                        备注
-                      </td>
-                      <td>
-                        <textarea class="form-control" name="title"></textarea>
-                      </td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-
-              <!--保存按钮-->
-              <div>
-                <table class="table form-table">
-                  <tbody>
-                    <tr>
-                      <td class="form-title"></td>
-                      <td>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">保存</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-            </form>
+            </div>
           </div>
-        </div>
-    </div> 
+    </div>
     <!-- /container -->
 
     <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
@@ -161,11 +176,12 @@
     <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
     <script src="${basePath}assets/yoozi.js"></script>
     <script src="${basePath}assets/common.js"></script>
-    <script type="text/javascript">
 
+    <script type="text/javascript">
       $(document).ready(function(){
-        //下拉列表添加 chosen
-        yoozi.chosen('.chosen');
+
+        //日期选择
+        yoozi.datapicker('.datepicker');
 
       });
     </script>

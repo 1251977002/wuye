@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>添加楼栋 </title>
+    <title>添加户型 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -36,6 +36,7 @@
   <jsp:include page="../head.jsp">
     <jsp:param name="menu" value="room" />
   </jsp:include>
+
     <!-- #头部主标题导航--> 
     <div class="list-container have-subhead">
 
@@ -56,7 +57,7 @@
             <li >
               <a href="../building/building-list.jsp">楼栋列表</a>
             </li>
-            <li class='active'>
+            <li >
               <a href="../building/building-add.jsp">添加楼栋</a>
             </li>
             <li role="separator" class="divider"></li>
@@ -70,7 +71,7 @@
             <li>
               <a href="../model/model-list.jsp">户型列表</a>
             </li>
-            <li>
+            <li class='active'>
               <a href="../model/model-add.jsp">添加户型</a>
             </li>
           </ul>
@@ -99,7 +100,7 @@
 
               <div>
                 <h5>
-                  楼栋信息
+                  户型信息
                   <span class="pagination-total pull-right">
                     带 <span class="text-danger">*</span> 为必填项
                   </span>
@@ -112,7 +113,15 @@
                   <tbody>
                     <tr>
                       <td class="form-title">
-                        <span class="text-danger">*</span>楼栋名称
+                        <span class="text-danger">*</span>户型名称
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" name="title" value="" placeholder="">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="form-title">
+                        <span class="text-danger">*</span>面积（平米）
                       </td>
                       <td>
                         <input type="text" class="form-control" name="title" value="" placeholder="">

@@ -14,16 +14,16 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>添加楼栋 </title>
+    <title>添加单元 </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-    <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
-    <link href="${basePath}assets/page.css" rel="stylesheet">
+    <link href="/assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    <link href="/assets/vendors/chosen/chosen.min.css" rel="stylesheet">
+    <link href="/assets/page.css" rel="stylesheet">
 
-    
+
     <!-- Custom styles for this template -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,7 +36,8 @@
   <jsp:include page="../head.jsp">
     <jsp:param name="menu" value="room" />
   </jsp:include>
-    <!-- #头部主标题导航--> 
+
+    <!-- #头部主标题导航-->
     <div class="list-container have-subhead">
 
       <!--头部副标题导航-->
@@ -56,14 +57,14 @@
             <li >
               <a href="../building/building-list.jsp">楼栋列表</a>
             </li>
-            <li class='active'>
+            <li >
               <a href="../building/building-add.jsp">添加楼栋</a>
             </li>
             <li role="separator" class="divider"></li>
             <li>
               <a href="../unit/unit-list.jsp">单元列表</a>
             </li>
-            <li>
+            <li class='active'>
               <a href="../unit/unit-add.jsp">添加单元</a>
             </li>
             <li role="separator" class="divider"></li>
@@ -99,20 +100,20 @@
 
               <div>
                 <h5>
-                  楼栋信息
+                  单元信息
                   <span class="pagination-total pull-right">
                     带 <span class="text-danger">*</span> 为必填项
                   </span>
                 </h5>
               </div>
 
-              
+
               <div>
                 <table class="form-table">
                   <tbody>
                     <tr>
                       <td class="form-title">
-                        <span class="text-danger">*</span>楼栋名称
+                        <span class="text-danger">*</span>单元名称
                       </td>
                       <td>
                         <input type="text" class="form-control" name="title" value="" placeholder="">
@@ -149,7 +150,7 @@
             </form>
           </div>
         </div>
-    </div> 
+    </div>
     <!-- /container -->
 
     <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>

@@ -14,7 +14,7 @@
     <meta name="csrf-token" content="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
     <link rel="icon" href="">
 
-    <title>楼盘列表 </title>
+    <title>套房信息管理 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -22,8 +22,7 @@
     <link href="${basePath}assets/vendors/distpicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
     <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="${basePath}assets/page.css" rel="stylesheet">
-
-    
+   
     <!-- Custom styles for this template -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,240 +33,45 @@
   </head>
   <body class="">
   <jsp:include page="../head.jsp">
-    <jsp:param name="menu" value="room" />
+    <jsp:param name="menu" value="user" />
   </jsp:include>
-        
+    <!-- #头部主标题导航--> 
     <div class="list-container have-subhead">
-
-      <!--头部副标题导航-->
-      <nav class="navbar navbar-fixed-top subhead">
-        <div class="navbar-collapse collapse">
-          <ul class="sub-list">
-            <li class='bread'>
-              套房管理:
-            </li>
-            <li class='active'>
-              <a href="room-list.jsp">套房列表</a>
-            </li>
-            <li>
-              <a href="room-add.jsp">添加套房</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li >
-              <a href="../building/building-list.jsp">楼栋列表</a>
-            </li>
-            <li >
-              <a href="../building/building-add.jsp">添加楼栋</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="../unit/unit-list.jsp">单元列表</a>
-            </li>
-            <li>
-              <a href="../unit/unit-add.jsp">添加单元</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="../model/model-list.jsp">户型列表</a>
-            </li>
-            <li>
-              <a href="../model/model-add.jsp">添加户型</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- #头部副标题导航-->
-
-      <!--页面主体-->
-          <div class="list-container have-subhead">
-
-            <!--页面左侧-->
-            <div class="sidebar">
-              <h1>按条件查询</h1>
-              <!--查询表单-->
-              <form method="get">
-                <div class="form-group">
-                    <label>请选择楼栋</label>
-                        <select class="form-control chosen" name="status">
-                          <option value="1">一栋</option>
-                          <option value="2">二栋</option>
-                          <option value="3">三栋</option>
-                        </select>
-                  </div>
-                <div class="form-group">
-                  
-                  <label>请输入 单元房号/业主姓名/电话号码</label>
-                  <input type="text" class="form-control" name="word" value="" placeholder="">
-                </div>
-                <!--div class="form-group">
-                  <label>注册时间</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control datepicker" name="date[from]" value="" placeholder="0000-00-00">
-                    <span class="input-group-addon">至</span>
-                    <input type="text" class="form-control datepicker" name="date[to]" value="" placeholder="0000-00-00">
-                  </div>
-                </div-->
-                <div class="form-group-btns">
-                  <button type="submit" class="btn btn-sm btn-primary">筛选</button>
-                  <a href="#" class="btn btn-sm btn-default">重置</a>
-                </div>
-              </form>
-
-            </div>
-
-            <!--页面右侧-->
-            <div class="main">
-
-              <!--列表头部-->
-              <div>
-                <h5>
-                  <!--列表的标题-->
-                  套房列表
-                  <!--迷你页码-->
-                  <span class="pagination-total pull-right">
-                    查询结果: 660 条记录，当前 1/66 页
-                    <!--上一页-->
-                    <a href="#" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-left"></span>
-                    </a>
-                    <!--下一页-->
-                    <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-right"></span>
-                    </a>
-                  </span>
-                </h5>
-              </div>
-              <!-- #列表头部-->
-
-              <!--列表-->
-              <div>
-                <table class="table table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>楼栋号</th>
-                      <th>单元房号</th>
-                      <th>户型</th>
-                      <th>物业费</th>
-                      <th>业主姓名</th>
-                      <th>联系电话</th>
-                      <th>物业费到期时间</th>
-                      <th>逾期时间</th>
-                      <th width="150">操作</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>十栋</td>
-                      <td>洋房三单元601</td>
-                     <!--  <td>601</td> -->
-                      <td>三房两厅（119平米）</td>
-                      <td>47.6元/年</td>
-                      <td>张三</td>
-                      <td>13333333333</td>
-                      <td>2018-02-17</td>
-                      <td>0天</td>
-                      <td>
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          更改
-                        </a> -->
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                                  <span class="glyphicon glyphicon-pencil"></span>
-                                  更改
-                            </button>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>十一栋</td>
-                      <td>洋房三单元602</td>
-                     <!--  <td>602</td> -->
-                      <td>两房两厅（89平米）</td>
-                      <td>35.6元/年</td>
-                      <td>李四</td>
-                      <td>14444444444</td>
-                      <td>2018-09-17 <span class="label label-default">已延期</span></td>
-                      <td>5天</td>
-                      <td>
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          更改
-                        </a> -->
-                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                                  <span class="glyphicon glyphicon-pencil"></span>
-                                  更改
-                            </button>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>十二栋</td>
-                      <td>洋房三单元603</td>
-                      <!-- <td>603</td> -->
-                      <td>四房两厅（139平米）</td>
-                      <td>55.6元/年</td>
-                      <td>王五</td>
-                      <td>15555555555</td>
-                      <td>2017-09-17 <span class="label label-warning">七天内到期</span></td>
-                      <td>0天</td>
-                      <td>
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          更改
-                        </a> -->
-                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                                  <span class="glyphicon glyphicon-pencil"></span>
-                                  更改
-                            </button>
-                        <a href="#" class="btn btn-xs btn-danger">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          删除
-                        </a>
-                      </td>
-                    </tr>    
-                  </tbody>
-                </table>
-              </div>
-              <!-- #列表-->
-
-              <!--页码-->
-              <nav class="pull-right">
-                <ul class="pagination pagination-sm">
-                  <ul class="pagination">
-                    <li class="disabled"><span>&laquo;</span></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li class="disabled"><span>...</span></li>
-                    <li><a href="#">65</a></li>
-                    <li><a href="#">66</a></li>
-                    <li><a href="#" rel="next">&raquo;</a></li>
-                  </ul>
-                </ul>
-              </nav>
-              <!-- #页码-->
-              
-            </div>
+          
+        <!--头部副标题导航-->
+        <nav class="navbar navbar-fixed-top subhead">
+          <div class="navbar-collapse collapse">
+            <ul class="sub-list">
+              <li class='bread'>
+                业主管理:
+              </li>
+              <li class='active'>
+                <a href="user-list.jsp">业主列表</a>
+              </li>
+              <li>
+                <a href="user-add.jsp">业主入住</a>
+              </li> 
+            </ul>
           </div>
-    </div>
-    <!-- /container -->
-     <!-- 添加备注弹出框 -->
-                              <div style="z-index: 9999"  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                  <div  class="modal-dialog"  role="document" >
-                                     <div  class="modal-content"  >
-                                         <div class="modal-header">
-                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <!-- <h4 class="modal-title" id="myModalLabel">修改记录列表</h4> -->
-                                              <div>
-               <ul class="nav nav-tabs" role="tablist" id="ulbody">
+        </nav>
+        <!-- #头部副标题导航-->    
+
+        <!--页面主体-->
+        <div class="list-container have-subhead">
+
+          <!--页面左侧-->
+          <div class="sidebar">
+            <h1>返回</h1>
+            <!--查询表单-->
+            <p><a href="user-list.jsp">&lt; 查看业主列表</a></p>
+
+          </div>
+
+          <!--页面右侧-->
+          <div class="main">
+
+            <div>
+              <ul class="nav nav-tabs" role="tablist" id="ulbody">
                 <li role="presentation" class="active">
                   <a href="#base" aria-controls="base" role="tab" data-toggle="tab" >套房信息更改</a>
                 </li>
@@ -280,7 +84,9 @@
                 <li role="presentation">
                   <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab" id="time">业主信息修改记录</a>
                 </li>
-                
+                <li role="presentation">
+                  <a href="#fee" aria-controls="fee" role="tab" data-toggle="tab" id="jiaofei">物业费缴费记录</a>
+                </li>
               </ul>
               <!-- Tab panes -->
               <div class="tab-content">
@@ -375,7 +181,7 @@
                           <tbody>
                             <tr>
                               <td class="form-title"></td>
-                              <a href="../owner/owner-list.jsp" class="btn btn-primary btn-lg btn-block">  保存</a>
+                              <a href="user-list.jsp" class="btn btn-primary btn-lg btn-block">  保存</a>
                               </td>
                             </tr>
                           </tbody>
@@ -627,10 +433,74 @@
                   </div>
                 </div>
 
-               
-                 
-                  
+                <!--物业费缴费记录-->
+                <div role="tabpanel" class="tab-pane" id="fee">
+                  <br />
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>缴费日期</th>
+                        <th>收款人</th>
+                        <th>付款方式</th>
+                        <th>物业费期限</th>
+                        <th>打印收据</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2016-09-14 14:59:30</td>
+                        <td>管理员A</td>
+                        <td>现金</td>
+                        <td>2016-10-01 至 2017-09-30</td>
+                        <td>
+                          <a href="../cost/shouju.jsp" class="btn btn-xs btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2017-09-28 12:23:34</td>
+                        <td>微信号：世纪花城公众号</td>
+                        <td>微信转账（流水号：001293847567894836）</td>
+                        <td>2017-10-01 至 2018-09-30</td>
+                        <td>
+                          <a href="../cost/shouju.jsp" class="btn btn-xs btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!--页码-->
+              <nav class="pull-right">
+                <ul class="pagination pagination-sm">
+                  <ul class="pagination">
+                    <li class="disabled"><span>&laquo;</span></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="#">65</a></li>
+                    <li><a href="#">66</a></li>
+                    <li><a href="#" rel="next">&raquo;</a></li>
+                  </ul>
+                </ul>
+              </nav>
+              <!-- #页码-->
                 </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div> 
+    <!-- /container -->
 
 
     <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
@@ -642,19 +512,47 @@
     <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
     <script src="${basePath}assets/yoozi.js"></script>
     <script src="${basePath}assets/common.js"></script>
-
     <script type="text/javascript">
-      $(document).ready(function(){
 
-        //日期选择
-        yoozi.datapicker('.datepicker');
+      $(document).ready(function(){
+        //下拉列表添加 chosen
+        yoozi.chosen('.chosen');
 
       });
     </script>
-                                              </div>
-                                         </div>
-                                     </div>
-                                  </div>
-                              </div>
+  
+   <script type="text/javascript"> 
+    $(function() {
+        　　$.getUrlParam = function(name) {
+        　　　　var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        　　　　var r = window.location.search.substr(1).match(reg);
+        　　　　if(r != null) return unescape(r[2]);
+        　　　　return null;
+        　　}
+        　　var url_status = $.getUrlParam('process');
+        　　if(url_status == 1) {
+        　　　　$('#base').click();
+        　　} else if(url_status == 2) {
+        　　　　$('#time').click();
+        　　} else if(url_status == 3) {
+        　　　　$('#jiaofei').click();
+        　　}
+        });
+</script>
+<!-- <script> 
+      $(function () { 
+
+          $('#ulbody li:eq(3) a').tab('show'); //初始化显示第三个tab 
+          $('#ulbody a:last').tab('show');//初始化显示最后一个tab 
+        $('#ulbody a').click(function (e) { 
+          e.preventDefault();//阻止a链接的跳转行为 
+          $(this).tab('show');//显示当前选中的链接及关联的content 
+        }) 
+      }) 
+    </script> -->
+
+    
+
+    
   </body>
 </html>

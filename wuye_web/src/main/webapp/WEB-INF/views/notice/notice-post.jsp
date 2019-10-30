@@ -39,10 +39,10 @@
               <li class='bread'>
                        	公告板管理:
               </li>
-              <li class='active'>
+              <li>
                 <a href="notice-list.jsp">公告板列表</a>
               </li>
-               <li >
+               <li class='active'>
                 <a href="notice-post.jsp">发布公告</a>
               </li>
             </ul>      
@@ -54,7 +54,7 @@
           <!--页面左侧-->
           <div class="sidebar">
             <h1>发布公告</h1>
-            <p><a href="bbs-post.html">&lt; 去发公告</a></p>           
+            <p><a href="notice-post.html">&lt; 去发公告</a></p>
           </div>
 
           <!--页面右侧-->
