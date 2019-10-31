@@ -25,6 +25,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
+    /*登录时候需要验证*/
     public User findByLoginName(String username) {
         return userDao.findByLoginName(username);
     }
