@@ -26,8 +26,4 @@ public class PropertService {
         return propertDao.findByBidAndUid(buildingname,username);
     }
 
-    /*public Propert findById(Integer id) {
-        Propert propert = propertDao.findById(id);
-        return propert;
-    }*/
 }
