@@ -15,10 +15,10 @@ public class PropertService {
     @Autowired
     private PropertDao propertDao;
 
-    public PageInfo<Propert> findByPage(int pageNum) {
+    public PageInfo findByPage(int pageNum) {
         PageHelper.startPage(pageNum,3);
         List<Propert> propertList = propertDao.findByPage();
-        PageInfo<Propert> pageInfo = new PageInfo<Propert>(propertList);
+        PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
     }
 

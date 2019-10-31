@@ -32,13 +32,13 @@
     <!-- <mvc:view-controller path="/cc" view-name="index/index"/>-->
 
     <!--拦截器-->
-    <!--  <mvc:interceptors>
+     <!--<mvc:interceptors>
           <mvc:interceptor>
               <mvc:mapping path="/**"/>
               <bean class="com.dz.interceptor.MyInterceptor">
                   <property name="excluedUrls">
                       <list>
-                          <value>/file/file</value>
+                          <value>/admin/index</value>
                       </list>
                   </property>
               </bean>

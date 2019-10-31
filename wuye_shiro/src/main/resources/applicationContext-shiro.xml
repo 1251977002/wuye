@@ -22,19 +22,21 @@
 
     <!-- Shiro Filter -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <!--<property name="securityManager" ref="securityManager" />
-        <property name="loginUrl" value="/user/index" />&lt;!&ndash;去登录页的url&ndash;&gt;
-        <property name="successUrl" value="/user/main" />&lt;!&ndash;登录成功之后的url&ndash;&gt;
-        <property name="unauthorizedUrl" value="/user/403" />&lt;!&ndash;没有权限的请求跳转/403&ndash;&gt;
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/admin/index" /><!--去登录页的url-->
+        <property name="successUrl" value="owe/owe-data" /><!--登录成功之后的url-->
+        <property name="unauthorizedUrl" value="/admin/403" /><!--没有权限的请求跳转/403-->
         <property name="filterChainDefinitions">
             <value>
-                /user/login= anon &lt;!&ndash;去登录时放行&ndash;&gt;
-                &lt;!&ndash;/adduser=roles[管理员]&ndash;&gt;
-                /user/adduser = perms[adduser]&lt;!&ndash;请求的url 是 /adduser 当前的登录者要具有adduser的权限&ndash;&gt;
-                /static/**=anon &lt;!&ndash;static 静态资源放行&ndash;&gt;
-                /** = authc&lt;!&ndash;所有的请求都要经过认证&ndash;&gt;
+                /admin/index= anon
+                /admin/login= anon <!--去登录时放行-->
+                /adduser = perms[adduser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
+                /deleteuser = perms[deleteuser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
+                /edituser = perms[edituser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
+                /assets/**=anon <!--static 静态资源放行-->
+                /** = authc<!--所有的请求都要经过认证-->
             </value>
-        </property>-->
+        </property>
     </bean>
 
 </beans>

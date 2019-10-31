@@ -51,8 +51,8 @@ public class CostController {
     //分页显示物业账单信息
     @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
     @ResponseBody
-    public PageInfo<Propert> findByPage(int pageNum){
-        PageInfo<Propert> pageInfo = propertService.findByPage(pageNum);
+    public PageInfo findByPage(int pageNum){
+        PageInfo pageInfo = propertService.findByPage(pageNum);
         return pageInfo;
     }
 

@@ -18,6 +18,15 @@ public class User {
     private String buildingname;
     private String housenum;
     private int roleid;
+    private List<Role> roleList;
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
     private Propert propert;
 
     public int getId() {
@@ -84,16 +93,16 @@ public class User {
         this.owemoney = owemoney;
     }
 
-    public String getBuildingname() {
-        return buildingname;
+    public int getBuildingid() {
+        return buildingid;
     }
 
-    public void setBuildingname(String buildingname) {
-        this.buildingname = buildingname;
+    public void setBuildingid(int buildingid) {
+        this.buildingid = buildingid;
     }
 
-    public String getHousenum() {
-        return housenum;
+    public int getHouseid() {
+        return houseid;
     }
 
     public void setHouseid(int houseid) {
@@ -108,19 +117,5 @@ public class User {
         this.roleid = roleid;
     }
 
-    public Propert getPropert() {
-        return propert;
-    }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
-    }
-
-    public String getUnitname() {
-        return unitname;
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
-    }
 }
