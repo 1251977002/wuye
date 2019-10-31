@@ -1,8 +1,5 @@
 package com.dz.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.io.Serializable;
 import java.util.List;
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class User implements Serializable {
@@ -121,6 +118,25 @@ public class User implements Serializable {
         this.roleid = roleid;
     }
 
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
+
+    public String getBuildingname() {
+        return buildingname;
+    }
+
+    public void setBuildingname(String buildingname) {
+        this.buildingname = buildingname;
+    }
+
+    public String getHousenum() {
+        return housenum;
+    }
 
     public String getBuildingname() {
         return buildingname;
@@ -160,5 +176,16 @@ public class User implements Serializable {
 
     public void setModel(Model model) {
         this.model = model;
+    }
+    public void setHousenum(String housenum) {
+        this.housenum = housenum;
+    }
+
+    public Propert getPropert() {
+        return propert;
+    }
+
+    public void setPropert(Propert propert) {
+        this.propert = propert;
     }
 }

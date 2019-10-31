@@ -25,4 +25,9 @@ public class UnitService {
     public void deleteUnit(int id) {
         unitDao.deleteUnit(id);
     }
+
+    //根据单元名称查
+    public Unit findByName(String name) {
+        return unitDao.findByName(name);
+    }
 }

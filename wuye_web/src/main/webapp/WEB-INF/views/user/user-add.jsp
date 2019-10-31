@@ -51,10 +51,10 @@
                     业主管理:
                 </li>
                 <li>
-                    <a href="user-list.jsp">业主列表</a>
+                    <a href="/user/list">业主列表</a>
                 </li>
                 <li class='active'>
-                    <a href="user-add.jsp">业主入住</a>
+                    <a href="/user/add">业主入住</a>
                 </li>
             </ul>
         </div>
@@ -68,15 +68,14 @@
         <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="user-list.jsp
-              ">&lt; 查看业主列表</a></p>
+            <p><a href="/user/list">&lt; 查看业主列表</a></p>
 
         </div>
 
         <!--页面右侧-->
         <div class="main">
 
-            <form class="form-horizontal" enctype="multipart/form-data" action="3" method="post">
+            <form class="form-horizontal" method="post" action="/user/save">
                 <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
                 <input type="hidden" name="id" value="0"/>
 
@@ -98,12 +97,8 @@
                                 <span class="text-danger">*</span>楼栋号
                             </td>
                             <td>
-                                <select class="form-control chosen" name="status">
-                                    <option value="1">一栋</option>
-                                    <option value="2">二栋</option>
-                                    <option value="3">三栋</option>
-                                    <option value="4">四栋</option>
-                                    <option value="5">五栋</option>
+                                <select class="form-control buildingselect" name="buildingname">
+                                    <%--楼栋list--%>
                                 </select>
                             </td>
                         </tr>
@@ -113,75 +108,59 @@
                                 <span class="text-danger">*</span>单元房号
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="title" value="" placeholder="">
+                                <input type="text" class="form-control unithousenum" name="unithouse" value="" placeholder="">
+                                <span id = "error" style="color: red"></span>
                             </td>
                         </tr>
-
                         <tr>
                             <td class="form-title">
                                 <span class="text-danger">*</span>户型
                             </td>
                             <td>
-                                <select class="form-control chosen" name="status">
-                                    <option value="1">三房两厅（119平米）</option>
-                                    <option value="2">两房两厅（89平米）</option>
-                                    <option value="3">四房两厅（139平米）</option>
+                                <select class="form-control  modelselect" name="modelid">
+                                    <%--房型、面积--%>
                                 </select>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td class="form-title">
-                                <span class="text-danger">*</span>物业费标准
-                            </td>
-                            <td>
-                                <select class="form-control chosen" name="status">
-                                    <option value="1">洋房A（0.4元/平米/年）</option>
-                                    <option value="1">洋房B（0.5元/平米/年）</option>
-                                    <option value="2">联排别墅（0.6元/平米/年）</option>
-                                    <option value="2">独栋别墅（0.7元/平米/年）</option>
-                                </select>
-                            </td>
-                        </tr>
-
                         <tr>
                             <td class="form-title">物业费用</td>
                             <td>
-                                47.6元/年（选择了「户型」和「物业费标准」，系统会自动计算该楼层的物业费用）
+                                <span id = "money"></span>元/年（选择了「户型」，系统会自动计算该楼层的物业费用）
                             </td>
                         </tr>
-
-
                         <tr>
                             <td class="form-title"><span class="text-danger">*</span>
                                 户主姓名
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="title" value="" placeholder="">
+                                <input type="text" class="form-control" name="username" value="" placeholder="">
                             </td>
                         </tr>
-
-
+                        <tr>
+                            <td class="form-title"><span class="text-danger">*</span>
+                                户主性别
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="sex" value="" placeholder="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-title"><span class="text-danger">*</span>
+                                户主证件号
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="card" value="" placeholder="">
+                            </td>
+                        </tr>
                         <tr>
                             <td class="form-title"><span class="text-danger">*</span>
                                 联系方式
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="title" value="" placeholder="">
+                                <input type="text" class="form-control" name="tel" value="" placeholder="">
                             </td>
                         </tr>
-                        <tr>
-                            <td class="form-title">
-                                <span class="text-danger">*</span>星级
-                            </td>
-                            <td>
-                                <input id="comment" name="comment" class="rating" min="0" max="5" step="1"
-                                       data-size="xss" value="5">
-
-                                </select>
-                            </td>
-                        </tr>
-                        <tr style="height: 100px;">
+                        <%--<tr style="height: 100px;">
                             <td class="form-title">
                                 上传文件
                             </td>
@@ -212,34 +191,31 @@
 
                                 <!--  <input type="file" id="exampleInputFile"> -->
                             </td>
-                        </tr>
+                        </tr>--%>
                         </tbody>
                     </table>
                 </div>
-            </form>
-            </tr>
 
             <table class="table form-table">
                 <tbody>
                 <tr>
                     <td class="form-title"></td>
                     <td>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">保存</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block savebtn">保存</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div>
 
-        </form>
+            </form>
     </div>
 </div>
 </div>
 <!-- /container -->
 <!-- <script src="./assets/vendors/jquery-1.10.2.min.js"></script> -->
 <script src="${basePath}assets/vendors/webuploader/jquery.js"></script>
-<script src="${basePath}assets/vendors/webuploader/webuploader.js"></script>
-<script src="${basePath}assets/vendors/webuploader//upload.js"></script>
+<%--<script src="${basePath}assets/vendors/webuploader/webuploader.js"></script>
+<script src="${basePath}assets/vendors/webuploader/upload.js"></script>--%>
 <script type="text/javascript">
 
 </script>
@@ -267,6 +243,67 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#comment").rating();
+    });
+    //楼栋
+    $.ajax({
+        type:"GET",
+        url:"/building/findAll",
+        success:function (json) {
+            console.log(json);
+            $(json).each(function () {
+                $(".buildingselect").append("<option value=" + this.name + ">" + this.name + "</option>");
+            });
+        },
+    });
+    //房型
+    $.ajax({
+        type:"GET",
+        url:"/model/findAll",
+        success:function (json) {
+            console.log(json);
+            $(json).each(function (index) {
+                $(".modelselect").append("<option value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
+                if(index == 0){
+                    $("#money").html(this.propertmoney);
+                }
+            });
+        },
+    });
+    //改变房型、物业费自动更改
+    $(".modelselect").change(function () {
+        $.ajax({
+            type:"GET",
+            url:"/model/findModelById",
+            data:{
+                modelid:$(".modelselect").val(),
+            },
+            success:function (json) {
+                $("#money").html("");
+                $("#money").html(json.propertmoney);
+            }
+        });
+    });
+    //单元房号离开焦点、查找有没有user住
+    $(".unithousenum").blur(function () {
+        $.ajax({
+            type:"GET",
+            url:"/user/findByBuildAndUnitHouse",
+            data:{
+                buildingname:$(".buildingselect").val(),
+                unitname:$(".unithousenum").val().substring(0,3),
+                housenum:$(".unithousenum").val().substring(3),
+            },
+            success:function (json) {
+                if(json != null && json != "" && json != "null"){
+                    $("#error").html("该房间已有住户");
+                    $(".savebtn").attr("disabled",true);
+                }
+            }
+        });
+        $(".unithousenum").focus(function () {
+            $("#error").html("");
+            $(".savebtn").attr("disabled",false);
+        });
     });
 </script>
 

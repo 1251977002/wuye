@@ -6,13 +6,9 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 import java.util.Map;
 
-import com.dz.pojo.User;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
 
-import com.dz.pojo.User;
-import org.apache.ibatis.annotations.*;
 
 public interface UserDao {
 
@@ -28,6 +24,7 @@ public interface UserDao {
     User findByLoginName(String username);
 
     //分页显示用户
+
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getUserSQL")
     List<User> findUserByParam(Map<String,Object> map);
 
@@ -38,6 +35,14 @@ public interface UserDao {
             @Result(id = true,column = "id",property = "id"),
             @Result(column = "id",property = "model",one= @One(select = "com.dz.dao.ModelDao.findByUid"))
     })
+    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})")
     User findByPid(Integer pid);
 
+    //保存user
+    @Insert("insert into t_user (username,password,sex,card,tel,buildingname,unitname,housenum) values (#{username},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum})")
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
+    void save(User user);
+
+    @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
+    User findByBuildAndUnitHouse(User user);
 }
