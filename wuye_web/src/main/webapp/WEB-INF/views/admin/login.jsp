@@ -33,6 +33,8 @@
     <![endif]-->
   </head>
   <body class="sign-page">
+  <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
+
 
     <!--[if lt IE 10]>
     <div id="browser-warning" class="contextual bg-danger center navbar-fixed-top">
@@ -43,28 +45,40 @@
     <![endif]-->
     <div class="container">
       
-      <form class="form-signin" method="post">
+      <form action="/admin/login" class="form-signin" method="post">
         <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md"/>
 
         <h2 class="form-signin-heading">物业管理系统</h2>
 
-        <div class="alert alert-danger alert-dismissible fade in" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-          用户名或密码错误
-        </div>
 
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="text" id="inputEmail" class="form-control" name="email" placeholder="用户名或邮箱" required autofocus>
+
+        <label for="name" class="sr-only">Email</label>
+
+        <input type="text" id="name" class="form-control" name="username" placeholder="用户名" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
+
         <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+        <c:if test="${msg eq '用户名或密码错误'}">
+        <div class="alert alert-info" role="alert" id="alert"> ${msg}</div><br>
+        </c:if>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-        <!--div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> 记住密码
-          </label>
-        </div-->
+        <br>
       </form>
 
+
+
+
+
+
     </div> <!-- /container -->
+    <script>
+      $(function () {
+        $('#forget').onclick(function () {
+          alert("请您携带身份证，前往物业中心，验证身份并找回密码！")
+        })
+      })
+
+    </script>
+
   </body>
 </html>

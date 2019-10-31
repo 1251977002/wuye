@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!--头部主标题导航-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -11,7 +12,7 @@
             <!--头部菜单-->
             <ul class="nav navbar-nav">
                 <li class="${(param.menu eq 'owe') ? 'active' : ''}"><a href="control-data.jsp">欠费管理</a></li>
-                <li class="${(param.menu eq 'room') ? 'active' : ''}" ><a href="room-list.jsp">套房管理</a></li>
+                <li class="${(param.menu eq 'room') ? 'active' : ''}" ><a href="/room/roomlist">套房管理</a></li>
                 <li class="${(param.menu eq 'cost') ? 'active' : ''}"><a href="cost-list.jsp">收费管理</a></li>
                 <li class="${(param.menu eq 'user') ? 'active' : ''}" ><a href="owner-list.jsp">业主管理</a></li>
                 <li class="${(param.menu eq 'notice') ? 'active' : ''}"><a href="notice-list.jsp">公告板</a></li>
@@ -22,8 +23,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Saturn</li>
-                        <li><a href="#">退出</a></li>
+                        <li class="dropdown-header">尊敬的<shiro:principal/> ，您好！</li>
+                        <li><a href="/admin/logout">退出</a></li>
+
                     </ul>
                 </li>
             </ul>

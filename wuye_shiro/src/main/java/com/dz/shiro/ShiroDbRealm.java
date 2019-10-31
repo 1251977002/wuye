@@ -1,13 +1,17 @@
 package com.dz.shiro;
 
 
+import com.dz.pojo.Permission;
+import com.dz.pojo.Role;
 import com.dz.pojo.User;
 import com.dz.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -17,18 +21,11 @@ import java.util.Set;
 
 @Component
 public class ShiroDbRealm extends AuthorizingRealm {
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
-    }
 
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        return null;
-    }
-    /*@Autowired
+    @Autowired
     private UserService userService;
-    *//*授权：分配角色和权限*//*
+
+    /*授权：分配角色和权限*/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         String loginName = (String) principalCollection.fromRealm(getName()).iterator().next();
@@ -59,15 +56,21 @@ public class ShiroDbRealm extends AuthorizingRealm {
         return null;
     }
 
-    *//*认证：登录*//*
+    /*认证：登录*/
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        String username = (String) token.getPrincipal();
+        String password = new String((char[]) token.getCredentials());
         User user = userService.findByLoginName(token.getUsername());
         if(user != null) {
             return new SimpleAuthenticationInfo(user.getUsername(),
                     user.getPassword(),getName());
         }
+        /*String md5Pwd = new Md5Hash(password,username).toHex();
+        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo(user,md5Pwd,
+                ByteSource.Util.bytes(username),getName()
+        );*/
         return null;
-    }*/
+    }
 }
