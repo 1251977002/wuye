@@ -1,8 +1,11 @@
 package com.dz.pojo;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class User {
+import java.io.Serializable;
+import java.util.List;
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
@@ -14,20 +17,21 @@ public class User {
     private double owemoney;
     private int buildingid;
     private int houseid;
-    private String unitname;
     private String buildingname;
     private String housenum;
+    private String modelid;
     private int roleid;
+    private Propert propert;
+    private Model model;
     private List<Role> roleList;
+
 
     public List<Role> getRoleList() {
         return roleList;
     }
-
     public void setRoleList(List<Role> roleList) {
         this.roleList = roleList;
     }
-    private Propert propert;
 
     public int getId() {
         return id;
@@ -118,4 +122,43 @@ public class User {
     }
 
 
+    public String getBuildingname() {
+        return buildingname;
+    }
+
+    public void setBuildingname(String buildingname) {
+        this.buildingname = buildingname;
+    }
+
+    public String getHousenum() {
+        return housenum;
+    }
+
+    public void setHousenum(String housenum) {
+        this.housenum = housenum;
+    }
+
+    public String getModelid() {
+        return modelid;
+    }
+
+    public void setModelid(String modelid) {
+        this.modelid = modelid;
+    }
+
+    public Propert getPropert() {
+        return propert;
+    }
+
+    public void setPropert(Propert propert) {
+        this.propert = propert;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
 }

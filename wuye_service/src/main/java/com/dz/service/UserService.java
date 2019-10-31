@@ -2,13 +2,8 @@ package com.dz.service;
 
 import com.dz.dao.UserDao;
 import com.dz.pojo.User;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import com.dz.dao.UserDao;
-import com.dz.pojo.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,11 +12,9 @@ import org.springframework.util.StringUtils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 @Transactional/*事务控制*/
 @Service
 public class UserService {
-
     @Autowired
     private UserDao userDao;
 
@@ -45,7 +38,6 @@ public class UserService {
         return pageInfo;
     }
 
-    
-
+    //分页
 
 }

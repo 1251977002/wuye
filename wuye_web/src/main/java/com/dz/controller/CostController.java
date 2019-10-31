@@ -1,6 +1,5 @@
 package com.dz.controller;
 
-import com.dz.pojo.Building;
 import com.dz.pojo.Pay;
 import com.dz.pojo.Propert;
 import com.dz.service.PayService;
@@ -8,11 +7,10 @@ import com.dz.service.PropertService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -51,8 +49,8 @@ public class CostController {
     //分页显示物业账单信息
     @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
     @ResponseBody
-    public PageInfo findByPage(int pageNum){
-        PageInfo pageInfo = propertService.findByPage(pageNum);
+    public PageInfo findByPage(int pageNum,String buildingname,String username){
+        PageInfo pageInfo = propertService.findByPage(pageNum,buildingname,username);
         return pageInfo;
     }
 
@@ -65,13 +63,22 @@ public class CostController {
     }
 
     //收取物业费
-    @RequestMapping(value = "findByBidAndUid",produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "findByBnameAndUname",produces = "application/json;charset=utf-8")
     @ResponseBody
-    public Propert findByBidAndUid(HttpServletRequest request, HttpServletResponse response){
-        String buildingname = request.getParameter("buildingid");
-
-        String username = request.getParameter("username");
-        Propert propert = propertService.findByBidAndUid(buildingname,username);
+    public Propert findByBnameAndUname(String buildname, String username){
+        Propert propert = propertService.findByBnameAndUname(buildname,username);
         return propert;
     }
+
+    //收取物业费
+    @RequestMapping(value = "findByYear",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public Propert findByYear(int year,double promoney,double owemoney){
+        double money = owemoney + promoney * year;
+
+        Propert propert = new Propert();
+        return propert;
+    }
+
+
 }

@@ -27,8 +27,8 @@ public class BuildingService {
     }
 
 
-
     public List<Building> findAll() {
         return buidlingDao.findAll();
     }
+
 }

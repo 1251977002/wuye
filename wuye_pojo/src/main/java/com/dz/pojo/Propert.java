@@ -17,6 +17,7 @@ public class Propert implements Serializable {
     private String begintime;/*开始时间*/
     private String endtime;
     private User user;
+    private String username;
     private int userid;
     private int payid;
     private String payway; /*缴费方式*/
@@ -123,5 +124,13 @@ public class Propert implements Serializable {
 
     public void setPayway(String payway) {
         this.payway = payway;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
