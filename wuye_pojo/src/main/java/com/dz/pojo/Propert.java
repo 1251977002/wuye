@@ -1,6 +1,10 @@
 package com.dz.pojo;
 
-public class Propert {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class Propert implements Serializable {
     
     /*物业费表*/
     private int id;

@@ -7,6 +7,15 @@ public class Role {
     private int id;
     private String rolename;
     private List<User> userList;
+    private List<Permission> permissionList;
+
+    public List<Permission> getPermissionList() {
+        return permissionList;
+    }
+
+    public void setPermissionList(List<Permission> permissionList) {
+        this.permissionList = permissionList;
+    }
 
     public int getId() {
         return id;
