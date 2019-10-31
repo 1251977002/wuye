@@ -12,4 +12,8 @@ public interface HouseDao {
             @Result(column = "id",property = "unitid",many = @Many(select = "com.dz.dao.UnitDao.findById"))
     })*/
     List<House> findById(int hid);
+
+    //保存house信息
+    @Select("insert into t_house (housenum,userid,unitid,modelid) values (#{housenum},#{userid},#{unitid},#{modelid})")
+    void save(House house);
 }

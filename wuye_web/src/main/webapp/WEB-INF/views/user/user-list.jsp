@@ -23,6 +23,7 @@
     <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="${basePath}assets/page.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${basePath}assets/vendors/star/star-rating.css">
+    <link rel="stylesheet" href="../../../assets/layui/layui.css">
     <!-- Custom styles for this template -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -81,20 +82,16 @@
             <div class="form-group">
 
                 <label>请输入 业主姓名</label>
-                <input type="text" class="form-control username"  value="${(param.username == null) ? "" : (param.username)}" name="username" value="" placeholder="">
+                <input type="text" class="form-control username"  value="" name="username" value="" placeholder="">
             </div>
 
             <div class="form-group-btns">
                 <button type="button" class="btn btn-sm btn-primary selectInfo">筛选</button>
-                <a href="#" class="btn btn-sm btn-default">重置</a>
+                <a href="javascript:;" class="btn btn-sm btn-default cleanbtn">重置</a>
             </div>
-
-
     </div>
-
     <!--页面右侧-->
     <div class="main">
-
         <!--列表头部-->
         <div>
             <h5>
@@ -103,7 +100,6 @@
             </h5>
         </div>
         <!-- #列表头部-->
-
         <!--列表-->
         <div>
             <table class="table table-striped ">
@@ -622,13 +618,14 @@
 <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
 <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
 <script src="${basePath}assets/vendors/star/star-rating.js"></script>
+<script src="../../../assets/layui/layui.js"></script>
 <%--分页--%>
 <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
 <script src="${basePath}assets/mustache.js"></script>
 <script id="template" type="x-tmpl-mustache">
  <tr>
                     <td>{{buildingname}}</td>
-                    <td>三单元{{housenum}}</td>
+                    <td>{{unitname}}{{housenum}}</td>
                     <td>{{username}}</td>
                     <td>{{sex}}</td>
                     <td>{{card}}</td>
@@ -638,10 +635,10 @@
                             <span class="glyphicon glyphicon-pencil"></span>
                             更改
                         </button>
-                        <button class="btn btn-xs btn-danger">
+                        <%--<button class="btn btn-xs btn-danger">--%>
                             <span class="glyphicon glyphicon-remove"></span>
-                            删除
-                        </button>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        <%--</button>--%>
                     </td>
                 </tr>
 </script>
@@ -662,6 +659,24 @@
                 $(".buildingselect").append("<option value=" + this.name + ">" + this.name + "</option>");
             });
         },
+    });
+    //删除
+    $(".userinfo").on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+        var data = obj.data //获得当前行数据
+            ,layEvent = obj.event; //获得 lay-event 对应的值
+        if(layEvent === 'del'){
+            layer.confirm('真的删除行么', function(index){
+                obj.del(); //删除对应行（tr）的DOM结构
+                layer.close(index);
+                //向服务端发送删除指令
+            });
+        }
+    });
+    //重置、清空左侧内容
+    $(".cleanbtn").click(function () {
+        $(".username").val("");
+        $(".buildingselect").val("");
+        pageStart();
     });
     //分页
     pageStart();//开始分页

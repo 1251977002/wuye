@@ -22,4 +22,7 @@ public interface UnitDao {
 
     @Select("select * from t_unit where id = #{uid}")
     Unit findById(int uid);
+
+    @Select("select * from t_unit where name = #{name}")
+    Unit findByName(String name);
 }

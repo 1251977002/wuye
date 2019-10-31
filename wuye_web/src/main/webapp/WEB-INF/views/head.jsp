@@ -14,7 +14,7 @@
                 <li class="${(param.menu eq 'owe') ? 'active' : ''}"><a href="control-data.jsp">欠费管理</a></li>
                 <li class="${(param.menu eq 'room') ? 'active' : ''}" ><a href="/room/roomlist">套房管理</a></li>
                 <li class="${(param.menu eq 'cost') ? 'active' : ''}"><a href="cost-list.jsp">收费管理</a></li>
-                <li class="${(param.menu eq 'user') ? 'active' : ''}" ><a href="owner-list.jsp">业主管理</a></li>
+                <li class="${(param.menu eq 'user') ? 'active' : ''}" ><a href="/user/list">业主管理</a></li>
                 <li class="${(param.menu eq 'notice') ? 'active' : ''}"><a href="notice-list.jsp">公告板</a></li>
                 <li class="${(param.menu eq 'bbs') ? 'active' : ''}"><a href="bbs-list.jsp">社区论坛</a></li>
             </ul>
