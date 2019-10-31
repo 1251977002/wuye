@@ -40,44 +40,9 @@
         
     <div class="list-container have-subhead">
 
-      <!--头部副标题导航-->
-      <nav class="navbar navbar-fixed-top subhead">
-        <div class="navbar-collapse collapse">
-          <ul class="sub-list">
-            <li class='bread'>
-              套房管理:
-            </li>
-            <li>
-              <a href="room-list.jsp">套房列表</a>
-            </li>
-            <li>
-              <a href="room-add.jsp">添加套房</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li >
-              <a href="../building/building-list.jsp">楼栋列表</a>
-            </li>
-            <li >
-              <a href="../building/building-add.jsp">添加楼栋</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="../unit/unit-list.jsp">单元列表</a>
-            </li>
-            <li>
-              <a href="../unit/unit-add.jsp">添加单元</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li class='active'>
-              <a href="../model/model-list.jsp">户型列表</a>
-            </li>
-            <li>
-              <a href="../model/model-add.jsp">添加户型</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- #头部副标题导航-->
+      <jsp:include page="../headSecond.jsp">
+        <jsp:param name="menu" value="modellist" />
+      </jsp:include>
 
       <!--页面主体-->
           <div class="list-container have-subhead">
