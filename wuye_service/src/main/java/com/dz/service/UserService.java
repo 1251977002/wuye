@@ -16,7 +16,7 @@ import java.util.Map;
 public class UserService {
     @Autowired
     private UserDao userDao;
-
+    //user列表分页
     public PageInfo<User> findUserByParam(int pageNum,String username,String status) {
         PageHelper.startPage(pageNum, 3);
         Map<String,Object> map = new HashMap<String,Object>();
@@ -28,10 +28,8 @@ public class UserService {
         }
         List<User> users = userDao.findUserByParam(map);
         PageInfo<User> pageInfo = new PageInfo<User>(users);
-        //pageInfo.setList(users);
         return pageInfo;
     }
 
-    //分页
 
 }
