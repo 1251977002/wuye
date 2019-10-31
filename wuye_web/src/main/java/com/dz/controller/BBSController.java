@@ -51,7 +51,7 @@ public class BBSController {
         bbsService.saveBBS(bbs);
         return "redirect:bbslist";
     }
-
+    /*展示BBS*/
     @RequestMapping(value = "bbsshow")
     public String bbsShow(int bbsid, Model model){
         BBS bbs =bbsService.findByid(bbsid);
