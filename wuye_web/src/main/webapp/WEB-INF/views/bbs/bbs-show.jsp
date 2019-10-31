@@ -38,10 +38,10 @@
                                论坛管理:
               </li>
               <li class='active'>
-                <a href="bbs-list.jsp">帖子列表</a>
+                <a href="/bbs/bbslist">帖子列表</a>
               </li>
                <li >
-                <a href="bbs-post.jsp">我要发贴</a>
+                <a href="/bbs/bbspost">我要发贴</a>
               </li>
             </ul>
             
@@ -53,7 +53,7 @@
             <!--页面左侧-->
             <div class="sidebar">
             	<h1>我要发贴</h1>
-            	<p><a href="bbs-post.jsp">&lt; 去发贴</a></p>
+            	<p><a href="/bbs/bbspost">&lt; 去发贴</a></p>
           	</div>
 
             <!--页面右侧-->
@@ -74,12 +74,12 @@
                 <span class="username">
                 	楼主：<a href="#">Jonathan Burke Jr.</a>
                 </span>
-                <span class="description">发布于23分钟之前</span>
+                <span class="description">${bbs.createtime}</span>
               </div>
               <!-- /.user-block -->
               <div class="box-tools">
                 
-                <a href = "bbs-list.jsp">返回帖子列表</a>
+                <a href = "/bbs/bbslist">返回帖子列表</a>
                 
               </div>
               <!-- /.box-tools -->
@@ -87,21 +87,9 @@
             <!-- /.box-header -->
             <div class="box-body">
               <!-- post text -->
-              <h4 style="color: #5092BD;"><strong>资料标题</strong></h4>
+              <h4 style="color: #5092BD;"><strong>${bbs.title}</strong></h4>
 
-              <p>没有the coast of the Semantics, a large language ocean.
-                A small river named Duden flows by their place and supplies
-                it with the necessary regelialia. It is a paradisematic
-                country, in which roasted parts of sentences fly into
-                your mouththe coast of the Semantics, a large language ocean.
-                A small river named Duden flows by their place and supplies
-                it with the necessary regelialia. It is a paradisematic
-                country, in which roasted parts of sentences fly into
-                your mouththe coast of the Semantics, a large language ocean.
-                A small river named Duden flows by their place and supplies
-                it with the necessary regelialia. It is a paradisematic
-                country, in which roasted parts of sentences fly into
-                your mouth</p>
+              <p>${bbs.content}</p>
 
               <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
               <button type = "button" class="btn btn-default btn-xs" id = "comt"><i class="fa fa-comments-o"></i> Comments</button>
@@ -109,8 +97,9 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer box-comments">
-							<div class="box-comment">               
-                <div>
+
+                <div class="comments">
+                    <div class="box-comment">
                       <span class="username" style="color: #6292CE;">
                         Nora Havisham：
                         <span class="text-muted pull-right">2019-12-8 14:36:26</span>
@@ -122,7 +111,7 @@
                 <!-- /.comment-text -->
               </div>
               <!-- /.box-comment -->
-							<div class = "pull-right"><a href = "#">查看更多→</a></div>
+                <div class = "pull-right more" ><a href = "#" >查看更多→</a></div>
             </div>
             <!-- /.box-footer -->
             <div class="box-footer">
@@ -152,23 +141,69 @@
              window.open(toUrl);         
         }
 </script> -->
-
-    <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
-    <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
-    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
-    <script src="${basePath}assets/vendors/lodash.min.js"></script>
-    <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
-    <script src="${basePath}assets/yoozi.js"></script>
-    <script src="${basePath}assets/common.js"></script>
+              <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
+              <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
+              <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
+              <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
+              <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
+              <script src="${basePath}assets/vendors/lodash.min.js"></script>
+              <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
+              <script src="${basePath}assets/yoozi.js"></script>
+              <script src="${basePath}assets/common.js"></script>
+              <script id="template" type="x-tmpl-mustache">
+                 <div class="box-comment">
+                      <span class="username" style="color: #6292CE;">
+                        Nora Havisham：
+                        <span class="text-muted pull-right">2019-12-8 14:36:26</span>
+                      </span><!-- /.username -->
+                  {{comment}}
+                </div>
+</script>
 
     <script type="text/javascript">
       $(document).ready(function(){
 
         //日期选择
         yoozi.datapicker('.datepicker');
+          $(function () {
+              pageStart();//开始分页
 
+              function pageStart() {//分页函数
+                  $.ajax({ //去后台查询第一页数据
+                          type: "GET",
+                          url: "/bbs/findPageBBS",
+                          dataType: "json",
+                          data: {pageNum: 1},	//参数：当前页为1
+                          success: function (data) {
+                              console.log(data);
+                              $("#main").html("");
+                              var template = $('#template').html();
+                              Mustache.parse(template);
+                              $(data.list).each(function () {
+                                  var rendered = Mustache.render(template, this);
+                                  $("#main").append(rendered);
+                              });
+
+
+                          }
+                      }
+                  )
+                  $(".more").click( function () {
+                      $.get("/contactnote/findById", {id:${bbs.id},pageNum:data.pageNum+1 }, function (json) {
+                          console.log(json);
+                          var template = $('#template').html();
+                          Mustache.parse(template2);
+                          $(json).each(function () {
+                              var rendered = Mustache.render(template,this);
+                              $(".comments").append(rendered);
+
+                          });
+
+                      });
+                     // $(this).hide();
+                  });
+              }
+          })
       });
     </script>
 

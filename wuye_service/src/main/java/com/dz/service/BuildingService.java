@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
+import java.util.List;
+
 @Service
 public class BuildingService {
 
@@ -22,5 +24,11 @@ public class BuildingService {
     /*删除楼栋信息*/
     public void deleteBuilding(int id) {
         buidlingDao.deletebuilding(id);
+    }
+
+
+
+    public List<Building> findAll() {
+        return buidlingDao.findAll();
     }
 }

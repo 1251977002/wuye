@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
+import com.dz.pojo.Unit;
+import org.apache.ibatis.annotations.Select;
+
 public interface UnitDao {
 
     /*查询所有单元信息*/
@@ -16,4 +19,7 @@ public interface UnitDao {
     /*删除单元信息*/
     @Delete("delete from t_unit where id = #{id}")
     void deleteUnit(int id);
+
+    @Select("select * from t_unit where id = #{uid}")
+    Unit findById(int uid);
 }

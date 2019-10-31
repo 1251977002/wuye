@@ -8,9 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
-@RequestMapping(value = "/building/")
+@RequestMapping("/building/")
 public class BuildingController {
     //楼栋
     @Autowired
@@ -33,5 +37,13 @@ public class BuildingController {
     public String deletebuilding(int id){
         buildingService.deleteBuilding(id);
         return "redirect:buildinglist";
+    }
+
+
+    @RequestMapping(value = "findAll",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public List<Building> findAll(){
+        List<Building> buildingList = buildingService.findAll();
+        return buildingList;
     }
 }

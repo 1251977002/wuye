@@ -7,7 +7,15 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
+import com.dz.pojo.Building;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
 public interface BuidlingDao {
+    String SELECT_FINDALL = "select * from t_building";
+    @Select(SELECT_FINDALL)
+    List<Building> findAll();
 
     /*查询所有楼栋列表*/
     @Select("select * from t_building")

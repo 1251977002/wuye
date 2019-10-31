@@ -14,6 +14,9 @@ public class User {
     private double owemoney;
     private int buildingid;
     private int houseid;
+    private String unitname;
+    private String buildingname;
+    private String housenum;
     private int roleid;
     private List<Role> roleList;
 
@@ -24,6 +27,7 @@ public class User {
     public void setRoleList(List<Role> roleList) {
         this.roleList = roleList;
     }
+    private Propert propert;
 
     public int getId() {
         return id;

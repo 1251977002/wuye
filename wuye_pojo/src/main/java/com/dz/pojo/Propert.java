@@ -1,17 +1,25 @@
 package com.dz.pojo;
 
-public class Propert {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class Propert implements Serializable {
     
     /*物业费表*/
     private int id;
+    private String buildingname;
+    private String housename;
     private String propertno;/*类型*/
     private double money;
     private String state;/*状态*/
     private String paytime;/*缴费日期*/
     private String begintime;/*开始时间*/
     private String endtime;
+    private User user;
     private int userid;
     private int payid;
+    private String payway; /*缴费方式*/
 
     public int getId() {
         return id;
@@ -19,6 +27,22 @@ public class Propert {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getBuildingname() {
+        return buildingname;
+    }
+
+    public void setBuildingname(String buildingname) {
+        this.buildingname = buildingname;
+    }
+
+    public String getHousename() {
+        return housename;
+    }
+
+    public void setHousename(String housename) {
+        this.housename = housename;
     }
 
     public String getPropertno() {
@@ -69,6 +93,14 @@ public class Propert {
         this.endtime = endtime;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public int getUserid() {
         return userid;
     }
@@ -83,5 +115,13 @@ public class Propert {
 
     public void setPayid(int payid) {
         this.payid = payid;
+    }
+
+    public String getPayway() {
+        return payway;
+    }
+
+    public void setPayway(String payway) {
+        this.payway = payway;
     }
 }
