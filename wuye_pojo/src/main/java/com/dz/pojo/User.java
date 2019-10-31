@@ -1,5 +1,8 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
 import java.util.List;
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class User implements Serializable {
@@ -17,6 +20,7 @@ public class User implements Serializable {
     private String buildingname;
     private String housenum;
     private String modelid;
+    private String unitname;
     private int roleid;
     private Propert propert;
     private Model model;
@@ -32,6 +36,14 @@ public class User implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
     }
 
     public void setId(int id) {
@@ -118,13 +130,6 @@ public class User implements Serializable {
         this.roleid = roleid;
     }
 
-    public String getUnitname() {
-        return unitname;
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
-    }
 
     public String getBuildingname() {
         return buildingname;
@@ -136,22 +141,6 @@ public class User implements Serializable {
 
     public String getHousenum() {
         return housenum;
-    }
-
-    public String getBuildingname() {
-        return buildingname;
-    }
-
-    public void setBuildingname(String buildingname) {
-        this.buildingname = buildingname;
-    }
-
-    public String getHousenum() {
-        return housenum;
-    }
-
-    public void setHousenum(String housenum) {
-        this.housenum = housenum;
     }
 
     public String getModelid() {
@@ -181,11 +170,4 @@ public class User implements Serializable {
         this.housenum = housenum;
     }
 
-    public Propert getPropert() {
-        return propert;
-    }
-
-    public void setPropert(Propert propert) {
-        this.propert = propert;
-    }
 }
