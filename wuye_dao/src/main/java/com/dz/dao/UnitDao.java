@@ -34,4 +34,8 @@ public interface UnitDao {
 
     @Select("select * from t_unit where name = #{name}")
     Unit findByName(String name);
+
+    //所有单元
+    @Select("select * from t_unit")
+    List<Unit> findAll();
 }

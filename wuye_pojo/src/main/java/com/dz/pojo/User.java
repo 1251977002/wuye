@@ -6,7 +6,6 @@ public class User {
     /*业主表 */
     private int id;
     private String username;
-    private String loginname;
     private String password;
     private String sex;
     private String card;
@@ -17,17 +16,25 @@ public class User {
     private String unitname;
     private String buildingname;
     private String housenum;
-    private int roleid;
-    private List<Role> roleList;
-
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
+    private int modelid;
+    private Model model;
     private Propert propert;
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public int getModelid() {
+        return modelid;
+    }
+
+    public void setModelid(int modelid) {
+        this.modelid = modelid;
+    }
 
     public int getId() {
         return id;
@@ -43,14 +50,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getLoginname() {
-        return loginname;
-    }
-
-    public void setLoginname(String loginname) {
-        this.loginname = loginname;
     }
 
     public String getPassword() {
@@ -109,13 +108,6 @@ public class User {
         this.houseid = houseid;
     }
 
-    public int getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(int roleid) {
-        this.roleid = roleid;
-    }
 
     public String getUnitname() {
         return unitname;
