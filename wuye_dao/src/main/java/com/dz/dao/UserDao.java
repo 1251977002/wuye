@@ -16,13 +16,6 @@ import org.apache.ibatis.annotations.*;
 
 public interface UserDao {
 
-
-    @Select("select * from t_user where username = #{username}")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    User findByLoginName(String username);
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getUserSQL")
     List<User> findUserByParam(Map<String,Object> map);
 
@@ -32,4 +25,7 @@ public interface UserDao {
     @Select(SELECT_BYPID)
     User findByPid(Integer pid);
 
+    /*添加套房信息*/
+    @Insert("insert into t_user(username,tel) values(#{username},#{tel})")
+    void saveroom(User user);
 }

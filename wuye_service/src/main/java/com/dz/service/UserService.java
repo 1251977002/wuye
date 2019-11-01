@@ -24,11 +24,6 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    /*登录时候需要验证*/
-    public User findByLoginName(String username) {
-        return userDao.findByLoginName(username);
-    }
-
     public PageInfo<User> findUserByParam(int pageNum,String username,String status) {
         PageHelper.startPage(pageNum, 3);
         Map<String,Object> map = new HashMap<String,Object>();
@@ -42,6 +37,12 @@ public class UserService {
         PageInfo<User> pageInfo = new PageInfo<User>(users);
         //pageInfo.setList(users);
         return pageInfo;
+    }
+
+
+    /*添加套房信息*/
+    public void saveroom(User user) {
+        userDao.saveroom(user);
     }
 
     //分页

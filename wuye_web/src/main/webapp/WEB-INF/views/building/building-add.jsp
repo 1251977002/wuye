@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,14 +52,14 @@
           <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="../room/room-list.jsp">&lt; 查看套房列表</a></p>
+            <p><a href="/room/roomlist">&lt; 查看套房列表</a></p>
 
           </div>
 
           <!--页面右侧-->
           <div class="main">
 
-            <form class="form-horizontal" enctype="multipart/form-data"  action="#/backend/admin/product" method="post">
+            <form class="form-horizontal" enctype="multipart/form-data"  action="/building/savebuilding" method="post">
               <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
               <input type="hidden" name="id" value="0"/>
 
@@ -80,7 +81,7 @@
                         <span class="text-danger">*</span>楼栋名称
                       </td>
                       <td>
-                        <input type="text" class="form-control" name="title" value="" placeholder="">
+                        <input type="text" class="form-control" name="name" value="" placeholder="">
                       </td>
                     </tr>
 
@@ -89,7 +90,7 @@
                         备注
                       </td>
                       <td>
-                        <textarea class="form-control" name="title"></textarea>
+                        <textarea class="form-control" name="note"></textarea>
                       </td>
                     </tr>
 

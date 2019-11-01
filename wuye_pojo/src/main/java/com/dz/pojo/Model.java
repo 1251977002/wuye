@@ -6,6 +6,15 @@ public class Model {
     private String modelname;
     private int area;/*面积*/
     private double propertmoney;/*物业费收费标准*/
+    private String note;/*备注*/
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public int getId() {
         return id;

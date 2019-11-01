@@ -25,4 +25,13 @@ public class UnitService {
     public void deleteUnit(int id) {
         unitDao.deleteUnit(id);
     }
+
+    /*添加单元信息*/
+    public void saveUnit(Unit unit) {
+        unitDao.saveUnit(unit);
+    }
+    /*添加套房列表中的信息*/
+    public void saveroom(Unit unit) {
+        unitDao.saveroom(unit);
+    }
 }
