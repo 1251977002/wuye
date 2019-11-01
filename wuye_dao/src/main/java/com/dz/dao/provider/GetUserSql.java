@@ -23,4 +23,21 @@ public class GetUserSql {
         System.out.println("SQL:" + sql);
         return sql;
     }
+    public String getPropertSQL(Map<String,Object> map){
+        String sql = "select * from t_property where ";
+        if (map.containsKey("username")){
+            sql += "username like #{username}";
+        }
+        if (map.containsKey("status")){
+            sql += "buildingname = #{status}";
+        }
+        if (sql.endsWith("where ")){
+            sql = sql.substring(0,sql.indexOf("where"));
+        }
+        if (sql.endsWith("and ")){
+            sql = sql.substring(0,sql.lastIndexOf("and"));
+        }
+        System.out.println("SQL:" + sql);
+        return sql;
+    }
 }

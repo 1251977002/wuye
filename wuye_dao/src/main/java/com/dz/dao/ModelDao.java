@@ -38,4 +38,5 @@ public interface ModelDao {
 
     @Select(FIND_BY_ID)
     Model findModelById(int modelid);
+
 }
