@@ -54,7 +54,7 @@
           <!--页面左侧-->
           <div class="sidebar">
             <h1>发布公告</h1>
-            <p><a href="notice-post.html">&lt; 去发公告</a></p>
+            <p><a href="#">&lt; 去发公告</a></p>
           </div>
 
           <!--页面右侧-->
@@ -76,14 +76,14 @@
 										  <div class="form-group">
 												<label class="control-label col-sm-2">标题</label>
 												<div class="col-sm-10">
-												  <input type="text" class="form-control" name="title">
+												  <input type="text" class="form-control" name="title" id="title" value="">
 												</div>
 										  </div>
 										  
 										  <div class="form-group">
 												<label class="control-label col-sm-2" >内容</label>
 												<div class="col-sm-10">
-													<textarea class="form-control" name="content" id="" rows="10"></textarea>
+													<textarea class="form-control" name="content" id="content" rows="10" ></textarea>
 												</div>
 										  </div>										 
 										  <div class="form-group">
@@ -91,7 +91,7 @@
 												  <button type="submit" class="btn btn-success btn-flat">
 													<li class = "fa fa-share"></li>&nbsp;发布
 												  </button>
-												  <a href = "document.html" class="btn btn-danger btn-flat pull-right">
+												  <a href = "#" class="btn btn-danger btn-flat pull-right docancel">
 													<li class = "fa fa-remove"></li>&nbsp;取消
 												  </a>
 												</div>
@@ -131,6 +131,11 @@
         yoozi.datapicker('.datepicker');
 
       });
+      $(".docancel").click(function(){
+          $(".title").val("");
+          $(".content").val("");
+      });
+
     </script>
   </body>
 </html>
