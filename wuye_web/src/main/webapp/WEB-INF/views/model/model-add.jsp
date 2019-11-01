@@ -51,14 +51,14 @@
           <div class="sidebar">
             <h1>返回</h1>
             <!--查询表单-->
-            <p><a href="../room/room-list.jsp">&lt; 查看套房列表</a></p>
+            <p><a href="/room/roomlist">&lt; 查看套房列表</a></p>
 
           </div>
 
           <!--页面右侧-->
           <div class="main">
 
-            <form class="form-horizontal" enctype="multipart/form-data"  action="#/backend/admin/product" method="post">
+            <form class="form-horizontal" enctype="multipart/form-data"  action="/model/savemodel" method="post">
               <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
               <input type="hidden" name="id" value="0"/>
 
@@ -75,20 +75,22 @@
               <div>
                 <table class="form-table">
                   <tbody>
+
                     <tr>
                       <td class="form-title">
                         <span class="text-danger">*</span>户型名称
                       </td>
                       <td>
-                        <input type="text" class="form-control" name="title" value="" placeholder="">
+                        <input type="text" class="form-control" name="modelname" value="" placeholder="">
                       </td>
                     </tr>
+
                     <tr>
                       <td class="form-title">
                         <span class="text-danger">*</span>面积（平米）
                       </td>
                       <td>
-                        <input type="text" class="form-control" name="title" value="" placeholder="">
+                        <input type="text" class="form-control" name="area" value="" placeholder="">
                       </td>
                     </tr>
 
@@ -97,7 +99,16 @@
                         备注
                       </td>
                       <td>
-                        <textarea class="form-control" name="title"></textarea>
+                        <textarea class="form-control" name="note"></textarea>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="form-title">
+                        物业费标准
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" name="propertmoney" value="" placeholder="">
                       </td>
                     </tr>
 

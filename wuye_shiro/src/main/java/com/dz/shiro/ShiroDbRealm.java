@@ -1,18 +1,21 @@
 package com.dz.shiro;
 
 
+import com.dz.pojo.Admin;
 import com.dz.pojo.Permission;
 import com.dz.pojo.Role;
 import com.dz.pojo.User;
+import com.dz.service.AdminService;
 import com.dz.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
-import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionContext;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,17 +26,17 @@ import java.util.Set;
 public class ShiroDbRealm extends AuthorizingRealm {
 
     @Autowired
-    private UserService userService;
+    private AdminService adminService;
 
     /*授权：分配角色和权限*/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         String loginName = (String) principalCollection.fromRealm(getName()).iterator().next();
-        User user = userService.findByLoginName(loginName);
-        if(user != null) {
+        Admin admin = adminService.findByLoginName(loginName);
+        if(admin != null) {
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
              //添加角色(Set集合<字符串>)
-            List<Role> roleList = user.getRoleList();
+            List<Role> roleList = admin.getRoleList();
             Set<String> roleSet = new HashSet<>();
             for(Role role : roleList){
                 String roleStr = role.getRolename();
@@ -42,7 +45,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
             info.setRoles(roleSet);
             //迭代用户对应的角色集合， 为了获取角色对应的权限
 
-            for(Role role : user.getRoleList()) {
+            for(Role role : admin.getRoleList()) {
                 List<String> permissionList = new ArrayList<>();
                 for(Permission permission : role.getPermissionList()){
                     permissionList.add(permission.getPermissionname());
@@ -60,17 +63,29 @@ public class ShiroDbRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        String username = (String) token.getPrincipal();
-        String password = new String((char[]) token.getCredentials());
-        User user = userService.findByLoginName(token.getUsername());
-        if(user != null) {
-            return new SimpleAuthenticationInfo(user.getUsername(),
-                    user.getPassword(),getName());
+        //用户账号
+        String adminname = (String) token.getPrincipal();
+        //从数据库中查找这个username，如果没有就会返回空
+        Admin admin = adminService.findByLoginName(token.getUsername());
+
+        if(admin != null) {
+            return new SimpleAuthenticationInfo(admin.getAdminname(),
+                    admin.getPassword(),getName());
         }
+        /*String password = user.getPassword();*/
+
+
         /*String md5Pwd = new Md5Hash(password,username).toHex();
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo(user,md5Pwd,
                 ByteSource.Util.bytes(username),getName()
         );*/
         return null;
+    }
+    @Bean
+    public DefaultWebSessionManager sessionManager(){
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+        //去掉shiro登录时出现的sessionID
+        sessionManager.setSessionIdUrlRewritingEnabled(false);
+        return sessionManager;
     }
 }

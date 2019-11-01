@@ -72,11 +72,11 @@
 
     </div> <!-- /container -->
     <script>
-      $(function () {
+      /*$(function () {
         $('#forget').onclick(function () {
           alert("请您携带身份证，前往物业中心，验证身份并找回密码！")
         })
-      })
+      })*/
 
     </script>
 

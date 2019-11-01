@@ -31,4 +31,14 @@ public class BuildingService {
     public List<Building> findAll() {
         return buidlingDao.findAll();
     }
+
+    /*添加楼栋信息*/
+    public void saveBuilding(Building building) {
+        buidlingDao.saveBuilding(building);
+    }
+
+    /*添加套房列表中的信息*/
+    public void saveroom(Building building) {
+        buidlingDao.saveroom(building);
+    }
 }

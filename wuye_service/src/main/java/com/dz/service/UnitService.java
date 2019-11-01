@@ -26,6 +26,15 @@ public class UnitService {
         unitDao.deleteUnit(id);
     }
 
+    /*添加单元信息*/
+    public void saveUnit(Unit unit) {
+        unitDao.saveUnit(unit);
+    }
+    /*添加套房列表中的信息*/
+    public void saveroom(Unit unit) {
+        unitDao.saveroom(unit);
+    }
+
     //根据单元名称查
     public Unit findByName(String name) {
         return unitDao.findByName(name);

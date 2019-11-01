@@ -36,4 +36,13 @@ public class UnitController {
         unitService.deleteUnit(id);
         return "redirect:unitlist";
     }
+    /*添加单元*/
+    @RequestMapping(value = "saveunit")
+    public String saveunit(String name,String note){
+        Unit unit = new Unit();
+        unit.setName(name);
+        unit.setNote(note);
+        unitService.saveUnit(unit);
+        return "redirect:unitlist";
+    }
 }

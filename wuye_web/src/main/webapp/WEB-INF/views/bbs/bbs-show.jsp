@@ -98,29 +98,23 @@
             <!-- /.box-body -->
             <div class="box-footer box-comments">
 
-                <div class="comments">
-                    <div class="box-comment">
-                      <span class="username" style="color: #6292CE;">
-                        Nora Havisham：
-                        <span class="text-muted pull-right">2019-12-8 14:36:26</span>
-                      </span><!-- /.username -->
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using
-                  'Content here, content here', making it look like readable English.
-                </div>
+                <div id="comments">
+
                 <!-- /.comment-text -->
               </div>
               <!-- /.box-comment -->
-                <div class = "pull-right more" ><a href = "#" >查看更多→</a></div>
+                <div class = "pull-right more" ><a href = "#" ref = "" >查看更多→</a></div>
             </div>
             <!-- /.box-footer -->
-            <div class="box-footer">
-							<form action="xxx" method="post" >					
-								<div class="img-push">
-								  <input type="text" id = "incomt" class="form-control input-sm" placeholder="请输入评论内容">
-								</div>
-							 </form>	
-            </div>
+              <div class="box-footer">
+                  <form action="/bbs/saveBBSComment" method="post">
+                      <input type="text"  class="form-control input-sm" placeholder="请输入评论内容"
+                             name="content">
+                      <input type="hidden" name="bbsid" value="${bbs.id}">
+                      <button type="submit" class="btn btn-default btn-xs send"
+                              style="float: right;margin-top: 10px"> 提交
+                      </button> </form>
+              </div>
             <!-- /.box-footer -->
           </div>
           
@@ -150,15 +144,17 @@
               <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
               <script src="${basePath}assets/yoozi.js"></script>
               <script src="${basePath}assets/common.js"></script>
+              <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+              <script src="${basePath}assets/mustache.js"></script>
               <script id="template" type="x-tmpl-mustache">
                  <div class="box-comment">
                       <span class="username" style="color: #6292CE;">
                         Nora Havisham：
-                        <span class="text-muted pull-right">2019-12-8 14:36:26</span>
+                        <span class="text-muted pull-right">{{createtime}}</span>
                       </span><!-- /.username -->
-                  {{comment}}
+                  {{content}}
                 </div>
-</script>
+            </script>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -169,42 +165,63 @@
               pageStart();//开始分页
 
               function pageStart() {//分页函数
+
                   $.ajax({ //去后台查询第一页数据
                           type: "GET",
-                          url: "/bbs/findPageBBS",
+                          url: "/bbs/findPageBBSComment",
                           dataType: "json",
-                          data: {pageNum: 1},	//参数：当前页为1
+                          data: {id:${bbs.id},pageNum: 1},	//参数：当前页为1
                           success: function (data) {
                               console.log(data);
-                              $("#main").html("");
+                              $("#comments").html("");
                               var template = $('#template').html();
                               Mustache.parse(template);
-                              $(data.list).each(function () {
-                                  var rendered = Mustache.render(template, this);
-                                  $("#main").append(rendered);
-                              });
+                              if(data.isLastPage){
+                                  $(data.list).each(function () {
+                                      var rendered = Mustache.render(template, this);
+                                      $("#comments").append(rendered);
+                                  });
+                                  $(".more").hide();
+                              }else {
+                                  $(data.list).each(function () {
+                                      var rendered = Mustache.render(template, this);
+                                      $("#comments").append(rendered);
+                                  });
+                              }
+                              var pageNum =1;
+                        $(".more").click( function () {
+                            pageNum=pageNum+1;
+                            $.get("/bbs/findPageBBSComment", {id:${bbs.id},pageNum:pageNum}, function (json) {
+                                console.log(json);
+                                pageNum = json.nextPage;
 
+                                var template = $('#template').html();
+                                Mustache.parse(template);
+                                if(json.isLastPage){
+                                    $(json.list).each(function () {
+                                        var rendered = Mustache.render(template, this);
+                                        $("#comments").append(rendered);
 
-                          }
-                      }
-                  )
-                  $(".more").click( function () {
-                      $.get("/contactnote/findById", {id:${bbs.id},pageNum:data.pageNum+1 }, function (json) {
-                          console.log(json);
-                          var template = $('#template').html();
-                          Mustache.parse(template2);
-                          $(json).each(function () {
-                              var rendered = Mustache.render(template,this);
-                              $(".comments").append(rendered);
+                                    });
+                                    $(".more").hide();
+                                }else {
+                                    $(json.list).each(function () {
+                                        var rendered = Mustache.render(template, this);
+                                        $("#comments").append(rendered);
 
-                          });
+                                    });
+                                }
 
                       });
-                     // $(this).hide();
+                      // $(this).hide();
                   });
-              }
+                  }
+
           })
-      });
+
+      }
+          })
+      })
     </script>
 
           </div>

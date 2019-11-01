@@ -38,6 +38,15 @@ public class BuildingController {
         buildingService.deleteBuilding(id);
         return "redirect:buildinglist";
     }
+    /*添加楼栋*/
+    @RequestMapping(value = "savebuilding")
+    public String savebuilding(String name,String note){
+        Building building = new Building();
+        building.setName(name);
+        building.setNote(note);
+        buildingService.saveBuilding(building);
+        return "redirect:buildinglist";
+    }
 
 
     @RequestMapping(value = "findAll",produces = "application/json;charset=utf-8")

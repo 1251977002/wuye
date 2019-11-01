@@ -1,11 +1,22 @@
 package com.dz.pojo;
 
+import java.util.List;
+
 public class Admin {
     /*管理员表 */
     private int id;
     private String adminname;
     private String password;
     private int roleid;
+    private List<Role> roleList;
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
 
     public int getId() {
         return id;

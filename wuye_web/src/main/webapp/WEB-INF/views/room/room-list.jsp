@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@include file="../basepath/basepath.jsp" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,7 @@
     <link rel="icon" href="">
 
     <title>楼盘列表 </title>
+
 
     <!-- Bootstrap core CSS -->
     <link href="${basePath}assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -83,25 +85,30 @@
         <!--页面右侧-->
         <div class="main">
 
-            <!--列表头部-->
+           <%-- <!--列表头部-->
             <div>
                 <h5>
                     <!--列表的标题-->
+                    &lt;%&ndash;测试 用户能不能看到  很NICE&ndash;%&gt;
                     套房列表
+                    你好：<shiro:principal/>
+                    <shiro:hasRole name="管理员">
+                        <a href="admin.jsp">Administer the system</a>
+                    </shiro:hasRole>
                     <!--迷你页码-->
-                    <span class="pagination-total pull-right">
+                  &lt;%&ndash;  <span class="pagination-total pull-right">
                     查询结果: 660 条记录，当前 1/66 页
                         <!--上一页-->
                     <a href="#" class="btn btn-xs btn-default">
                       <span class="glyphicon glyphicon glyphicon-menu-left"></span>
-                    </a>
+                    </a>&ndash;%&gt;
                         <!--下一页-->
                     <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
                       <span class="glyphicon glyphicon glyphicon-menu-right"></span>
                     </a>
                   </span>
                 </h5>
-            </div>
+            </div>--%>
             <!-- #列表头部-->
 
             <!--列表-->
@@ -121,31 +128,48 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>十栋</td>
-                        <td>洋房三单元601</td>
-                        <!--  <td>601</td> -->
-                        <td>三房两厅（119平米）</td>
-                        <td>47.6元/年</td>
-                        <td>张三</td>
-                        <td>13333333333</td>
-                        <td>2018-02-17</td>
-                        <td>0天</td>
-                        <td>
-                            <%-- <span class="glyphicon glyphicon-pencil"></span>
-                             更改
-                           </a> -->--%>
-                            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
-                                    data-target="#myModal">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                更改
-                            </button>
-                            <a href="#" class="btn btn-xs btn-danger">
-                                <span class="glyphicon glyphicon-remove"></span>
-                                删除
-                            </a>
-                        </td>
-                    </tr>
+
+                    <c:choose>
+                        <c:when test="${ (!empty buildinglist) && (fn:length(buildinglist) > 0)}">
+                            <c:forEach var="building" items="${buildinglist}" varStatus="sta">
+                                <tr>
+                                    <td>十栋</td>
+                                    <td>洋房三单元601</td>
+                                    <!--  <td>601</td> -->
+                                    <td>三房两厅（119平米）</td>
+                                    <td>47.6元/年</td>
+                                    <td>张三</td>
+                                    <td>13333333333</td>
+                                    <td>2018-02-17</td>
+                                    <td>0天</td>
+                                    <td>
+                                            <%-- <span class="glyphicon glyphicon-pencil"></span>
+                                             更改
+                                           </a> -->--%>
+
+                                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
+                                                data-target="#myModal">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                            更改
+                                        </button>
+                                        <a href="#" class="btn btn-xs btn-danger">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                            删除
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </c:forEach>
+
+
+                        </c:when>
+
+                    </c:choose>
+
+
+
+
+
                     <tr>
                         <td>十一栋</td>
                         <td>洋房三单元602</td>
