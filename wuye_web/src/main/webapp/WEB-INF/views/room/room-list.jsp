@@ -52,63 +52,54 @@
         <div class="sidebar">
             <h1>按条件查询</h1>
             <!--查询表单-->
-            <form method="get">
-                <div class="form-group">
-                    <label>请选择楼栋</label>
-                    <select class="form-control chosen" name="status">
-                        <option value="1">一栋</option>
-                        <option value="2">二栋</option>
-                        <option value="3">三栋</option>
-                    </select>
-                </div>
-                <div class="form-group">
 
-                    <label>请输入 单元房号/业主姓名/电话号码</label>
-                    <input type="text" class="form-control" name="word" value="" placeholder="">
-                </div>
-                <!--div class="form-group">
-                  <label>注册时间</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control datepicker" name="date[from]" value="" placeholder="0000-00-00">
-                    <span class="input-group-addon">至</span>
-                    <input type="text" class="form-control datepicker" name="date[to]" value="" placeholder="0000-00-00">
-                  </div>
-                </div-->
-                <div class="form-group-btns">
-                    <button type="submit" class="btn btn-sm btn-primary">筛选</button>
-                    <a href="#" class="btn btn-sm btn-default">重置</a>
-                </div>
-            </form>
+            <div class="form-group">
+                <label>请选择楼栋</label>
+                <select class="form-control chosen buildingselect" name="status">
+                    <option value="">--请选择楼栋--</option>
 
+                    <%--楼栋、ajax--%>
+                </select>
+            </div>
+            <div class="form-group">
+
+                <label>请输入 业主姓名</label>
+                <input type="text" class="form-control username" value="" name="username" value="" placeholder="">
+            </div>
+
+            <div class="form-group-btns">
+                <button type="button" class="btn btn-sm btn-primary selectInfo">筛选</button>
+                <a href="javascript:;" class="btn btn-sm btn-default cleanbtn">重置</a>
+            </div>
         </div>
 
         <!--页面右侧-->
         <div class="main">
 
-           <%-- <!--列表头部-->
-            <div>
-                <h5>
-                    <!--列表的标题-->
-                    &lt;%&ndash;测试 用户能不能看到  很NICE&ndash;%&gt;
-                    套房列表
-                    你好：<shiro:principal/>
-                    <shiro:hasRole name="管理员">
-                        <a href="admin.jsp">Administer the system</a>
-                    </shiro:hasRole>
-                    <!--迷你页码-->
-                  &lt;%&ndash;  <span class="pagination-total pull-right">
-                    查询结果: 660 条记录，当前 1/66 页
-                        <!--上一页-->
-                    <a href="#" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-left"></span>
-                    </a>&ndash;%&gt;
-                        <!--下一页-->
-                    <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-right"></span>
-                    </a>
-                  </span>
-                </h5>
-            </div>--%>
+            <%-- <!--列表头部-->
+             <div>
+                 <h5>
+                     <!--列表的标题-->
+                     &lt;%&ndash;测试 用户能不能看到  很NICE&ndash;%&gt;
+                     套房列表
+                     你好：<shiro:principal/>
+                     <shiro:hasRole name="管理员">
+                         <a href="admin.jsp">Administer the system</a>
+                     </shiro:hasRole>
+                     <!--迷你页码-->
+                   &lt;%&ndash;  <span class="pagination-total pull-right">
+                     查询结果: 660 条记录，当前 1/66 页
+                         <!--上一页-->
+                     <a href="#" class="btn btn-xs btn-default">
+                       <span class="glyphicon glyphicon glyphicon-menu-left"></span>
+                     </a>&ndash;%&gt;
+                         <!--下一页-->
+                     <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
+                       <span class="glyphicon glyphicon glyphicon-menu-right"></span>
+                     </a>
+                   </span>
+                 </h5>
+             </div>--%>
             <!-- #列表头部-->
 
             <!--列表-->
@@ -127,50 +118,10 @@
                         <th width="150">操作</th>
                     </tr>
                     </thead>
-                    <tbody>
-
-                    <c:choose>
-                        <c:when test="${ (!empty buildinglist) && (fn:length(buildinglist) > 0)}">
-                            <c:forEach var="building" items="${buildinglist}" varStatus="sta">
-                                <tr>
-                                    <td>十栋</td>
-                                    <td>洋房三单元601</td>
-                                    <!--  <td>601</td> -->
-                                    <td>三房两厅（119平米）</td>
-                                    <td>47.6元/年</td>
-                                    <td>张三</td>
-                                    <td>13333333333</td>
-                                    <td>2018-02-17</td>
-                                    <td>0天</td>
-                                    <td>
-                                            <%-- <span class="glyphicon glyphicon-pencil"></span>
-                                             更改
-                                           </a> -->--%>
-
-                                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
-                                                data-target="#myModal">
-                                            <span class="glyphicon glyphicon-pencil"></span>
-                                            更改
-                                        </button>
-                                        <a href="#" class="btn btn-xs btn-danger">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                            删除
-                                        </a>
-                                    </td>
-                                </tr>
-
-                            </c:forEach>
+                    <tbody class="mytable">
 
 
-                        </c:when>
-
-                    </c:choose>
-
-
-
-
-
-                    <tr>
+                    <%--<tr>
                         <td>十一栋</td>
                         <td>洋房三单元602</td>
                         <!--  <td>602</td> -->
@@ -181,9 +132,9 @@
                         <td>2018-09-17 <span class="label label-default">已延期</span></td>
                         <td>5天</td>
                         <td>
-                            <%--<span class="glyphicon glyphicon-pencil"></span>
+                            &lt;%&ndash;<span class="glyphicon glyphicon-pencil"></span>
                             更改
-                          </a> -->--%>
+                          </a> -->&ndash;%&gt;
                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
                                     data-target="#myModal">
                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -206,9 +157,9 @@
                         <td>2017-09-17 <span class="label label-warning">七天内到期</span></td>
                         <td>0天</td>
                         <td>
-                            <%-- <span class="glyphicon glyphicon-pencil"></span>
+                            &lt;%&ndash; <span class="glyphicon glyphicon-pencil"></span>
                              更改
-                           </a> -->--%>
+                           </a> -->&ndash;%&gt;
                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
                                     data-target="#myModal">
                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -219,31 +170,15 @@
                                 删除
                             </a>
                         </td>
-                    </tr>
+                    </tr>--%>
                     </tbody>
                 </table>
             </div>
             <!-- #列表-->
 
             <!--页码-->
-            <nav class="pull-right">
-                <ul class="pagination pagination-sm">
-                    <ul class="pagination">
-                        <li class="disabled"><span>&laquo;</span></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li class="disabled"><span>...</span></li>
-                        <li><a href="#">65</a></li>
-                        <li><a href="#">66</a></li>
-                        <li><a href="#" rel="next">&raquo;</a></li>
-                    </ul>
-                </ul>
+            <nav aria-label="Page navigation">
+                <ul id="mypage"></ul>
             </nav>
             <!-- #页码-->
 
@@ -649,13 +584,147 @@
                     <script src="${basePath}assets/yoozi.js"></script>
                     <script src="${basePath}assets/common.js"></script>
 
+                    <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+                    <script src="${basePath}assets/mustache.js"></script>
+
+
+
+                    <script id="template" type="x-tmpl-mustache">
+                    <tr>
+                        <td>{{buildingname}}</td>
+                        <td>{{unitname}}{{housenum}}</td>
+                        <td>{{user.modelname}}</td>
+                        <td>{{money}}/年</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.tel}}</td>
+                        <td>{{paytime}} <span class="label label-default">已延期</span></td>
+                        <td>5天</td>
+                        <td>
+
+                            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
+                                    data-target="#myModal">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                更改
+                            </button>
+                             <a href="javascript:;" rel= "{{id}}" class="btn btn-xs btn-danger" id="del">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                            删除
+                                        </a>
+                        </td>
+                    </tr>
+
+
+
+                    </script>
+
+
                     <script type="text/javascript">
                         $(document).ready(function () {
+                            $(".selectInfo").click(function () {
+                                pageStart();
+                            })
+                        });
 
-                            //日期选择
-                            yoozi.datapicker('.datepicker');
+                        $(".mytable").on("click","#del",function () {
+                            if (confirm("确定要删除吗？")){
+                                var id = $(this).attr("rel")
+                                window.location.href = "/room/deleteroom?id="+ id;
+                                return true;
+                            }
+                            return false;
+                        });
+
+
+                        //左侧模糊查询   楼栋
+
+                        $.ajax({
+                            type: "GET",
+                            url: "/room/findAllBuilding",
+                            success: function (json) {
+                                $(json).each(function () {
+                                    console.log(json);
+                                    $(".buildingselect").append("<option value = " + this.buildingname + ">" + this.buildingname + "</option>");
+                                });
+                            },
+                        });
+                        //重置和清空左侧查询框内容
+                        $(".cleanbtn").click(function () {
+                            $(".username").val("");
+                            $(".buildingselect").val("");
+                            pageStart();
 
                         });
+
+
+                        pageStart();//开始分页
+
+                        function pageStart() {//分页函数
+                            $.ajax({ //去后台查询第一页数据
+                                type: "get",
+                                url: "/room/findByPage",
+                                dataType: "json",
+                                data: {
+                                    pageNum: '1',
+                                    username:$(".username").val(),
+                                    status:$(".buildingselect").val(),
+                                }, //参数：当前页为1
+                                success: function (data) {
+                                    console.log(data);
+                                    var template = $('#template').html();
+                                    Mustache.parse(template);
+                                    $(".mytable").html("");
+                                    $(data.list).each(function () {
+                                        var rendered = Mustache.render(template, this);
+                                        $(".mytable").append(rendered);
+                                    });
+
+                                    var options = {//根据后台返回的分页相关信息，设置插件参数
+                                        bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
+                                        currentPage: data.pageNum, //当前页数
+                                        totalPages: data.pages, //总页数
+                                        numberOfPages: data.pageSize,//每页记录数
+                                        itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
+                                            switch (type) {
+                                                case "first":
+                                                    return "首页";
+                                                case "prev":
+                                                    return "上一页";
+                                                case "next":
+                                                    return "下一页";
+                                                case "last":
+                                                    return "末页";
+                                                case "page":
+                                                    return page;
+                                            }
+                                        },
+                                        onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
+                                            $.ajax({//根据page去后台加载数据
+                                                url: "/room/findByPage",
+                                                type: "get",
+                                                dataType: "json",
+                                                data: {
+                                                    pageNum: page,
+                                                    username:$(".username").val(),
+                                                    status:$(".buildingselect").val(),
+                                                },
+                                                success: function (data) {
+                                                    var template = $('#template').html();
+                                                    Mustache.parse(template);
+                                                    $(".mytable").html("");
+                                                    $(data.list).each(function () {
+                                                        var rendered = Mustache.render(template, this);
+                                                        $(".mytable").append(rendered);
+                                                    });
+
+                                                }
+                                            });
+                                        }
+                                    };
+                                    $('#mypage').bootstrapPaginator(options);//设置分页
+                                }
+                            });
+                        }
+
                     </script>
                 </div>
             </div>

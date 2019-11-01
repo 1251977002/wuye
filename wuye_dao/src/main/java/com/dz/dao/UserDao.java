@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.dz.pojo.User;
 import org.apache.ibatis.annotations.*;
+import org.springframework.ui.Model;
 
 public interface UserDao {
 
@@ -53,4 +54,18 @@ public interface UserDao {
             @Result(column = "id",property = "model",one= @One(select = "com.dz.dao.ModelDao.findByUid"))
     })
     User findByBuildAndUnitHouse(User user);
+
+    //查询所有业主
+    @Select("select * from t_user")
+    List<User> findAllUser(Model model);
+
+    /*通过userid查询到该user*/
+    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
+    User findUserByUserid(Integer userid);
+
+
+
+    /*模糊查询通过username*/
+    @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
+    void findUserByusername(String username);
 }

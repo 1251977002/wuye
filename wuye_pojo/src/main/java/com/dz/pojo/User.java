@@ -24,6 +24,17 @@ public class User implements Serializable {
     private int roleid;
     private List<Propert> propertList;
     private Model model;
+
+    public String getModelname() {
+        return modelname;
+    }
+
+    public void setModelname(String modelname) {
+        this.modelname = modelname;
+    }
+
+    private String modelname;
+
     private List<Role> roleList;
 
 

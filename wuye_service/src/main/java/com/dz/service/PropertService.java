@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
@@ -21,6 +22,8 @@ public class PropertService {
 
     @Autowired
     private PropertDao propertDao;
+    @Autowired
+    private UserDao userDao;
     @Autowired
     private BuidlingDao buidlingDao;
 
@@ -52,6 +55,33 @@ public class PropertService {
         String housenum = propert.getHousenum();
         return propertDao.findPropert(begintime,buildingname,unitname,housenum);
     }
+    /*查找所有的物业费表中的信息*/
+    //todo
+    public PageInfo findByPageroomList(int pageNum,String username,String status) {
+        PageHelper.startPage(pageNum,3);
+
+        if(!StringUtils.isEmpty(username)){
+            userDao.findUserByusername(username);
+        }
+        if(!StringUtils.isEmpty(status)){
+            buidlingDao.findBuildingByName(status);
+        }
+
+        List<Propert> propertList = propertDao.findAll();
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
+
+    /*删除room*/
+    public void delroom(int id) {
+        propertDao.delroom(id);
+    }
+
+    /*查询所有buildingname*/
+    public List<Propert> findAllBuilding() {
+        return propertDao.findAllBuilding();
+    }
+
 
     public void saveInfo(Propert propert) {
         propertDao.saveInfo(propert);

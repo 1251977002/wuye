@@ -13,6 +13,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
@@ -26,10 +27,6 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    /*登录时候需要验证*/
-    public User findByLoginName(String username) {
-        return userDao.findByLoginName(username);
-    }
 
     //user列表分页
     public PageInfo<User> findUserByParam(int pageNum,String username,String status) {
@@ -72,6 +69,11 @@ public class UserService {
     //查找房间中是否有住户
     public User findByBuildAndUnitHouse(User user) {
         return userDao.findByBuildAndUnitHouse(user);
+    }
+
+    /*查询所有业主信息*/
+    public List<User> findAllUser(Model model) {
+        return userDao.findAllUser(model);
     }
 
 }
