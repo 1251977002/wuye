@@ -630,15 +630,13 @@
                     <td>{{sex}}</td>
                     <td>{{card}}</td>
                     <td>{{tel}}</td>
+                    <input type="hidden" class="deluserid" value = "{{id}}">
                     <td>
                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                             <span class="glyphicon glyphicon-pencil"></span>
                             更改
                         </button>
-                        <%--<button class="btn btn-xs btn-danger">--%>
-                            <span class="glyphicon glyphicon-remove"></span>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        <%--</button>--%>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs deluser" lay-event="del"> <span class="glyphicon glyphicon-remove"></span>删除</a>
                     </td>
                 </tr>
 </script>
@@ -665,10 +663,21 @@
         var data = obj.data //获得当前行数据
             ,layEvent = obj.event; //获得 lay-event 对应的值
         if(layEvent === 'del'){
-            layer.confirm('真的删除行么', function(index){
-                obj.del(); //删除对应行（tr）的DOM结构
-                layer.close(index);
-                //向服务端发送删除指令
+            layer.confirm('真的删除该用户么', function(index){
+                $.ajax({
+                    type:"GET",
+                    url:"/user/delUserById",
+                    data:{
+                        userid:$("deluser").val(),
+                    },
+                    success:function (code) {
+                        if(code == 0){
+                            obj.del(); //删除对应行（tr）的DOM结构
+                            layer.close(index);
+                            //向服务端发送删除指令
+                        }
+                    }
+                });
             });
         }
     });
