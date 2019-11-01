@@ -13,17 +13,15 @@ import java.util.List;
 
 import com.dz.pojo.User;
 import org.apache.ibatis.annotations.*;
+
 import org.springframework.stereotype.Service;
+
+import org.springframework.ui.Model;
+
 
 public interface UserDao {
 
 
-    @Select("select * from t_user where username = #{username}")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    User findByLoginName(String username);
 
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getUserSQL")
     List<User> findUserByParam(Map<String,Object> map);
@@ -42,6 +40,7 @@ public interface UserDao {
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
     User findByBuildAndUnitHouse(User user);
 
+
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")
     void delByhouseNum(String housenum);
@@ -59,4 +58,19 @@ public interface UserDao {
             @Result(property = "model",column = "modelid",one = @One(select = "com.dz.dao.ModelDao.findModelById"))
     })
     List<User> findAll();
+
+    //查询所有业主
+    @Select("select * from t_user")
+    List<User> findAllUser(Model model);
+
+    /*通过userid查询到该user*/
+    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
+    User findUserByUserid(Integer userid);
+
+
+
+    /*模糊查询通过username*/
+    @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
+    void findUserByusername(String username);
+
 }

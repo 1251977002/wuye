@@ -12,6 +12,7 @@ import com.dz.pojo.Building;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BuidlingDao {
 
@@ -35,4 +36,11 @@ public interface BuidlingDao {
     /*添加套房列表中的信息*/
     @Insert("insert into t_building(name) values(#{name})")
     void saveroom(Building building);
+
+    /*查询该楼栋名字*/
+    @Select("select * from t_propert where buildingname=#{status}")
+    void findBuildingByName(String status);
+
+    @Select("select buildingname from t_propert")
+    List<String> findBuilding();
 }

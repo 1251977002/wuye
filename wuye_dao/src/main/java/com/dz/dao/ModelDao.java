@@ -36,4 +36,5 @@ public interface ModelDao {
 
     @Select("select * from t_model where id = #{modelid}")
     Model findModelById(int modelid);
+
 }

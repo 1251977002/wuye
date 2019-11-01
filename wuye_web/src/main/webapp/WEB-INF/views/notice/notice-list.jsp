@@ -66,7 +66,7 @@
             <div class="sidebar">
 	            <h1>发布公告</h1>
 	            <!--查询表单-->
-	            <p><a href="notice-post.jsp">&lt; 去发布公告</a></p>
+	            <p><a href="/notice/noticePost">去发布公告</a></p>
 	          </div>
 
             <!--页面右侧-->

@@ -16,9 +16,24 @@ public class User {
     private String unitname;
     private String buildingname;
     private String housenum;
+
     private int modelid;
     private Model model;
     private Propert propert;
+
+    private int roleid;
+
+    public String getModelname() {
+        return modelname;
+    }
+
+    public void setModelname(String modelname) {
+        this.modelname = modelname;
+    }
+
+    private String modelname;
+    private List<Role> roleList;
+
 
     public Model getModel() {
         return model;
