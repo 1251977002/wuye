@@ -72,84 +72,14 @@
 
               <!--列表-->
               <div>                      
-				  <div class="row" id="main">
-      						<!-- /.col -->
-					       <%-- <div class="col-md-12">
-							 			<div class="box box-widget">
-					            <div class="box-body">
-					              <!-- post text -->
-					              <h4 style="color: #5092BD;"><strong><a href = "bbs_show.html" target = "_blank">资料标题</a></strong></h4>					
-					              <p>婆婆的养老跟媳妇无关，这是本版共识吧---------这百分百赞同，同理岳父母哈，我一向男女平等不双标。</p>
-					              <span class="glyphicon glyphicon-user" style="font-size: 12px;">
-					              	Tom
-					              </span>	
-					              <a href="#" title="删除">
-					              	<span class="pull-right text-muted glyphicon glyphicon-trash"></span>
-					              </a>
-					            </div>
-					            <!-- /.box-body -->					           
-					          </div>					          
-					        </div>
-					        
-					        <!-- /.col -->
-					        <div class="col-md-12">									
-							 			<div class="box box-widget">
-					            <div class="box-body">
-					              <!-- post text -->
-					              <h4 style="color: #5092BD;"><strong><a href = "bbs_show.html" target = "_blank">帖子标题</a></strong></h4>					
-					              <p>婆婆的养老跟媳妇无关，这是本版共识吧---------这百分百赞同，同理岳父母哈，我一向男女平等不双标。</p>
-					              <span class="glyphicon glyphicon-user" style="font-size: 12px;">
-					              	Tom
-					              </span>		
-					              <a href="#" title="删除">
-					              	<span class="pull-right text-muted glyphicon glyphicon-trash"></span>
-					              </a>
-					            </div>
-					            <!-- /.box-body -->					           
-					         </div>					          
-					        </div>
-					        
-					        <!-- /.col -->
-					        <div class="col-md-12">									
-							 			<div class="box box-widget">
-					            <div class="box-body">
-					              <!-- post text -->
-					              <h4 style="color: #5092BD;"><strong><a href = "bbs_show.html" target = "_blank">天涯论坛</a></strong></h4>					
-					              <p>婆婆的养老跟媳妇无关，这是本版共识吧---------这百分百赞同，同理岳父母哈，我一向男女平等不双标。</p>
-					              <span class="glyphicon glyphicon-user" style="font-size: 12px;">
-					              	Tom
-					              </span>		
-					              <a href="#" title="删除">
-					              	<span class="pull-right text-muted glyphicon glyphicon-trash"></span>
-					              </a>
-					            </div>
-					            <!-- /.box-body -->					           
-					         </div>					          
-					        </div>--%>
+				  <div class="row aa" id="main">
+
 
 	              </div>
 				  <nav aria-label="Page navigation" style="padding-left: 15px">
 					  <ul id="mypage"></ul>
 				  </nav>
-				  <!-- #列表-->
-	                <!--页码-->
-	              <%--<nav class="pull-right">
-	                <ul class="pagination pagination-sm">
-	                  <ul class="pagination">
-	                    <li class="disabled"><span>&laquo;</span></li>
-	                    <li class="active"><span>1</span></li>
-	                    <li><a href="#">2</a></li>
-	                    <li><a href="#">3</a></li>
-	                    <li><a href="#">4</a></li>
-	                    
-	                    <li class="disabled"><span>...</span></li>
-	                    <li><a href="#">65</a></li>
-	                    <li><a href="#">66</a></li>
-	                    <li><a href="#" rel="next">&raquo;</a></li>
-	                  </ul>
-	                </ul>
-	              </nav>--%>
-	              <!-- #页码--> 
+
             </div>
           </div>
     </div>
@@ -176,7 +106,7 @@
 
        <div class="col-md-12">
 		  <div class="box box-widget">
-			 <div class="box-body">
+			 <div class="box-body ">
 				<!-- post text -->
 				<h4 style="color: #5092BD;"><strong><a href = "/bbs/bbsshow?bbsid={{id}}" target = "_blank">{{title}}</a></strong></h4>
 
@@ -184,7 +114,7 @@
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
 
 					</span>
-					 <a href="#" title="删除">
+					 <a class = "del" href="javascript:;" οnclick="js_method()" rel = "{{id}}" title="删除">
 					    <span class="pull-right text-muted glyphicon glyphicon-trash"></span>
 					 </a>
 			 </div>
@@ -194,6 +124,16 @@
 
 	  </script>
 	  <script type="text/javascript">
+		  $(function () {
+			  $(".aa").on("click",".del", function(){
+				  console.log(1323)
+				  if (confirm("确定要删除吗？")) {
+					  var bbsid = $(this).attr("rel");
+					  window.location.href = "/bbs/bbsDel?bbsid=" + bbsid;
+				  }
+			  });
+			  })
+
       	$(document).ready(function(){
 
         //日期选择

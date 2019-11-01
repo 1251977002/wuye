@@ -24,4 +24,8 @@ public class BBSCommentService {
     public void saveBBSComment(BBSComment bbsComment) {
         bbsCommentDao.saveBBSComment(bbsComment);
     }
+
+    public void delBybbsid(int bbsid) {
+        bbsCommentDao.delBybbsid(bbsid);
+    }
 }

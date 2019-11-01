@@ -79,5 +79,13 @@ public class BBSController {
         return "redirect:bbsshow?bbsid="+bbsid;
 
     }
+    /*删除一个BBS并删除它所对应的评论*/
+    @RequestMapping(value = "bbsDel")
+    public String bbsDel(int bbsid){
+        bbsService.delBybbsid(bbsid);
+        bbsCommentService.delBybbsid(bbsid);
+        return "redirect:bbslist";
+    }
+
 
 }
