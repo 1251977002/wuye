@@ -9,8 +9,29 @@ import java.util.List;
 
 @Service
 public class ModelService {
+
     @Autowired
     private ModelDao modelDao;
+    /*删除户型信息*/
+    public void deletemodel(int id) {
+        modelDao.deletemodel(id);
+    }
+
+    /*查询所有户型*/
+    public List<Model> findAllModel(org.springframework.ui.Model model) {
+        return modelDao.findAllModel(model);
+    }
+
+    /*添加户型信息*/
+    public void savemodel(Model model) {
+        modelDao.savemodel(model);
+    }
+
+    /*添加套房信息*/
+    public void saveroom(Model model) {
+        modelDao.saveroom(model);
+    }
+
     public List<Model> findAll() {
         return modelDao.findAll();
     }

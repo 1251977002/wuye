@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface PermissionDao {
-    @Select("select * from t_permission where id in(select permissionid from t_role_permission where roleid=#{roleid})")
+    @Select("SELECT * FROM t_permission WHERE id IN(SELECT permissionid FROM t_role_permission WHERE roleid=#{roleid})")
     List<Permission> findPermissionByRoleId(Integer roleId);
 }

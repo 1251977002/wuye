@@ -2,6 +2,7 @@ package com.dz.dao;
 
 import com.dz.pojo.Unit;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.ui.Model;
 
@@ -22,6 +23,14 @@ public interface UnitDao {
 
     @Select("select * from t_unit where id = #{uid}")
     Unit findById(int uid);
+
+    /*添加单元信息*/
+    @Insert("insert into t_unit(name,note) values(#{name},#{note})")
+    void saveUnit(Unit unit);
+
+    /*添加套房列表中的信息*/
+    @Insert("insert into t_unit(name) values(#{name})")
+    void saveroom(Unit unit);
 
     @Select("select * from t_unit where name = #{name}")
     Unit findByName(String name);

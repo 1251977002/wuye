@@ -6,8 +6,11 @@ import com.dz.dao.UserDao;
 import com.dz.pojo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import com.dz.dao.UserDao;
+import com.dz.pojo.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -15,10 +18,11 @@ import org.springframework.util.StringUtils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-@Transactional/*事务控制*/
 //事务
+@Transactional
 @Service
 public class UserService {
+
     @Autowired
     private UserDao userDao;
 
@@ -43,6 +47,13 @@ public class UserService {
         return pageInfo;
     }
 
+
+    /*添加套房信息*/
+    public void saveroom(User user) {
+        userDao.saveroom(user);
+    }
+
+    //分页
     //保存user
     public int save(User user,String unithouse) {
         String unitname = unithouse.substring(0,3);
@@ -59,7 +70,4 @@ public class UserService {
         return user.getId();
     }
 
-    public User findByBuildAndUnitHouse(User user) {
-        return userDao.findByBuildAndUnitHouse(user);
-    }
 }

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,6 +83,7 @@
                                     <td>${building.name}</td>
                                     <td>${building.note}</td>
                                     <td>
+                                        <shiro:hasRole name="管理员">
                                         <a href="#" class="btn btn-xs btn-primary">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                             编辑
@@ -90,6 +92,7 @@
                                             <span class="glyphicon glyphicon-remove"></span>
                                             删除
                                         </a>
+                                        </shiro:hasRole>
                                     </td>
                                 </tr>
 
