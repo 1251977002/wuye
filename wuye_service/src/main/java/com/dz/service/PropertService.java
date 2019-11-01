@@ -40,8 +40,24 @@ public class PropertService {
     }
 
     //通过楼栋和姓名查找
-    public Propert findByBnameAndUname(String buildname, String username) {
-        String username1 = "%" + username + "%";
-        return propertDao.findByBnameAndUname(buildname,username1);
+    public Propert findByBnameAndHname(String buildname, String housename) {
+        return propertDao.findByBnameAndHname(buildname,housename);
+    }
+
+    //查找物业费，看是否有重复
+    public Propert findPropert(Propert propert) {
+        String begintime = propert.getBegintime();
+        String buildingname = propert.getBuildingname();
+        String unitname = propert.getUnitname();
+        String housenum = propert.getHousenum();
+        return propertDao.findPropert(begintime,buildingname,unitname,housenum);
+    }
+
+    public void saveInfo(Propert propert) {
+        propertDao.saveInfo(propert);
+    }
+
+    public Propert findById(Integer propertid) {
+        return propertDao.findById(propertid);
     }
 }

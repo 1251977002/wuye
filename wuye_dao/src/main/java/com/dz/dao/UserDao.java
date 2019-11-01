@@ -48,5 +48,9 @@ public interface UserDao {
     void save(User user);
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "model",one= @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByBuildAndUnitHouse(User user);
 }

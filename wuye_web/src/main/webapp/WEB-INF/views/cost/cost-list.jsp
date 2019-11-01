@@ -148,7 +148,7 @@
 <script id="template" type="x-tmpl-mustache">
     <tr>
        <td>{{buildingname}}</td>
-       <td>{{housename}}</td>
+       <td>{{unitname}}{{housenum}}</td>
        <td>{{username}}</td>
        <td>{{begintime}}</td>
        <td>{{endtime}}</td>
@@ -188,7 +188,7 @@
                                         <td class="form-title">
                                             <span class="text-danger">*</span>单元房号
                                         </td>
-                                        <td>{{housename}}</td>
+                                        <td>{{unitname}}{{housenum}}</td>
                                     </tr>
                                     <tr>
                                         <td class="form-title">户主姓名</td>

@@ -16,14 +16,10 @@ import java.util.List;
 
 public interface BuidlingDao {
 
-    String SELECT_FINALL = "select * from t_building";
-
     String SELECT_FINDALL = "select * from t_building";
-    @Select(SELECT_FINDALL)
-    List<Building> findAll();
 
     /*查询所有楼栋列表*/
-    @Select(SELECT_FINALL)
+    @Select(SELECT_FINDALL)
     List<Building> findAllbuilding(Model model);
 
     /*删除楼栋列表 根据id*/
@@ -40,7 +36,7 @@ public interface BuidlingDao {
     void saveroom(Building building);
 
     /*查询所有楼栋*/
-    @Select(SELECT_FINALL)
+    @Select(SELECT_FINDALL)
     List<Building> findAll();
 
 }

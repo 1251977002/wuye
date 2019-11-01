@@ -40,6 +40,7 @@ public class GetUserSql {
         if (sql.endsWith("and ")) {
             sql = sql.substring(0, sql.lastIndexOf("and"));
         }
+
         System.out.println("SQL:" + sql);
         return sql;
     }

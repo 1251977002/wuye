@@ -78,8 +78,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                  <label>请输入 业主姓名</label>
-                  <input type="text" class="form-control username" name="username" value="${(param.username == null) ? "" : (param.username)}" placeholder="">
+                  <label>请输入 单元房号</label>
+                  <input type="text" class="form-control housename" name="housename" value="${(param.housename == null) ? "" : (param.housename)}" placeholder="">
                 </div>
                 <div class="empty"></div>
                 <div class="form-group-btns">
@@ -89,56 +89,9 @@
             </div>
 
             <!--页面右侧-->
-            <div class="main">
+            <div class="main infolist">
 
-                <!--列表头部-->
-                <div>
-                  <h5>
-                  <!--列表的标题-->
-                  应交的物业费明细
-                  </h5>
-                </div>
-                <!-- #列表头部-->
 
-                <!--列表-->
-                <div>
-                    <!-- #列表头部-->
-                    <table class="form-table">
-                        <tbody class="infolist">
-                            <tr>
-                                <td class="form-title">请按条件查询</td>
-                                <td>
-                                  <button type="button" class="btn btn-sm btn-primary" id="find" >查询</button>
-                                </td>
-                            </tr>
-                         <%--ajax生成tbody--%>
-                        </tbody>
-                    </table>
-                </div>
-                <table class="table form-table">
-                    <tbody>
-                        <tr>
-                            <td align="center">
-                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-sm">确认</button>
-                                <div class="modal  bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                                    <div class="modal-dialog modal-sm" role="document">
-                                        <div class="modal-content">
-                                            <h3>缴费成功</h3>
-                                            <div class="fee">
-                                                <a target="_blank"  href='/cost/shouju'> <button type="submit" class="btn btn-primary btn-sm " >打印收据</button> </a>
-                                                <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
-                               <div id="fade" ></div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-              <!-- #列表-->
             </div>
           </div>
     </div>
@@ -156,7 +109,20 @@
     <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
     <script src="${basePath}assets/mustache.js"></script>
     <script id="template" type="x-tmpl-mustache">
-            <tr>
+    <!--列表头部-->
+                <div>
+                  <h5>
+                  <!--列表的标题-->
+                  应交的物业费明细
+                  </h5>
+                </div>
+                <!-- #列表头部-->
+                <!--列表-->
+                <div>
+                    <!-- #列表头部-->
+                    <table class="form-table">
+                        <tbody>
+<tr>
                 <td class="form-title">
                     <span class="text-danger">*</span>楼栋号
                 </td>
@@ -166,7 +132,7 @@
                 <td class="form-title">
                      <span class="text-danger">*</span>单元房号
                 </td>
-                <td>{{housename}}</td>
+                <td>{{unitname}}{{housenum}}</td>
             </tr>
             <tr>
                 <td class="form-title">户主姓名</td>
@@ -175,18 +141,18 @@
             <tr>
                 <td class="form-title">户型</td>
                 <td>
-                     {{user.model.modelname}}（{{user.model.area}}平米）
+                     {{model.modelname}}（{{model.area}}平米）
                 </td>
             </tr>
             <tr>
                 <td class="form-title">标准物业费</td>
                 <td>
-                     <span class = "promoney">{{user.model.propertmoney}}</span>元/年
+                     <span class = "promoney" name="promoney">{{model.propertmoney}}</span>元/年
                 </td>
             </tr>
             <tr>
                 <td class="form-title">往年欠费</td>
-                <td>￥<span class = "owemoney">{{user.owemoney}}</span></td>
+                <td>￥<span class = "owemoney" name="owemoney">{{owemoney}}</span></td>
             </tr>
             <tr>
                  <td class="form-title">
@@ -209,20 +175,49 @@
                       <span class="text-danger">*</span>缴纳方式
                  </td>
                  <td>
-                      <select class="form-control chosen" name="status">
-                          <option value="1">现金</option>
-                          <option value="1">支付宝</option>
-                          <option value="2">微信</option>
-                          <option value="2">银行卡</option>
+                      <select class="form-control chosen payway" name="payway">
+                          <option value="现金">现金</option>
+                          <option value="支付宝">支付宝</option>
+                          <option value="微信">微信</option>
+                          <option value="银行卡">银行卡</option>
                       </select>
                  </td>
             </tr>
             <tr>
                  <td class="form-title">收款说明</td>
                  <td>
-                      <textarea class="form-control" name="title"></textarea>
+                      <textarea class="form-control cont" name="title"></textarea>
                  </td>
             </tr>
+                            <%--ajax--%>
+                        </tbody>
+                    </table>
+                </div>
+                <table class="table form-table">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <button type="button" class="btn btn-primary btn-lg ensure" data-toggle="modal" data-target=".bs-example-modal-sm">确认</button>
+                                <div class="modal  bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <h3>缴费成功</h3>
+                                            <div class="fee">
+                                                <a target="_blank" class = "print" href = "javascript:;"> <button type="submit" class="btn btn-primary btn-sm " >打印收据</button> </a>
+                                                <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
+                               <div id="fade" ></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+              <!-- #列表-->
+
     </script>
 
 
@@ -247,13 +242,12 @@
               });
           }
 
-
           //当点击“查询”时，先判断两个框是否为空，然后异步找出此人的信息
           $(".selectInfo").click(function () {
               var buildname = $(".build").val();
-              var username = $(".username").val();
-              if(buildname == "" || buildname == "null" || buildname == null || username == "" || username == "null" || username == null){
-                  $(".empty").html("<span style=\"color: red;font-size: 12px;\" class=\"glyphicon glyphicon-warning-sign\">楼栋和姓名不能为空</span>");
+              var housename = $(".housename").val();
+              if(buildname == "" || buildname == "null" || buildname == null || housename == "" || housename == "null" || housename == null){
+                  $(".empty").html("<span style=\"color: red;font-size: 12px;\" class=\"glyphicon glyphicon-warning-sign\">楼栋和房间号不能为空</span>");
               }else {
                   showInfo();
               }
@@ -270,10 +264,11 @@
           function showInfo() {
               $.ajax({
                   type:"GET",
-                  url:"/cost/findByBnameAndUname",
+                  url:"/cost/findByBnameAndHname",
                   data:{
-                      buildname:$(".build").val(),
-                      username:$(".username").val(),
+                      buildingname:$(".build").val(),
+                      unitname:$(".housename").val().substring(0,3),
+                      housenum:$(".housename").val().substring(3),
                   },
                   success:function (json) {
                       var template = $('#template').html();
@@ -283,38 +278,75 @@
                       $(json).each(function () {
                           console.log(json);
                           var rendered = Mustache.render(template, this);
-                          $(".infolist").append(rendered);
+                          $(".infolist").prepend(rendered);
                       });
 
-                      //并生成年份
+                      //并生成年份，并根据第一个年份确定合计应交费用
                       $.get("/cost/findAllYear",function (json) {
                           $(".year").empty();
                           $(json).each(function (index) {
                               var opt = "<option value="+this.yearno+">" + this.year + "</option>";
                               $(".year").append(opt);
+                              if(index == 0){
+                                  $.ajax({
+                                      type:"GET",
+                                      url:"/cost/findByYear",
+                                      data:{
+                                          year:1,
+                                          promoney:$(".promoney").text(),
+                                          owemoney:$(".owemoney").text(),
+                                      },
+                                      success:function (json) {
+                                          $(".money").text(json);
+                                      }
+                                  });
+                              }
                           });
                       });
                   }
               });
           }
 
+          //"缴费周期"变化时，合计应缴费用应该改变
           $(".infolist").on("change",".year",function () {
-              alert("改变");
               $.ajax({
                   type:"GET",
                   url:"/cost/findByYear",
                   data:{
                       year:$(".year").val(),
-                      promoney:$(".promoney").val(),
-                      owemoney:$(".owemoney").val(),
+                      promoney:$(".promoney").text(),
+                      owemoney:$(".owemoney").text(),
                   },
                   success:function (json) {
-                      console.log(json);
-                  },
-
+                      $(".money").text(json);
+                  }
               });
           })
 
+          $(".infolist").on("click",".ensure",function () {
+              $.ajax({
+                  type:"GET",
+                  url:"/cost/addPropert",
+                  data:{
+                      buildingname:$(".build").val(),
+                      unitname:$(".housename").val().substring(0,3),
+                      housenum:$(".housename").val().substring(3),
+                      year:$(".year").val(),
+                      money:$(".money").text(),
+                      payway:$(".payway").val(),
+                      title:$(".cont").val()
+                  },
+                  success:function (json) {
+                      if(json.id == 0){
+                          alert("账单已存在，请勿重复操作！");
+                      }else {
+                          $(".print").click(function(){
+                              window.location.href = "/cost/shouju?propertid="+json.id;
+                          });
+                      }
+                  }
+              });
+          })
 
       });
     </script>

@@ -22,7 +22,7 @@ public class User implements Serializable {
     private String modelid;
     private String unitname;
     private int roleid;
-    private Propert propert;
+    private List<Propert> propertList;
     private Model model;
     private List<Role> roleList;
 
@@ -151,12 +151,12 @@ public class User implements Serializable {
         this.modelid = modelid;
     }
 
-    public Propert getPropert() {
-        return propert;
+    public List<Propert> getPropertList() {
+        return propertList;
     }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
+    public void setPropertList(List<Propert> propertList) {
+        this.propertList = propertList;
     }
 
     public Model getModel() {
