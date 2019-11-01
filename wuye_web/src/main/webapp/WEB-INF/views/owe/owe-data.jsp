@@ -35,7 +35,7 @@
   </head>
   <body class="">
   <jsp:include page="../head.jsp">
-    <jsp:param name="menu" value="control" />
+    <jsp:param name="menu" value="owe" />
   </jsp:include>
         
     <!-- <div class="list-container have-subhead"> -->
@@ -48,14 +48,14 @@
                 物业费逾期管理:
               </li>
               <li class='active'>
-                <a href="owe-data.jsp">欠费概况</a>
+                <a href="#">欠费概况</a>
               </li>
                <li >
-                <a href="owe-yuqi.jsp">已逾期用户列表</a>
+                <a href="/owe/oweyuqi">已逾期用户列表</a>
                 
               </li>
                <li >
-                <a href="owe-qitian.jsp">七天内到期的用户列表</a>
+                <a href="/owe/oweqitian">七天内到期的用户列表</a>
               </li>
             </ul>
             
@@ -69,8 +69,7 @@
             <div class="sidebar">
             <h1>查看</h1>
             <!--查询表单-->
-            <p><a href="owe-yuqi.jsp
-              ">&lt; 查看已逾期用户</a></p>
+            <p><a href="/owe/oweyuqi">&lt; 查看已逾期用户</a></p>
 
           </div>
 

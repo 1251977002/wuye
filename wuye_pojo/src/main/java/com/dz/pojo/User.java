@@ -27,7 +27,7 @@ public class User {
     public void setRoleList(List<Role> roleList) {
         this.roleList = roleList;
     }
-    private Propert propert;
+    private List<Propert> propertList;
 
     public int getId() {
         return id;
@@ -141,11 +141,11 @@ public class User {
         this.housenum = housenum;
     }
 
-    public Propert getPropert() {
-        return propert;
+    public List<Propert> getPropertList() {
+        return propertList;
     }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
+    public void setPropertList(List<Propert> propertList) {
+        this.propertList = propertList;
     }
 }

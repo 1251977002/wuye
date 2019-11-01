@@ -72,4 +72,10 @@ public class UserService {
         return userDao.findByBuildAndUnitHouse(user);
     }
 
+    public PageInfo<User> findPageByOweMoney(int pageNum) {
+        PageHelper.startPage(pageNum, 3);
+        List<User> userList = userDao.findPageByOweMoney(pageNum);
+        PageInfo<User> pageInfo = new PageInfo<User>(userList);
+        return  pageInfo;
+    }
 }
