@@ -6,6 +6,15 @@ public class Notice {
     private String content;
     private String createtime;
     private int adminid;
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public int getId() {
         return id;

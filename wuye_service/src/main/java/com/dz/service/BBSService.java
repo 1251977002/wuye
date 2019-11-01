@@ -28,4 +28,8 @@ public class BBSService {
         return bbsDao.findByid(bbsid);
 
     }
+
+    public void delBybbsid(int bbsid) {
+        bbsDao.delBybbsid(bbsid);
+    }
 }
