@@ -298,7 +298,8 @@
               });
           }
 
-          $(".year").change(function () {
+          $(".infolist").on("change",".year",function () {
+              alert("改变");
               $.ajax({
                   type:"GET",
                   url:"/cost/findByYear",
@@ -309,9 +310,10 @@
                   },
                   success:function (json) {
                       console.log(json);
-                  }
+                  },
+
               });
-          });
+          })
 
 
       });

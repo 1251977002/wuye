@@ -9,7 +9,6 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 
 
-
 public interface UserDao {
 
     String SELECT_BYLOGINNAME = "select * from t_user where username = #{username}";
@@ -24,10 +23,8 @@ public interface UserDao {
     User findByLoginName(String username);
 
     //分页显示用户
-
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getUserSQL")
     List<User> findUserByParam(Map<String,Object> map);
-
 
     //通过物业费id查找用户
     @Select(SELECT_BYPID)
