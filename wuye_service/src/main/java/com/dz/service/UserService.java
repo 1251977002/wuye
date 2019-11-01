@@ -69,5 +69,9 @@ public class UserService {
         userDao.save(user);
         return user.getId();
     }
+    //查找房间中是否有住户
+    public User findByBuildAndUnitHouse(User user) {
+        return userDao.findByBuildAndUnitHouse(user);
+    }
 
 }
