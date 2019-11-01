@@ -31,4 +31,7 @@ public interface UnitDao {
     /*添加套房列表中的信息*/
     @Insert("insert into t_unit(name) values(#{name})")
     void saveroom(Unit unit);
+
+    @Select("select * from t_unit where name = #{name}")
+    Unit findByName(String name);
 }

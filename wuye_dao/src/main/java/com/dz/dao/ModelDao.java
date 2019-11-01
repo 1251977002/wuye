@@ -7,6 +7,11 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+import com.dz.pojo.Model;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
 public interface ModelDao {
 
     /*删除户型 通过id*/
@@ -25,4 +30,12 @@ public interface ModelDao {
     /*添加套房信息*/
     @Insert("insert into t_model(modelname,propertmoney) values(#{modelname},#{propertmoney})")
     void saveroom(Model model);
+    String FIND_ALL = "select * from t_model";
+    String FIND_BY_ID = "select * from t_model where id = #{modelid}";
+
+    @Select(FIND_ALL)
+    List<Model> findAll();
+
+    @Select(FIND_BY_ID)
+    Model findModelById(int modelid);
 }

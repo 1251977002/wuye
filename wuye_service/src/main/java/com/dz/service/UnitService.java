@@ -34,4 +34,9 @@ public class UnitService {
     public void saveroom(Unit unit) {
         unitDao.saveroom(unit);
     }
+
+    //根据单元名称查
+    public Unit findByName(String name) {
+        return unitDao.findByName(name);
+    }
 }

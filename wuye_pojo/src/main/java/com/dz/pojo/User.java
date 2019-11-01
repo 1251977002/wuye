@@ -117,5 +117,35 @@ public class User {
         this.roleid = roleid;
     }
 
+    public String getUnitname() {
+        return unitname;
+    }
 
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
+
+    public String getBuildingname() {
+        return buildingname;
+    }
+
+    public void setBuildingname(String buildingname) {
+        this.buildingname = buildingname;
+    }
+
+    public String getHousenum() {
+        return housenum;
+    }
+
+    public void setHousenum(String housenum) {
+        this.housenum = housenum;
+    }
+
+    public Propert getPropert() {
+        return propert;
+    }
+
+    public void setPropert(Propert propert) {
+        this.propert = propert;
+    }
 }

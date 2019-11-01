@@ -40,10 +40,10 @@
                        	公告板管理:
               </li>
               <li>
-                <a href="notice-list.jsp">公告板列表</a>
+                <a href="/notice/noticeList">公告板列表</a>
               </li>
                <li class='active'>
-                <a href="notice-post.jsp">发布公告</a>
+                <a href="#">发布公告</a>
               </li>
             </ul>      
           </div>
@@ -72,18 +72,18 @@
 				            </div>
 				            <!-- /.box-header -->
 				            <div class="box-body">
-										<form class="form-horizontal">
+										<form class="form-horizontal" method="post" action="/notice/saveNotice" >
 										  <div class="form-group">
 												<label class="control-label col-sm-2">标题</label>
 												<div class="col-sm-10">
-												  <input type="text" class="form-control">												  
+												  <input type="text" class="form-control" name="title">
 												</div>
 										  </div>
 										  
 										  <div class="form-group">
 												<label class="control-label col-sm-2" >内容</label>
 												<div class="col-sm-10">
-													<textarea class="form-control" name="" id="" rows="10"></textarea>
+													<textarea class="form-control" name="content" id="" rows="10"></textarea>
 												</div>
 										  </div>										 
 										  <div class="form-group">

@@ -31,4 +31,12 @@ public class ModelService {
     public void saveroom(Model model) {
         modelDao.saveroom(model);
     }
+
+    public List<Model> findAll() {
+        return modelDao.findAll();
+    }
+
+    public Model findModelById(int modelid) {
+        return modelDao.findModelById(modelid);
+    }
 }
