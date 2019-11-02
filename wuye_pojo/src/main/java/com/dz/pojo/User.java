@@ -9,7 +9,6 @@ public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
-    private String loginname;
     private String password;
     private String sex;
     private String card;
@@ -19,11 +18,12 @@ public class User implements Serializable {
     private int houseid;
     private String buildingname;
     private String housenum;
-    private String modelid;
+    private int modelid;
     private String unitname;
-    private int roleid;
     private List<Propert> propertList;
     private Model model;
+    private String modelname;
+    private List<Role> roleList;
 
     public String getModelname() {
         return modelname;
@@ -32,11 +32,6 @@ public class User implements Serializable {
     public void setModelname(String modelname) {
         this.modelname = modelname;
     }
-
-    private String modelname;
-
-    private List<Role> roleList;
-
 
     public List<Role> getRoleList() {
         return roleList;
@@ -67,14 +62,6 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getLoginname() {
-        return loginname;
-    }
-
-    public void setLoginname(String loginname) {
-        this.loginname = loginname;
     }
 
     public String getPassword() {
@@ -133,15 +120,6 @@ public class User implements Serializable {
         this.houseid = houseid;
     }
 
-    public int getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(int roleid) {
-        this.roleid = roleid;
-    }
-
-
     public String getBuildingname() {
         return buildingname;
     }
@@ -154,12 +132,8 @@ public class User implements Serializable {
         return housenum;
     }
 
-    public String getModelid() {
-        return modelid;
-    }
-
-    public void setModelid(String modelid) {
-        this.modelid = modelid;
+    public void setHousenum(String housenum) {
+        this.housenum = housenum;
     }
 
     public List<Propert> getPropertList() {
@@ -173,12 +147,15 @@ public class User implements Serializable {
     public Model getModel() {
         return model;
     }
-
     public void setModel(Model model) {
         this.model = model;
     }
-    public void setHousenum(String housenum) {
-        this.housenum = housenum;
+
+    public int getModelid() {
+        return modelid;
     }
 
+    public void setModelid(int modelid) {
+        this.modelid = modelid;
+    }
 }
