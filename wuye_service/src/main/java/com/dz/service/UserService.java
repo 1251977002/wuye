@@ -1,6 +1,7 @@
 package com.dz.service;
 
 import com.dz.dao.UserDao;
+import com.dz.pojo.Model;
 import com.dz.pojo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,11 +72,16 @@ public class UserService {
     public User findByBuildAndUnitHouse(User user) {
         return userDao.findByBuildAndUnitHouse(user);
     }
-
+    /*对逾期用户进行分页*/
     public PageInfo<User> findPageByOweMoney(int pageNum) {
         PageHelper.startPage(pageNum, 3);
         List<User> userList = userDao.findPageByOweMoney(pageNum);
         PageInfo<User> pageInfo = new PageInfo<User>(userList);
         return  pageInfo;
     }
+    /*查询所有业主信息*/
+    public List<User> findAllUser(Model model) {
+        return userDao.findAllUser(model);
+    }
+
 }

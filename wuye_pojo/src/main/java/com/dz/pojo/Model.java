@@ -6,6 +6,7 @@ public class Model {
     private String modelname;
     private int area;/*面积*/
     private double propertmoney;/*物业费收费标准*/
+    private User user;
     private String note;/*备注*/
 
     public String getNote() {
@@ -48,6 +49,11 @@ public class Model {
         this.propertmoney = propertmoney;
     }
 
+    public User getUser() {
+        return user;
+    }
 
-
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

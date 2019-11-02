@@ -1,5 +1,6 @@
 package com.dz.dao;
 
+import com.dz.pojo.Model;
 import com.dz.pojo.User;
 import org.apache.ibatis.annotations.*;
 
@@ -48,4 +49,18 @@ public interface UserDao {
             @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
     })
     List<User> findPageByOweMoney(int pageNum);
+
+    //查询所有业主
+    @Select("select * from t_user")
+    List<User> findAllUser(Model model);
+
+    /*通过userid查询到该user*/
+    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
+    User findUserByUserid(Integer userid);
+
+
+
+    /*模糊查询通过username*/
+    @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
+    void findUserByusername(String username);
 }

@@ -72,23 +72,22 @@
     <div class="sidebar">
         <h1>按条件查询</h1>
         <!--查询表单-->
-        <form method="get">
             <div class="form-group">
                 <label>请选择楼栋</label>
-                <select class="form-control chosen" id="build" name="status">
+                <select class="form-control chosen build" name="buildingname">
+                    <option value="">--请选择楼栋--</option>
 
+                    <%--楼栋、ajax--%>
                 </select>
             </div>
             <div class="form-group">
                 <label>请输入 业主姓名</label>
-                <input type="text" class="form-control username" name="word" value="" placeholder="">
+                <input type="text" class="form-control username" value="${(param.username == null) ? "" : (param.username)}" name="username" placeholder="">
             </div>
             <div class="form-group-btns">
-                <button type="submit" class="btn btn-sm btn-primary">筛选</button>
-                <a href="#" class="btn btn-sm btn-default">重置</a>
+                <button type="button" class="btn btn-sm btn-primary selectInfo">筛选</button>
+                <button type="button" class="btn btn-sm btn-default resetInfo">重置</button>
             </div>
-        </form>
-
     </div>
 
     <!--页面右侧-->
@@ -99,10 +98,6 @@
             <h5>
                 <!--列表的标题-->
                 物业费账单列表
-                <!--迷你页码-->
-                <span class="pagination-total pull-right">
-                    查询结果: 660 条记录，当前 1/66 页
-                </span>
             </h5>
         </div>
         <!-- #列表头部-->
@@ -153,20 +148,20 @@
 <script id="template" type="x-tmpl-mustache">
     <tr>
        <td>{{buildingname}}</td>
-       <td>{{housename}}</td>
-       <td>{{user.username}}</td>
+       <td>{{unitname}}{{housenum}}</td>
+       <td>{{username}}</td>
        <td>{{begintime}}</td>
        <td>{{endtime}}</td>
        <td>￥{{user.owemoney}}</td>
-       <td>55.6元/年</td>
-       <td class="color">￥55.6(往年欠费+标准物业费)</td>
+       <td>{{user.model.propertmoney}}元/年</td>
+       <td class="color">￥{{money}}(往年欠费+标准物业费)</td>
        <td><!-- 添加备注按钮 -->
-           <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+           <button type="button" class="btn btn-primary btn-xs btnyear" data-toggle="modal" data-target="#myModal">
                 <span class="glyphicon glyphicon-yen"></span>
                 物业费缴纳
            </button>
            <a href="/cost/feelist">
-                <button type="button" class="btn red-bg btn-xs btnyear">
+                <button type="button" class="btn red-bg btn-xs">
                     <span class="glyphicon glyphicon-list-alt"></span>
                     缴费记录
                 </button>
@@ -193,19 +188,19 @@
                                         <td class="form-title">
                                             <span class="text-danger">*</span>单元房号
                                         </td>
-                                        <td>{{housename}}</td>
+                                        <td>{{unitname}}{{housenum}}</td>
                                     </tr>
                                     <tr>
                                         <td class="form-title">户主姓名</td>
-                                        <td>{{user.username}}</td>
+                                        <td>{{username}}</td>
                                     </tr>
                                     <tr>
                                          <td class="form-title">户型</td>
-                                         <td>{{user.unitname}}</td>
+                                         <td>{{user.model.modelname}}（{{user.model.area}}平米）</td>
                                     </tr>
                                     <tr>
                                          <td class="form-title"> 物业费标准</td>
-                                         <td>55.6元/年</td>
+                                         <td>{{user.model.propertmoney}}元/年</td>
                                     </tr>
                                     <tr>
                                          <td class="form-title">往年欠费</td>
@@ -224,7 +219,7 @@
                                     <tr>
                                          <td class="form-title">合计应交金额</td>
                                          <td>
-                                               55.6元/年（[往年欠费]+[物业费标准]*「缴费周期」，系统会自动计算该楼层的物业费用）
+                                               {{money}}元（[往年欠费]+[物业费标准]*「缴费周期」，系统会自动计算该楼层的物业费用）
                                          </td>
                                     </tr>
 
@@ -270,7 +265,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <a href='cost-fee-list.html'> <button type="submit"  class="btn btn-primary btn-lg " >确认</button> </a> -->
                                                 <button type="button"  class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
                                                 <div id="fade" ></div>
                                             </td>
@@ -292,15 +286,18 @@
         //日期选择
         yoozi.datapicker('.datepicker');
         //页面加载时自动生成楼栋
-        $.get("/building/findAll",function (json) {
-            $("#build").empty();
-            $(json).each(function () {
-                var opt = "<option value="+this.id+">" + this.name + "</option>";
-                $("#build").append(opt);
+        automatic();
+        function automatic() {
+            $.get("/building/findAll", function (json) {
+                $(json).each(function () {
+                    var opt = "<option value=" + this.name + ">" + this.name + "</option>";
+                    $(".build").append(opt);
+                });
             });
-        });
+        }
 
-        $(".btnyear").click(function () {
+        //点击“物业费缴纳”时生成年份
+        $(".mytable").on("click",".btnyear",function () {
             $.get("/cost/findAllYear",function (json) {
                 $(".year").empty();
                 $(json).each(function () {
@@ -308,6 +305,18 @@
                     $(".year").append(opt);
                 });
             });
+        });
+
+        //筛选时，分页
+        $(".selectInfo").click(function () {
+            pageStart();
+        });
+        //重置时，分页
+        $(".resetInfo").click(function () {
+            $(".build").html("<option value=\"\">--请选择楼栋--</option>");
+            $(".username").val(""),
+            pageStart();
+            automatic();
         });
 
         pageStart();//开始分页
@@ -319,8 +328,8 @@
                 dataType: "json",
                 data: {
                     pageNum: '1',
-                   /* buildingid:$("#build").val(),
-                    username:$(".username").val(),*/
+                    buildingname:$(".build").val(),
+                    username:$(".username").val(),
                 }, //参数：当前页为1
                 success: function (data) {
                     console.log(data);
@@ -335,7 +344,7 @@
                     var options = {//根据后台返回的分页相关信息，设置插件参数
                         bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
                         currentPage: data.pageNum, //当前页数
-                        totalPages: data.pages, //总页数
+                        totalPages:data.pages == 0 ? "" : data.pages,//总页数
                         numberOfPages: data.pageSize,//每页记录数
                         itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
                             switch (type) {
@@ -358,8 +367,8 @@
                                 dataType: "json",
                                 data: {
                                     pageNum: page,
-                                    /*buildingid:$("#build").val(),
-                                    username:$(".username").val(),*/
+                                    buildingid:$(".build").val(),
+                                    username:$(".username").val(),
                                 },
                                 success: function (data) {
                                     var template = $('#template').html();

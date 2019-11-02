@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BuildingService {
@@ -27,10 +28,10 @@ public class BuildingService {
     }
 
 
-
     public List<Building> findAll() {
         return buidlingDao.findAll();
     }
+
 
     /*添加楼栋信息*/
     public void saveBuilding(Building building) {
@@ -40,5 +41,10 @@ public class BuildingService {
     /*添加套房列表中的信息*/
     public void saveroom(Building building) {
         buidlingDao.saveroom(building);
+    }
+
+    /*查找所有的楼栋*/
+    public List<String> findBuilding() {
+        return buidlingDao.findBuilding();
     }
 }

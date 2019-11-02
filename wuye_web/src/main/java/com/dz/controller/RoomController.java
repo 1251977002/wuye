@@ -1,16 +1,17 @@
 package com.dz.controller;
 
-import com.dz.pojo.Building;
-import com.dz.pojo.Model;
-import com.dz.pojo.Unit;
-import com.dz.pojo.User;
-import com.dz.service.BuildingService;
-import com.dz.service.ModelService;
-import com.dz.service.UnitService;
-import com.dz.service.UserService;
+import com.dz.pojo.*;
+import com.dz.service.*;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.jws.soap.SOAPBinding;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/room/")
@@ -25,11 +26,13 @@ public class RoomController {
     private ModelService modelService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private PropertService propertService;
 
 
     /*跳转到套房管理的主页面  几个表合起来用*/
     @RequestMapping(value = "roomlist")
-    public String roomlist(org.springframework.ui.Model model){
+    public String roomlist(){
         return "room/room-list";
     }
     /*跳转到添加套房*/
@@ -60,6 +63,29 @@ public class RoomController {
         userService.saveroom(user);
         return "redirect:roomlist";
 
+    }
+
+
+    /*分页*/
+    @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public PageInfo findByPage(int pageNum,String username,String status){
+        PageInfo pageInfo = propertService.findByPageroomList(pageNum,username,status);
+        return pageInfo;
+    }
+    /*查询所有的楼栋名字*/
+    @RequestMapping(value = "findAllBuilding",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public List<Propert>  findAllBuilding(){
+        List<Propert> propertList = propertService.findAllBuilding();
+        return  propertList;
+    }
+
+    /*删除*/
+    @RequestMapping(value = "deleteroom")
+    public String deleteroom(int id){
+        propertService.delroom(id);
+        return "redirect:roomlist";
     }
 
 

@@ -11,7 +11,7 @@ public interface AdminDao {
     @Select("select * from t_admin where adminname = #{adminname}")
     @Results({
             @Result(id = true, column = "id", property = "id"),
-            @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
+            @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByid"))
     })
     Admin findByLoginName(String adminname);
 }

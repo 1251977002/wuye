@@ -17,8 +17,23 @@ public class User {
     private String unitname;
     private String buildingname;
     private String housenum;
+    private int modelid;
     private int roleid;
+    private List<Propert> propertList;
+    private Model model;
+
+    public String getModelname() {
+        return modelname;
+    }
+
+    public void setModelname(String modelname) {
+        this.modelname = modelname;
+    }
+
+    private String modelname;
+
     private List<Role> roleList;
+
 
     public List<Role> getRoleList() {
         return roleList;
@@ -27,10 +42,17 @@ public class User {
     public void setRoleList(List<Role> roleList) {
         this.roleList = roleList;
     }
-    private List<Propert> propertList;
 
     public int getId() {
         return id;
+    }
+
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
     }
 
     public void setId(int id) {
@@ -117,13 +139,6 @@ public class User {
         this.roleid = roleid;
     }
 
-    public String getUnitname() {
-        return unitname;
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
-    }
 
     public String getBuildingname() {
         return buildingname;
@@ -148,4 +163,19 @@ public class User {
     public void setPropertList(List<Propert> propertList) {
         this.propertList = propertList;
     }
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+    public int getModelid() {
+        return modelid;
+    }
+
+    public void setModelid(int modelid) {
+        this.modelid = modelid;
+    }
+
 }

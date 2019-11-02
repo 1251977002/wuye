@@ -61,35 +61,18 @@
         <!-- #头部副标题导航-->  
         <!--页面主体-->
           <div  class="list-container have-subhead">
-
             <!--页面左侧-->
             <div class="sidebar">
-            <h1>返回</h1>
-            <!--查询表单-->
-            <p><a href="cost-list.jsp
-              ">&lt; 查看物业费账单列表</a></p>
-
-          </div>
-
-<div class="main">
-
+               <h1>返回</h1>
+               <!--查询表单-->
+               <p><a href="/cost/list">&lt; 查看物业费账单列表</a></p>
+            </div>
+            <div class="main">
               <!--列表头部-->
               <div>
                 <h5>
                   <!--列表的标题-->
                   物业费缴费记录
-                  <!--迷你页码-->
-                  <span class="pagination-total pull-right">
-                    查询结果: 660 条记录，当前 1/66 页
-                    <!--上一页-->
-                    <a href="#" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-left"></span>
-                    </a>
-                    <!--下一页-->
-                    <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-right"></span>
-                    </a>
-                  </span>
                 </h5>
               </div>
               <!-- #列表头部-->
@@ -104,7 +87,6 @@
                       <th>付款方式</th>
                       <th>物业费期限</th>
                       <th>打印收据</th>
-                     
                     </tr>
                   </thead>
                   <tbody>
@@ -113,40 +95,36 @@
                       <td>管理员A</td>
                       <td>现金</td>
                       <td>2017-10-01 至 2018-09-30</td>
-                      
-                        <td><a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
+                      <td>
+                        <a target="_blank" href="/cost/shouju" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-          
+                        </a>
+                      </td>
                     </tr>
                    
-                  <tr>
+                    <tr>
                       <td>2017-10-01</td>
                       <td>管理员A</td>
                       <td>现金</td>
                       <td>2017-10-01 至 2018-09-30</td>
-                      
-                        <td><a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
+                      <td>
+                        <a target="_blank" href="/cost/shouju" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-          
+                        </a>
+                      </td>
                     </tr>
 
-                   <tr>
+                    <tr>
                       <td>2017-10-01</td>
                       <td>管理员A</td>
                       <td>现金</td>
                       <td>2017-10-01 至 2018-09-30</td>
-                      
-                        <td><a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
+                      <td>
+                        <a target="_blank" href="/cost/shouju" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-          
+                        </a>
+                      </td>
                     </tr>
-                 
                   </tbody>
                 </table>
               </div>
@@ -173,105 +151,9 @@
                 </ul>
               </nav>
               <!-- #页码-->
-              
-            </div>
-
-
-
-
-
-
-            <!--页面右侧-->
-            <!--物业费缴费记录-->
-                <div role="tabpanel" class="tab-pane" >
-                  <h4>缴费记录列表</h4>
-                 
-
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>缴费日期</th>
-                        <th>收款人</th>
-                        <th>付款方式</th>
-                        <th>物业费期限</th>
-                        <th>打印收据</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2016-09-14 14:59:30</td>
-                        <td>管理员A</td>
-                        <td>现金</td>
-                        <td>2016-10-01 至 2017-09-30</td>
-                        <td>
-                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2017-09-28 12:23:34</td>
-                        <td>微信号：世纪花城公众号</td>
-                        <td>微信转账（流水号：001293847567894836）</td>
-                        <td>2017-10-01 至 2018-09-30</td>
-                        <td>
-                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>2016-09-14 14:59:30</td>
-                        <td>管理员A</td>
-                        <td>现金</td>
-                        <td>2016-10-01 至 2017-09-30</td>
-                        <td>
-                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>2016-09-14 14:59:30</td>
-                        <td>管理员A</td>
-                        <td>现金</td>
-                        <td>2016-10-01 至 2017-09-30</td>
-                        <td>
-                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>2016-09-14 14:59:30</td>
-                        <td>管理员A</td>
-                        <td>现金</td>
-                        <td>2016-10-01 至 2017-09-30</td>
-                        <td>
-                          <a target="_blank" href="shouju.jsp" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                       
-            
-             
-              
             </div>
           </div>
     </div>
-    <!-- /container -->
-   <!--  <script type="text/javascript">
-         function ulrHtml(num){
-                     var toUrl = "room-edit.html?"+num;   
-             window.open(toUrl);         
-        }
-</script> -->
 
     <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
     <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
