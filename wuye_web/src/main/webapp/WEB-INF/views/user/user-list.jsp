@@ -166,7 +166,7 @@
                                                 <span class="text-danger">*</span>楼栋号
                                             </td>
                                             <td>
-                                                <select class="form-control buildingselect2" id="buildingname" name="buildingname">
+                                                <select class="form-control chosen buildingselect2" id="buildingname" name="buildingname">
                                                     <%--楼栋building--%>
 
                                                 </select>
@@ -179,7 +179,7 @@
                                                 <span class="text-danger">*</span>单元号
                                             </td>
                                             <td>
-                                                <select class="form-control unitselect" name="unitname">
+                                                <select class="form-control chosen unitselect" name="unitname">
                                                     <%--单元unit--%>
                                                 </select>
                                             </td>
@@ -565,6 +565,7 @@
                 status: $(".buildingselect").val(),
             }, //参数：当前页为1
             success: function (data) {
+                console.log(data);
                 var template = $('#template').html();
                 Mustache.parse(template);
                 $(".userinfo").html("");
@@ -628,20 +629,20 @@
         var unitname = $(this).siblings(".unithidden").val();
         var modelname = $(this).siblings(".modelhidden").val();
         var housenum = $(this).siblings(".delhousenum").val();
-        $("#buildingname").empty();
-        console.log($("#buildingname"));
+        $(".buildingselect2").empty();
+        $(".unitselect").empty();
+        $(".modelselect").empty();
         //楼栋
         $.ajax({
             type: "GET",
             url: "/building/findAll",
             success: function (json) {
-                console.log(json.length);
                 $(json).each(function () {
-                    $("#buildingname").val("");
-                    if (buildingname == this.name) {
-                        $("#buildingname").append("<option selected=\"selected\" value=" + this.name + ">" + this.name + "</option>");
+                    $(".buildingselect2").val("");
+                    if(buildingname == this.name){
+                        $(".buildingselect2").append("<option selected=\"selected\" value=" + this.name + ">" + this.name + "</option>");
                     } else {
-                        $("#buildingname").append("<option value=" + this.name + ">" + this.name + "</option>");
+                        $(".buildingselect2").append("<option value=" + this.name + ">" + this.name + "</option>");
                     }
                 });
             },
@@ -651,7 +652,6 @@
             type: "GET",
             url: "/unit/findAll",
             success: function (json) {
-                console.log(json);
                 $(json).each(function () {
                     $(".unitselect").val("");
                     if (unitname == this.name) {
@@ -724,33 +724,7 @@
                 $(".updateuser").attr("disabled", false);
             });
         });
-        //点击保存
-        $(".updateuser").click(function () {
-            console.log(id);
-            $.ajax({
-                type: "GET",
-                url: "/user/update",
-                data: {
-                    id: id,
-                    buildingname: $("#buildingname").val(),
-                    unitname: $(".unitselect").val(),
-                    housenum: $(".housenuminput").val(),
-                    modelid: $(".modelselect").val(),
-                },
-                success: function (json) {
-                    if (json == 0) {
-                        console.log("保存成功！");
-                    }
-                },
-                complete: function () {
-                    $('.modal').modal('hide');
-                    $(".housenuminput").val("");
-                    pageStart();
-                }
-            });
-        });
         //业主信息更改
-
         $.ajax({
             type: "GET",
             url: "/user/findById",
@@ -768,8 +742,32 @@
                     "</tr>");
             },
         });
+    });
+    //点击保存
+    $(".updateuser").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "/user/update",
+            data: {
+                id: $(".deluserid").val(),
+                buildingname: $("#buildingname").val(),
+                unitname: $(".unitselect").val(),
+                housenum: $(".housenuminput").val(),
+                modelid: $(".modelselect").val(),
+            },
+            success: function (json) {
+                if (json == 0) {
+                    console.log("保存成功！");
+                }
+            },
+            complete: function () {
+                $('.modal').modal('hide');
+                $(".housenuminput").val("");
+                pageStart();
+            }
+        });
+    });
 
-    })
 </script>
 </body>
 </html>

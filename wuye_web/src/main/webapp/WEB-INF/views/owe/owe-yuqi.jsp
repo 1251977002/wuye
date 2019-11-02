@@ -284,9 +284,12 @@
         function pageStart() {//分页函数
           $.ajax({ //去后台查询第一页数据
             type: "GET",
-            url: "/bbs/findPageBBS",
+            url: "/owe/findPageByOweMoney",
             dataType: "json",
-            data: {pageNum: 1},	//参数：当前页为1
+            data: {pageNum: 1,
+              buildingname:$(".build").val(),
+              username:$(".username").val()
+            },	//参数：当前页为1
             success: function (data) {
               console.log(data);
               $("#main").html("");
@@ -321,14 +324,17 @@
                 onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
                   console.log(data.pageNum);
                   $.ajax({//根据page去后台加载数据
-                    url: "/bbs/findPageBBS",
+                    url: "/owe/findPageByOweMoney",
                     type: "get",
                     dataType: "json",
-                    data: {pageNum: page},
+                    data: {pageNum: page,
+                      buildingname:$(".build").val(),
+                      username:$(".username").val(),
+                    },
                     success: function (data) {
                       $("#main").html("");
                       console.log(data);
-                      var template = $('#template1').html();
+                      var template = $('#template').html();
                       Mustache.parse(template);
                       $(data.list).each(function () {
                         var rendered = Mustache.render(template, this);

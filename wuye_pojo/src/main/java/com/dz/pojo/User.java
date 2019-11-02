@@ -1,8 +1,11 @@
 package com.dz.pojo;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class User {
+import java.io.Serializable;
+import java.util.List;
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
@@ -24,7 +27,6 @@ public class User {
     private List<Propert> propertList;
 
     private Model model;
-    private Propert propert;
 
     private String modelname;
 
@@ -161,9 +163,6 @@ public class User {
         this.model = model;
     }
 
-    public Propert getPropert() {
-        return propert;
-    }
 
     public int getRoleid() {
         return roleid;
@@ -181,7 +180,5 @@ public class User {
         this.propertList = propertList;
     }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
-    }
+
 }
