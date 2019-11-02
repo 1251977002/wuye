@@ -18,16 +18,19 @@ public class OweController {
     public String oweData(){
         return "owe/owe-data";
     }
+
     /*跳转到距离逾期还有七天（owe-qitian）页面*/
     @RequestMapping(value = "oweqitian")
     public String oweQitian(){
         return "owe/owe-qitian";
     }
+
     /*跳转已逾期页面（owe-yuqi）*/
     @RequestMapping(value = "oweyuqi")
     public String oweYuqi(){
         return "owe/owe-yuqi";
     }
+    /*通过owemoney是否为零查找逾期的用户*/
     public PageInfo<User> findPageByOweMoney(int pageNum){
         return userService.findPageByOweMoney(pageNum);
 
