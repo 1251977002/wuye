@@ -39,4 +39,9 @@ public class UnitService {
     public Unit findByName(String name) {
         return unitDao.findByName(name);
     }
+
+    //所有的单元
+    public List<Unit> findAll() {
+        return unitDao.findAll();
+    }
 }
