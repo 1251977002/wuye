@@ -24,7 +24,6 @@ public class User {
     private List<Propert> propertList;
 
     private Model model;
-    private Propert propert;
 
     private String modelname;
 
@@ -161,9 +160,6 @@ public class User {
         this.model = model;
     }
 
-    public Propert getPropert() {
-        return propert;
-    }
 
     public int getRoleid() {
         return roleid;
@@ -181,7 +177,5 @@ public class User {
         this.propertList = propertList;
     }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
-    }
+
 }
