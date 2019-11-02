@@ -18,9 +18,11 @@ public class Propert implements Serializable {
     private String begintime;/*开始时间*/
     private String endtime;
     private User user;
+    private String username;
     private int userid;
     private int payid;
     private String payway; /*缴费方式*/
+    private String title;  /*收款说明*/
 
     public int getId() {
         return id;
@@ -38,6 +40,21 @@ public class Propert implements Serializable {
         this.buildingname = buildingname;
     }
 
+    public String getHousenum() {
+        return housenum;
+    }
+
+    public void setHousenum(String housenum) {
+        this.housenum = housenum;
+    }
+
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
 
     public String getPropertno() {
         return propertno;
@@ -118,19 +135,20 @@ public class Propert implements Serializable {
     public void setPayway(String payway) {
         this.payway = payway;
     }
-    public String getHousenum() {
-        return housenum;
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setHousenum(String housenum) {
-        this.housenum = housenum;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUnitname() {
-        return unitname;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

@@ -4,6 +4,7 @@ import com.dz.pojo.Building;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.ui.Model;
 
 import java.util.List;
@@ -17,11 +18,9 @@ import java.util.Map;
 public interface BuidlingDao {
 
     String SELECT_FINDALL = "select * from t_building";
-    @Select(SELECT_FINDALL)
-    List<Building> findAll();
 
     /*查询所有楼栋列表*/
-    @Select("select * from t_building")
+    @Select(SELECT_FINDALL)
     List<Building> findAllbuilding(Model model);
 
     /*删除楼栋列表 根据id*/
@@ -36,6 +35,10 @@ public interface BuidlingDao {
     /*添加套房列表中的信息*/
     @Insert("insert into t_building(name) values(#{name})")
     void saveroom(Building building);
+
+    /*查询所有楼栋*/
+    @Select(SELECT_FINDALL)
+    List<Building> findAll();
 
     /*查询该楼栋名字*/
     @Select("select * from t_propert where buildingname=#{status}")

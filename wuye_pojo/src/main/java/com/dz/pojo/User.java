@@ -1,8 +1,11 @@
 package com.dz.pojo;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class User {
+import java.io.Serializable;
+import java.util.List;
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
@@ -13,15 +16,16 @@ public class User {
     private double owemoney;
     private int buildingid;
     private int houseid;
-    private String unitname;
     private String buildingname;
     private String housenum;
-
+    private String unitname;
     private int modelid;
     private Model model;
     private Propert propert;
+    private List<Propert> propertList;
+    private String modelname;
 
-    private int roleid;
+    private List<Role> roleList;
 
     public String getModelname() {
         return modelname;
@@ -29,26 +33,6 @@ public class User {
 
     public void setModelname(String modelname) {
         this.modelname = modelname;
-    }
-
-    private String modelname;
-    private List<Role> roleList;
-
-
-    public Model getModel() {
-        return model;
-    }
-
-    public void setModel(Model model) {
-        this.model = model;
-    }
-
-    public int getModelid() {
-        return modelid;
-    }
-
-    public void setModelid(int modelid) {
-        this.modelid = modelid;
     }
 
     public int getId() {
@@ -123,15 +107,6 @@ public class User {
         this.houseid = houseid;
     }
 
-
-    public String getUnitname() {
-        return unitname;
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
-    }
-
     public String getBuildingname() {
         return buildingname;
     }
@@ -148,11 +123,51 @@ public class User {
         this.housenum = housenum;
     }
 
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
+
+    public int getModelid() {
+        return modelid;
+    }
+
+    public void setModelid(int modelid) {
+        this.modelid = modelid;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
     public Propert getPropert() {
         return propert;
     }
 
     public void setPropert(Propert propert) {
         this.propert = propert;
+    }
+
+    public List<Propert> getPropertList() {
+        return propertList;
+    }
+
+    public void setPropertList(List<Propert> propertList) {
+        this.propertList = propertList;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 }

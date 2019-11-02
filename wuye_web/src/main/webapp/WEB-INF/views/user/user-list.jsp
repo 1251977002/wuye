@@ -166,10 +166,11 @@
                                                 <span class="text-danger">*</span>楼栋号
                                             </td>
                                             <td>
-                                                <select class="form-control chosen buildingselect2" id="buildingname"
-                                                        name="buildingname">
+                                                <select class="form-control buildingselect2" id="buildingname" name="buildingname">
                                                     <%--楼栋building--%>
+
                                                 </select>
+
                                             </td>
                                         </tr>
 
@@ -178,7 +179,7 @@
                                                 <span class="text-danger">*</span>单元号
                                             </td>
                                             <td>
-                                                <select class="form-control chosen unitselect" name="unitname">
+                                                <select class="form-control unitselect" name="unitname">
                                                     <%--单元unit--%>
                                                 </select>
                                             </td>
@@ -518,6 +519,7 @@
 
 
 
+
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -626,17 +628,20 @@
         var unitname = $(this).siblings(".unithidden").val();
         var modelname = $(this).siblings(".modelhidden").val();
         var housenum = $(this).siblings(".delhousenum").val();
+        $("#buildingname").empty();
+        console.log($("#buildingname"));
         //楼栋
         $.ajax({
             type: "GET",
             url: "/building/findAll",
             success: function (json) {
+                console.log(json.length);
                 $(json).each(function () {
-                    $(".buildingselect2").val("");
+                    $("#buildingname").val("");
                     if (buildingname == this.name) {
-                        $(".buildingselect2").append("<option selected value=" + this.name + ">" + this.name + "</option>");
+                        $("#buildingname").append("<option selected=\"selected\" value=" + this.name + ">" + this.name + "</option>");
                     } else {
-                        $(".buildingselect2").append("<option value=" + this.name + ">" + this.name + "</option>");
+                        $("#buildingname").append("<option value=" + this.name + ">" + this.name + "</option>");
                     }
                 });
             },
@@ -650,8 +655,10 @@
                 $(json).each(function () {
                     $(".unitselect").val("");
                     if (unitname == this.name) {
+                        console.log(unitname);
+                        console.log(this.name);
                         $(".unitselect").append("<option selected value=" + this.name + ">" + this.name + "</option>");
-                    }else {
+                    } else {
                         $(".unitselect").append("<option value=" + this.name + ">" + this.name + "</option>");
                     }
                 });
@@ -667,7 +674,7 @@
                     $(".modelselect").val("");
                     if (modelname == this.name) {
                         $(".modelselect").append("<option selected value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
-                    }else {
+                    } else {
                         $(".modelselect").append("<option value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
                     }
                     if (index == 0) {
@@ -701,8 +708,8 @@
                     housenum: $(".housenuminput").val(),
                 },
                 success: function (json) {
+                    $("#error").html("");
                     if (json != null && json != "" && json != "null") {
-                        $("#error").html("");
                         if (this.housenum != $(".delhousenum").val()) {
                             $("#error").html("与原房间号相同，无需更改！");
                         } else {
@@ -719,7 +726,7 @@
         });
         //点击保存
         $(".updateuser").click(function () {
-            console.log($(".deluserid").val());
+            console.log(id);
             $.ajax({
                 type: "GET",
                 url: "/user/update",
@@ -731,6 +738,9 @@
                     modelid: $(".modelselect").val(),
                 },
                 success: function (json) {
+                    if (json == 0) {
+                        console.log("保存成功！");
+                    }
                 },
                 complete: function () {
                     $('.modal').modal('hide');
@@ -740,25 +750,25 @@
             });
         });
         //业主信息更改
-        $("#changeuserinfo").click(function () {
-            $.ajax({
-                type: "GET",
-                url: "/user/findById",
-                data: {
-                    id: id,
-                },
-                success: function (json) {
-                    $("#userinfo").html("");
-                    $("#userinfo").append("<tr>" +
-                        "<td> " + json.username + " </td>" +
-                        "<td> " + json.tel + " </td>" +
-                        "<td><a href=\"#\" class=\"btn btn-xs btn-danger\">" +
-                        "<span class=\"glyphicon glyphicon-remove\"></span>删除</a>" +
-                        "</td>" +
-                        "</tr>");
-                },
-            });
+
+        $.ajax({
+            type: "GET",
+            url: "/user/findById",
+            data: {
+                id: id,
+            },
+            success: function (json) {
+                $("#userinfo").html("");
+                $("#userinfo").append("<tr>" +
+                    "<td> " + json.username + " </td>" +
+                    "<td> " + json.tel + " </td>" +
+                    "<td><a href=\"#\" class=\"btn btn-xs btn-danger\">" +
+                    "<span class=\"glyphicon glyphicon-remove\"></span>删除</a>" +
+                    "</td>" +
+                    "</tr>");
+            },
         });
+
     })
 </script>
 </body>

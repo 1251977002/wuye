@@ -47,5 +47,12 @@ public class BuildingController {
         buildingService.saveBuilding(building);
         return "redirect:buildinglist";
     }
+    /*显示所有楼栋*/
+    @RequestMapping(value = "findAll",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public List<Building> findAll(){
+        List<Building> buildingList = buildingService.findAll();
+        return buildingList;
+    }
 
 }

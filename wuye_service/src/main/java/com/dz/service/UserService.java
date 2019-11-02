@@ -2,6 +2,8 @@ package com.dz.service;
 
 import com.dz.dao.UserDao;
 import com.dz.pojo.User;
+import com.dz.dao.UserDao;
+import com.dz.pojo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.dz.dao.UserDao;
@@ -19,8 +21,8 @@ import javax.jws.soap.SOAPBinding;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-@Transactional/*事务控制*/
+//事务
+@Transactional
 @Service
 public class UserService {
 

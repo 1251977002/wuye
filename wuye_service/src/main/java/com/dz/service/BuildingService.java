@@ -28,10 +28,10 @@ public class BuildingService {
     }
 
 
-
     public List<Building> findAll() {
         return buidlingDao.findAll();
     }
+
 
     /*添加楼栋信息*/
     public void saveBuilding(Building building) {
