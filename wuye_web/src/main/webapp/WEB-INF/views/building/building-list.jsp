@@ -396,12 +396,13 @@
 
 <script id="template" type="x-tmpl-mustache">
               <tr>
-                    <td>{{name}}</td>
-                    <td>{{note}}</td>
+
+                    <td class = "name">{{name}}</td>
+                    <td class = "note">{{note}}</td>
                     <td>
                         <shiro:hasRole name="管理员">
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
-                        data-target="#myModal" id = "edit">
+                        <button type="button" class="btn btn-primary btn-xs update" data-toggle="modal"
+                        data-target="#myModal">
                         <span class="glyphicon glyphicon-pencil"></span>
                             编辑
                         </button>
@@ -410,7 +411,7 @@
                     删除
                     </a>
                         </shiro:hasRole>
-                        </td>
+                    </td>
               </tr>
 </script>
 
@@ -419,10 +420,14 @@
     $(document).ready(function () {
         //日期选择
         yoozi.datapicker('.datepicker');
-    });
-    $("#edit").click(function () {
 
+        $(".mytable").on("click",".update",function () {
+            alert("123");
+            var buildingname = $
+
+        });
     });
+
 
     $(".mytable").on("click", "#del", function () {
         if (confirm("确定要删除吗？")) {

@@ -96,13 +96,13 @@ public class UserService {
     }
 
 
-    /*对逾期用户进行分页*/
+    /*对逾期用户进行分页*//*
     public PageInfo<User> findPageByOweMoney(int pageNum) {
         PageHelper.startPage(pageNum, 3);
         List<User> userList = userDao.findPageByOweMoney(pageNum);
         PageInfo<User> pageInfo = new PageInfo<User>(userList);
         return  pageInfo;
-    }
+    }*/
 
     /*查询所有业主信息*/
     public List<User> findAllUser(Model model) {
