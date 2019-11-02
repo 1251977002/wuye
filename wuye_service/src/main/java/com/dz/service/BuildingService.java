@@ -2,6 +2,9 @@ package com.dz.service;
 
 import com.dz.dao.BuidlingDao;
 import com.dz.pojo.Building;
+import com.dz.pojo.Propert;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -46,5 +49,15 @@ public class BuildingService {
     /*查找所有的楼栋*/
     public List<String> findBuilding() {
         return buidlingDao.findBuilding();
+    }
+
+    /*分页*/
+    public PageInfo findByPage(int pageNum) {
+        PageHelper.startPage(pageNum,3);
+
+        List<Building> buildingList = buidlingDao.findAll();
+        PageInfo pageInfo = new PageInfo(buildingList);
+        return pageInfo;
+
     }
 }
