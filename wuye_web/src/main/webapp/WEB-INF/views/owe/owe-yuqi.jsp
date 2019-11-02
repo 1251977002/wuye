@@ -48,15 +48,15 @@
                 物业费逾期管理:
               </li>
               <li >
-                <a href="owe-data.jsp">欠费概况</a>
+                <a href="/owe/owedata">欠费概况</a>
                 
               </li>
               <li class='active'>
-                <a href="owe-yuqi.jsp">已逾期用户列表</a>
+                <a href="#">已逾期用户列表</a>
                 
               </li>
                <li>
-                <a href="owe-qitian.jsp">七天内到期的用户列表</a>
+                <a href="/owe/oweqitian">七天内到期的用户列表</a>
               </li>
             </ul>
             <ul class="sub-btns">
@@ -138,78 +138,87 @@
                   <thead>
                     <tr>
                       <th>楼栋号</th>
-                      <th>单元房号</th>
+                      <th>单元</th>
+                      <th>单元</th>
                       <th>业主姓名</th>
                       <th>联系电话</th>
                       <th>到期时间</th>
                       <th>逾期时间</th>
                       <th>物业费标准</th>
                       <th>所欠物业费</th>
-                      <th>滞纳金</th>
-                      <th>所欠总费用</th>
                       <th>备注</th>
                       <th>操作</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>一栋</td>
-                      <td>三单元601</td>
-                      <td>张三</td>
-                      <td>13333333333</td>
-                       <td>2017/09/12</td>
-                      <td class="color">10天</td>
-                      <td>47.6元/年</td>
-                      <td>365/物业费标准*逾期天数</td>
-                      <td>￥0</td>
-                      <td class="color">所欠物业费+滞纳金</td>
-                      <td>显示最新一条备注</td>
-                      <td><!-- 添加备注按钮 -->
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                  <tbody id="main">
+
+                     
+                  </tbody>
+                </table>
+              </div>
+              <!-- #列表-->
+              <!--页码-->
+
+              <!-- #页码-->
+              
+            </div>
+          </div>
+    </div>
+    <!-- /container -->
+
+
+  <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
+  <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
+  <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
+  <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
+  <script src="${basePath}assets/vendors/lodash.min.js"></script>
+  <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
+  <script src="${basePath}assets/yoozi.js"></script>
+  <script src="${basePath}assets/common.js"></script>
+  <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+  <script src="${basePath}assets/mustache.js"></script>
+  <script id="template" type="x-tmpl-mustache">
+    <tr>
+        <tr>
+        <td>一栋</td>
+        <td>三单元</td>
+        <td>601</td>
+        <td>张三</td>
+        <td>13333333333</td>
+        <td>2017/09/12</td>
+        <td class="color">10天</td>
+        <td>47.6元/年</td>
+        <td>365/物业费标准*逾期天数</td>
+        <td>￥0</td>
+        <td>显示最新一条备注</td>
+        <td><!-- 添加备注按钮 -->
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                           添加备注
-                        </button>
+            </button>
 
                         <!-- 添加备注弹出框 -->
-                        <div  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document" >
-                            <div class="modal-content"  >
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" >修改记录列表</h4>
-                              </div>
-                              <div class="modal-body">
-                                 <div role="tabpanel" class="tab-pane " >
-                                          <br />
-                                          <table class="table table-striped">
-                                            <thead>
-                                              <tr>
-                                                <th>管理员</th>
-                                                <th>备注</th>
-                                                <th>发布时间</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr>
-                                                <td>管理员A</td>
-                                                <td>上传了文件《2017-12-10 至 2018-12-10 的物业管理费收据》</td>
-                                                <td>2016-07-09 12:34:27</td>
-                                              </tr>
-                                              <tr>
-                                                <td>管理员B</td>
-                                                <td>添加备注：该房子正在进行二手交易</td>
-                                                <td>2016-09-09 09:08:07</td>
-                                              </tr>
-                                              <tr>
-                                                <td>管理员C</td>
-                                                <td>删除了业主 王五</td>
-                                                <td>2016-09-09 09:08:07</td>
-                                              </tr>
-                                              <tr>
-                                                <td>管理员C</td>
-                                                <td>添加了业主 陆六</td>
-                                                <td>2016-09-09 09:08:07</td>
-                                              </tr>
-                                            </tbody>
+            <div  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document" >
+                    <div class="modal-content"  >
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" >修改记录列表</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div role="tabpanel" class="tab-pane " >
+                                <br />
+                                 <table class="table table-striped">
+                                     <thead>
+                                         <tr>
+                                             <th>管理员</th>
+                                             <th>备注</th>
+                                              <th>发布时间</th>
+                                         </tr>
+                                     </thead>
+                                         <tbody class = "record">
+
+                                          </tbody>
                                           </table>
                                           <br />
                                           <h5>添加备注</h5>
@@ -239,158 +248,115 @@
                                         </div>
                                        <!--  <div class="modal-footer">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                          
+
                                         </div> -->
                                       </div>
                                     </div>
                                   </div></td>
                                             </tr>
-                                             <tr>
-                                                <td>二栋</td>
-                                                <td>一单元501</td>
-                                                <td>李四</td>
-                                                 <td>13333333333</td>
-                                                  <td>2017/09/12</td>
-                                                <td class="color">10天</td>
-                                                <td>47.6元/年</td>
-                                                <td>365/物业费标准*逾期天数</td>
-                                               
-                                               
-                                                <td>￥0</td>
-                                                <td class="color">所欠物业费+滞纳金</td>
-                                                <td>显示最新一条备注</td>
-                                                <td><!-- 添加备注按钮 -->
-                                                          <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                                                            添加备注
-                                                          </button>
 
-                                                          <!-- 添加备注弹出框 -->
-                                                          <div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                            <div class="modal-dialog" role="document" >
-                                                              <div class="modal-content"  >
-                                                                <div class="modal-header">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                  <h4 class="modal-title" id="myModalLabel">修改记录列表</h4>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                   <div role="tabpanel" class="tab-pane " id="timeline" >
-                                                                            <br />
-                                                                            <table class="table table-striped">
-                                                                              <thead>
-                                                                                <tr>
-                                                                                  <th>管理员</th>
-                                                                                  <th>备注</th>
-                                                                                  <th>发布时间</th>
-                                                                                </tr>
-                                                                              </thead>
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td>管理员A</td>
-                                                                                  <td>上传了文件《2017-12-10 至 2018-12-10 的物业管理费收据》</td>
-                                                                                  <td>2016-07-09 12:34:27</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td>管理员B</td>
-                                                                                  <td>添加备注：该房子正在进行二手交易</td>
-                                                                                  <td>2016-09-09 09:08:07</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td>管理员C</td>
-                                                                                  <td>删除了业主 王五</td>
-                                                                                  <td>2016-09-09 09:08:07</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td>管理员C</td>
-                                                                                  <td>添加了业主 陆六</td>
-                                                                                  <td>2016-09-09 09:08:07</td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                            <br />
-                                                                            <h5>添加备注</h5>
-                                                                            <div>
-                                                                              <form>
-                                                                                <table class="form-table">
-                                                                                  <tbody>
-                                                                                    <tr>
-                                                                                      <td class="form-title">
-                                                                                        备注
-                                                                                      </td>
-                                                                                      <td>
-                                                                                        <input type="text" class="form-control" name="title" value="" placeholder="">
-                                                                                      </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                      <td class="form-title"></td>
-                                                                                      <td>
-                                                                                        <button type="submit" class="btn btn-primary">保存</button>
-                                                                                      </td>
-                                                                                    </tr>
-                                                                                  </tbody>
-                                                                                </table>
-                                                                              </form>
-                                                                            </div>
-                                                                          </div>
-                                                                          </div>
-                                                                         <!--  <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                                                            
-                                                                          </div> -->
-                                                                        </div>
-                                                                      </div>
-                                                                    </div></td>
-                                            </tr>
-                     
-                  </tbody>
-                </table>
-              </div>
-              <!-- #列表-->
-              <!--页码-->
-              <nav class="pull-right">
-                <ul class="pagination pagination-sm">
-                  <ul class="pagination">
-                    <li class="disabled"><span>&laquo;</span></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li class="disabled"><span>...</span></li>
-                    <li><a href="#">65</a></li>
-                    <li><a href="#">66</a></li>
-                    <li><a href="#" rel="next">&raquo;</a></li>
-                  </ul>
-                </ul>
-              </nav>
-              <!-- #页码-->
-              
-            </div>
-          </div>
-    </div>
-    <!-- /container -->
+  </script>
+  <script id="template" type="x-tmpl-mustache">
+     <tr>
+        <td>管理员A</td>
+        <td>上传了文件《2017-12-10 至 2018-12-10 的物业管理费收据》</td>
+        td>2016-07-09 12:34:27</td>
+     </tr>
+  </script>
 
-
-    <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
-    <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
-    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
-    <script src="${basePath}assets/vendors/lodash.min.js"></script>
-    <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
-    <script src="${basePath}assets/yoozi.js"></script>
-    <script src="${basePath}assets/common.js"></script>
-
-    <script type="text/javascript">
+  <script type="text/javascript">
       $(document).ready(function(){
 
         //日期选择
         yoozi.datapicker('.datepicker');
 
       });
+      $(function () {
+        pageStart();//开始分页
+
+        function pageStart() {//分页函数
+          $.ajax({ //去后台查询第一页数据
+            type: "GET",
+            url: "/bbs/findPageBBS",
+            dataType: "json",
+            data: {pageNum: 1},	//参数：当前页为1
+            success: function (data) {
+              console.log(data);
+              $("#main").html("");
+              var template = $('#template').html();
+              Mustache.parse(template);
+              $(data.list).each(function () {
+                var rendered = Mustache.render(template, this);
+                $("#main").append(rendered);
+              });
+
+
+              var options = {//根据后台返回的分页相关信息，设置插件参数
+                bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
+                currentPage: data.pageNum, //当前页数
+                totalPages: data.pages, //总页数
+                numberOfPages: data.pageSize,//每页记录数
+                itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
+
+                  switch (type) {
+                    case "first":
+                      return "首页";
+                    case "prev":
+                      return "上一页";
+                    case "next":
+                      return "下一页";
+                    case "last":
+                      return "末页";
+                    case "page":
+                      return page;
+                  }
+                },
+                onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
+                  console.log(data.pageNum);
+                  $.ajax({//根据page去后台加载数据
+                    url: "/bbs/findPageBBS",
+                    type: "get",
+                    dataType: "json",
+                    data: {pageNum: page},
+                    success: function (data) {
+                      $("#main").html("");
+                      console.log(data);
+                      var template = $('#template1').html();
+                      Mustache.parse(template);
+                      $(data.list).each(function () {
+                        var rendered = Mustache.render(template, this);
+                        $("#main").append(rendered);
+                      });
+
+                    }
+                  });
+
+                }
+
+              };
+              $('#mypage').bootstrapPaginator(options);//设置分页
+            }
+
+          });
+        }
+      })
+
+
+
+
+
+
+
+
+
+
     </script>
+
+
+
+
+
+
 
     <!-- <script type="text/javascript">
          function ulrHtml(num){

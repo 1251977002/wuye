@@ -1,5 +1,7 @@
 package com.dz.dao;
 
+
+import com.dz.pojo.Model;
 import com.dz.pojo.User;
 import org.apache.ibatis.annotations.*;
 
@@ -14,34 +16,26 @@ import java.util.List;
 import com.dz.pojo.User;
 import org.apache.ibatis.annotations.*;
 
+
 import org.springframework.stereotype.Service;
 
-import org.springframework.ui.Model;
+
 
 
 public interface UserDao {
 
-    String SELECT_BYLOGINNAME = "select * from t_user where username = #{username}";
-    String SELECT_BYPID = "SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})";
 
-    //用户登录
-    @Select(SELECT_BYLOGINNAME)
+    @Select("select * from t_user where username = #{username}")
     @Results({
             @Result(id = true, column = "id", property = "id"),
             @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
     })
     User findByLoginName(String username);
 
-    //分页显示用户
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getUserSQL")
     List<User> findUserByParam(Map<String,Object> map);
 
-    //通过物业费id查找用户
-    @Select(SELECT_BYPID)
-    @Results({
-            @Result(id = true,column = "id",property = "id"),
-            @Result(column = "id",property = "model",one= @One(select = "com.dz.dao.ModelDao.findByUid"))
-    })
+    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})")
     User findByPid(Integer pid);
 
     /*添加套房信息*/
@@ -53,11 +47,15 @@ public interface UserDao {
     void save(User user);
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
-    @Results({
-            @Result(id = true,column = "id",property = "id"),
-            @Result(column = "id",property = "model",one= @One(select = "com.dz.dao.ModelDao.findByUid"))
-    })
     User findByBuildAndUnitHouse(User user);
+
+    /*分页查找逾期用户*/
+    @Select("Select * from t_user where owemoney>0")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
+    })
+    List<User> findPageByOweMoney(int pageNum);
 
 
     //删除住户

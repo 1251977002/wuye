@@ -91,18 +91,18 @@
         }
 </script> -->
 
-    <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
-    <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
-    <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
-    <script src="${basePath}assets/vendors/lodash.min.js"></script>
-    <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
-    <script src="${basePath}assets/yoozi.js"></script>
-    <script src="${basePath}assets/common.js"></script>
-	<script src="${basePath}assets/bootstrap-paginator.min.js"></script>
-	<script src="${basePath}assets/mustache.js"></script>
-	<script id="template1" type="x-tmpl-mustache">
+      <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
+      <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
+      <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
+      <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.zh-CN.min.js"></script>
+      <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
+      <script src="${basePath}assets/vendors/lodash.min.js"></script>
+      <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
+      <script src="${basePath}assets/yoozi.js"></script>
+      <script src="${basePath}assets/common.js"></script>
+	  <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+	  <script src="${basePath}assets/mustache.js"></script>
+	  <script id="template1" type="x-tmpl-mustache">
 
        <div class="col-md-12">
 		  <div class="box box-widget">

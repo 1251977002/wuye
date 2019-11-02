@@ -1,11 +1,8 @@
 package com.dz.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.io.Serializable;
 import java.util.List;
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
-public class User implements Serializable {
+
+public class User {
     /*业主表 */
     private int id;
     private String username;
@@ -16,13 +13,19 @@ public class User implements Serializable {
     private double owemoney;
     private int buildingid;
     private int houseid;
+    private String unitname;
     private String buildingname;
     private String housenum;
-    private String unitname;
+
+
     private int modelid;
+
+    private int roleid;
+    private List<Propert> propertList;
+
     private Model model;
     private Propert propert;
-    private List<Propert> propertList;
+
     private String modelname;
 
     private List<Role> roleList;
@@ -33,6 +36,16 @@ public class User implements Serializable {
 
     public void setModelname(String modelname) {
         this.modelname = modelname;
+    }
+
+
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 
     public int getId() {
@@ -121,10 +134,12 @@ public class User implements Serializable {
 
     public void setHousenum(String housenum) {
         this.housenum = housenum;
+
     }
 
     public String getUnitname() {
         return unitname;
+
     }
 
     public void setUnitname(String unitname) {
@@ -138,7 +153,6 @@ public class User implements Serializable {
     public void setModelid(int modelid) {
         this.modelid = modelid;
     }
-
     public Model getModel() {
         return model;
     }
@@ -151,8 +165,12 @@ public class User implements Serializable {
         return propert;
     }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
+    public int getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
     }
 
     public List<Propert> getPropertList() {
@@ -163,11 +181,7 @@ public class User implements Serializable {
         this.propertList = propertList;
     }
 
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
+    public void setPropert(Propert propert) {
+        this.propert = propert;
     }
 }

@@ -1,8 +1,7 @@
 package com.dz.service;
 
 import com.dz.dao.UserDao;
-import com.dz.pojo.User;
-import com.dz.dao.UserDao;
+import com.dz.pojo.Model;
 import com.dz.pojo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,25 +9,25 @@ import com.dz.dao.UserDao;
 import com.dz.pojo.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//事务
-@Transactional
+
+@Transactional/*事务控制*/
 @Service
 public class UserService {
 
     @Autowired
     private UserDao userDao;
 
+    /*登录时候需要验证*/
+    public User findByLoginName(String username) {
+        return userDao.findByLoginName(username);
+    }
 
     //user列表分页
     public PageInfo<User> findUserByParam(int pageNum,String username,String status) {
@@ -75,6 +74,7 @@ public class UserService {
     }
 
 
+
     //删除
     public void delByhouseNum(String housenum) {
         userDao.delByhouseNum(housenum);
@@ -93,6 +93,15 @@ public class UserService {
     public List<User> findAll() {
         List<User> userList =  userDao.findAll();
         return userList;
+    }
+
+
+    /*对逾期用户进行分页*/
+    public PageInfo<User> findPageByOweMoney(int pageNum) {
+        PageHelper.startPage(pageNum, 3);
+        List<User> userList = userDao.findPageByOweMoney(pageNum);
+        PageInfo<User> pageInfo = new PageInfo<User>(userList);
+        return  pageInfo;
     }
 
     /*查询所有业主信息*/

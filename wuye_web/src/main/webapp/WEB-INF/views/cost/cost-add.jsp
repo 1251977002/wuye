@@ -256,7 +256,7 @@
           //重置时
           $(".resetInfo").click(function () {
               $(".build").html("<option value=\"\">--请选择楼栋--</option>");
-              $(".username").val(""),
+              $(".housename").val(""),
               automatic();
           });
 
