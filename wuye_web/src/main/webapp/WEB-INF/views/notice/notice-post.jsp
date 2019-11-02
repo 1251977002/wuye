@@ -122,7 +122,7 @@
     <script src="${basePath}assets/vendors/lodash.min.js"></script>
     <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
     <script src="${basePath}assets/yoozi.js"></script>
-    <script src="${basePath}assets/common.js"></script>
+    <%--<script src="${basePath}assets/common.js"></script>--%>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -131,10 +131,14 @@
         yoozi.datapicker('.datepicker');
 
       });
-      $(".docancel").click(function(){
-          $(".title").val("");
-          $(".content").val("");
-      });
+      $(function () {
+          $(".docancel").click(function(){
+              $("#title").val("");
+              $("#content").val("");
+          });
+      })
+
+
 
     </script>
   </body>

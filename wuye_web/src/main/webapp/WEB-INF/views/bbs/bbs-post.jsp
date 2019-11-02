@@ -93,7 +93,7 @@
 												  <button type="submit" class="btn btn-success btn-flat">
 													<li class = "fa fa-share"></li>&nbsp;发布
 												  </button>
-												  <a href = "document.html" class="btn btn-danger btn-flat pull-right">
+												  <a href = "#" class="btn btn-danger btn-flat pull-right docancel">
 													<li class = "fa fa-remove"></li>&nbsp;取消
 												  </a>
 												</div>
@@ -124,7 +124,7 @@
     <script src="${basePath}assets/vendors/lodash.min.js"></script>
     <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
     <script src="${basePath}assets/yoozi.js"></script>
-    <script src="${basePath}assets/common.js"></script>
+   <%-- <script src="${basePath}assets/common.js"></script>--%>
 
   <script type="text/javascript">
       $(document).ready(function(){
@@ -132,11 +132,13 @@
         //日期选择
           yoozi.datapicker('.datepicker');
 
-      });   
-        $(function () {
-
-            
-        })
+      });
+      $(function () {
+      $(".docancel").click(function(){
+          $("#title").val("");
+          $("#content").val("");
+      });
+      })
     </script>
   </body>
 </html>

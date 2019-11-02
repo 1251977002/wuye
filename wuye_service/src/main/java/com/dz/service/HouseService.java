@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class HouseService {
     @Autowired
     private HouseDao houseDao;
+    //保存住户的房间信息
     public void save(String housenum, int userId, Unit unit, int modelid) {
         House house = new House();
         house.setHousenum(Integer.parseInt(housenum));
@@ -17,5 +18,9 @@ public class HouseService {
         house.setUnitid(unit.getId());
         house.setModelid(modelid);
         houseDao.save(house);
+    }
+    //删除住户的房间信息
+    public void del(int housenum) {
+        houseDao.del(housenum);
     }
 }

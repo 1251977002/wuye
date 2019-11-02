@@ -11,7 +11,7 @@
         <div class="navbar-collapse collapse">
             <!--头部菜单-->
             <ul class="nav navbar-nav">
-                <li class="${(param.menu eq 'owe') ? 'active' : ''}"><a href="control-data.jsp">欠费管理</a></li>
+                <li class="${(param.menu eq 'owe') ? 'active' : ''}"><a href="/owe/owedata">欠费管理</a></li>
                 <li class="${(param.menu eq 'room') ? 'active' : ''}" ><a href="/room/roomlist">套房管理</a></li>
                 <li class="${(param.menu eq 'cost') ? 'active' : ''}"><a href="/cost/list">收费管理</a></li>
                 <li class="${(param.menu eq 'user') ? 'active' : ''}" ><a href="/user/list">业主管理</a></li>

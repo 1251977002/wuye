@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -44,5 +45,13 @@ public class UnitController {
         unit.setNote(note);
         unitService.saveUnit(unit);
         return "redirect:unitlist";
+    }
+
+    //查找所有单元
+    @RequestMapping(value = "findAll",produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public List<Unit> findAll(){
+        List<Unit> unitList = unitService.findAll();
+        return unitList;
     }
 }

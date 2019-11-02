@@ -47,15 +47,15 @@
                 物业费逾期管理:
             </li>
             <li>
-                <a href="owe-data.jsp">欠费概况</a>
+                <a href="/owe/owedata">欠费概况</a>
 
             </li>
             <li>
-                <a href="owe-yuqi.jsp">已逾期用户列表</a>
+                <a href="/owe/oweyuqi">已逾期用户列表</a>
 
             </li>
             <li class='active'>
-                <a href="owe-qitian.jsp">七天内到期的用户列表</a>
+                <a href="#">七天内到期的用户列表</a>
             </li>
         </ul>
         <ul class="sub-btns">

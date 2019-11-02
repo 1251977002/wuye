@@ -23,7 +23,6 @@
     <link href="${basePath}assets/vendors/chosen/chosen.min.css" rel="stylesheet">
     <link href="${basePath}assets/page.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${basePath}assets/vendors/star/star-rating.css">
-    <link rel="stylesheet" href="../../../assets/layui/layui.css">
     <!-- Custom styles for this template -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -35,9 +34,7 @@
 <jsp:include page="../head.jsp">
     <jsp:param name="menu" value="user"/>
 </jsp:include>
-
 <!-- <div class="list-container have-subhead ab"> -->
-
 <!--头部副标题导航-->
 <nav class="navbar navbar-fixed-top subhead ab">
     <div class="navbar-collapse collapse">
@@ -54,7 +51,7 @@
         </ul>
         <ul class="sub-btns">
             <li>
-                <a href="#" class="btn btn-sm btn-default">
+                <a href="/user/export" class="btn btn-sm btn-default">
                     <span class="glyphicon glyphicon-list-alt"></span>
                     导出 excel 表
                 </a>
@@ -65,30 +62,29 @@
 <!-- #头部副标题导航-->
 <!--页面主体-->
 <div class="list-container have-subhead ab">
-
     <!--页面左侧-->
     <div class="sidebar">
         <h1>按条件查询</h1>
         <!--查询表单-->
 
-            <div class="form-group">
-                <label>请选择楼栋</label>
-                <select class="form-control chosen buildingselect" name="status">
-                    <option value="">--请选择楼栋--</option>
+        <div class="form-group">
+            <label>请选择楼栋</label>
+            <select class="form-control chosen buildingselect" name="status">
+                <option value="">--请选择楼栋--</option>
 
-                    <%--楼栋、ajax--%>
-                </select>
-            </div>
-            <div class="form-group">
+                <%--楼栋、ajax--%>
+            </select>
+        </div>
+        <div class="form-group">
 
-                <label>请输入 业主姓名</label>
-                <input type="text" class="form-control username"  value="" name="username" value="" placeholder="">
-            </div>
+            <label>请输入 业主姓名</label>
+            <input type="text" class="form-control username" value="" name="username" value="" placeholder="">
+        </div>
 
-            <div class="form-group-btns">
-                <button type="button" class="btn btn-sm btn-primary selectInfo">筛选</button>
-                <a href="javascript:;" class="btn btn-sm btn-default cleanbtn">重置</a>
-            </div>
+        <div class="form-group-btns">
+            <button type="button" class="btn btn-sm btn-primary selectInfo">筛选</button>
+            <a href="javascript:;" class="btn btn-sm btn-default cleanbtn">重置</a>
+        </div>
     </div>
     <!--页面右侧-->
     <div class="main">
@@ -102,7 +98,7 @@
         <!-- #列表头部-->
         <!--列表-->
         <div>
-            <table class="table table-striped ">
+            <table class="table table-striped usertable">
                 <thead>
                 <tr>
                     <th>楼栋号</th>
@@ -114,7 +110,7 @@
                     <th width="150">操作</th>
                 </tr>
                 </thead>
-                <tbody class = "userinfo">
+                <tbody class="userinfo">
 
                 </tbody>
             </table>
@@ -131,7 +127,6 @@
 </div>
 </div>
 <!-- /container -->
-
 <!-- 添加备注弹出框 -->
 <div style="z-index: 9999" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" style="width: 800px;" role="document">
@@ -146,7 +141,7 @@
                             <a href="#base" aria-controls="base" role="tab" data-toggle="tab">套房信息更改</a>
                         </li>
                         <li role="presentation">
-                            <a href="#person" aria-controls="person" role="tab" data-toggle="tab">业主信息更改</a>
+                            <a href="#person" id="changeuserinfo" aria-controls="person" role="tab" data-toggle="tab">业主信息更改</a>
                         </li>
                         <li role="presentation">
                             <a href="#file" aria-controls="file" role="tab" data-toggle="tab">相关文件更改</a>
@@ -154,17 +149,13 @@
                         <li role="presentation">
                             <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab">业主信息修改记录</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#star" aria-controls="tstar" role="tab" data-toggle="tab">业主星级管理</a>
-                        </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <!--套房信息-->
                         <div role="tabpanel" class="tab-pane active " id="base">
                             <br/>
-                            <form class="form-horizontal" enctype="multipart/form-data" action="#/backend/admin/product"
-                                  method="post">
+                            <div>
                                 <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
                                 <input type="hidden" name="id" value="0"/>
                                 <div>
@@ -175,13 +166,11 @@
                                                 <span class="text-danger">*</span>楼栋号
                                             </td>
                                             <td>
-                                                <select class="form-control chosen" name="status">
-                                                    <option value="1">一栋</option>
-                                                    <option value="2">二栋</option>
-                                                    <option value="3">三栋</option>
-                                                    <option value="4">四栋</option>
-                                                    <option value="5">五栋</option>
+                                                <select class="form-control buildingselect2" id="buildingname" name="buildingname">
+                                                    <%--楼栋building--%>
+
                                                 </select>
+
                                             </td>
                                         </tr>
 
@@ -190,12 +179,8 @@
                                                 <span class="text-danger">*</span>单元号
                                             </td>
                                             <td>
-                                                <select class="form-control chosen" name="status">
-                                                    <option value="1">洋房一单元</option>
-                                                    <option value="2">洋房二单元</option>
-                                                    <option value="3">洋房三单元</option>
-                                                    <option value="4">别墅区一街</option>
-                                                    <option value="5">别墅区二街</option>
+                                                <select class="form-control unitselect" name="unitname">
+                                                    <%--单元unit--%>
                                                 </select>
                                             </td>
                                         </tr>
@@ -204,8 +189,10 @@
                                                 <span class="text-danger">*</span> 房号
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="title" value=""
+                                                <input type="text" class="form-control housenuminput" name="housenum"
+                                                       value=""
                                                        placeholder="">
+                                                <span id="error" style="color: red"></span>
                                             </td>
                                         </tr>
 
@@ -215,30 +202,19 @@
                                                 <span class="text-danger">*</span>户型
                                             </td>
                                             <td>
-                                                <select class="form-control chosen" name="status">
-                                                    <option value="1">三房两厅（119平米）</option>
-                                                    <option value="2">两房两厅（89平米）</option>
-                                                    <option value="3">四房两厅（139平米）</option>
+                                                <select class="form-control chosen modelselect" name="modelid">
+                                                    <%--房型--%>
                                                 </select>
                                             </td>
                                         </tr>
-
-
                                         <tr>
                                             <td class="form-title">
                                                 <span class="text-danger">*</span>物业费标准
                                             </td>
                                             <td>
-                                                <select class="form-control chosen" name="status">
-                                                    <option value="1">洋房A（0.4元/平米/月）</option>
-                                                    <option value="1">洋房B（0.5元/平米/月）</option>
-                                                    <option value="2">联排别墅（0.6元/平米/月）</option>
-                                                    <option value="2">独栋别墅（0.7元/平米/月）</option>
-                                                </select>
+                                                <span id="money"></span>元/年（选择了「户型」，系统会自动计算该楼层的物业费用）
                                             </td>
                                         </tr>
-
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -248,16 +224,17 @@
                                         <tbody>
                                         <tr>
                                             <td class="form-title"></td>
-                                            <a href="user-list.jsp" class="btn btn-primary btn-lg btn-block"> 保存</a>
+                                            <button type="button" class="btn btn-primary btn-lg btn-block updateuser">
+                                                保存
+                                            </button>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <!--业主信息-->
-
                         <div role="tabpanel" class="tab-pane " id="person">
                             <br/>
                             <div>
@@ -270,23 +247,8 @@
                                             <th>操作</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>13333333333</td>
-                                            <td>
-                                                <a href="#" class="btn btn-xs btn-danger"><span
-                                                        class="glyphicon glyphicon-remove"></span>删除</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>张四</td>
-                                            <td>14444444444</td>
-                                            <td>
-                                                <a href="#" class="btn btn-xs btn-danger"><span
-                                                        class="glyphicon glyphicon-remove"></span>删除</a>
-                                            </td>
-                                        </tr>
+                                        <tbody id="userinfo">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -327,7 +289,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!--相关文件-->
                         <div role="tabpanel" class="tab-pane" id="file">
                             <br/>
@@ -430,7 +391,6 @@
                                 </form>
                             </div>
                         </div>
-
                         <!--修改记录-->
                         <div role="tabpanel" class="tab-pane " id="timeline">
                             <br/>
@@ -517,94 +477,6 @@
                             </div>
                         </div>
 
-
-                        <!--业主星级管理-->
-                        <div role="tabpanel" class="tab-pane " id="star">
-                            <br/>
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>管理员</th>
-                                    <th>备注</th>
-                                    <th>发布时间</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>管理员A</td>
-                                    <td>把星级降为4星级，由于不及时缴纳物业费</td>
-                                    <td>2016-09-09 12:34:27</td>
-                                </tr>
-                                <tr>
-                                    <td>管理员B</td>
-                                    <td>提升用户为5星级，由于信用优秀</td>
-                                    <td>2016-09-09 09:08:07</td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-
-                            <!--页码-->
-                            <div class="yema">
-                                <nav class="pull-right ">
-                                    <ul class="pagination pagination-sm">
-                                        <ul class="pagination">
-                                            <li class="disabled"><span>&laquo;</span></li>
-                                            <li class="active"><span>1</span></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">6</a></li>
-                                            <li><a href="#">7</a></li>
-                                            <li><a href="#">8</a></li>
-                                            <li class="disabled"><span>...</span></li>
-                                            <li><a href="#">65</a></li>
-                                            <li><a href="#">66</a></li>
-                                            <li><a href="#" rel="next">&raquo;</a></li>
-                                        </ul>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!-- #页码-->
-
-                            <br/> <br/>
-                            <h5>添加备注</h5>
-                            <div>
-                                <form>
-                                    <table class="form-table">
-                                        <tbody>
-                                        <tr>
-                                            <td class="form-title">
-                                                星级
-                                            </td>
-                                            <td>
-                                                <input id="comment" name="comment" class="rating" min="0" max="5"
-                                                       step="1" data-size="xss" value="2">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="form-title">
-                                                备注
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="title" value=""
-                                                       placeholder="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="form-title"></td>
-                                            <td>
-                                                <button type="submit" class="btn btn-primary">保存</button>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
-
-
                     </div>
 
                 </div>
@@ -618,27 +490,36 @@
 <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
 <script src="${basePath}assets/vendors/chosen/chosen.jquery.min.js"></script>
 <script src="${basePath}assets/vendors/star/star-rating.js"></script>
-<script src="../../../assets/layui/layui.js"></script>
 <%--分页--%>
 <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
 <script src="${basePath}assets/mustache.js"></script>
+<%--user信息表格模板--%>
 <script id="template" type="x-tmpl-mustache">
- <tr>
+ <tr class = "usertr">
                     <td>{{buildingname}}</td>
                     <td>{{unitname}}{{housenum}}</td>
                     <td>{{username}}</td>
                     <td>{{sex}}</td>
                     <td>{{card}}</td>
                     <td>{{tel}}</td>
-                    <input type="hidden" class="deluserid" value = "{{id}}">
                     <td>
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                        <input type="hidden" class="deluserid" value = "{{id}}">
+                        <input type="hidden" class="buildinghidden" value = "{{buildingname}}">
+                        <input type="hidden" class="unithidden" value = "{{unitname}}">
+                        <input type="hidden" class="modelhidden" value = "{{model.modelname}}">
+                        <input type="hidden" class="delhousenum" value = "{{housenum}}">
+                        <button type="button" class="btn btn-primary btn-xs changebtn" data-toggle="modal" data-target="#myModal" >
                             <span class="glyphicon glyphicon-pencil"></span>
                             更改
                         </button>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs deluser" lay-event="del"> <span class="glyphicon glyphicon-remove"></span>删除</a>
+                        <a class="btn btn-danger btn-xs deluser" href="javascript:;" ref = "{{housenum}}">
+                        <span class="glyphicon glyphicon-remove"></span>删除</a>
                     </td>
                 </tr>
+
+
+
+
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -649,9 +530,9 @@
     });
     //左侧单选下拉框楼栋
     $.ajax({
-        type:"GET",
-        url:"/building/findAll",
-        success:function (json) {
+        type: "GET",
+        url: "/building/findAll",
+        success: function (json) {
             //$(".buildingselect").empty();
             $(json).each(function () {
                 $(".buildingselect").append("<option value=" + this.name + ">" + this.name + "</option>");
@@ -659,26 +540,10 @@
         },
     });
     //删除
-    $(".userinfo").on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
-        var data = obj.data //获得当前行数据
-            ,layEvent = obj.event; //获得 lay-event 对应的值
-        if(layEvent === 'del'){
-            layer.confirm('真的删除该用户么', function(index){
-                $.ajax({
-                    type:"GET",
-                    url:"/user/delUserById",
-                    data:{
-                        userid:$("deluser").val(),
-                    },
-                    success:function (code) {
-                        if(code == 0){
-                            obj.del(); //删除对应行（tr）的DOM结构
-                            layer.close(index);
-                            //向服务端发送删除指令
-                        }
-                    }
-                });
-            });
+    $(".userinfo").on("click", ".deluser", function () {
+        if (confirm("确定删除么？")) {
+            var housenum = $(this).attr("ref");
+            window.location.href = "/user/delByhouseNum?housenum=" + housenum;
         }
     });
     //重置、清空左侧内容
@@ -696,11 +561,10 @@
             dataType: "json",
             data: {
                 pageNum: '1',
-                username:$(".username").val(),
-                status:$(".buildingselect").val(),
+                username: $(".username").val(),
+                status: $(".buildingselect").val(),
             }, //参数：当前页为1
             success: function (data) {
-                console.log(data.pages);
                 var template = $('#template').html();
                 Mustache.parse(template);
                 $(".userinfo").html("");
@@ -712,7 +576,7 @@
                 var options = {//根据后台返回的分页相关信息，设置插件参数
                     bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
                     currentPage: data.pageNum, //当前页数
-                    totalPages:data.pages == 0 ? "" : data.pages,
+                    totalPages: data.pages == 0 ? "" : data.pages,
                     numberOfPages: data.pageSize,//每页记录数
                     itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
                         switch (type) {
@@ -733,9 +597,10 @@
                             url: "/user/findByPage",
                             type: "get",
                             dataType: "json",
-                            data: {pageNum: page,
-                                username:$(".username").val(),
-                                status:$(".buildingselect").val(),
+                            data: {
+                                pageNum: page,
+                                username: $(".username").val(),
+                                status: $(".buildingselect").val(),
                             },
                             success: function (data) {
                                 var template = $('#template').html();
@@ -755,6 +620,156 @@
             }
         });
     }
+
+    //点击更改时
+    $(".usertable").on("click", ".changebtn", function () {
+        var id = $(this).siblings(".deluserid").val();
+        var buildingname = $(this).siblings(".buildinghidden").val();
+        var unitname = $(this).siblings(".unithidden").val();
+        var modelname = $(this).siblings(".modelhidden").val();
+        var housenum = $(this).siblings(".delhousenum").val();
+        $("#buildingname").empty();
+        console.log($("#buildingname"));
+        //楼栋
+        $.ajax({
+            type: "GET",
+            url: "/building/findAll",
+            success: function (json) {
+                console.log(json.length);
+                $(json).each(function () {
+                    $("#buildingname").val("");
+                    if (buildingname == this.name) {
+                        $("#buildingname").append("<option selected=\"selected\" value=" + this.name + ">" + this.name + "</option>");
+                    } else {
+                        $("#buildingname").append("<option value=" + this.name + ">" + this.name + "</option>");
+                    }
+                });
+            },
+        });
+        //单元
+        $.ajax({
+            type: "GET",
+            url: "/unit/findAll",
+            success: function (json) {
+                console.log(json);
+                $(json).each(function () {
+                    $(".unitselect").val("");
+                    if (unitname == this.name) {
+                        console.log(unitname);
+                        console.log(this.name);
+                        $(".unitselect").append("<option selected value=" + this.name + ">" + this.name + "</option>");
+                    } else {
+                        $(".unitselect").append("<option value=" + this.name + ">" + this.name + "</option>");
+                    }
+                });
+            },
+        });
+        //房型
+        $.ajax({
+            type: "GET",
+            url: "/model/findAll",
+            success: function (json) {
+                console.log(json);
+                $(json).each(function (index) {
+                    $(".modelselect").val("");
+                    if (modelname == this.name) {
+                        $(".modelselect").append("<option selected value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
+                    } else {
+                        $(".modelselect").append("<option value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
+                    }
+                    if (index == 0) {
+                        $("#money").html(this.propertmoney);
+                    }
+                });
+            },
+        });
+        //改变房型、物业费自动更改
+        $(".modelselect").change(function () {
+            $.ajax({
+                type: "GET",
+                url: "/model/findModelById",
+                data: {
+                    modelid: $(".modelselect").val(),
+                },
+                success: function (json) {
+                    $("#money").html("");
+                    $("#money").html(json.propertmoney);
+                }
+            });
+        });
+        //单元房号离开焦点、查找有没有user住
+        $(".housenuminput").blur(function () {
+            $.ajax({
+                type: "GET",
+                url: "/user/findByBuildAndUnitHouse",
+                data: {
+                    buildingname: $("#buildingname").val(),
+                    unitname: $(".unitselect").val(),
+                    housenum: $(".housenuminput").val(),
+                },
+                success: function (json) {
+                    $("#error").html("");
+                    if (json != null && json != "" && json != "null") {
+                        if (this.housenum != $(".delhousenum").val()) {
+                            $("#error").html("与原房间号相同，无需更改！");
+                        } else {
+                            $("#error").html("该房间已有住户");
+                        }
+                        $(".updateuser").attr("disabled", true);
+                    }
+                }
+            });
+            $(".housenuminput").focus(function () {
+                $("#error").html("");
+                $(".updateuser").attr("disabled", false);
+            });
+        });
+        //点击保存
+        $(".updateuser").click(function () {
+            console.log(id);
+            $.ajax({
+                type: "GET",
+                url: "/user/update",
+                data: {
+                    id: id,
+                    buildingname: $("#buildingname").val(),
+                    unitname: $(".unitselect").val(),
+                    housenum: $(".housenuminput").val(),
+                    modelid: $(".modelselect").val(),
+                },
+                success: function (json) {
+                    if (json == 0) {
+                        console.log("保存成功！");
+                    }
+                },
+                complete: function () {
+                    $('.modal').modal('hide');
+                    $(".housenuminput").val("");
+                    pageStart();
+                }
+            });
+        });
+        //业主信息更改
+
+        $.ajax({
+            type: "GET",
+            url: "/user/findById",
+            data: {
+                id: id,
+            },
+            success: function (json) {
+                $("#userinfo").html("");
+                $("#userinfo").append("<tr>" +
+                    "<td> " + json.username + " </td>" +
+                    "<td> " + json.tel + " </td>" +
+                    "<td><a href=\"#\" class=\"btn btn-xs btn-danger\">" +
+                    "<span class=\"glyphicon glyphicon-remove\"></span>删除</a>" +
+                    "</td>" +
+                    "</tr>");
+            },
+        });
+
+    })
 </script>
 </body>
 </html>

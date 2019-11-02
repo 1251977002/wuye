@@ -38,13 +38,11 @@ public interface ModelDao {
     /*添加套房信息*/
     @Insert("insert into t_model(modelname,propertmoney) values(#{modelname},#{propertmoney})")
     void saveroom(Model model);
-    String FIND_ALL = "select * from t_model";
-    String FIND_BY_ID = "select * from t_model where id = #{modelid}";
 
-    @Select(FIND_ALL)
+    @Select("select * from t_model")
     List<Model> findAll();
 
-    @Select(FIND_BY_ID)
+    @Select("select * from t_model where id = #{modelid}")
     Model findModelById(int modelid);
 
 }
