@@ -54,6 +54,7 @@ public class UserController {
     @ResponseBody
     public PageInfo<User> findByPage(int pageNum, String username, String status) {
         PageInfo<User> userPageInfo = userService.findUserByParam(pageNum, username, status);
+        userPageInfo.getList().get(0).getModel();
         return userPageInfo;
     }
 

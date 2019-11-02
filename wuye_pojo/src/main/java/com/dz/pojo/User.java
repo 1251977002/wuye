@@ -1,8 +1,11 @@
 package com.dz.pojo;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class User {
+import java.io.Serializable;
+import java.util.List;
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
