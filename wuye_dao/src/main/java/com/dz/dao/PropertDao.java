@@ -47,12 +47,12 @@ public interface PropertDao {
 
 
     /*查找所有的物业费信息*/
-    @Select("select * from t_propert")
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")//写成动态SQL
     @Results({
             @Result(column = "userid", property = "userid"),
             @Result(column = "userid",property = "user",one = @One(select = "com.dz.dao.UserDao.findUserByUserid"))
     })
-    List<Propert> findAll();
+    List<Propert> findAll(Map<String,Object> map);
 
 
     /*删除room*/

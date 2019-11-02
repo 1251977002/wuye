@@ -2,6 +2,7 @@ package com.dz.controller;
 
 import com.dz.pojo.Building;
 import com.dz.service.BuildingService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,6 @@ public class BuildingController {
     @RequestMapping(value = "buildinglist")
     public String buildinglist(Model model){
         List<Building> buildingList = buildingService.findAllBuilding(model);
-        model.addAttribute("buildinglist",buildingList);
         return "building/building-list";
     }
     /*跳转到添加楼栋*/
@@ -53,6 +53,13 @@ public class BuildingController {
     public List<Building> findAll(){
         List<Building> buildingList = buildingService.findAll();
         return buildingList;
+    }
+    /*分页*/
+    @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public PageInfo findByPage(int pageNum){
+        PageInfo pageInfo = buildingService.findByPage(pageNum);
+        return pageInfo;
     }
 
 }

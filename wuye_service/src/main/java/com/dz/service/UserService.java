@@ -73,33 +73,17 @@ public class UserService {
         return userDao.findByBuildAndUnitHouse(user);
     }
 
-
-
-    //删除
-    public void delByhouseNum(String housenum) {
-        userDao.delByhouseNum(housenum);
-    }
-
-    //更新
-    public void update(User user) {
-
-        userDao.update(user);
-    }
-    //根据id查找user
-    public User findById(int id) {
-        return userDao.findById(id);
-    }
-
-    public List<User> findAll() {
-        List<User> userList =  userDao.findAll();
-        return userList;
-    }
-
-
     /*对逾期用户进行分页*/
-    public PageInfo<User> findPageByOweMoney(int pageNum) {
+    public PageInfo<User> findPageByOweMoney(int pageNum ,String buildingname,String username) {
         PageHelper.startPage(pageNum, 3);
-        List<User> userList = userDao.findPageByOweMoney(pageNum);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(buildingname)){
+            map.put("buildingname",buildingname);
+        }
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        List<User> userList = userDao.findPageByOweMoney(map);
         PageInfo<User> pageInfo = new PageInfo<User>(userList);
         return  pageInfo;
     }

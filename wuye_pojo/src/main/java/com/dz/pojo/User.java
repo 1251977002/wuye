@@ -27,7 +27,6 @@ public class User implements Serializable {
     private List<Propert> propertList;
 
     private Model model;
-    private Propert propert;
 
     private String modelname;
 
@@ -164,9 +163,6 @@ public class User implements Serializable {
         this.model = model;
     }
 
-    public Propert getPropert() {
-        return propert;
-    }
 
     public int getRoleid() {
         return roleid;
@@ -184,7 +180,5 @@ public class User implements Serializable {
         this.propertList = propertList;
     }
 
-    public void setPropert(Propert propert) {
-        this.propert = propert;
-    }
+
 }
