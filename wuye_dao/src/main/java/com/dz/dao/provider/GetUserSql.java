@@ -40,7 +40,7 @@ public class GetUserSql {
         if (sql.endsWith("and ")) {
             sql = sql.substring(0, sql.lastIndexOf("and"));
         }
-
+            sql += "group by userid";
         System.out.println("SQL:" + sql);
         return sql;
     }

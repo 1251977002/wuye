@@ -42,13 +42,6 @@ public interface UserDao {
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
     User findByBuildAndUnitHouse(User user);
 
-    /*分页查找逾期用户*/
-    @Select("Select * from t_user where owemoney>0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);
 
     //查询所有业主
     @Select("select * from t_user")

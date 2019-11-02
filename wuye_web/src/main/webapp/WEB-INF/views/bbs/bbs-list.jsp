@@ -124,7 +124,7 @@
 
 	  </script>
 	  <script type="text/javascript">
-		  $(function () {
+		 /* $(function () {
 			  $(".aa").on("click",".del", function(){
 				  console.log(1323)
 				  if (confirm("确定要删除吗？")) {
@@ -132,83 +132,89 @@
 					  window.location.href = "/bbs/bbsDel?bbsid=" + bbsid;
 				  }
 			  });
-			  })
+			  })*/
 
       	$(document).ready(function(){
 
         //日期选择
         yoozi.datapicker('.datepicker');
 
+			$(".aa").on("click",".del", function(){
+				console.log(1323)
+				if (confirm("确定要删除吗？")) {
+					var bbsid = $(this).attr("rel");
+					window.location.href = "/bbs/bbsDel?bbsid=" + bbsid;
+				}
+			});
+				pageStart();//开始分页
+
+				function pageStart() {//分页函数
+					$.ajax({ //去后台查询第一页数据
+						type: "GET",
+						url: "/bbs/findPageBBS",
+						dataType: "json",
+						data: {pageNum: 1},	//参数：当前页为1
+						success: function (data) {
+							console.log(data);
+							$("#main").html("");
+							var template = $('#template1').html();
+							Mustache.parse(template);
+							$(data.list).each(function () {
+								var rendered = Mustache.render(template, this);
+								$("#main").append(rendered);
+							});
+
+
+							var options = {//根据后台返回的分页相关信息，设置插件参数
+								bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
+								currentPage: data.pageNum, //当前页数
+								totalPages: data.pages, //总页数
+								numberOfPages: data.pageSize,//每页记录数
+								itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
+
+									switch (type) {
+										case "first":
+											return "首页";
+										case "prev":
+											return "上一页";
+										case "next":
+											return "下一页";
+										case "last":
+											return "末页";
+										case "page":
+											return page;
+									}
+								},
+								onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
+									console.log(data.pageNum);
+									$.ajax({//根据page去后台加载数据
+										url: "/bbs/findPageBBS",
+										type: "get",
+										dataType: "json",
+										data: {pageNum: page},
+										success: function (data) {
+											$("#main").html("");
+											console.log(data);
+											var template = $('#template1').html();
+											Mustache.parse(template);
+											$(data.list).each(function () {
+												var rendered = Mustache.render(template, this);
+												$("#main").append(rendered);
+											});
+
+										}
+									});
+
+								}
+
+							};
+							$('#mypage').bootstrapPaginator(options);//设置分页
+						}
+
+					});
+				}
+
       });
-      $(function () {
-          pageStart();//开始分页
-
-          function pageStart() {//分页函数
-              $.ajax({ //去后台查询第一页数据
-                  type: "GET",
-                  url: "/bbs/findPageBBS",
-                  dataType: "json",
-                  data: {pageNum: 1},	//参数：当前页为1
-                  success: function (data) {
-                      console.log(data);
-                      $("#main").html("");
-                      var template = $('#template1').html();
-                      Mustache.parse(template);
-                      $(data.list).each(function () {
-                          var rendered = Mustache.render(template, this);
-                          $("#main").append(rendered);
-                      });
-
-
-                      var options = {//根据后台返回的分页相关信息，设置插件参数
-                          bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
-                          currentPage: data.pageNum, //当前页数
-                          totalPages: data.pages, //总页数
-                          numberOfPages: data.pageSize,//每页记录数
-                          itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
-
-                              switch (type) {
-                                  case "first":
-                                      return "首页";
-                                  case "prev":
-                                      return "上一页";
-                                  case "next":
-                                      return "下一页";
-                                  case "last":
-                                      return "末页";
-                                  case "page":
-                                      return page;
-                              }
-                          },
-                          onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
-                              console.log(data.pageNum);
-                              $.ajax({//根据page去后台加载数据
-                                  url: "/bbs/findPageBBS",
-                                  type: "get",
-                                  dataType: "json",
-                                  data: {pageNum: page},
-                                  success: function (data) {
-                                      $("#main").html("");
-                                      console.log(data);
-                                      var template = $('#template1').html();
-                                      Mustache.parse(template);
-                                      $(data.list).each(function () {
-                                          var rendered = Mustache.render(template, this);
-                                          $("#main").append(rendered);
-                                      });
-
-                                  }
-                              });
-
-                          }
-
-                      };
-                      $('#mypage').bootstrapPaginator(options);//设置分页
-                  }
-
-              });
-          }
-      })
     </script>
 
   </body>

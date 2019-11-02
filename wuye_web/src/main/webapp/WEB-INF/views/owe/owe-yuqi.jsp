@@ -77,35 +77,22 @@
             <div class="sidebar">
               <h1>按条件查询</h1>
               <!--查询表单-->
-              <form method="get">
-                <div class="form-group">
-                    <label>请选择楼栋</label>
-                        <select class="form-control chosen" name="status">
-                          <option value="1">一栋</option>
-                          <option value="2">二栋</option>
-                          <option value="3">三栋</option>
-                        </select>
-                </div>
-                <div class="form-group">
-                  <label>请输入 单元房号/业主姓名/电话号码</label>
-                  <input type="text" class="form-control" name="word" value="" placeholder="">
-                  
+              <div class="form-group">
+                <label>请选择楼栋</label>
+                <select class="form-control chosen build" name="buildingname">
+                  <option value="">--请选择楼栋--</option>
 
-                </div>
-                <!--div class="form-group">
-                  <label>注册时间</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control datepicker" name="date[from]" value="" placeholder="0000-00-00">
-                    <span class="input-group-addon">至</span>
-                    <input type="text" class="form-control datepicker" name="date[to]" value="" placeholder="0000-00-00">
-                  </div>
-                </div-->
-                <div class="form-group-btns">
-                  <button type="submit" class="btn btn-sm btn-primary">筛选</button>
-                  <a href="#" class="btn btn-sm btn-default">重置</a>
-                </div>
-              </form>
-
+                  <%--楼栋、ajax--%>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>请输入 业主姓名</label>
+                <input type="text" class="form-control username" value="${(param.username == null) ? "" : (param.username)}" name="username" placeholder="">
+              </div>
+              <div class="form-group-btns">
+                <button type="button" class="btn btn-sm btn-primary selectInfo">筛选</button>
+                <button type="button" class="btn btn-sm btn-default resetInfo">重置</button>
+              </div>
             </div>
 
             <!--页面右侧-->
@@ -187,7 +174,6 @@
         <td>张三</td>
         <td>13333333333</td>
         <td>2017/09/12</td>
-        <td class="color">10天</td>
         <td>47.6元/年</td>
         <td>365/物业费标准*逾期天数</td>
         <td>￥0</td>
@@ -270,8 +256,29 @@
         //日期选择
         yoozi.datapicker('.datepicker');
 
+        automatic();
+        function automatic() {
+          $.get("/building/findAll", function (json) {
+            $(json).each(function () {
+              var opt = "<option value=" + this.name + ">" + this.name + "</option>";
+              $(".build").append(opt);
+            });
+          });
+        }
       });
       $(function () {
+        //筛选时，分页
+        $(".selectInfo").click(function () {
+          pageStart();
+        });
+        //重置时，分页
+        $(".resetInfo").click(function () {
+          $(".build").html("<option value=\"\">--请选择楼栋--</option>");
+          $(".username").val(""),
+                  pageStart();
+          automatic();
+        });
+
         pageStart();//开始分页
 
         function pageStart() {//分页函数
