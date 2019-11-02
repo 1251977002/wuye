@@ -57,17 +57,17 @@ public class PropertService {
     }
     /*查找所有的物业费表中的信息*/
     //todo
-    public PageInfo findByPageroomList(int pageNum,String username,String status) {
+    public PageInfo findByPageroomList(int pageNum,String username,String buildingname) {
         PageHelper.startPage(pageNum,3);
-
+        Map<String,Object> map = new HashMap<String,Object>();
         if(!StringUtils.isEmpty(username)){
-            userDao.findUserByusername(username);
+            map.put("username","%" + username + "%");
         }
-        if(!StringUtils.isEmpty(status)){
-            buidlingDao.findBuildingByName(status);
+        if(!StringUtils.isEmpty(buildingname)){
+            map.put("buildingname",buildingname);
         }
 
-        List<Propert> propertList = propertDao.findAll();
+        List<Propert> propertList = propertDao.findAll(map);
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
     }
