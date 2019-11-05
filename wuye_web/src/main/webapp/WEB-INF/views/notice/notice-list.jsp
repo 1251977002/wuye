@@ -125,8 +125,8 @@
 			<div class="box box-widget">
 				<div class="box-body">
 					  <!-- post text -->
-					<h3 style="color: #5092BD;" align="center"><strong>{{title}}</strong></h3>
-					<h4 align="center">{{content}}</h4>
+					<h4 style="color: #5092BD;" align="center"><strong>{{title}}</strong></h4>
+					<p style="text-index:2em;">{{content}}</p>
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
 					   Tom 发布于{{createtime}}
 					       </span>

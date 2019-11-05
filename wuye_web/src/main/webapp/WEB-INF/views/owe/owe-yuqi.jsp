@@ -105,17 +105,7 @@
                   <!--列表的标题-->
                   已逾期用户列表
                   <!--迷你页码-->
-                  <span class="pagination-total pull-right">
-                    查询结果: 660 条记录，当前 1/66 页
-                    <!--上一页-->
-                    <a href="#" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-left"></span>
-                    </a>
-                    <!--下一页-->
-                    <a href="#/backend/admin/user?page=2" class="btn btn-xs btn-default">
-                      <span class="glyphicon glyphicon glyphicon-menu-right"></span>
-                    </a>
-                  </span>
+
                 </h5>
               </div>
               <!-- #列表头部-->
@@ -147,7 +137,9 @@
               </div>
               <!-- #列表-->
               <!--页码-->
-
+              <nav class="pull-right" aria-label="Page navigation">
+                <ul id="mypage"></ul>
+              </nav>
               <!-- #页码-->
               
             </div>
@@ -237,15 +229,15 @@
         <td>{{endtime}}</td>
         <td>{{user.model.propertmoney}}元/年</td>
         <td>{{overday}}</td>
-        <td>￥0</td>
+        <td>{{overmoney}}元</td>
         <td>{{record.content}}</td>
         <td><!-- 添加备注按钮 -->
             <input type = "hidden" class = "userid" value = "{{user.id}}" >
             <button type="button" class="btn btn-primary btn-xs btnbox" data-toggle="modal" data-target="#myModal">
                           添加备注
             </button>
-</td>
-                  </tr>
+        </td>
+    </tr>
   </script>
 
   <script id="temp" type="x-tmpl-mustache">
@@ -319,7 +311,7 @@
         function pageStart() {//分页函数
           $.ajax({ //去后台查询第一页数据
             type: "GET",
-            url: "/owe/findPageByOweMoney",
+            url: "/owe/findPageByEndTime",
             dataType: "json",
             data: {pageNum: 1,
               buildingname:$(".build").val(),
@@ -359,7 +351,7 @@
                 onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
                   console.log(data.pageNum);
                   $.ajax({//根据page去后台加载数据
-                    url: "/owe/findPageByOweMoney",
+                    url: "/owe/findPageByEndTime",
                     type: "get",
                     dataType: "json",
                     data: {pageNum: page,

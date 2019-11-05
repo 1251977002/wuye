@@ -3,6 +3,7 @@ package com.dz.dao;
 
 import com.dz.pojo.Model;
 import com.dz.pojo.User;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -61,18 +62,9 @@ public interface UserDao {
     })
     User findByBuildAndUnitHouse(User user);
 
-    /*分页查找逾期用户*/
-    @Select("Select * from t_user where owemoney>0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);
-
-
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")
-    void delByhouseNum(String housenum);
+    void delByhouseNum(String housenu9m);
 
     @Update("update t_user set buildingname = #{buildingname},unitname = #{unitname},housenum = #{housenum},modelid = #{modelid} where id = #{id}")
     void update(User user);
@@ -102,5 +94,21 @@ public interface UserDao {
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
 
+    /*更新用户与其所欠金额*/
+    @Update("update t_user set owemoney = #{owemoney} where id = #{id}")
+    void updateOweMoney(User user);
+
+    /*查找逾期总人数*/
+    @Select("select count(*) from t_user where owemoney>0")
+    Integer findcount();
+
+    /*查找逾期所欠总金额*/
+    @Select("select sum(owemoney) from t_user where owemoney>0")
+    Double findCountMoney();
+
+    /*首页分页所需的数据*/
+    @Select("SELECT buildingname,COUNT(*)totaluser,COUNT(IF(owemoney=0,TRUE,NULL))payuser,COUNT(IF(owemoney>0,TRUE,NULL))overuser,ROUND(COUNT(IF(owemoney=0,TRUE,NULL))/COUNT(*)*100,2) AS rate\n" +
+            " FROM t_user GROUP BY buildingname")
+    List<User> findPageByEveryBuildingName();
 
 }

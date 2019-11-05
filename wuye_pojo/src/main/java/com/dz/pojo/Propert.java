@@ -25,6 +25,16 @@ public class Propert implements Serializable {
     private String title;  /*收款说明*/
     private Record record; /*最新一条备注*/
     private int overday;   /*逾期天数*/
+    private double overmoney;/*逾期金额*/
+
+
+    public double getOvermoney() {
+        return overmoney;
+    }
+
+    public void setOvermoney(double overmoney) {
+        this.overmoney = overmoney;
+    }
 
     public int getOverday() {
         return overday;

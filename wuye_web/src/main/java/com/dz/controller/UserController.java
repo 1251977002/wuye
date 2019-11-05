@@ -159,4 +159,9 @@ public class UserController {
             os.close();
         }
     }
+    @RequestMapping(value = "findByPageNo", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public PageInfo findByPageNo(int pageNum){
+        return userService.findByPageNo(pageNum);
+    }
 }

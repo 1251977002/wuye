@@ -91,6 +91,7 @@ public class PropertService {
     public Propert findById(Integer propertid) {
         return propertDao.findById(propertid);
     }
+    /*对逾期用户进行分页*/
     public PageInfo findPropertByPage(int pageNum,String buildingname,String username) {
         PageHelper.startPage(pageNum, 3);
         Map<String,Object> map = new HashMap<String,Object>();
@@ -105,6 +106,22 @@ public class PropertService {
         return pageInfo;
     }
 
+    /*对逾期用户进行分页*/
+    public PageInfo findSevenPropertByPage(int pageNum,String buildingname,String username) {
+        PageHelper.startPage(pageNum, 3);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(buildingname)){
+            map.put("buildingname",buildingname);
+        }
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        List<Propert> propertList = propertDao.findSevenPropertByPage(map);
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
+
+
     /*通过用户id查找物业账单*/
     public List<Propert> findByUserid(Integer userid) {
         return propertDao.findByUserid(userid);
@@ -113,5 +130,9 @@ public class PropertService {
     /*通过id改变缴费时间*/
     public void updateById(String paytime,String payway,int propertid) {
         propertDao.updateById(paytime,payway,propertid);
+    }
+    /*查找七天内物业费过期的总人数*/
+    public Integer findSeven() {
+        return propertDao.findSeven();
     }
 }

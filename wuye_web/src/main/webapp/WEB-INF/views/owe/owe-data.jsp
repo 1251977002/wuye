@@ -99,14 +99,14 @@
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
           <div class="info-box blue-bg">
                         <h4>已逾期用户数</h4>
-            <div class="count">6</div>          
+            <div class="count"> ${countOwe}</div>
           </div><!--/.info-box-->     
         </div><!--/.col-->
         
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
           <div class="info-box blue-bg">
             <h4>七天内物业费到期用户数</h4>
-            <div class="count">7</div>
+            <div class="count">${countSeven}</div>
                       
           </div><!--/.info-box-->     
         </div><!--/.col-->  
@@ -114,14 +114,14 @@
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
           <div class="info-box blue-bg">
             <h4>所欠的物业费总金额</h4>
-            <div class="count">￥2000（已逾期用户所欠物业费总和）</div>        
+            <div class="count">${countOweMoney}元</div>
           </div><!--/.info-box-->     
         </div><!--/.col-->
         
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
           <div class="info-box blue-bg">
             <h4>总计</h4>
-            <div class="count">￥2000（所欠物业费总金额+滞纳金总和）</div>
+            <div class="count">${countOweMoney}元</div>
                       
           </div><!--/.info-box-->     
         </div><!--/.col-->
@@ -144,86 +144,14 @@
               <table class="table bootstrap-datatable countries">
                 <thead>
                   <tr>
-                    
                     <th>楼栋号</th>
-                                        <th>入住总户数</th>
+                    <th>入住总户数</th>
                     <th>已交费用户数</th>
                     <th>逾期用户数</th>
                     <th>缴费百分比</th>
                   </tr>
                 </thead>   
-                <tbody>
-                  <tr>
-                    
-                    <td>一栋</td>
-                                        <td>300</td>
-                    <td>290</td>
-                    <td>10</td>
-                    <td>
-                      <div class="progress px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 97%;">
-                          97%
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    
-                    <td>二栋</td>
-                                        <td>365</td>
-                    <td>365</td>
-                    <td>0</td>
-                    <td>
-                     <div class="progress px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                          100%
-                        </div>
-                      </div> 
-                    </td>
-                  </tr>
-                  <tr>
-                    
-                    <td>三栋</td>
-                                        <td>210</td>
-                    <td>200</td>
-                    <td>10</td>
-                    <td>
-                      <div class="progress px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                          90%
-                        </div>
-                      </div>  
-                    </td>
-                  </tr>
-                  
-                   <tr>
-                    
-                    <td>四栋</td>
-                                        <td>210</td>
-                    <td>200</td>
-                    <td>10</td>
-                    <td>
-                      <div class="progress px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                          90%
-                        </div>
-                      </div>  
-                    </td>
-                  </tr>
-                   <tr>
-                    
-                    <td>五栋</td>
-                                        <td>210</td>
-                    <td>200</td>
-                    <td>10</td>
-                    <td>
-                      <div class="progress px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                          90%
-                        </div>
-                      </div>  
-                    </td>
-                  </tr>
+                <tbody id="main">
 
                 </tbody>
               </table>
@@ -237,25 +165,9 @@
               </div>
               <!-- #列表-->
                 <!--页码-->
-              <nav class="pull-right">
-                <ul class="pagination pagination-sm">
-                  <ul class="pagination">
-                    <li class="disabled"><span>&laquo;</span></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li class="disabled"><span>...</span></li>
-                    <li><a href="#">65</a></li>
-                    <li><a href="#">66</a></li>
-                    <li><a href="#" rel="next">&raquo;</a></li>
-                  </ul>
-                </ul>
-              </nav>
+                  <nav class="pull-right" aria-label="Page navigation">
+                      <ul id="mypage"></ul>
+                  </nav>
               <!-- #页码-->
               
              
@@ -280,6 +192,24 @@
     <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
     <script src="${basePath}assets/yoozi.js"></script>
     <script src="${basePath}assets/common.js"></script>
+  <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+  <script src="${basePath}assets/mustache.js"></script>
+    <script id="temp" type="x-tmpl-mustache">
+        <tr>
+
+                    <td>{{buildingname}}</td>
+                    <td>{{totaluser}}</td>
+                    <td>{{payuser}}</td>
+                    <td>{{overuser}}</td>
+                    <td>
+                      <div class="progress px">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{rate}}%;">
+                          {{rate}}%
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+    </script>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -288,6 +218,76 @@
         yoozi.datapicker('.datepicker');
 
       });
+      $(function () {
+          pageStart();//开始分页
+
+          function pageStart() {//分页函数
+              $.ajax({ //去后台查询第一页数据
+                  type: "GET",
+                  url: "/user/findByPageNo",
+                  dataType: "json",
+                  data: {pageNum: 1},	//参数：当前页为1
+                  success: function (data) {
+                      console.log(data);
+                      $("#main").html("");
+                      var template = $('#temp').html();
+                      Mustache.parse(template);
+                      $(data.list).each(function () {
+                          var rendered = Mustache.render(template, this);
+                          $("#main").append(rendered);
+                      });
+
+
+                      var options = {//根据后台返回的分页相关信息，设置插件参数
+                          bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
+                          currentPage: data.pageNum, //当前页数
+                          totalPages: data.pages, //总页数
+                          numberOfPages: data.pageSize,//每页记录数
+                          itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
+
+                              switch (type) {
+                                  case "first":
+                                      return "首页";
+                                  case "prev":
+                                      return "上一页";
+                                  case "next":
+                                      return "下一页";
+                                  case "last":
+                                      return "末页";
+                                  case "page":
+                                      return page;
+                              }
+                          },
+                          onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
+                              console.log(data.pageNum);
+                              $.ajax({//根据page去后台加载数据
+                                  url: "/user/findByPageNo",
+                                  type: "get",
+                                  dataType: "json",
+                                  data: {pageNum: page},
+                                  success: function (data) {
+                                      $("#main").html("");
+                                      console.log(data);
+                                      var template = $('#temp').html();
+                                      Mustache.parse(template);
+                                      $(data.list).each(function () {
+                                          var rendered = Mustache.render(template, this);
+                                          $("#main").append(rendered);
+                                      });
+
+                                  }
+                              });
+
+                          }
+
+                      };
+                      $('#mypage').bootstrapPaginator(options);//设置分页
+                  }
+
+              });
+          }
+
+      })
     </script>
   </body>
 </html>

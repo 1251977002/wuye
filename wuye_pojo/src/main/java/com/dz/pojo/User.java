@@ -27,6 +27,42 @@ public class User implements Serializable {
     private Model model;
     private String modelname;
     private List<Role> roleList;
+    private int totaluser;/*一栋楼的所有业主数*/
+    private int payuser;/*一栋楼支付过物业费的所有业主数*/
+    private int overuser;/*一栋楼预期的所有业主数*/
+    private double rate;/*一栋楼支付过的业主占总业主数的百分比*/
+
+    public int getTotaluser() {
+        return totaluser;
+    }
+
+    public void setTotaluser(int totaluser) {
+        this.totaluser = totaluser;
+    }
+
+    public int getPayuser() {
+        return payuser;
+    }
+
+    public void setPayuser(int payuser) {
+        this.payuser = payuser;
+    }
+
+    public int getOveruser() {
+        return overuser;
+    }
+
+    public void setOveruser(int overuser) {
+        this.overuser = overuser;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
 
     public String getModelname() {
         return modelname;
