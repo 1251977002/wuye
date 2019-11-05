@@ -97,19 +97,9 @@ public interface UserDao {
     User findUserByUserid(Integer userid);
 
 
-
     /*模糊查询通过username*/
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
 
-/*    *//*通过owemoney查找用户*//*
-    @Select("select * from t_user where ownmoney >0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "propertList",column = "id",many = @Many(select = "com.dz.dao.OweDao.findByuserid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);*/
 
-    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method = "getPropertSQL")
-    List<User> findPageByOweMoney(Map<String ,Object> map);
 }
