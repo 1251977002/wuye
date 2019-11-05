@@ -43,23 +43,6 @@ public class RoomController {
         return "room/room-add";
     }
 
-    @RequestMapping(value = "saveroom")
-    public String saveroom(User user,String unitname){
-        //添加user 返回userid 放入到property表中
-        //builidingname    property表
-        //unitnum housenum   property表
-        //modelname  username表
-        //money   property表
-        //username  user表
-        //tel user表
-
-        int userId = userService.saveroom(user,unitname);
-
-        //添加到property表中
-        propertService.saveroom(userId);
-        return "redirect:roomlist";
-
-    }
 
 
     /*分页*/

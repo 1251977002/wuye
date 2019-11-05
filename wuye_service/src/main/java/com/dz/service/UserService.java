@@ -97,17 +97,7 @@ public class UserService {
     }
 
 
-    /*对逾期用户进行分页*/
-    public PageInfo<User> findPageByOweMoney(int pageNum ,String buildingname,String username) {
 
-        Map<String,Object> map = new HashMap<String,Object>();
-        if(!StringUtils.isEmpty(buildingname)){
-            map.put("buildingname",buildingname);
-        }
-        if(!StringUtils.isEmpty(username)){
-            map.put("username","%" + username + "%");
-        }
-        List<User> userList = userDao.findPageByOweMoney(map);
 
     /*查询所有业主信息*/
     public List<User> findAllUser(Model model) {
