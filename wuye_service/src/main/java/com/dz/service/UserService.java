@@ -47,8 +47,17 @@ public class UserService {
 
 
     /*添加套房信息*/
-    public void saveroom(User user) {
+    public int  saveroom(User user,String unitname) {
+        String unit = unitname.substring(0,3);
+        String housenum = unitname.substring(3);
+        user.setUsername(user.getUsername());
+        user.setBuildingname(user.getBuildingname());
+        user.setHousenum(housenum);
+        user.setUnitname(unit);
+        user.setTel(user.getTel());
+        user.setModelname(user.getModelname());
         userDao.saveroom(user);
+        return user.getId();
     }
 
     //分页
@@ -95,19 +104,6 @@ public class UserService {
         List<User> userList =  userDao.findAll();
         return userList;
     }
-
-
-    /*对逾期用户进行分页*/
-    public PageInfo<User> findPageByOweMoney(int pageNum ,String buildingname,String username) {
-
-        Map<String,Object> map = new HashMap<String,Object>();
-        if(!StringUtils.isEmpty(buildingname)){
-            map.put("buildingname",buildingname);
-        }
-        if(!StringUtils.isEmpty(username)){
-            map.put("username","%" + username + "%");
-        }
-        List<User> userList = userDao.findPageByOweMoney(map);
 
     /*查询所有业主信息*/
     public List<User> findAllUser(Model model) {

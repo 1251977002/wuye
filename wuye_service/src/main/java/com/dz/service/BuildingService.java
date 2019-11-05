@@ -60,4 +60,10 @@ public class BuildingService {
         return pageInfo;
 
     }
+
+
+    /*编辑*/
+    public void edit(Building building) {
+        buidlingDao.edit(building);
+    }
 }

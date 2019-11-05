@@ -47,7 +47,7 @@ public interface PropertDao {
 
 
     /*查找所有的物业费信息*/
-    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")//写成动态SQL
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getRoomSQL")//写成动态SQL
     @Results({
             @Result(column = "userid", property = "userid"),
             @Result(column = "userid",property = "user",one = @One(select = "com.dz.dao.UserDao.findUserByUserid"))
@@ -63,4 +63,6 @@ public interface PropertDao {
     @Select("select * from t_propert")
     List<Propert> findAllBuilding();
 
+    @Insert("insert into t_propert(userid) values(#{userid})")
+    void save(int userId);
 }

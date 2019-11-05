@@ -56,7 +56,6 @@ public class PropertService {
         return propertDao.findPropert(begintime,buildingname,unitname,housenum);
     }
     /*查找所有的物业费表中的信息*/
-    //todo
     public PageInfo findByPageroomList(int pageNum,String username,String buildingname) {
         PageHelper.startPage(pageNum,3);
         Map<String,Object> map = new HashMap<String,Object>();
@@ -89,5 +88,11 @@ public class PropertService {
 
     public Propert findById(Integer propertid) {
         return propertDao.findById(propertid);
+    }
+
+    public void saveroom(int userId) {
+        Propert propert = new Propert();
+        propert.setUserid(userId);
+        propertDao.save(userId);
     }
 }

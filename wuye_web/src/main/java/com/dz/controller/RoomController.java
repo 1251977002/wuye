@@ -28,6 +28,8 @@ public class RoomController {
     private UserService userService;
     @Autowired
     private PropertService propertService;
+    @Autowired
+    private HouseService houseService;
 
 
     /*跳转到套房管理的主页面  几个表合起来用*/
@@ -42,25 +44,19 @@ public class RoomController {
     }
 
     @RequestMapping(value = "saveroom")
-    public String saveroom(String buildingname,String unitname,
-                           String modelname,Double modelpropertmoney,
-                           String username,String tel ){
+    public String saveroom(User user,String unitname){
+        //添加user 返回userid 放入到property表中
+        //builidingname    property表
+        //unitnum housenum   property表
+        //modelname  username表
+        //money   property表
+        //username  user表
+        //tel user表
 
-        Building building = new Building();
-        Unit unit = new Unit();
-        Model model = new Model();
-        User user = new User();
-        building.setName(buildingname);
-        unit.setName(unitname);
-        model.setModelname(modelname);
-        model.setPropertmoney(modelpropertmoney);
-        user.setUsername(username);
-        user.setTel(tel);
+        int userId = userService.saveroom(user,unitname);
 
-        buildingService.saveroom(building);
-        unitService.saveroom(unit);
-        modelService.saveroom(model);
-        userService.saveroom(user);
+        //添加到property表中
+        propertService.saveroom(userId);
         return "redirect:roomlist";
 
     }

@@ -279,23 +279,11 @@
                                         </tr>
 
 
-                                        <tr>
-                                            <td class="form-title">
-                                                <span class="text-danger">*</span>物业费标准
-                                            </td>
-                                            <td>
-                                                <select class="form-control chosen" name="status">
-                                                    <option value="1">洋房A（0.4元/平米/月）</option>
-                                                    <option value="1">洋房B（0.5元/平米/月）</option>
-                                                    <option value="2">联排别墅（0.6元/平米/月）</option>
-                                                    <option value="2">独栋别墅（0.7元/平米/月）</option>
-                                                </select>
-                                            </td>
-                                        </tr>
+
                                         <tr>
                                             <td class="form-title">物业费用</td>
                                             <td>
-                                                47.6元/月（选择了「户型」和「物业费标准」，系统会自动计算该楼层的物业费用）
+                                                /月（选择了「户型」，系统会自动计算该楼层的物业费用）
                                             </td>
                                         </tr>
 

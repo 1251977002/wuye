@@ -2,6 +2,8 @@ package com.dz.service;
 
 import com.dz.dao.UnitDao;
 import com.dz.pojo.Unit;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -43,5 +45,19 @@ public class UnitService {
     //所有的单元
     public List<Unit> findAll() {
         return unitDao.findAll();
+    }
+
+    /*分页*/
+    public PageInfo findByPage(int pageNum) {
+        PageHelper.startPage(pageNum,3);
+        List<Unit> unitList = unitDao.findAll();
+        PageInfo pageInfo = new PageInfo(unitList);
+        return pageInfo;
+
+    }
+
+    /*编辑单元信息*/
+    public void edit(Unit unit) {
+        unitDao.edit(unit);
     }
 }

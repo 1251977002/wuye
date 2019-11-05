@@ -1,9 +1,8 @@
 package com.dz.dao;
 
+import com.dz.pojo.Building;
 import com.dz.pojo.Unit;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.ui.Model;
 
 import java.util.List;
@@ -38,4 +37,8 @@ public interface UnitDao {
     //所有单元
     @Select("select * from t_unit")
     List<Unit> findAll();
+
+    /*编辑单元*/
+    @Update("update t_unit set name = #{name},note = #{note} where id = #{id}")
+    void edit(Unit unit);
 }

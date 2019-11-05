@@ -43,8 +43,11 @@ public interface UserDao {
     User findByPid(Integer pid);
 
     /*添加套房信息*/
-    @Insert("insert into t_user(username,tel) values(#{username},#{tel})")
+    @Insert("insert into t_user(username,tel,buildingname,unitname,housenum,modelname) values(#{username},#{tel},#{buildingname},#{unitname},#{housenum},#{modelname})")
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void saveroom(User user);
+
+
     //保存user
     @Insert("insert into t_user (username,password,sex,card,tel,buildingname,unitname,housenum,modelid) values (#{username},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum},#{modelid})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
@@ -52,15 +55,6 @@ public interface UserDao {
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
     User findByBuildAndUnitHouse(User user);
-
-    /*分页查找逾期用户*/
-    @Select("Select * from t_user where owemoney>0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);
-
 
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")
@@ -94,14 +88,6 @@ public interface UserDao {
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
 
-/*    *//*通过owemoney查找用户*//*
-    @Select("select * from t_user where ownmoney >0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "propertList",column = "id",many = @Many(select = "com.dz.dao.OweDao.findByuserid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);*/
 
-    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method = "getPropertSQL")
-    List<User> findPageByOweMoney(Map<String ,Object> map);
+
 }

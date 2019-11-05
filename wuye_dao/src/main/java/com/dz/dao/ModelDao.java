@@ -1,18 +1,14 @@
 package com.dz.dao;
 
 import com.dz.pojo.Model;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
+import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-import com.dz.pojo.Model;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
-
-import com.dz.pojo.Model;
 import org.apache.ibatis.annotations.Select;
 
 public interface ModelDao {
@@ -43,4 +39,10 @@ public interface ModelDao {
     List<Model> findAll();
 
 
+    @Select("select * from t_model where id = #{modelid}")
+    Model findModelById(int modelid);
+
+    /*编辑*/
+    @Update("update t_model set modelname = #{modelname},note = #{note},area = #{area},propertmoney = #{propertmoney} where id = #{id}")
+    void edit(Model model);
 }
