@@ -1,7 +1,8 @@
 package com.dz.dao;
 
 
-import com.dz.pojo.*;
+import com.dz.pojo.Model;
+import com.dz.pojo.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -54,7 +55,20 @@ public interface UserDao {
     void save(User user);
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByBuildAndUnitHouse(User user);
+
+    /*分页查找逾期用户*/
+    @Select("Select * from t_user where owemoney>0")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
+    })
+    List<User> findPageByOweMoney(int pageNum);
+
 
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")

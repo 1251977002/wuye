@@ -41,6 +41,7 @@ public class Propert implements Serializable {
     public void setRecord(Record record) {
         this.record = record;
     }
+    private String adminname;/*登录者姓名*/
 
     public int getId() {
         return id;
@@ -168,5 +169,13 @@ public class Propert implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAdminname() {
+        return adminname;
+    }
+
+    public void setAdminname(String adminname) {
+        this.adminname = adminname;
     }
 }

@@ -38,7 +38,6 @@
     <jsp:param name="menu" value="cost" />
 </jsp:include>
 <!--  <div class="list-container have-subhead"> -->
-
 <!--头部副标题导航-->
 <nav class="navbar navbar-fixed-top subhead ab">
     <div class="navbar-collapse collapse">
@@ -56,7 +55,7 @@
         </ul>
         <ul class="sub-btns">
             <li>
-                <a href="#" class="btn btn-sm btn-default">
+                <a href="/cost/export" class="btn btn-sm btn-default">
                     <span class="glyphicon glyphicon-list-alt"></span>
                     导出 excel 表
                 </a>
@@ -110,7 +109,7 @@
                     <th>楼栋号</th>
                     <th>单元房号</th>
                     <th>业主姓名</th>
-                    <th>物业费缴纳时间</th>
+                    <th>物业费开始时间</th>
                     <th>物业费到期时间</th>
                     <th>往年欠费</th>
                     <th>标准物业费</th>
@@ -134,6 +133,12 @@
 </div>
 <!-- /container -->
 
+<!-- 添加备注弹出框 -->
+<div style="z-index: 1049"  class="modal fade btnbox" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <%--弹出框ajax--%>
+</div>
+<!--弹框结束-->
+
 <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
 <script src="${basePath}assets/vendors/bootstrap/bootstrap.min.js"></script>
 <script src="${basePath}assets/vendors/distpicker/bootstrap-datepicker.min.js"></script>
@@ -156,128 +161,117 @@
        <td>{{user.model.propertmoney}}元/年</td>
        <td class="color">￥{{money}}(往年欠费+标准物业费)</td>
        <td><!-- 添加备注按钮 -->
-           <button type="button" class="btn btn-primary btn-xs btnyear" data-toggle="modal" data-target="#myModal">
+           <input type="hidden" class="propertid" name="propertid" value="{{id}}"/>
+           <button type="button" class="btn btn-primary btn-xs btnpay" data-toggle="modal" data-target="#myModal">
                 <span class="glyphicon glyphicon-yen"></span>
                 物业费缴纳
            </button>
-           <a href="/cost/feelist">
+           <a href="/cost/feelist?userid={{userid}}">
                 <button type="button" class="btn red-bg btn-xs">
                     <span class="glyphicon glyphicon-list-alt"></span>
                     缴费记录
                 </button>
            </a>
-           <!-- 添加备注弹出框 -->
-           <div style="z-index: 1049"  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div  class="modal-dialog" role="document" >
-                    <div  class="modal-content"  >
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <div>
-                                 <h3 style="text-align:center">物业费账单</h3>
-                            </div>
-                            <!-- #列表头部-->
-                            <table class="form-table">
-                                <tbody>
-                                    <tr>
-                                       <td class="form-title">
-                                           <span class="text-danger">*</span>楼栋号
-                                       </td>
-                                       <td>{{buildingname}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">
-                                            <span class="text-danger">*</span>单元房号
-                                        </td>
-                                        <td>{{unitname}}{{housenum}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">户主姓名</td>
-                                        <td>{{username}}</td>
-                                    </tr>
-                                    <tr>
-                                         <td class="form-title">户型</td>
-                                         <td>{{user.model.modelname}}（{{user.model.area}}平米）</td>
-                                    </tr>
-                                    <tr>
-                                         <td class="form-title"> 物业费标准</td>
-                                         <td>{{user.model.propertmoney}}元/年</td>
-                                    </tr>
-                                    <tr>
-                                         <td class="form-title">往年欠费</td>
-                                         <td>￥{{user.owemoney}}</td>
-                                    </tr>
-                                    <tr>
-                                         <td class="form-title">
-                                              <span class="text-danger">*</span>缴费周期
-                                         </td>
-                                         <td>
-                                              <select class="form-control chosen year" name="status">
-
-                                              </select>
-                                         </td>
-                                    </tr>
-                                    <tr>
-                                         <td class="form-title">合计应交金额</td>
-                                         <td>
-                                               {{money}}元（[往年欠费]+[物业费标准]*「缴费周期」，系统会自动计算该楼层的物业费用）
-                                         </td>
-                                    </tr>
-
-                                    <tr>
-                                         <td class="form-title">
-                                              <span class="text-danger">*</span>缴纳方式
-                                         </td>
-                                         <td>
-                                              <select class="form-control chosen" name="status">
-                                                        <option value="1">现金</option>
-                                                        <option value="1">支付宝</option>
-                                                        <option value="2">微信</option>
-                                                        <option value="2">银行卡</option>
-                                              </select>
-                                         </td>
-                                    </tr>
-                                    <tr>
-                                         <td class="form-title">
-                                              收款说明
-                                         </td>
-                                         <td>
-                                              <textarea class="form-control" name="title"></textarea>
-                                         </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <table class="table form-table">
-                             <tbody>
-                                        <tr>
-
-                                            <td style="text-align:center;">
-                                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-sm">确认</button>
-                                                <div class="modal  bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                                                    <div class="modal-dialog modal-sm" role="document">
-
-                                                        <div class="modal-content">
-                                                            <h3>缴费成功</h3>
-                                                            <div class="fee">
-                                                                <a href='/cost/shouju' target="_blank"> <button type="submit"  class="btn btn-primary btn-sm " >打印收据</button> </a>
-                                                                <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回账单</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button type="button"  class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
-                                                <div id="fade" ></div>
-                                            </td>
-                                        </tr>
-                             </tbody>
-                        </table>
-                    </div>
-                </div>
-           </div>
-           <!--弹框结束-->
        </td>
     </tr>
-
+</script>
+<script id="temp" type="x-tmpl-mustache">
+<div  class="modal-dialog" role="document" >
+  <div  class="modal-content"  >
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div>
+           <h3 style="text-align:center">物业费账单</h3>
+        </div>
+        <!-- #列表头部-->
+        <table class="form-table">
+           <tbody>
+              <tr>
+                  <td class="form-title">
+                      <span class="text-danger">*</span>楼栋号
+                  </td>
+                  <td>{{buildingname}}</td>
+              </tr>
+              <tr>
+                  <td class="form-title">
+                      <span class="text-danger">*</span>单元房号
+                  </td>
+                  <td>{{unitname}}{{housenum}}</td>
+              </tr>
+              <tr>
+                  <td class="form-title">户主姓名</td>
+                  <td>{{username}}</td>
+              </tr>
+              <tr>
+                  <td class="form-title">户型</td>
+                  <td>{{user.model.modelname}}（{{user.model.area}}平米）</td>
+              </tr>
+              <tr>
+                  <td class="form-title"> 物业费标准</td>
+                  <td>{{user.model.propertmoney}}元/年</td>
+              </tr>
+              <tr>
+                  <td class="form-title">往年欠费</td>
+                  <td>￥{{user.owemoney}}</td>
+              </tr>
+              <tr>
+                  <td class="form-title">
+                      <span class="text-danger">*</span>缴费周期
+                  </td>
+                  <td>{{payid}}（1代表一年，2代表两年）</td>
+              </tr>
+              <tr>
+                  <td class="form-title">合计应交金额</td>
+                  <td>
+                      {{money}}元（[往年欠费]+[物业费标准]*「缴费周期」，系统会自动计算该楼层的物业费用）
+                  </td>
+              </tr>
+              <tr>
+                  <td class="form-title">
+                      <span class="text-danger">*</span>缴纳方式
+                  </td>
+                  <td>
+                      <select class="form-control chosen" id="payway" name="status">
+                          <option value="现金">现金</option>
+                          <option value="支付宝">支付宝</option>
+                          <option value="微信">微信</option>
+                          <option value="银行卡">银行卡</option>
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="form-title">收款说明</td>
+                  <td>
+                      <textarea class="form-control" name="title">{{title}}</textarea>
+                  </td>
+              </tr>
+           </tbody>
+        </table>
+    </div>
+    <table class="table form-table">
+        <tbody>
+            <tr>
+                <td style="text-align:center;">
+                    <input type="hidden" class="propertid" name="propertid" value="{{id}}"/>
+                    <button type="button" class="btn btn-primary btn-lg ensure" data-toggle="modal" data-target=".bs-example-modal-sm">确认</button>
+                    <div class="modal  bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <h3 class="info"><%--缴费成功--%></h3>
+                                <div class="fee">
+                                    <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回账单</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button"  class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
+                    <div id="fade" ></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
 </script>
 
 
@@ -295,17 +289,6 @@
                 });
             });
         }
-
-        //点击“物业费缴纳”时生成年份
-        $(".mytable").on("click",".btnyear",function () {
-            $.get("/cost/findAllYear",function (json) {
-                $(".year").empty();
-                $(json).each(function () {
-                    var opt = "<option value="+this.yearno+">" + this.year + "</option>";
-                    $(".year").append(opt);
-                });
-            });
-        });
 
         //筛选时，分页
         $(".selectInfo").click(function () {
@@ -387,6 +370,50 @@
                 }
             });
         }
+
+        //点击“物业费缴纳”，然后通过id查找物业费账单
+        $(".mytable").on("click",".btnpay",function () {
+            $.ajax({
+                type: "GET",
+                url: "/cost/findAllById",
+                data:{
+                    propertid:$(this).siblings(".propertid").val(),
+                },
+                success: function (json) {
+                    var temp = $('#temp').html();
+                    Mustache.parse(temp);
+                    $(".btnbox").html("");
+                    var rendered = Mustache.render(temp, json);
+                    $(".btnbox").prepend(rendered);
+
+                    $("#payway option").each(function () {
+                        var s = $(this).val();    //遍历获取所有的option的值
+                        if(s == json.payway){
+                            $("#payway option[value="+json.payway+"]").prop("selected", true); //匹配传过来的值，并将其选中
+                        }
+                    });
+                },
+            });
+        });
+
+        //点击“确定”，改变缴费日期和缴费方式
+        $(".btnbox").on("click",".ensure",function () {
+            $.ajax({
+                type: "GET",
+                url: "/cost/updateById",
+                data:{
+                    propertid:$(this).siblings(".propertid").val(),
+                    payway:$("#payway").val(),
+                },
+                success: function (json) {
+                    if(json.paytime != "0"){
+                        $(".info").text("缴费失败！已缴过费，请勿重复操作");
+                    }else {
+                        $(".info").text("缴费成功！");
+                    }
+                },
+            });
+        });
 
     });
 </script>

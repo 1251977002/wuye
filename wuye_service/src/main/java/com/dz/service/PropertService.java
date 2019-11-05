@@ -82,11 +82,12 @@ public class PropertService {
         return propertDao.findAllBuilding();
     }
 
-
+    /*保存账单信息*/
     public void saveInfo(Propert propert) {
         propertDao.saveInfo(propert);
     }
 
+    /*通过id查找物业账单*/
     public Propert findById(Integer propertid) {
         return propertDao.findById(propertid);
     }
@@ -102,5 +103,15 @@ public class PropertService {
         List<Propert> propertList = propertDao.findPropertByPage(map);
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
+    }
+
+    /*通过用户id查找物业账单*/
+    public List<Propert> findByUserid(Integer userid) {
+        return propertDao.findByUserid(userid);
+    }
+
+    /*通过id改变缴费时间*/
+    public void updateById(String paytime,String payway,int propertid) {
+        propertDao.updateById(paytime,payway,propertid);
     }
 }
