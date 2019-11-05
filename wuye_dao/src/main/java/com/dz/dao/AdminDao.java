@@ -1,10 +1,7 @@
 package com.dz.dao;
 
 import com.dz.pojo.Admin;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 public interface AdminDao {
 
@@ -14,4 +11,8 @@ public interface AdminDao {
             @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByid"))
     })
     Admin findByLoginName(String adminname);
+
+    //保存用户登录的name和pwd
+    @Insert("insert into t_admin (adminname,password,roleid) values (#{adminname},#{password},#{roleid})")
+    void save(Admin admin);
 }

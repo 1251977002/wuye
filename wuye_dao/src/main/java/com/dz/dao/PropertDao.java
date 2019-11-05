@@ -52,12 +52,12 @@ public interface PropertDao {
     Propert findById(Integer propertid);
 
     /*查找所有的物业费信息*/
-    @Select("select * from t_propert")
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")//写成动态SQL
     @Results({
             @Result(id = true,column = "id",property = "id"),
             @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
     })
-    List<Propert> findAll();
+    List<Propert> findAll(Map<String,Object> map);
 
     /*删除room*/
     @Delete("delete from t_propert where id = #{id}")

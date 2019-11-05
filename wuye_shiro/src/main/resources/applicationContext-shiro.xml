@@ -44,6 +44,7 @@
             <value>
                 /admin/index= anon
                 /admin/login= anon <!--去登录时放行-->
+                /* = anon
                 /adduser = perms[adduser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
                 /deleteuser = perms[deleteuser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
                 /edituser = perms[edituser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
