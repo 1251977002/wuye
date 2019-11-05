@@ -126,7 +126,7 @@
 				<div class="box-body">
 					  <!-- post text -->
 					<h4 style="color: #5092BD;" align="center"><strong>{{title}}</strong></h4>
-					<p style="text-index:2em;">{{content}}</p>
+					<p style="text-indent: 2em;">{{content}}</p>
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
 					   Tom 发布于{{createtime}}
 					       </span>

@@ -96,6 +96,9 @@ public class UserService {
         return userList;
     }
 
+
+
+
     /*查询所有业主信息*/
     public List<User> findAllUser(Model model) {
         return userDao.findAllUser(model);
@@ -123,4 +126,8 @@ public class UserService {
         return  pageInfo;
     }
 
+    public void updateById(double owemoney, int id) {
+        owemoney = 0;
+        userDao.updateById(owemoney,id);
+    }
 }

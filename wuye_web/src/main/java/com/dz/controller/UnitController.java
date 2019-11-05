@@ -3,6 +3,7 @@ package com.dz.controller;
 import com.dz.pojo.Building;
 import com.dz.pojo.Unit;
 import com.dz.service.UnitService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,5 +54,19 @@ public class UnitController {
     public List<Unit> findAll(){
         List<Unit> unitList = unitService.findAll();
         return unitList;
+    }
+    /*分页*/
+    @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public PageInfo findByPage(int pageNum){
+        PageInfo pageInfo = unitService.findByPage(pageNum);
+        return pageInfo;
+    }
+    /*编辑单元*/
+    @RequestMapping(value = "edit", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int updateUser(Unit unit){
+        unitService.edit(unit);
+        return 0;
     }
 }

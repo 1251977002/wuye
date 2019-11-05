@@ -116,27 +116,12 @@
                             </td>
                         </tr>
 
-                        <tr>
-                            <td class="form-title">
-                                <span class="text-danger">*</span>物业费标准
-                            </td>
-                            <td>
-                                <select class="form-control chosen" name="modelpropertmoney" id="modelmoney">
-                                    <option value="2">两房两厅（2元/平米/年）</option>
-                                    <option value="3">三房两厅（3元/平米/年）</option>
-                                    <option value="4">四房两厅（4元/平米/年）</option>
-                                    <option value="6">联排别墅（6元/平米/年）</option>
-                                    <option value="10">独栋别墅（10元/平米/年）</option>
-                                </select>
-
-                            </td>
-                        </tr>
 
                         <tr>
                             <td class="form-title">物业费用</td>
 
                             <td>
-                               <span id="pp"></span>元/年（选择了「户型」和「物业费标准」，系统会自动计算该楼层的物业费用）
+                               <span id="pp"></span>元/年（选择了「户型」,系统会自动计算该楼层的物业费用）
                             </td>
 
                         </tr>

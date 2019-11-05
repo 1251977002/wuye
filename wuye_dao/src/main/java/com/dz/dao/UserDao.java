@@ -48,8 +48,11 @@ public interface UserDao {
     User findByPid(Integer pid);
 
     /*添加套房信息*/
-    @Insert("insert into t_user(username,tel) values(#{username},#{tel})")
+    @Insert("insert into t_user(username,tel,buildingname,unitname,housenum,modelname) values(#{username},#{tel},#{buildingname},#{unitname},#{housenum},#{modelname})")
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void saveroom(User user);
+
+
     //保存user
     @Insert("insert into t_user (username,password,sex,card,tel,buildingname,unitname,housenum,modelid) values (#{username},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum},#{modelid})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
@@ -64,7 +67,7 @@ public interface UserDao {
 
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")
-    void delByhouseNum(String housenu9m);
+    void delByhouseNum(String housenum);
 
     @Update("update t_user set buildingname = #{buildingname},unitname = #{unitname},housenum = #{housenum},modelid = #{modelid} where id = #{id}")
     void update(User user);
@@ -85,7 +88,7 @@ public interface UserDao {
     List<User> findAllUser(Model model);
 
     /*通过userid查询到该user*/
-    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
+    @Select("SELECT * FROM t_user WHERE id = #{userid}")
     User findUserByUserid(Integer userid);
 
 
@@ -111,4 +114,7 @@ public interface UserDao {
             " FROM t_user GROUP BY buildingname")
     List<User> findPageByEveryBuildingName();
 
+    /*通过id改变欠费*/
+    @Update("update t_user set owemoney=#{param1} where id=#{param2}")
+    void updateById(double owemoney, int id);
 }
