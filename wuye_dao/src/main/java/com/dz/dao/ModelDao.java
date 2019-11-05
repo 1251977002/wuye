@@ -43,4 +43,5 @@ public interface ModelDao {
     List<Model> findAll();
 
 
+    Model findModelById(int modelid);
 }

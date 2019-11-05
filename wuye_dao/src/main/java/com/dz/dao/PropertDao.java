@@ -20,10 +20,10 @@ public interface PropertDao {
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")
     @Results({
             @Result(id = true,column = "id",property = "id"),
-            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
     })
     List<Propert> findByPage(Map<String,Object> map);
-
 
     //通过房间号查找
     @Select(SELECT_BYBH)
@@ -62,5 +62,14 @@ public interface PropertDao {
     /*所有的buildingname*/
     @Select("select * from t_propert")
     List<Propert> findAllBuilding();
+
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertMoreSQL")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
+    })
+    List<Propert> findPropertByPage(Map<String,Object> map);
+
 
 }

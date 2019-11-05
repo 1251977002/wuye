@@ -90,4 +90,17 @@ public class PropertService {
     public Propert findById(Integer propertid) {
         return propertDao.findById(propertid);
     }
+    public PageInfo findPropertByPage(int pageNum,String buildingname,String username) {
+        PageHelper.startPage(pageNum, 3);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(buildingname)){
+            map.put("buildingname",buildingname);
+        }
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        List<Propert> propertList = propertDao.findPropertByPage(map);
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
 }

@@ -1,8 +1,7 @@
 package com.dz.dao;
 
 
-import com.dz.pojo.Model;
-import com.dz.pojo.User;
+import com.dz.pojo.*;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -40,6 +39,10 @@ public interface UserDao {
     List<User> findUserByParam(Map<String,Object> map);
 
     @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByPid(Integer pid);
 
     /*添加套房信息*/
@@ -52,15 +55,6 @@ public interface UserDao {
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
     User findByBuildAndUnitHouse(User user);
-
-    /*分页查找逾期用户*/
-    @Select("Select * from t_user where owemoney>0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);
-
 
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")
@@ -94,14 +88,5 @@ public interface UserDao {
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
 
-/*    *//*通过owemoney查找用户*//*
-    @Select("select * from t_user where ownmoney >0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "propertList",column = "id",many = @Many(select = "com.dz.dao.OweDao.findByuserid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);*/
 
-    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method = "getPropertSQL")
-    List<User> findPageByOweMoney(Map<String ,Object> map);
 }
