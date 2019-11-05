@@ -63,5 +63,24 @@ public class GetUserSql {
         System.out.println("SQL:" + sql);
         return sql;
     }
+    //物业费,以及逾期天数，所欠物业费的动态sql
+    public String getPropertMoreSQL(Map<String, Object> map) {
+        String sql = "select *,DATEDIFF(CURTIME(),endtime) AS overday from t_propert where ";
+        if (map.containsKey("buildingname")) {
+            sql += "buildingname = #{buildingname} and ";
+        }
+        if (map.containsKey("username")) {
+            sql += "username like #{username} ";
+        }
+        if (sql.endsWith("where ")) {
+            sql = sql.substring(0, sql.indexOf("where"));
+        }
+        if (sql.endsWith("and ")) {
+            sql = sql.substring(0, sql.lastIndexOf("and"));
+        }
+        sql += "group by userid";
+        System.out.println("SQL:" + sql);
+        return sql;
+    }
 
 }

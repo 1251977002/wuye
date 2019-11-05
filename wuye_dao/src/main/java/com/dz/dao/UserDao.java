@@ -41,7 +41,7 @@ public interface UserDao {
 
     @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})")
     @Results({
-            @Result(id = true, column = "id", property = "id"),
+            @Result(id = true,column = "id",property = "id"),
             @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
     })
     User findByPid(Integer pid);

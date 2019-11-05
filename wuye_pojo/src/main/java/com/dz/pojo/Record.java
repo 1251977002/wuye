@@ -1,11 +1,32 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class Record {
     /*记录表*/
     private int id;
     private String content;
     private String createtime;
-    private int adminid;
+    private String adminname;
+    private int userid;
+
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
+    public String getAdminname() {
+        return adminname;
+    }
+
+    public void setAdminname(String adminname) {
+        this.adminname = adminname;
+    }
 
     public int getId() {
         return id;
@@ -31,13 +52,6 @@ public class Record {
         this.createtime = createtime;
     }
 
-    public int getAdminid() {
-        return adminid;
-    }
-
-    public void setAdminid(int adminid) {
-        this.adminid = adminid;
-    }
 
 
 

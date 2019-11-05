@@ -12,7 +12,7 @@ public interface PropertDao {
 
     String SELECT_BYBH = "select * from t_propert where buildingname=#{param1} and housename=#{param2}";
     String SELECT_BYPRO = "select * from t_propert where begintime=#{param1} and buildingname=#{param2} and unitname=#{param3} and housenum=#{param4}";
-    String INSERT_SQL = "INSERT INTO t_propert(buildingname,housenum,propertno,money, begintime,endtime,userid,payid,payway,username,title,unitname,adminname) VALUES " +
+    String INSERT_SQL = "INSERT INTO t_propert(buildingname,housenum,propertno,money, begintime,endtime,userid,payid,payway,username,title,unitname) VALUES " +
             "(#{buildingname},#{housenum},#{propertno},#{money},#{begintime},#{endtime},#{userid},#{payid},#{payway},#{username},#{title},#{unitname},#{adminname})";
     String SELECT_BYID = "select * from t_propert where id=#{param1}";
     String SELECT_BY_UID = "select * from t_propert where userid=#{param1} order by endtime desc";
@@ -25,6 +25,7 @@ public interface PropertDao {
             @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
     })
     List<Propert> findByPage(Map<String,Object> map);
+
 
     //通过房间号查找
     @Select(SELECT_BYBH)
@@ -51,6 +52,7 @@ public interface PropertDao {
     })
     Propert findById(Integer propertid);
 
+
     /*查找所有的物业费信息*/
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")//写成动态SQL
     @Results({
@@ -58,6 +60,7 @@ public interface PropertDao {
             @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
     })
     List<Propert> findAll(Map<String,Object> map);
+
 
     /*删除room*/
     @Delete("delete from t_propert where id = #{id}")
@@ -70,6 +73,15 @@ public interface PropertDao {
             @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
     })
     List<Propert> findAllBuilding();
+
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertMoreSQL")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
+    })
+    List<Propert> findPropertByPage(Map<String,Object> map);
+
 
     /*根据用户id查找物业账单*/
     @Select(SELECT_BY_UID)
