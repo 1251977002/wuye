@@ -279,7 +279,6 @@
                                         </tr>
 
 
-
                                         <tr>
                                             <td class="form-title">物业费用</td>
                                             <td>
@@ -608,115 +607,119 @@
 
 
 
+
 </script>
 
 
 <script type="text/javascript">
     $(document).ready(function () {
+
         $(".selectInfo").click(function () {
             pageStart();
         })
-    });
-
-    $(".mytable").on("click", "#del", function () {
-        if (confirm("确定要删除吗？")) {
-            var id = $(this).attr("rel");
-            window.location.href = "/room/deleteroom?id=" + id;
-            return true;
-        }
-        return false;
-    });
 
 
-    //左侧模糊查询   楼栋
-
-    $.ajax({
-        type: "GET",
-        url: "/room/findAllBuilding",
-        success: function (json) {
-            $(json).each(function () {
-                console.log(json);
-                $(".buildingselect").append("<option value = " + this.buildingname + ">" + this.buildingname + "</option>");
-            });
-        },
-    });
-    //重置和清空左侧查询框内容
-    $(".cleanbtn").click(function () {
-        $(".username").val("");
-        $(".buildingselect").val("");
-        pageStart();
-
-    });
-
-
-    pageStart();//开始分页
-
-    function pageStart() {//分页函数
-        $.ajax({ //去后台查询第一页数据
-            type: "get",
-            url: "/room/findByPage",
-            dataType: "json",
-            data: {
-                pageNum: '1',
-                username: $(".username").val(),
-                status: $(".buildingselect").val(),
-            }, //参数：当前页为1
-            success: function (data) {
-                console.log(data);
-                var template = $('#template').html();
-                Mustache.parse(template);
-                $(".mytable").html("");
-                $(data.list).each(function () {
-                    var rendered = Mustache.render(template, this);
-                    $(".mytable").append(rendered);
-                });
-
-                var options = {//根据后台返回的分页相关信息，设置插件参数
-                    bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
-                    currentPage: data.pageNum, //当前页数
-                    totalPages: data.pages, //总页数
-                    numberOfPages: data.pageSize,//每页记录数
-                    itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
-                        switch (type) {
-                            case "first":
-                                return "首页";
-                            case "prev":
-                                return "上一页";
-                            case "next":
-                                return "下一页";
-                            case "last":
-                                return "末页";
-                            case "page":
-                                return page;
-                        }
-                    },
-                    onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
-                        $.ajax({//根据page去后台加载数据
-                            url: "/room/findByPage",
-                            type: "get",
-                            dataType: "json",
-                            data: {
-                                pageNum: page,
-                                username: $(".username").val(),
-                                status: $(".buildingselect").val(),
-                            },
-                            success: function (data) {
-                                var template = $('#template').html();
-                                Mustache.parse(template);
-                                $(".mytable").html("");
-                                $(data.list).each(function () {
-                                    var rendered = Mustache.render(template, this);
-                                    $(".mytable").append(rendered);
-                                });
-
-                            }
-                        });
-                    }
-                };
-                $('#mypage').bootstrapPaginator(options);//设置分页
+        $(".mytable").on("click", "#del", function () {
+            if (confirm("确定要删除吗？")) {
+                var id = $(this).attr("rel");
+                window.location.href = "/room/deleteroom?id=" + id;
+                return true;
             }
+            return false;
         });
-    }
+
+
+        //左侧模糊查询   楼栋
+
+        $.ajax({
+            type: "GET",
+            url: "/room/findAllBuilding",
+            success: function (json) {
+                $(json).each(function () {
+                    console.log(json);
+                    $(".buildingselect").append("<option value = " + this.name + ">" + this.name + "</option>");
+                });
+            },
+        });
+        //重置和清空左侧查询框内容
+        $(".cleanbtn").click(function () {
+            $(".username").val("");
+            $(".buildingselect").val("");
+            pageStart();
+
+        });
+
+
+        pageStart();//开始分页
+
+        function pageStart() {//分页函数
+            $.ajax({ //去后台查询第一页数据
+                type: "get",
+                url: "/room/findByPage1",
+                dataType: "json",
+                data: {
+                    pageNum: '1',
+                    username: $(".username").val(),
+                    status: $(".buildingselect").val(),
+                },
+                //参数：当前页为1
+                success: function (data) {
+                    console.log(data);
+                    var template = $('#template').html();
+                    Mustache.parse(template);
+                    $(".mytable").html("");
+                    $(data.list).each(function () {
+                        var rendered = Mustache.render(template, this);
+                        $(".mytable").append(rendered);
+                    });
+
+                    var options = {//根据后台返回的分页相关信息，设置插件参数
+                        bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
+                        currentPage: data.pageNum, //当前页数
+                        totalPages: data.pages == 0 ? "" : data.pages, //总页数
+                        numberOfPages: data.pageSize,//每页记录数
+                        itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
+                            switch (type) {
+                                case "first":
+                                    return "首页";
+                                case "prev":
+                                    return "上一页";
+                                case "next":
+                                    return "下一页";
+                                case "last":
+                                    return "末页";
+                                case "page":
+                                    return page;
+                            }
+                        },
+                        onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
+                            $.ajax({//根据page去后台加载数据
+                                url: "/room/findByPage1",
+                                type: "get",
+                                dataType: "json",
+                                data: {
+                                    pageNum: page,
+                                    username: $(".username").val(),
+                                    status: $(".buildingselect").val(),
+                                },
+                                success: function (data) {
+                                    var template = $('#template').html();
+                                    Mustache.parse(template);
+                                    $(".mytable").html("");
+                                    $(data.list).each(function () {
+                                        var rendered = Mustache.render(template, this);
+                                        $(".mytable").append(rendered);
+                                    });
+
+                                }
+                            });
+                        }
+                    };
+                    $('#mypage').bootstrapPaginator(options);//设置分页
+                }
+            });
+        }
+    });
 
 </script>
 

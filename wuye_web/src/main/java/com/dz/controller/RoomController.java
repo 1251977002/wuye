@@ -69,12 +69,21 @@ public class RoomController {
         PageInfo pageInfo = propertService.findByPageroomList(pageNum,username,status);
         return pageInfo;
     }
+    /*分页*/
+    @RequestMapping(value = "findByPage1",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public PageInfo findByPage1(int pageNum,String username,String status){
+        PageInfo pageInfo = propertService.findByPageroomList1(pageNum,username,status);
+        return pageInfo;
+    }
+
+
     /*查询所有的楼栋名字*/
     @RequestMapping(value = "findAllBuilding",produces = "application/json;charset=utf-8")
     @ResponseBody
-    public List<Propert>  findAllBuilding(){
-        List<Propert> propertList = propertService.findAllBuilding();
-        return  propertList;
+    public List<Building>  findAllBuilding(){
+        List<Building> buildingList = buildingService.findAll();
+        return  buildingList;
     }
 
     /*删除*/

@@ -87,7 +87,7 @@ public interface UserDao {
     List<User> findAllUser(Model model);
 
     /*通过userid查询到该user*/
-    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
+    @Select("SELECT * FROM t_user WHERE id = #{userid}")
     User findUserByUserid(Integer userid);
 
 

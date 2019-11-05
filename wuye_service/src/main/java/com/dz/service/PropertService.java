@@ -71,6 +71,22 @@ public class PropertService {
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
     }
+    /*查找所有的物业费表中的信息*/
+
+    public PageInfo findByPageroomList1(int pageNum,String username,String status) {
+        PageHelper.startPage(pageNum,3);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        if(!StringUtils.isEmpty(status)){
+            map.put("status",status);
+        }
+
+        List<Propert> propertList = propertDao.findAll1(map);
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
 
     /*删除room*/
     public void delroom(int id) {
