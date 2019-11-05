@@ -23,6 +23,7 @@ public class Propert implements Serializable {
     private int payid;
     private String payway; /*缴费方式*/
     private String title;  /*收款说明*/
+    private String adminname;/*登录者姓名*/
 
     public int getId() {
         return id;
@@ -150,5 +151,13 @@ public class Propert implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAdminname() {
+        return adminname;
+    }
+
+    public void setAdminname(String adminname) {
+        this.adminname = adminname;
     }
 }

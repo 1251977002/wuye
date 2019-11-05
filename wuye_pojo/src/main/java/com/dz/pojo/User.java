@@ -1,12 +1,15 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
-    private String loginname;
     private String password;
     private String sex;
     private String card;
@@ -18,9 +21,11 @@ public class User {
     private String buildingname;
     private String housenum;
     private int modelid;
-    private int roleid;
     private List<Propert> propertList;
     private Model model;
+    private String modelname;
+    private List<Role> roleList;
+
 
     public String getModelname() {
         return modelname;
@@ -29,10 +34,6 @@ public class User {
     public void setModelname(String modelname) {
         this.modelname = modelname;
     }
-
-    private String modelname;
-
-    private List<Role> roleList;
 
 
     public List<Role> getRoleList() {
@@ -65,14 +66,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getLoginname() {
-        return loginname;
-    }
-
-    public void setLoginname(String loginname) {
-        this.loginname = loginname;
     }
 
     public String getPassword() {
@@ -129,14 +122,6 @@ public class User {
 
     public void setHouseid(int houseid) {
         this.houseid = houseid;
-    }
-
-    public int getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(int roleid) {
-        this.roleid = roleid;
     }
 
 

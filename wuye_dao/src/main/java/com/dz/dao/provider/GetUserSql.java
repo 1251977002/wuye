@@ -27,7 +27,7 @@ public class GetUserSql {
 
     //物业费的动态sql
     public String getPropertSQL(Map<String, Object> map) {
-        String sql = "select * from t_propert where ";
+        String sql = "select t.* from (SELECT * FROM t_propert ORDER BY begintime DESC)t where ";
         if (map.containsKey("buildingname")) {
             sql += "buildingname = #{buildingname} and ";
         }
@@ -40,7 +40,7 @@ public class GetUserSql {
         if (sql.endsWith("and ")) {
             sql = sql.substring(0, sql.lastIndexOf("and"));
         }
-
+        sql+="group by userid";
         System.out.println("SQL:" + sql);
         return sql;
     }

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,20 +54,12 @@
                 <a href="/cost/add">收取物业费</a>
               </li>
             </ul>
-            <ul class="sub-btns">
-              <li>
-                <a href="#" class="btn btn-sm btn-default">
-                  <span class="glyphicon glyphicon-list-alt"></span>
-                  导出 excel 表
-                </a>
-              </li>
-            </ul>
           </div>
         </nav>
         <!-- #头部副标题导航-->  
         <!--页面主体-->
           <div  class="list-container have-subhead ab">
-
+              <input type="hidden" name="adminname" class="adminname" value="<shiro:principal/>">
             <!--页面左侧-->
             <div class="sidebar">
                 <h1>按条件查询</h1>
@@ -201,9 +194,9 @@
                                 <div class="modal  bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                     <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
-                                            <h3>缴费成功</h3>
+                                            <h3 class="info">缴费成功</h3>
                                             <div class="fee">
-                                                <a target="_blank" class = "print" href = "javascript:;"> <button type="submit" class="btn btn-primary btn-sm " >打印收据</button> </a>
+                                                <a target="_blank" class = "print" href = "javascript:;"> <button type="submit" class="btn btn-primary btn-sm btnshouju" >打印收据</button> </a>
                                                 <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回</button>
                                             </div>
                                         </div>
@@ -323,6 +316,7 @@
               });
           })
 
+          //添加信息，并跳到打印数据
           $(".infolist").on("click",".ensure",function () {
               $.ajax({
                   type:"GET",
@@ -334,11 +328,13 @@
                       year:$(".year").val(),
                       money:$(".money").text(),
                       payway:$(".payway").val(),
-                      title:$(".cont").val()
+                      title:$(".cont").val(),
+                      adminname:$(".adminname").val(),
                   },
                   success:function (json) {
                       if(json.id == 0){
-                          alert("账单已存在，请勿重复操作！");
+                          $(".info").text("账单已存在，请勿重复操作！");
+                          $(".btnshouju").attr("disabled",true);
                       }else {
                           $(".print").click(function(){
                               window.location.href = "/cost/shouju?propertid="+json.id;

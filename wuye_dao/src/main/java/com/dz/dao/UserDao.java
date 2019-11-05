@@ -29,6 +29,10 @@ public interface UserDao {
     List<User> findUserByParam(Map<String,Object> map);
 
     @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByPid(Integer pid);
 
     /*添加套房信息*/
@@ -40,6 +44,10 @@ public interface UserDao {
     void save(User user);
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByBuildAndUnitHouse(User user);
 
     /*分页查找逾期用户*/
