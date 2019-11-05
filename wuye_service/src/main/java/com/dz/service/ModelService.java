@@ -2,6 +2,8 @@ package com.dz.service;
 
 import com.dz.dao.ModelDao;
 import com.dz.pojo.Model;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,19 @@ public class ModelService {
 
     public Model findModelById(int modelid) {
         return modelDao.findModelById(modelid);
+    }
+
+    /*分页*/
+    public PageInfo findByPage(int pageNum) {
+        PageHelper.startPage(pageNum,3);
+        List<Model> modelList = modelDao.findAll();
+        PageInfo pageInfo = new PageInfo(modelList);
+        return pageInfo;
+
+    }
+
+    /*编辑*/
+    public void edit(Model model) {
+        modelDao.edit(model);
     }
 }

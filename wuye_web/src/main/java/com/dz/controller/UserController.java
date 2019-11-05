@@ -7,6 +7,7 @@ import com.dz.service.HouseService;
 import com.dz.service.UnitService;
 import com.dz.service.UserService;
 import com.github.pagehelper.PageInfo;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -66,8 +67,6 @@ public class UserController {
         //保存到admin登陆表中
         adminService.save(user);
         //保存到房间表中
-        Unit unit = unitService.findByName(unithouse.substring(0, 3));
-        houseService.save(unithouse.substring(3), userId, unit, modelid);
         return "user/user-list";
     }
 
@@ -83,8 +82,6 @@ public class UserController {
     public String delByhouseNum(String housenum) {
         //user表中删除
         userService.delByhouseNum(housenum);
-        //house表中删除
-        houseService.del(Integer.parseInt(housenum));
         return "user/user-list";
     }
 

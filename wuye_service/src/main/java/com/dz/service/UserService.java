@@ -97,6 +97,8 @@ public class UserService {
     }
 
 
+
+
     /*查询所有业主信息*/
     public List<User> findAllUser(Model model) {
         return userDao.findAllUser(model);

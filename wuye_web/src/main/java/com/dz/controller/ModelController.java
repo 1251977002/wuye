@@ -2,6 +2,7 @@ package com.dz.controller;
 
 import com.dz.pojo.Model;
 import com.dz.service.ModelService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +22,7 @@ public class ModelController {
     /*跳转到户型列表   用model表*/
     @RequestMapping(value = "modellist")
     public String modellist(org.springframework.ui.Model model){
-        List<Model> modelList = modelService.findAllModel(model);
-        model.addAttribute("modellist",modelList);
+
         return "model/model-list";
     }
     /*跳转到添加户型*/
@@ -61,5 +61,20 @@ public class ModelController {
         model.setPropertmoney(propertmoney);
         modelService.savemodel(model);
         return "redirect:modellist";
+    }
+    /*分页*/
+    @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public PageInfo findByPage(int pageNum){
+        PageInfo pageInfo = modelService.findByPage(pageNum);
+        return pageInfo;
+    }
+
+    /*编辑*/
+    @RequestMapping(value = "edit",produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int updateUser(Model model){
+        modelService.edit(model);
+        return 0;
     }
 }

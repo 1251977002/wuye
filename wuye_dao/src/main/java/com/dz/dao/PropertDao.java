@@ -62,6 +62,21 @@ public interface PropertDao {
     List<Propert> findAll(Map<String,Object> map);
 
 
+
+
+    /*查找所有的物业费信息*/
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getRoomSQL")//写成动态SQL
+    @Results({
+            @Result(column = "userid", property = "userid"),
+            @Result(column = "userid",property = "user",one = @One(select = "com.dz.dao.UserDao.findUserByUserid"))
+    })
+    List<Propert> findAll1(Map<String,Object> map);
+
+
+
+
+
+
     /*删除room*/
     @Delete("delete from t_propert where id = #{id}")
     void delroom(int id);
@@ -90,4 +105,6 @@ public interface PropertDao {
     /*根据id更改缴费时间*/
     @Update(UPDATE_BYID)
     void updateById(String paytime,String state,String payway,int propertid);
+    @Insert("insert into t_propert(userid) values(#{userid})")
+    void save(int userId);
 }

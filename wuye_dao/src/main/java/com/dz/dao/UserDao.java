@@ -47,8 +47,11 @@ public interface UserDao {
     User findByPid(Integer pid);
 
     /*添加套房信息*/
-    @Insert("insert into t_user(username,tel) values(#{username},#{tel})")
+    @Insert("insert into t_user(username,tel,buildingname,unitname,housenum,modelname) values(#{username},#{tel},#{buildingname},#{unitname},#{housenum},#{modelname})")
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void saveroom(User user);
+
+
     //保存user
     @Insert("insert into t_user (username,password,sex,card,tel,buildingname,unitname,housenum,modelid) values (#{username},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum},#{modelid})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
@@ -93,7 +96,7 @@ public interface UserDao {
     List<User> findAllUser(Model model);
 
     /*通过userid查询到该user*/
-    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
+    @Select("SELECT * FROM t_user WHERE id = #{userid}")
     User findUserByUserid(Integer userid);
 
 

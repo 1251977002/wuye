@@ -56,7 +56,7 @@ public class PropertService {
         return propertDao.findPropert(begintime,buildingname,unitname,housenum);
     }
     /*查找所有的物业费表中的信息*/
-    //todo
+
     public PageInfo findByPageroomList(int pageNum,String username,String buildingname) {
         PageHelper.startPage(pageNum,3);
         Map<String,Object> map = new HashMap<String,Object>();
@@ -68,6 +68,22 @@ public class PropertService {
         }
 
         List<Propert> propertList = propertDao.findAll(map);
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
+    /*查找所有的物业费表中的信息*/
+
+    public PageInfo findByPageroomList1(int pageNum,String username,String status) {
+        PageHelper.startPage(pageNum,3);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        if(!StringUtils.isEmpty(status)){
+            map.put("status",status);
+        }
+
+        List<Propert> propertList = propertDao.findAll1(map);
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
     }
@@ -103,6 +119,12 @@ public class PropertService {
         List<Propert> propertList = propertDao.findPropertByPage(map);
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
+    }
+
+    public void saveroom(int userId) {
+        Propert propert = new Propert();
+        propert.setUserid(userId);
+        propertDao.save(userId);
     }
 
     /*通过用户id查找物业账单*/
