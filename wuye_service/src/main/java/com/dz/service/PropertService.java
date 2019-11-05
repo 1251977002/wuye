@@ -111,7 +111,7 @@ public class PropertService {
     }
 
     /*通过id改变缴费时间*/
-    public void updateById(String paytime,String payway,int propertid) {
-        propertDao.updateById(paytime,payway,propertid);
+    public void updateById(String paytime,String payway,String state,int propertid) {
+        propertDao.updateById(paytime,payway,state,propertid);
     }
 }

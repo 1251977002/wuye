@@ -108,7 +108,7 @@
             <!-- /.box-footer -->
               <div class="box-footer">
                   <form action="/bbs/saveBBSComment" method="post">
-                      <input type="text"  class="form-control input-sm" placeholder="请输入评论内容"
+                      <input type="text"  class="form-control input-sm" id="incomt" placeholder="请输入评论内容"
                              name="content">
                       <input type="hidden" name="bbsid" value="${bbs.id}">
                       <button type="submit" class="btn btn-default btn-xs send"
@@ -161,6 +161,10 @@
 
         //日期选择
         yoozi.datapicker('.datepicker');
+          $("#comt").click(function(){
+              $("#incomt").focus();
+
+          });
           $(function () {
               pageStart();//开始分页
 

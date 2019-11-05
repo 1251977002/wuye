@@ -12,11 +12,11 @@ public interface PropertDao {
 
     String SELECT_BYBH = "select * from t_propert where buildingname=#{param1} and housename=#{param2}";
     String SELECT_BYPRO = "select * from t_propert where begintime=#{param1} and buildingname=#{param2} and unitname=#{param3} and housenum=#{param4}";
-    String INSERT_SQL = "INSERT INTO t_propert(buildingname,housenum,propertno,money, begintime,endtime,userid,payid,payway,username,title,unitname) VALUES " +
+    String INSERT_SQL = "INSERT INTO t_propert(buildingname,housenum,propertno,money, begintime,endtime,userid,payid,payway,username,title,unitname,adminname) VALUES " +
             "(#{buildingname},#{housenum},#{propertno},#{money},#{begintime},#{endtime},#{userid},#{payid},#{payway},#{username},#{title},#{unitname},#{adminname})";
     String SELECT_BYID = "select * from t_propert where id=#{param1}";
     String SELECT_BY_UID = "select * from t_propert where userid=#{param1} order by endtime desc";
-    String UPDATE_BYID = "update t_propert set paytime=#{param1},payway=#{param2} where id=#{param3}";
+    String UPDATE_BYID = "update t_propert set paytime=#{param1},payway=#{param2},state=#{param3} where id=#{param4}";
 
     //分页查询
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")
@@ -89,5 +89,5 @@ public interface PropertDao {
 
     /*根据id更改缴费时间*/
     @Update(UPDATE_BYID)
-    void updateById(String paytime,String payway,int propertid);
+    void updateById(String paytime,String state,String payway,int propertid);
 }

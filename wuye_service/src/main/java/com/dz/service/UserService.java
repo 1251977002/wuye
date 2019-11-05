@@ -103,4 +103,8 @@ public class UserService {
     }
 
 
+    public void updateById(double owemoney, int id) {
+        owemoney = 0;
+        userDao.updateById(owemoney,id);
+    }
 }

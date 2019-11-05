@@ -101,5 +101,7 @@ public interface UserDao {
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
 
-
+    /*通过id改变欠费*/
+    @Update("update t_user set owemoney=#{param1} where id=#{param2}")
+    void updateById(double owemoney, int id);
 }

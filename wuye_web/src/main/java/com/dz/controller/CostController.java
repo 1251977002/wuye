@@ -158,7 +158,9 @@ public class CostController {
         String time = propert.getPaytime();
         if(time.equals("0")){
             String paytime = sdf.format(new Date());
-            propertService.updateById(paytime,payway,propertid);
+            String state = "已缴费";
+            propertService.updateById(paytime,payway,state,propertid);
+            userService.updateById(propert.getUser().getOwemoney(),propert.getUser().getId());
         }
         return propert;
     }
