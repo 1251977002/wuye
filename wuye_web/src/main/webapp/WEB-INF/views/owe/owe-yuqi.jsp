@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,12 +127,12 @@
                     <tr>
                       <th>楼栋号</th>
                       <th>单元</th>
-                      <th>单元</th>
+                      <th>房间号</th>
                       <th>业主姓名</th>
                       <th>联系电话</th>
                       <th>到期时间</th>
-                      <th>逾期时间</th>
                       <th>物业费标准</th>
+                      <th>逾期天数</th>
                       <th>所欠物业费</th>
                       <th>备注</th>
                       <th>操作</th>
@@ -139,7 +140,8 @@
                   </thead>
                   <tbody id="main">
 
-                     
+
+
                   </tbody>
                 </table>
               </div>
@@ -152,6 +154,66 @@
           </div>
     </div>
     <!-- /container -->
+  <!-- 添加备注弹出框 -->
+
+  <div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content"  >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" >修改记录列表</h4>
+        </div>
+        <div class="modal-body">
+          <div role="tabpanel" class="tab-pane " >
+            <br />
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>管理员</th>
+                <th>备注</th>
+                <th>发布时间</th>
+              </tr>
+              </thead>
+              <tbody class = "record">
+
+              </tbody>
+            </table>
+            <br />
+            <h5>添加备注</h5>
+            <div>
+              <form action="/owe/saveRecord" method="post">
+                <table class="form-table">
+                  <tbody>
+                  <tr>
+                    <td class="form-title">
+                      备注
+                    </td>
+                    <td>
+                      <input type="hidden" name="userid" value="" class="userid1" >
+                      <input type="text" class="form-control" name="title" value="" placeholder="">
+                      <input type="hidden" name="adminname" class="adminname" value="<shiro:principal/>">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="form-title"></td>
+                    <td>
+                      <button type="submit" class="btn btn-primary">保存</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--  <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+         </div> -->
+      </div>
+    </div>
+  </div>
+
 
 
   <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
@@ -167,86 +229,30 @@
   <script src="${basePath}assets/mustache.js"></script>
   <script id="template" type="x-tmpl-mustache">
     <tr>
-        <tr>
-        <td>一栋</td>
-        <td>三单元</td>
-        <td>601</td>
-        <td>张三</td>
-        <td>13333333333</td>
-        <td>2017/09/12</td>
-        <td>47.6元/年</td>
-        <td>365/物业费标准*逾期天数</td>
+        <td>{{buildingname}}</td>
+        <td>{{unitname}}</td>
+        <td>{{housenum}}</td>
+        <td>{{username}}</td>
+        <td>{{user.tel}}</td>
+        <td>{{endtime}}</td>
+        <td>{{user.model.propertmoney}}元/年</td>
+        <td>{{overday}}</td>
         <td>￥0</td>
-        <td>显示最新一条备注</td>
+        <td>{{record.content}}</td>
         <td><!-- 添加备注按钮 -->
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+            <input type = "hidden" class = "userid" value = "{{user.id}}" >
+            <button type="button" class="btn btn-primary btn-xs btnbox" data-toggle="modal" data-target="#myModal">
                           添加备注
             </button>
-
-                        <!-- 添加备注弹出框 -->
-            <div  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document" >
-                    <div class="modal-content"  >
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" >修改记录列表</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div role="tabpanel" class="tab-pane " >
-                                <br />
-                                 <table class="table table-striped">
-                                     <thead>
-                                         <tr>
-                                             <th>管理员</th>
-                                             <th>备注</th>
-                                              <th>发布时间</th>
-                                         </tr>
-                                     </thead>
-                                         <tbody class = "record">
-
-                                          </tbody>
-                                          </table>
-                                          <br />
-                                          <h5>添加备注</h5>
-                                          <div>
-                                            <form>
-                                              <table class="form-table">
-                                                <tbody>
-                                                  <tr>
-                                                    <td class="form-title">
-                                                      备注
-                                                    </td>
-                                                    <td>
-                                                      <input type="text" class="form-control" name="title" value="" placeholder="">
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="form-title"></td>
-                                                    <td>
-                                                      <button type="submit" class="btn btn-primary">保存</button>
-                                                    </td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </form>
-                                          </div>
-                                        </div>
-                                        </div>
-                                       <!--  <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-                                        </div> -->
-                                      </div>
-                                    </div>
-                                  </div></td>
-                                            </tr>
-
+</td>
+                  </tr>
   </script>
-  <script id="template" type="x-tmpl-mustache">
+
+  <script id="temp" type="x-tmpl-mustache">
      <tr>
-        <td>管理员A</td>
-        <td>上传了文件《2017-12-10 至 2018-12-10 的物业管理费收据》</td>
-        td>2016-07-09 12:34:27</td>
+        <td>{{adminname}}</td>
+        <td>{{content}}</td>
+        <td>{{createtime}}</td>
      </tr>
   </script>
 
@@ -267,7 +273,36 @@
         }
       });
       $(function () {
-        //筛选时，分页
+         $("#main").on("click",".btnbox",function () {
+           $.ajax({
+             type: "GET",
+             url: "/owe/findbyuserid",
+             dataType: "json",
+             data: {
+               userid: $(this).siblings(".userid").val(),
+             },
+             success: function (data) {
+               console.log(data);
+               $(".record").html("");
+               var template = $('#temp').html();
+               Mustache.parse(template);
+               $(data).each(function (index) {
+                 console.log(data[index].userid)
+                 $(".userid1").attr("value",data[index].userid);
+                 var rendered = Mustache.render(template, this);
+                 $(".record").append(rendered);
+               });
+             }
+           })
+         })
+
+
+
+
+
+
+
+            //筛选时，分页
         $(".selectInfo").click(function () {
           pageStart();
         });

@@ -55,6 +55,7 @@ public interface PropertDao {
 
 
 
+
     /*查找所有的物业费信息*/
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")//写成动态SQL
     @Results({
@@ -78,6 +79,7 @@ public interface PropertDao {
 
 
 
+
     /*删除room*/
     @Delete("delete from t_propert where id = #{id}")
     void delroom(int id);
@@ -89,6 +91,15 @@ public interface PropertDao {
             @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
     })
     List<Propert> findAllBuilding();
+
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertMoreSQL")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
+    })
+    List<Propert> findPropertByPage(Map<String,Object> map);
+
 
     /*根据用户id查找物业账单*/
     @Select(SELECT_BY_UID)

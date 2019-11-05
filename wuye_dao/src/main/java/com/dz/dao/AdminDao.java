@@ -15,4 +15,6 @@ public interface AdminDao {
     //保存用户登录的name和pwd
     @Insert("insert into t_admin (adminname,password,roleid) values (#{adminname},#{password},#{roleid})")
     void save(Admin admin);
+
+
 }
