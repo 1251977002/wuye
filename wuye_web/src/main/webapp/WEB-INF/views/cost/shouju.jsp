@@ -55,7 +55,7 @@
           <tr >
             <td>项目</td>
             <td>周期</td>
-            <td>缴费日期</td>
+            <td>开始日期</td>
             <td>到期日期</td>
             <td>订单收入</td>
           </tr>
@@ -77,7 +77,7 @@
 
             <tr style="border-style: none;">
               <td colspan=2 style="text-align: left; border-style: none;border-bottom:1px solid #fff;padding-top:15px;">付款方式：${propert.payway}</td>
-              <td style="text-align: left;border-style: none;border-bottom:1px solid #fff;padding-top:15px;">开票人：</td>
+              <td style="text-align: left;border-style: none;border-bottom:1px solid #fff;padding-top:15px;">开票人：${propert.adminname}</td>
               <td colspan=2 style="border-style: none; text-align:center;border-bottom:1px solid #fff;padding-top:15px;">客户确认（签名）：</td>
             </tr>
      </table>

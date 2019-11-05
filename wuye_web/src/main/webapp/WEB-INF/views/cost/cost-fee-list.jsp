@@ -48,10 +48,10 @@
                 收费管理:
               </li>
               <li class='active'>
-                <a href="cost-list.jsp">物业费账单</a>
+                <a href="/cost/list">物业费账单</a>
               </li>
               <li >
-                <a href="cost-add.jsp">收取物业费</a>
+                <a href="/cost/add">收取物业费</a>
               </li>
                
             </ul>
@@ -90,67 +90,23 @@
                     </tr>
                   </thead>
                   <tbody>
+                  <c:forEach var="propert" items="${propertList}">
                     <tr>
-                      <td>2017-10-01</td>
-                      <td>管理员A</td>
-                      <td>现金</td>
-                      <td>2017-10-01 至 2018-09-30</td>
+                      <td>${propert.paytime}</td>
+                      <td>${propert.adminname}</td>
+                      <td>${propert.payway}</td>
+                      <td>${propert.begintime} 至 ${propert.endtime}</td>
                       <td>
-                        <a target="_blank" href="/cost/shouju" class="btn btn-xs btn-primary">
+                        <a target="_blank" href="/cost/shouju?propertid=${propert.id}" class="btn btn-xs btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span> 打印收据
                         </a>
                       </td>
                     </tr>
-                   
-                    <tr>
-                      <td>2017-10-01</td>
-                      <td>管理员A</td>
-                      <td>现金</td>
-                      <td>2017-10-01 至 2018-09-30</td>
-                      <td>
-                        <a target="_blank" href="/cost/shouju" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>2017-10-01</td>
-                      <td>管理员A</td>
-                      <td>现金</td>
-                      <td>2017-10-01 至 2018-09-30</td>
-                      <td>
-                        <a target="_blank" href="/cost/shouju" class="btn btn-xs btn-primary">
-                            <span class="glyphicon glyphicon-pencil"></span> 打印收据
-                        </a>
-                      </td>
-                    </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
               </div>
               <!-- #列表-->
-
-              <!--页码-->
-              <nav class="pull-right">
-                <ul class="pagination pagination-sm">
-                  <ul class="pagination">
-                    <li class="disabled"><span>&laquo;</span></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li class="disabled"><span>...</span></li>
-                    <li><a href="#">65</a></li>
-                    <li><a href="#">66</a></li>
-                    <li><a href="#" rel="next">&raquo;</a></li>
-                  </ul>
-                </ul>
-              </nav>
-              <!-- #页码-->
             </div>
           </div>
     </div>
