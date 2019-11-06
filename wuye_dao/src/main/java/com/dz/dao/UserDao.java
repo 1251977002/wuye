@@ -64,14 +64,6 @@ public interface UserDao {
     })
     User findByBuildAndUnitHouse(User user);
 
-    /*分页查找逾期用户*/
-    @Select("Select * from t_user where owemoney>0")
-    @Results({
-            @Result(id = true, column = "id", property = "id"),
-            @Result(property = "",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleByUid"))
-    })
-    List<User> findPageByOweMoney(int pageNum);
-
 
     //删除住户
     @Delete("delete from t_user where housenum = #{housenum}")

@@ -11,11 +11,6 @@
             <li class="${(param.menu eq 'roomlist') ? 'active' : ''}">
                 <a href="/room/roomlist">套房列表</a>
             </li>
-            <shiro:hasRole name="管理员">
-                <li class="${(param.menu eq 'addroom') ? 'active' : ''}">
-                    <a href="/room/addroom">添加套房</a>
-                </li>
-            </shiro:hasRole>
             <li role="separator" class="divider"></li>
             <li class="${(param.menu eq 'buildinglist') ? 'active' : ''}">
                 <a href="/building/buildinglist">楼栋列表</a>

@@ -46,7 +46,7 @@ public class GetUserSql {
     }
     //套房列表的动态sql
     public String getRoomSQL(Map<String, Object> map) {
-        String sql = "select * from t_propert where ";
+        String sql = "select *,DATEDIFF(CURTIME(),endtime) AS overday from t_propert where ";
         if (map.containsKey("status")) {
             sql += "buildingname = #{status} and ";
         }

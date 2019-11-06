@@ -13,6 +13,7 @@
     -->
     <context:component-scan base-package="com.dz.shiro"/>
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--安全管理器-->
         <property name="realm" ref="shiroDbRealm" />
         <property name="cacheManager" ref="cacheManager" />
     </bean>
@@ -20,20 +21,20 @@
     <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 
-    <!-- 会话管理器 -->
+    <!-- 会话管理器
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <!-- session的失效时长，单位毫秒 -->
+        &lt;!&ndash; session的失效时长，单位毫秒 &ndash;&gt;
         <property name="globalSessionTimeout" value="600000"/>
-        <!-- 删除失效的session -->
+        &lt;!&ndash; 删除失效的session &ndash;&gt;
         <property name="deleteInvalidSessions" value="true"/>
 
-        <!--去掉URL中的JSESSIONID-->
+        &lt;!&ndash;去掉URL中的JSESSIONID&ndash;&gt;
         <property name="sessionIdUrlRewritingEnabled" value="false" />
 
-        <!-- 定时检查失效的session -->
+        &lt;!&ndash; 定时检查失效的session &ndash;&gt;
         <property name="sessionValidationSchedulerEnabled" value="true" />
     </bean>
-
+-->
     <!-- Shiro Filter -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager" />
@@ -43,7 +44,8 @@
         <property name="filterChainDefinitions">
             <value>
                 /admin/index= anon
-                /admin/login= anon <!--去登录时放行-->
+                /admin/login= anon<!--去登录时放行-->
+                /admin/code= anon
                 /* = anon
                 /adduser = perms[adduser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
                 /deleteuser = perms[deleteuser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
