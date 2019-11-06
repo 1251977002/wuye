@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 import java.util.List;
-
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class User implements Serializable {
     /*业主表 */
@@ -21,11 +20,25 @@ public class User implements Serializable {
     private String unitname;
     private String buildingname;
     private String housenum;
+
+
+    public String getLoginname() {
+        return loginname;
+    }
+
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
+    }
+
     private int modelid;
+
     private int roleid;
     private List<Propert> propertList;
+
     private Model model;
+
     private String modelname;
+
     private List<Role> roleList;
     private int totaluser;/*一栋楼的所有业主数*/
     private int payuser;/*一栋楼支付过物业费的所有业主数*/
@@ -72,6 +85,8 @@ public class User implements Serializable {
         this.modelname = modelname;
     }
 
+
+
     public List<Role> getRoleList() {
         return roleList;
     }
@@ -82,14 +97,6 @@ public class User implements Serializable {
 
     public int getId() {
         return id;
-    }
-
-    public String getUnitname() {
-        return unitname;
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
     }
 
     public void setId(int id) {
@@ -104,13 +111,6 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getLoginname() {
-        return loginname;
-    }
-
-    public void setLoginname(String loginname) {
-        this.loginname = loginname;
-    }
 
     public String getPassword() {
         return password;
@@ -168,15 +168,6 @@ public class User implements Serializable {
         this.houseid = houseid;
     }
 
-    public int getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(int roleid) {
-        this.roleid = roleid;
-    }
-
-
     public String getBuildingname() {
         return buildingname;
     }
@@ -191,14 +182,24 @@ public class User implements Serializable {
 
     public void setHousenum(String housenum) {
         this.housenum = housenum;
+
     }
 
-    public List<Propert> getPropertList() {
-        return propertList;
+    public String getUnitname() {
+        return unitname;
+
     }
 
-    public void setPropertList(List<Propert> propertList) {
-        this.propertList = propertList;
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
+
+    public int getModelid() {
+        return modelid;
+    }
+
+    public void setModelid(int modelid) {
+        this.modelid = modelid;
     }
     public Model getModel() {
         return model;
@@ -207,12 +208,22 @@ public class User implements Serializable {
     public void setModel(Model model) {
         this.model = model;
     }
-    public int getModelid() {
-        return modelid;
+
+
+    public int getRoleid() {
+        return roleid;
     }
 
-    public void setModelid(int modelid) {
-        this.modelid = modelid;
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
+    }
+
+    public List<Propert> getPropertList() {
+        return propertList;
+    }
+
+    public void setPropertList(List<Propert> propertList) {
+        this.propertList = propertList;
     }
 
 }

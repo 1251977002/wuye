@@ -1,6 +1,8 @@
 package com.dz.controller;
 
+import com.dz.pojo.Admin;
 import com.dz.pojo.User;
+import com.dz.service.AdminService;
 import com.dz.service.PropertService;
 import com.dz.service.UserService;
 import org.apache.shiro.SecurityUtils;
@@ -10,11 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/admin/")
 public class AdminController {
     //管理人员
+    @Autowired
+    private AdminService adminService;
     @Autowired
     private UserService userService;
     @Autowired
@@ -54,4 +59,10 @@ public class AdminController {
         return "admin/login";
     }
 
+    //通过用户名查找pwd
+    @RequestMapping(value = "findByName", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public Admin findByName(String name){
+        return adminService.findByLoginName(name);
+    }
 }

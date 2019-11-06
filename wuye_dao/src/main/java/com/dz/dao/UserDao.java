@@ -54,7 +54,7 @@ public interface UserDao {
 
 
     //保存user
-    @Insert("insert into t_user (username,password,sex,card,tel,buildingname,unitname,housenum,modelid) values (#{username},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum},#{modelid})")
+    @Insert("insert into t_user (username,loginname,password,sex,card,tel,buildingname,unitname,housenum,modelid) values (#{username},#{loginname},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum},#{modelid})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void save(User user);
 
@@ -66,8 +66,8 @@ public interface UserDao {
     User findByBuildAndUnitHouse(User user);
 
     //删除住户
-    @Delete("delete from t_user where housenum = #{housenum}")
-    void delByhouseNum(String housenum);
+    @Delete("delete from t_user where id = #{id} ")
+    void delUser(int id);
 
     @Update("update t_user set buildingname = #{buildingname},unitname = #{unitname},housenum = #{housenum},modelid = #{modelid} where id = #{id}")
     void update(User user);
@@ -88,7 +88,7 @@ public interface UserDao {
     List<User> findAllUser(Model model);
 
     /*通过userid查询到该user*/
-    @Select("SELECT * FROM t_user WHERE id = #{userid}")
+    @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
     User findUserByUserid(Integer userid);
 
 
@@ -96,6 +96,11 @@ public interface UserDao {
     /*模糊查询通过username*/
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
+    @Update("update t_user set username = #{param1},tel = #{param2} where id = #{param3}")
+    void updateNameAndTel(String username,String tel,int id);
+
+    @Select("select * from t_user where username = #{username}")
+    User findByUserName(String username);
 
     /*更新用户与其所欠金额*/
     @Update("update t_user set owemoney = #{owemoney} where id = #{id}")
