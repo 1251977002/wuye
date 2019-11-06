@@ -1,10 +1,7 @@
 package com.dz.dao;
 
 import com.dz.pojo.Building;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.*;
 import org.springframework.ui.Model;
 
 import java.util.List;
@@ -46,4 +43,8 @@ public interface BuidlingDao {
 
     @Select("select buildingname from t_propert")
     List<String> findBuilding();
+
+
+    @Update("update t_building set name = #{name},note = #{note} where id = #{id}")
+    void edit(Building building);
 }

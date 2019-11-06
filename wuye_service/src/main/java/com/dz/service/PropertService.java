@@ -56,7 +56,7 @@ public class PropertService {
         return propertDao.findPropert(begintime,buildingname,unitname,housenum);
     }
     /*查找所有的物业费表中的信息*/
-    //todo
+
     public PageInfo findByPageroomList(int pageNum,String username,String buildingname) {
         PageHelper.startPage(pageNum,3);
         Map<String,Object> map = new HashMap<String,Object>();
@@ -71,6 +71,22 @@ public class PropertService {
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
     }
+    /*查找所有的物业费表中的信息*/
+
+    public PageInfo findByPageroomList1(int pageNum,String username,String status) {
+        PageHelper.startPage(pageNum,3);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        if(!StringUtils.isEmpty(status)){
+            map.put("status",status);
+        }
+
+        List<Propert> propertList = propertDao.findAll1(map);
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
 
     /*删除room*/
     public void delroom(int id) {
@@ -82,12 +98,42 @@ public class PropertService {
         return propertDao.findAllBuilding();
     }
 
-
+    /*保存账单信息*/
     public void saveInfo(Propert propert) {
         propertDao.saveInfo(propert);
     }
 
+    /*通过id查找物业账单*/
     public Propert findById(Integer propertid) {
         return propertDao.findById(propertid);
+    }
+    public PageInfo findPropertByPage(int pageNum,String buildingname,String username) {
+        PageHelper.startPage(pageNum, 3);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(!StringUtils.isEmpty(buildingname)){
+            map.put("buildingname",buildingname);
+        }
+        if(!StringUtils.isEmpty(username)){
+            map.put("username","%" + username + "%");
+        }
+        List<Propert> propertList = propertDao.findPropertByPage(map);
+        PageInfo pageInfo = new PageInfo(propertList);
+        return pageInfo;
+    }
+
+    public void saveroom(int userId) {
+        Propert propert = new Propert();
+        propert.setUserid(userId);
+        propertDao.save(userId);
+    }
+
+    /*通过用户id查找物业账单*/
+    public List<Propert> findByUserid(Integer userid) {
+        return propertDao.findByUserid(userid);
+    }
+
+    /*通过id改变缴费时间*/
+    public void updateById(String paytime,String payway,String state,int propertid) {
+        propertDao.updateById(paytime,payway,state,propertid);
     }
 }

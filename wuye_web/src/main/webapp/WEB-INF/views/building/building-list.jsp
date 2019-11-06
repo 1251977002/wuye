@@ -147,48 +147,47 @@
                         <!--楼栋信息-->
                         <div role="tabpanel" class="tab-pane active " id="base">
                             <br/>
-                            <form class="form-horizontal" enctype="multipart/form-data" action="#/backend/admin/product"
-                                  method="post">
-                                <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
-                                <input type="hidden" name="id" value="0"/>
-                                <div>
-                                    <table class="form-table ">
-                                        <tbody>
-                                        <tr>
-                                            <td class="form-title">
-                                                <span class="text-danger">*</span>楼栋号
-                                            </td>
-                                            <td>
-                                                <input type="text" id="name" class="form-control" value="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="form-title">
-                                                <span class="text-danger">*</span>备注
-                                            </td>
-                                            <td>
-                                                <input type="text" id="note" class="form-control" value= "">
-                                            </td>
-                                        </tr>
+                            <input type="hidden" name="_token" value="17nb09nROctqttKz9hcPg4gxNB0wCU8B21t744md">
+                            <input type="hidden" name="id" value="0"/>
+                            <div>
+                                <table class="form-table ">
+                                    <tbody>
+                                    <tr>
+                                        <td class="form-title">
+                                            <span class="text-danger">*</span>楼栋号
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="buildingname">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-title">
+                                            <span class="text-danger">*</span>备注
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="note">
+                                            <input type="hidden" class="hiddenid" value="">
+                                        </td>
+                                    </tr>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
+                            </div>
 
 
-                                <div>
-                                    <table class="table form-table">
-                                        <tbody>
-                                        <tr>
-                                            <td class="form-title"></td>
-                                            <a href="../owner/owner-list.jsp" class="btn btn-primary btn-lg btn-block">
-                                                保存</a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
+                            <div>
+                                <table class="table form-table">
+                                    <tbody>
+                                    <tr>
+                                        <td class="form-title"></td>
+                                        <button type="button" class="btn btn-primary btn-lg btn-block edit">
+                                            保存
+                                        </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <!--相关文件-->
@@ -397,22 +396,26 @@
 <script id="template" type="x-tmpl-mustache">
               <tr>
 
-                    <td class = "name">{{name}}</td>
-                    <td class = "note">{{note}}</td>
+                    <td >{{name}}</td>
+                    <td >{{note}}</td>
                     <td>
-                        <shiro:hasRole name="管理员">
-                        <button type="button" class="btn btn-primary btn-xs update" data-toggle="modal"
-                        data-target="#myModal">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                            编辑
-                        </button>
+                     <input type="hidden" class = "name" value = "{{name}}">
+                     <input type="hidden" class = "note" value = "{{note}}">
+                       <shiro:hasRole name="管理员">
+                    <button type="button" class="btn btn-primary btn-xs update" data-toggle="modal"
+                    data-target="#myModal">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    编辑
+                    </button>
+                    <input type="hidden" class="buildingid" value = "{{id}}" >
                     <a href="javascript:;" rel= "{{id}}" class="btn btn-xs btn-danger" id="del">
                     <span class="glyphicon glyphicon-remove"></span>
                     删除
                     </a>
-                        </shiro:hasRole>
+</shiro:hasRole>
                     </td>
               </tr>
+
 </script>
 
 <script type="text/javascript">
@@ -421,88 +424,122 @@
         //日期选择
         yoozi.datapicker('.datepicker');
 
-        $(".mytable").on("click",".update",function () {
-            alert("123");
-            var buildingname = $
+        /*点击编辑把值带过去*/
+        $(".mytable").on("click", ".update", function () {
+
+            var buildingname = $(this).siblings(".name").val();
+            var note = $(this).siblings(".note").val();
+            var id = $(this).siblings(".buildingid").val();
+            console.log(buildingname);
+            console.log(note);
+            console.log(id);
+            $("#buildingname").val(buildingname);
+            $("#note").val(note);
+            $(".hiddenid").val(id);
 
         });
-    });
 
-
-    $(".mytable").on("click", "#del", function () {
-        if (confirm("确定要删除吗？")) {
-            var id = $(this).attr("rel");
-            window.location.href = "/building/deletebuilding?id="+id;
-            return true;
-        }
-        return false;
-    });
-
-    pageStart();//开始分页
-
-    function pageStart() {//分页函数
-        $.ajax({ //去后台查询第一页数据
-            type: "get",
-            url: "/building/findByPage",
-            dataType: "json",
-            data: {
-                pageNum: '1'
-
-            }, //参数：当前页为1
-            success: function (data) {
-                console.log(data);
-                var template = $('#template').html();
-                Mustache.parse(template);
-                $(".mytable").html("");
-                $(data.list).each(function () {
-                    var rendered = Mustache.render(template, this);
-                    $(".mytable").append(rendered);
-                });
-
-                var options = {//根据后台返回的分页相关信息，设置插件参数
-                    bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
-                    currentPage: data.pageNum, //当前页数
-                    totalPages: data.pages, //总页数
-                    numberOfPages: data.pageSize,//每页记录数
-                    itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
-                        switch (type) {
-                            case "first":
-                                return "首页";
-                            case "prev":
-                                return "上一页";
-                            case "next":
-                                return "下一页";
-                            case "last":
-                                return "末页";
-                            case "page":
-                                return page;
-                        }
-                    },
-                    onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
-                        $.ajax({//根据page去后台加载数据
-                            url: "/building/findByPage",
-                            type: "get",
-                            dataType: "json",
-                            data: {
-                                pageNum: page
-                            },
-                            success: function (data) {
-                                var template = $('#template').html();
-                                Mustache.parse(template);
-                                $(".mytable").html("");
-                                $(data.list).each(function () {
-                                    var rendered = Mustache.render(template, this);
-                                    $(".mytable").append(rendered);
-                                });
-
-                            }
-                        });
-                    }
-                };
-                $('#mypage').bootstrapPaginator(options);//设置分页
+        //点击删除弹框
+        $(".mytable").on("click", "#del", function () {
+            if (confirm("确定要删除吗？")) {
+                var id = $(this).attr("rel");
+                window.location.href = "/building/deletebuilding?id=" + id;
+                return true;
             }
+            return false;
         });
-    }
+
+        //点击保存
+        $(".edit").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/building/edit",
+                data: {
+                    id: $(".hiddenid").val(),
+                    name: $("#buildingname").val(),
+                    note: $("#note").val(),
+
+                },
+                success: function (json) {
+                    if (json == 0) {
+                        console.log("保存成功！");
+                    }
+                },
+                complete: function () {
+                    $('.modal').modal('hide');
+                    $(".note").val("");
+                    pageStart();
+                }
+            });
+        });
+
+
+        pageStart();//开始分页
+
+        function pageStart() {//分页函数
+            $.ajax({ //去后台查询第一页数据
+                type: "get",
+                url: "/building/findByPage",
+                dataType: "json",
+                data: {
+                    pageNum: '1'
+
+                }, //参数：当前页为1
+                success: function (data) {
+                    console.log(data);
+                    var template = $('#template').html();
+                    Mustache.parse(template);
+                    $(".mytable").html("");
+                    $(data.list).each(function () {
+                        var rendered = Mustache.render(template, this);
+                        $(".mytable").append(rendered);
+                    });
+
+                    var options = {//根据后台返回的分页相关信息，设置插件参数
+                        bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
+                        currentPage: data.pageNum, //当前页数
+                        totalPages: data.pages, //总页数
+                        numberOfPages: data.pageSize,//每页记录数
+                        itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
+                            switch (type) {
+                                case "first":
+                                    return "首页";
+                                case "prev":
+                                    return "上一页";
+                                case "next":
+                                    return "下一页";
+                                case "last":
+                                    return "末页";
+                                case "page":
+                                    return page;
+                            }
+                        },
+                        onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
+                            $.ajax({//根据page去后台加载数据
+                                url: "/building/findByPage",
+                                type: "get",
+                                dataType: "json",
+                                data: {
+                                    pageNum: page
+                                },
+                                success: function (data) {
+                                    var template = $('#template').html();
+                                    Mustache.parse(template);
+                                    $(".mytable").html("");
+                                    $(data.list).each(function () {
+                                        var rendered = Mustache.render(template, this);
+                                        $(".mytable").append(rendered);
+                                    });
+
+                                }
+                            });
+                        }
+                    };
+                    $('#mypage').bootstrapPaginator(options);//设置分页
+                }
+            });
+        }
+    });
 </script>
 </body>
 </html>

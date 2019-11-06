@@ -24,7 +24,7 @@ public class BuildingController {
     /*跳转到楼栋列表并展示所有数据   用building表*/
     @RequestMapping(value = "buildinglist")
     public String buildinglist(Model model){
-        List<Building> buildingList = buildingService.findAllBuilding(model);
+
         return "building/building-list";
     }
     /*跳转到添加楼栋*/
@@ -61,5 +61,11 @@ public class BuildingController {
         PageInfo pageInfo = buildingService.findByPage(pageNum);
         return pageInfo;
     }
-
+    /*编辑楼栋信息*/
+    @RequestMapping(value = "edit", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int updateUser(Building building){
+        buildingService.edit(building);
+        return 0;
+    }
 }

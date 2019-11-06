@@ -20,6 +20,8 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Service;
 
 
+
+
 public interface UserDao {
 
 
@@ -38,17 +40,28 @@ public interface UserDao {
     List<User> findUserByParam(Map<String,Object> map);
 
     @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{pid})")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByPid(Integer pid);
 
     /*添加套房信息*/
-    @Insert("insert into t_user(username,tel) values(#{username},#{tel})")
+    @Insert("insert into t_user(username,tel,buildingname,unitname,housenum,modelname) values(#{username},#{tel},#{buildingname},#{unitname},#{housenum},#{modelname})")
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void saveroom(User user);
+
+
     //保存user
     @Insert("insert into t_user (username,loginname,password,sex,card,tel,buildingname,unitname,housenum,modelid) values (#{username},#{loginname},#{password},#{sex},#{card},#{tel},#{buildingname},#{unitname},#{housenum},#{modelid})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void save(User user);
 
     @Select("select * from t_user where buildingname = #{buildingname} and unitname = #{unitname} and housenum = #{housenum}")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(property = "model",column = "id",one = @One(select = "com.dz.dao.ModelDao.findByUid"))
+    })
     User findByBuildAndUnitHouse(User user);
 
     //删除住户
@@ -77,13 +90,30 @@ public interface UserDao {
     @Select("SELECT * FROM t_user WHERE id IN(SELECT userid FROM t_propert WHERE id=#{userid})")
     User findUserByUserid(Integer userid);
 
+
+
     /*模糊查询通过username*/
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
 
-    @Update("update t_user set username = #{param1},tel = #{param2} where id = #{param3}")
-    void updateNameAndTel(String username,String tel,int id);
+    /*更新用户与其所欠金额*/
+    @Update("update t_user set owemoney = #{owemoney} where id = #{id}")
+    void updateOweMoney(User user);
 
-    @Select("select * from t_user where username = #{username}")
-    User findByUserName(String username);
+    /*查找逾期总人数*/
+    @Select("select count(*) from t_user where owemoney>0")
+    Integer findcount();
+
+    /*查找逾期所欠总金额*/
+    @Select("select sum(owemoney) from t_user")
+    Double findCountMoney();
+
+    /*首页分页所需的数据*/
+    @Select("SELECT buildingname,COUNT(*)totaluser,COUNT(IF(owemoney=0,TRUE,NULL))payuser,COUNT(IF(owemoney>0,TRUE,NULL))overuser,ROUND(COUNT(IF(owemoney=0,TRUE,NULL))/COUNT(*)*100,2) AS rate\n" +
+            " FROM t_user GROUP BY buildingname")
+    List<User> findPageByEveryBuildingName();
+
+    /*通过id改变欠费*/
+    @Update("update t_user set owemoney=#{param1} where id=#{param2}")
+    void updateById(double owemoney, int id);
 }

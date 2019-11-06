@@ -23,6 +23,25 @@ public class Propert implements Serializable {
     private int payid;
     private String payway; /*缴费方式*/
     private String title;  /*收款说明*/
+    private Record record; /*最新一条备注*/
+    private int overday;   /*逾期天数*/
+
+    public int getOverday() {
+        return overday;
+    }
+
+    public void setOverday(int overday) {
+        this.overday = overday;
+    }
+
+    public Record getRecord() {
+        return record;
+    }
+
+    public void setRecord(Record record) {
+        this.record = record;
+    }
+    private String adminname;/*登录者姓名*/
 
     public int getId() {
         return id;
@@ -150,5 +169,13 @@ public class Propert implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAdminname() {
+        return adminname;
+    }
+
+    public void setAdminname(String adminname) {
+        this.adminname = adminname;
     }
 }

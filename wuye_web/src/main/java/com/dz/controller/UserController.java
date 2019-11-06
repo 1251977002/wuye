@@ -67,13 +67,12 @@ public class UserController {
 
     //保存user
     @RequestMapping("save")
-    public String saveUser(User user, String unithouse, int modelid) {
+    public String saveUser( User user,String unithouse, int modelid) {
         //保存user
         int userId = userService.save(user, unithouse);
         //保存到admin登陆表中
         adminService.save(user);
         //保存到房间表中
-        houseService.save(unithouse.substring(3), user.getBuildingname(), userId, unithouse.substring(0, 3), modelid);
         return "redirect:list";
     }
 
@@ -81,8 +80,7 @@ public class UserController {
     @RequestMapping(value = "findByBuildAndUnitHouse", produces = {"application/json;charset=utf-8"})
     @ResponseBody
     public User findByBuildAndUnitHouse(User user) {
-        User user1 = userService.findByBuildAndUnitHouse(user);
-        return user1;
+        return userService.findByBuildAndUnitHouse(user);
     }
 
     //删除住户
@@ -97,7 +95,7 @@ public class UserController {
         return "redirect:list";
     }
 
-    //更新住户的楼栋、单元、房号
+    //更新住户信息
     @RequestMapping(value = "update", produces = {"application/json;charset=utf-8"})
     @ResponseBody
     public int updateUser(User user,String adminname) {
@@ -130,7 +128,7 @@ public class UserController {
     //根据id查找user
     @RequestMapping(value = "findById", produces = {"application/json;charset=utf-8"})
     @ResponseBody
-    public User findById(int id) {
+    public User findById(int id){
         return userService.findById(id);
     }
 
@@ -161,8 +159,8 @@ public class UserController {
         cell6.setCellValue("单元号");
         cell7.setCellValue("房间号");
         cell8.setCellValue("房型");
-        if (userList != null && userList.size() > 0) {
-            for (int i = 1; i <= userList.size(); i++) {
+        if(userList != null && userList.size() > 0){
+            for (int i = 1;i <= userList.size();i++){
                 User rowUser = userList.get(i - 1);
                 Row userRow = sheet.createRow(i);
                 Cell cel1 = userRow.createCell(0);

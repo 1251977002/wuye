@@ -27,7 +27,7 @@ public class GetUserSql {
 
     //物业费的动态sql
     public String getPropertSQL(Map<String, Object> map) {
-        String sql = "select * from t_propert where ";
+        String sql = "select t.* from (SELECT * FROM t_propert ORDER BY begintime DESC)t where ";
         if (map.containsKey("buildingname")) {
             sql += "buildingname = #{buildingname} and ";
         }
@@ -40,7 +40,7 @@ public class GetUserSql {
         if (sql.endsWith("and ")) {
             sql = sql.substring(0, sql.lastIndexOf("and"));
         }
-            sql += "group by userid";
+        sql+="group by userid";
         System.out.println("SQL:" + sql);
         return sql;
     }
@@ -60,6 +60,25 @@ public class GetUserSql {
             sql = sql.substring(0, sql.lastIndexOf("and"));
         }
 
+        System.out.println("SQL:" + sql);
+        return sql;
+    }
+    //物业费,以及逾期天数，所欠物业费的动态sql
+    public String getPropertMoreSQL(Map<String, Object> map) {
+        String sql = "select *,DATEDIFF(CURTIME(),endtime) AS overday from t_propert where ";
+        if (map.containsKey("buildingname")) {
+            sql += "buildingname = #{buildingname} and ";
+        }
+        if (map.containsKey("username")) {
+            sql += "username like #{username} ";
+        }
+        if (sql.endsWith("where ")) {
+            sql = sql.substring(0, sql.indexOf("where"));
+        }
+        if (sql.endsWith("and ")) {
+            sql = sql.substring(0, sql.lastIndexOf("and"));
+        }
+        sql += "group by userid";
         System.out.println("SQL:" + sql);
         return sql;
     }

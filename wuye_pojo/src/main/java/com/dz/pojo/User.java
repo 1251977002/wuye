@@ -75,6 +75,7 @@ public class User implements Serializable {
         this.username = username;
     }
 
+
     public String getPassword() {
         return password;
     }
@@ -188,6 +189,5 @@ public class User implements Serializable {
     public void setPropertList(List<Propert> propertList) {
         this.propertList = propertList;
     }
-
 
 }
