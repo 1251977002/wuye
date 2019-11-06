@@ -128,7 +128,7 @@
 					<h4 style="color: #5092BD;" align="center"><strong>{{title}}</strong></h4>
 					<p style="text-indent: 2em;">{{content}}</p>
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
-					   Tom 发布于{{createtime}}
+					   {{loginname}} 发布于{{createtime}}
 					       </span>
 					      <a class = "del" href="javascript:;" οnclick="js_method()" rel = "{{id}}" title="删除">
 					           <span class="pull-right text-muted glyphicon glyphicon-trash"></span>

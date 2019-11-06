@@ -73,7 +73,7 @@
             <div class="box-header with-border">
               <div>                
                 <span class="username">
-                	楼主：<a href="#">${bbs.user.username}</a>
+                	楼主：<a href="#">${bbs.loginname}</a>
                 </span>
                 <span class="description">${bbs.createtime}</span>
               </div>
@@ -111,7 +111,7 @@
                       <input type="text"  class="form-control input-sm" id="incomt" placeholder="请输入评论内容"
                              name="content">
                       <input type="hidden" name="bbsid" value="${bbs.id}">
-                      <input type="hidden" name="username"  value="<shiro:principal/>">
+                      <input type="hidden" name="loginname"  value="<shiro:principal/>">
                       <button type="submit" class="btn btn-default btn-xs send"
                               style="float: right;margin-top: 10px"> 提交
                       </button> </form>
@@ -150,7 +150,7 @@
               <script id="template" type="x-tmpl-mustache">
                  <div class="box-comment">
                       <span class="username" style="color: #6292CE;">
-                        {{user.username}}：
+                        {{loginname}}：
                         <span class="text-muted pull-right">{{createtime}}</span>
                       </span><!-- /.username -->
                   {{content}}

@@ -14,7 +14,7 @@ public interface BBSCommentDao {
     })
     List<BBSComment> findPageBBSComment(int id);
 
-    @Insert("insert into t_bbscomment(content,createtime,bbsid,userid)values(#{content},#{createtime},${bbsid},#{userid})")
+    @Insert("insert into t_bbscomment(content,createtime,bbsid,loginname)values(#{content},#{createtime},${bbsid},#{loginname})")
     void saveBBSComment(BBSComment bbsComment);
 
     @Delete("delete from t_bbscomment where bbsid = #{bbsid}")

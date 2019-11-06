@@ -8,17 +8,8 @@ public class BBS {
     private int id;
     private String content;
     private String createtime;
-    private int userid;
+    private String  loginname;
     private String title;
-    private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getTitle() {
         return title;
@@ -52,11 +43,11 @@ public class BBS {
         this.createtime = createtime;
     }
 
-    public int getUserid() {
-        return userid;
+    public String getLoginname() {
+        return loginname;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
     }
 }

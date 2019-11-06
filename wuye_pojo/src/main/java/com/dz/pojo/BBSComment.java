@@ -9,15 +9,15 @@ public class BBSComment {
     private String content;
     private String createtime;
     private int bbsid;
-    private int userid;
-    private User user;
+    private String  loginname;
 
-    public User getUser() {
-        return user;
+
+    public String getLoginname() {
+        return loginname;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
     }
 
     public int getId() {
@@ -52,11 +52,4 @@ public class BBSComment {
         this.bbsid = bbsid;
     }
 
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
 }

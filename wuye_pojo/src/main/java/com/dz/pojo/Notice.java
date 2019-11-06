@@ -5,7 +5,7 @@ public class Notice {
     private int id;
     private String content;
     private String createtime;
-    private int adminid;
+    private String loginname;
     private String title;
 
     public String getTitle() {
@@ -40,14 +40,11 @@ public class Notice {
         this.createtime = createtime;
     }
 
-    public int getAdminid() {
-        return adminid;
+    public String getLoginname() {
+        return loginname;
     }
 
-    public void setAdminid(int adminid) {
-        this.adminid = adminid;
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
     }
-
-
-
 }
