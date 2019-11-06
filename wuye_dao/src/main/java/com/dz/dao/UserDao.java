@@ -106,7 +106,7 @@ public interface UserDao {
     Integer findcount();
 
     /*查找逾期所欠总金额*/
-    @Select("select sum(owemoney) from t_user where owemoney>0")
+    @Select("select sum(owemoney) from t_user")
     Double findCountMoney();
 
     /*首页分页所需的数据*/
