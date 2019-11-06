@@ -19,9 +19,14 @@ public class AdminService {
     //保存用户登录的name和pwd
     public void save(User user) {
         Admin admin = new Admin();
-        admin.setAdminname(user.getUsername());
+        admin.setAdminname(user.getLoginname());
         admin.setPassword(user.getCard().substring(0,3));
         admin.setRoleid(2);
         adminDao.save(admin);
     }
+
+    public void delUser(String loginname, int roleid) {
+        adminDao.delUser(loginname,roleid);
+    }
+
 }

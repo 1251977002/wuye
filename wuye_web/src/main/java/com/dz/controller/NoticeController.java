@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resources;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,5 +53,24 @@ public class NoticeController {
     public String noticeDel(int noticeid){
         noticeService.delBynoticeid(noticeid);
         return "redirect:noticeList";
+    }
+    //分页查找一个用户的所有记录
+    @RequestMapping(value = "findByPage", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public PageInfo<Notice> findByPage(int pageNum,int userid) {
+        PageInfo<Notice> userPageInfo = noticeService.findNoticeByUserId(pageNum,userid);
+        return userPageInfo;
+    }
+    @RequestMapping(value = "saveNewNotice", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int saveNewNotice(String content,String adminname,int userid){
+        Notice notice = new Notice();
+        notice.setContent(content);
+        notice.setTitle("备注：");
+        notice.setUserid(userid);
+        notice.setCreatetime(sdf.format(new Date()));
+        notice.setAdminname(adminname);
+        noticeService.save(notice);
+        return 0;
     }
 }

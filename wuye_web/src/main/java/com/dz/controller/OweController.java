@@ -30,11 +30,4 @@ public class OweController {
     public String oweYuqi(){
         return "owe/owe-yuqi";
     }
-    /*通过owemoney是否为零查找逾期的用户*/
-    public PageInfo<User> findPageByOweMoney(int pageNum,String buildingname,String username){
-        return userService.findPageByOweMoney(pageNum,buildingname,username);
-
-
-
-    }
 }

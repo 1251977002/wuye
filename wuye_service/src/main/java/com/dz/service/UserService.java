@@ -57,6 +57,7 @@ public class UserService {
         String unitname = unithouse.substring(0,3);
         String housenum = unithouse.substring(3);
         user.setUsername(user.getUsername());
+        user.setLoginname(user.getLoginname());
         user.setPassword(user.getCard().substring(0,3));
         user.setBuildingname(user.getBuildingname());
         user.setHousenum(housenum);
@@ -76,14 +77,12 @@ public class UserService {
 
 
     //删除
-    public void delByhouseNum(String housenum) {
-        userDao.delByhouseNum(housenum);
+    public void delUser(int id) {
+        userDao.delUser(id);
     }
 
     //更新
     public void update(User user) {
-
-
         userDao.update(user);
     }
     //根据id查找user
@@ -96,23 +95,18 @@ public class UserService {
         return userList;
     }
 
-
-    /*对逾期用户进行分页*/
-    public PageInfo<User> findPageByOweMoney(int pageNum ,String buildingname,String username) {
-
-        Map<String,Object> map = new HashMap<String,Object>();
-        if(!StringUtils.isEmpty(buildingname)){
-            map.put("buildingname",buildingname);
-        }
-        if(!StringUtils.isEmpty(username)){
-            map.put("username","%" + username + "%");
-        }
-        List<User> userList = userDao.findPageByOweMoney(map);
-
     /*查询所有业主信息*/
     public List<User> findAllUser(Model model) {
         return userDao.findAllUser(model);
     }
 
+
+    public void updateNameAndTel(String username,String tel,int id) {
+        userDao.updateNameAndTel(username,tel,id);
+    }
+
+    public User findByUserName(String username) {
+        return userDao.findByUserName(username);
+    }
 
 }

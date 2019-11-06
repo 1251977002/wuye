@@ -5,8 +5,9 @@ public class House {
     private int id;
     private int housenum;
     private int userid;
-    private int unitid;
+    private String unitname;
     private int modelid;
+    private String buildingname;
 
     public int getId() {
         return id;
@@ -32,19 +33,27 @@ public class House {
         this.userid = userid;
     }
 
-    public int getUnitid() {
-        return unitid;
-    }
-
-    public void setUnitid(int unitid) {
-        this.unitid = unitid;
-    }
-
     public int getModelid() {
         return modelid;
     }
 
     public void setModelid(int modelid) {
         this.modelid = modelid;
+    }
+
+    public String getUnitname() {
+        return unitname;
+    }
+
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
+    }
+
+    public String getBuildingname() {
+        return buildingname;
+    }
+
+    public void setBuildingname(String buildingname) {
+        this.buildingname = buildingname;
     }
 }

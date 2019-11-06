@@ -11,16 +11,17 @@ public class HouseService {
     @Autowired
     private HouseDao houseDao;
     //保存住户的房间信息
-    public void save(String housenum, int userId, Unit unit, int modelid) {
+    public void save(String housenum, String buildingname, int userId, String unitname, int modelid) {
         House house = new House();
         house.setHousenum(Integer.parseInt(housenum));
         house.setUserid(userId);
-        house.setUnitid(unit.getId());
+        house.setUnitname(unitname);
         house.setModelid(modelid);
+        house.setBuildingname(buildingname);
         houseDao.save(house);
     }
     //删除住户的房间信息
-    public void del(int housenum) {
-        houseDao.del(housenum);
+    public void del(int housenum,String buildingname,String unitname) {
+        houseDao.del(housenum,buildingname,unitname);
     }
 }

@@ -1,11 +1,10 @@
 package com.dz.controller;
 
+import com.dz.pojo.File;
+import com.dz.pojo.Notice;
 import com.dz.pojo.Unit;
 import com.dz.pojo.User;
-import com.dz.service.AdminService;
-import com.dz.service.HouseService;
-import com.dz.service.UnitService;
-import com.dz.service.UserService;
+import com.dz.service.*;
 import com.github.pagehelper.PageInfo;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -16,11 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,7 +40,11 @@ public class UserController {
     private HouseService houseService;
     @Autowired
     private AdminService adminService;
-
+    @Autowired
+    private FileService fileService;
+    @Autowired
+    private NoticeService noticeService;
+    private String createtime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
     //住户列表
     @RequestMapping("list")
     public String list() {
@@ -54,52 +62,75 @@ public class UserController {
     @ResponseBody
     public PageInfo<User> findByPage(int pageNum, String username, String status) {
         PageInfo<User> userPageInfo = userService.findUserByParam(pageNum, username, status);
-        userPageInfo.getList().get(0).getModel();
         return userPageInfo;
     }
 
     //保存user
     @RequestMapping("save")
-    public String saveUser( User user,String unithouse, int modelid) {
+    public String saveUser(User user, String unithouse, int modelid) {
         //保存user
         int userId = userService.save(user, unithouse);
         //保存到admin登陆表中
         adminService.save(user);
         //保存到房间表中
-        Unit unit = unitService.findByName(unithouse.substring(0, 3));
-        houseService.save(unithouse.substring(3), userId, unit, modelid);
-        return "user/user-list";
+        houseService.save(unithouse.substring(3), user.getBuildingname(), userId, unithouse.substring(0, 3), modelid);
+        return "redirect:list";
     }
 
     //查找某个房间有没有住户
     @RequestMapping(value = "findByBuildAndUnitHouse", produces = {"application/json;charset=utf-8"})
     @ResponseBody
     public User findByBuildAndUnitHouse(User user) {
-        return userService.findByBuildAndUnitHouse(user);
+        User user1 = userService.findByBuildAndUnitHouse(user);
+        return user1;
     }
 
     //删除住户
-    @RequestMapping(value = "delByhouseNum")
-    public String delByhouseNum(String housenum) {
+    @RequestMapping(value = "delUser")
+    public String delUser(int userid) {
+        User user = userService.findById(userid);
         //user表中删除
-        userService.delByhouseNum(housenum);
-        //house表中删除
-        houseService.del(Integer.parseInt(housenum));
-        return "user/user-list";
+        userService.delUser(userid);
+        //从admin表中删除
+        int roleid = 2;
+        adminService.delUser(user.getLoginname(), roleid);
+        return "redirect:list";
     }
 
-    //更新住户信息
+    //更新住户的楼栋、单元、房号
     @RequestMapping(value = "update", produces = {"application/json;charset=utf-8"})
     @ResponseBody
-    public int updateUser(User user){
+    public int updateUser(User user,String adminname) {
         userService.update(user);
+        Notice notice = new Notice();
+        notice.setTitle("更改：");
+        notice.setContent("更改了业主" + user.getUsername() + "的房间信息！");
+        notice.setUserid(user.getId());
+        notice.setAdminname(adminname);
+        notice.setCreatetime(createtime);
+        noticeService.save(notice);
+        return 0;
+    }
+
+    //更新住户的名字、电话
+    @RequestMapping(value = "updateUser", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int update(String username,String adminname, String tel, int id) {
+        userService.updateNameAndTel(username, tel, id);
+        Notice notice = new Notice();
+        notice.setTitle("更改：");
+        notice.setContent("更改了原业主" + username + "的基本信息！");
+        notice.setUserid(id);
+        notice.setAdminname(adminname);
+        notice.setCreatetime(createtime);
+        noticeService.save(notice);
         return 0;
     }
 
     //根据id查找user
     @RequestMapping(value = "findById", produces = {"application/json;charset=utf-8"})
     @ResponseBody
-    public User findById(int id){
+    public User findById(int id) {
         return userService.findById(id);
     }
 
@@ -130,8 +161,8 @@ public class UserController {
         cell6.setCellValue("单元号");
         cell7.setCellValue("房间号");
         cell8.setCellValue("房型");
-        if(userList != null && userList.size() > 0){
-            for (int i = 1;i <= userList.size();i++){
+        if (userList != null && userList.size() > 0) {
+            for (int i = 1; i <= userList.size(); i++) {
                 User rowUser = userList.get(i - 1);
                 Row userRow = sheet.createRow(i);
                 Cell cel1 = userRow.createCell(0);
@@ -159,4 +190,27 @@ public class UserController {
             os.close();
         }
     }
+
+    //上传文件
+    @RequestMapping("fileUpload")
+    public String upload(File file1, MultipartFile file) {
+        String filename = file1.getFilename() + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+        file1.setFilename(filename);
+        file1.setCreatetime(createtime);
+        try {
+            file.transferTo(new java.io.File("g:/upload/wuye/" + filename));
+            fileService.save(file1);
+            Notice notice = new Notice();
+            notice.setTitle("上传：");
+            notice.setContent("上传了文件《" + filename  + "》");
+            notice.setUserid(file1.getUserid());
+            notice.setAdminname(file1.getAdminname());
+            notice.setCreatetime(createtime);
+            noticeService.save(notice);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:list";
+    }
+
 }

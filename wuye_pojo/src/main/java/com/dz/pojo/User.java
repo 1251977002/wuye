@@ -9,6 +9,7 @@ public class User implements Serializable {
     /*业主表 */
     private int id;
     private String username;
+    private String loginname;
     private String password;
     private String sex;
     private String card;
@@ -20,6 +21,14 @@ public class User implements Serializable {
     private String buildingname;
     private String housenum;
 
+
+    public String getLoginname() {
+        return loginname;
+    }
+
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
+    }
 
     private int modelid;
 
