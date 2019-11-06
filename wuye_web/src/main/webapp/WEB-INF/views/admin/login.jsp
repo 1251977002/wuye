@@ -61,7 +61,7 @@
         <button type="button" class="alert-info" style="padding-left: 10px;text-decoration-line: none">获取短信验证码</button>
         </div>
 
-        <input type="text" id="code" class="form-control" name="code" placeholder="验证码" <%--required--%>>
+        <input type="text" id="code" class="form-control" name="code" placeholder="验证码" required>
         <div class="success alert alert-success" style="display: none">
             验证码正确！请点击登录！😊
         </div>

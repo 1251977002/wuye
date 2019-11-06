@@ -1,5 +1,6 @@
 package com.dz.controller;
 
+import com.dz.pojo.Admin;
 import com.dz.pojo.User;
 import com.dz.shiro.sendsms;
 import com.dz.service.AdminService;
