@@ -2,6 +2,7 @@ package com.dz.service;
 
 import com.dz.dao.NoticeDao;
 import com.dz.pojo.Notice;
+import com.dz.pojo.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,5 @@ public class NoticeService {
     public void delBynoticeid(int notice) {
         noticeDao.delBynoticeid(notice);
     }
+
 }

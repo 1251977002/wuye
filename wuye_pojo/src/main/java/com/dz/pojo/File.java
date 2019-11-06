@@ -6,6 +6,24 @@ public class File {
     private String filename;
     private String note;
     private int userid;
+    private String adminname;
+    private String createtime;
+
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    public String getAdminname() {
+        return adminname;
+    }
+
+    public void setAdminname(String adminname) {
+        this.adminname = adminname;
+    }
 
     public int getId() {
         return id;

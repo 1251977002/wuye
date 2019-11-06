@@ -1,11 +1,7 @@
 package com.dz.controller;
 
-import com.dz.pojo.Unit;
-import com.dz.pojo.User;
-import com.dz.service.AdminService;
-import com.dz.service.HouseService;
-import com.dz.service.UnitService;
-import com.dz.service.UserService;
+import com.dz.pojo.*;
+import com.dz.service.*;
 import com.github.pagehelper.PageInfo;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -17,11 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,7 +38,11 @@ public class UserController {
     private HouseService houseService;
     @Autowired
     private AdminService adminService;
-
+    @Autowired
+    private FileService fileService;
+    @Autowired
+    private RecordService recordService;
+    private String createtime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
     //住户列表
     @RequestMapping("list")
     public String list() {
@@ -55,7 +60,6 @@ public class UserController {
     @ResponseBody
     public PageInfo<User> findByPage(int pageNum, String username, String status) {
         PageInfo<User> userPageInfo = userService.findUserByParam(pageNum, username, status);
-        userPageInfo.getList().get(0).getModel();
         return userPageInfo;
     }
 
@@ -67,7 +71,7 @@ public class UserController {
         //保存到admin登陆表中
         adminService.save(user);
         //保存到房间表中
-        return "user/user-list";
+        return "redirect:list";
     }
 
     //查找某个房间有没有住户
@@ -78,18 +82,63 @@ public class UserController {
     }
 
     //删除住户
-    @RequestMapping(value = "delByhouseNum")
-    public String delByhouseNum(String housenum) {
+    @RequestMapping(value = "delUser")
+    public String delUser(int userid) {
+        User user = userService.findById(userid);
         //user表中删除
-        userService.delByhouseNum(housenum);
-        return "user/user-list";
+        userService.delUser(userid);
+        //从admin表中删除
+        int roleid = 2;
+        adminService.delUser(user.getLoginname(), roleid);
+        return "redirect:list";
     }
 
     //更新住户信息
     @RequestMapping(value = "update", produces = {"application/json;charset=utf-8"})
     @ResponseBody
-    public int updateUser(User user){
+    public int updateUser(User user,String adminname) {
         userService.update(user);
+        Record record = new Record();
+        record.setContent("更改：更改了业主" + user.getUsername() + "的房间信息！");
+        record.setUserid(user.getId());
+        record.setAdminname(adminname);
+        record.setCreatetime(createtime);
+        recordService.save(record);
+        return 0;
+    }
+
+    //更新住户的名字、电话
+    @RequestMapping(value = "updateUser", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int update(String username,String adminname, String tel, int id) {
+        userService.updateNameAndTel(username, tel, id);
+        Record record = new Record();
+        record.setContent("更改：更改了原业主" + username + "的基本信息！");
+        record.setUserid(id);
+        record.setAdminname(adminname);
+        record.setCreatetime(createtime);
+        recordService.save(record);
+        return 0;
+    }
+
+    //分页查找一个用户的所有记录
+    @RequestMapping(value = "findRecordByPage", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public PageInfo<Record> findRecordByPage(int pageNum,int userid) {
+        PageInfo<Record> recordPageInfo = recordService.findNoticeByUserId(pageNum,userid);
+        return recordPageInfo;
+    }
+
+    //保存以个新记录、备注
+    @RequestMapping(value = "saveNewRecord", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int saveNewRecord(String content,String adminname,int userid){
+        Record record = new Record();
+        record.setContent("备注：" + content);
+        record.setUserid(userid);
+        record.setCreatetime(createtime);
+        record.setAdminname(adminname);
+        recordService.save(record);
         return 0;
     }
 
@@ -155,5 +204,32 @@ public class UserController {
             book.write(os);
             os.close();
         }
+    }
+
+    //上传文件
+    @RequestMapping("fileUpload")
+    public String upload(File file1, MultipartFile file) {
+        String filename = file1.getFilename() + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+        file1.setFilename(filename);
+        file1.setCreatetime(createtime);
+        try {
+            file.transferTo(new java.io.File("g:/upload/wuye/" + filename));
+            fileService.save(file1);
+            Record record = new Record();
+            record.setContent("上传：上传了文件《" + filename  + "》");
+            record.setUserid(file1.getUserid());
+            record.setAdminname(file1.getAdminname());
+            record.setCreatetime(createtime);
+            recordService.save(record);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:list";
+    }
+
+    @RequestMapping(value = "findByPageNo", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public PageInfo findByPageNo(int pageNum){
+        return userService.findByPageNo(pageNum);
     }
 }

@@ -11,7 +11,6 @@ public class Record {
     private String adminname;
     private int userid;
 
-
     public int getUserid() {
         return userid;
     }
