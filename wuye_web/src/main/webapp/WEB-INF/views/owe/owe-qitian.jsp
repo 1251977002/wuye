@@ -61,7 +61,7 @@
         </ul>
         <ul class="sub-btns">
             <li>
-                <a href="#" class="btn btn-sm btn-default">
+                <a href="/owe/exportqitian" class="btn btn-sm btn-default">
                     <span class="glyphicon glyphicon-list-alt"></span>
                     导出 excel 表
                 </a>

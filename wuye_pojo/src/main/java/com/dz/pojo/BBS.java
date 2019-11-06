@@ -1,5 +1,8 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BBS {
     /*论坛表*/
     private int id;
@@ -7,6 +10,15 @@ public class BBS {
     private String createtime;
     private int userid;
     private String title;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getTitle() {
         return title;

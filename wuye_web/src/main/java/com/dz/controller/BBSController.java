@@ -34,8 +34,8 @@ public class BBSController {
     @RequestMapping(value = "findPageBBS")
     @ResponseBody
     public PageInfo<BBS> findPageBBS(int pageNum){
-
-        return bbsService.findBypageNo(pageNum);
+        PageInfo<BBS> bbsPageInfo =  bbsService.findBypageNo(pageNum);
+        return bbsPageInfo;
     }
     /*跳转到bbs-post页面*/
     @RequestMapping(value = "bbspost")
