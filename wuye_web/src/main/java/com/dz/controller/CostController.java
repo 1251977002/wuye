@@ -79,7 +79,7 @@ public class CostController {
     @RequestMapping(value = "findByPage",produces = "application/json;charset=utf-8")
     @ResponseBody
     public PageInfo findByPage(int pageNum,String buildingname,String username){
-        PageInfo pageInfo = propertService.findByPage(pageNum,buildingname,username);
+        PageInfo pageInfo = propertService.findByPageroomList(pageNum,username,buildingname);
         return pageInfo;
     }
 
@@ -215,7 +215,7 @@ public class CostController {
                 c9.setCellValue(rowPro.getMoney());
             }
             response.setContentType("application/vnd.ms-excel");
-            response.setHeader("Content-Disposition","attachment;filename=\"temp1.xls\"");
+            response.setHeader("Content-Disposition","attachment;filename=\"propert.xls\"");
 
             OutputStream os = response.getOutputStream();
             workbook.write(os);

@@ -16,5 +16,6 @@ public interface AdminDao {
     @Insert("insert into t_admin (adminname,password,roleid) values (#{adminname},#{password},#{roleid})")
     void save(Admin admin);
 
-
+    @Delete("delete from t_admin where adminname = #{param1} and roleid = #{param2}")
+    void delUser(String loginname, int roleid);
 }

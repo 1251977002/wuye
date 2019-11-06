@@ -7,10 +7,12 @@ import com.dz.pojo.Role;
 import com.dz.pojo.User;
 import com.dz.service.AdminService;
 import com.dz.service.UserService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionContext;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
@@ -72,6 +74,9 @@ public class ShiroDbRealm extends AuthorizingRealm {
             return new SimpleAuthenticationInfo(admin.getAdminname(),
                     admin.getPassword(),getName());
         }
+       /* Session session = SecurityUtils.getSubject().getSession();
+        session.setAttribute("admin", admin);
+        return SimpleAuthenticationInfo;*/
         /*String password = user.getPassword();*/
 
 
@@ -81,6 +86,8 @@ public class ShiroDbRealm extends AuthorizingRealm {
         );*/
         return null;
     }
+
+
     @Bean
     public DefaultWebSessionManager sessionManager(){
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();

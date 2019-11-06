@@ -14,4 +14,6 @@ public interface NoticeDao {
     void saveNotice(Notice notice);
     @Delete("delete from t_notice where id = #{noticeid}")
     void delBynoticeid(int noticeid);
+
+
 }

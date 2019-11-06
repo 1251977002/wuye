@@ -1,6 +1,9 @@
 package com.dz.controller;
 
+import com.dz.pojo.Admin;
 import com.dz.pojo.User;
+import com.dz.shiro.sendsms;
+import com.dz.service.AdminService;
 import com.dz.service.PropertService;
 import com.dz.service.UserService;
 import org.apache.shiro.SecurityUtils;
@@ -10,11 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/admin/")
 public class AdminController {
     //管理人员
+    @Autowired
+    private AdminService adminService;
     @Autowired
     private UserService userService;
     @Autowired
@@ -25,6 +31,17 @@ public class AdminController {
     public String index(){
         return "admin/login";
     }
+    @RequestMapping(value = "nopermission")
+    public String nopermission(){
+        return "admin/403";
+    }
+
+    /*验证码*/
+    @RequestMapping(value = "code")
+    public void code(String tel){
+        sendsms.getcode(tel);
+    }
+
     /*登录验证 */
     @RequestMapping(value = "login")
     public String viefy(User user,Model model){
@@ -44,14 +61,32 @@ public class AdminController {
         model.addAttribute("countOweMoney",countOweMoney);
         model.addAttribute("countSeven",countSeven);
 
+            try {
+
+                SecurityUtils.getSubject().login(
+                        new UsernamePasswordToken(user.getUsername(), user.getPassword())
+                );
+            } catch (AuthenticationException e) {
+                e.printStackTrace();
+                model.addAttribute("msg", "用户名或密码错误");
+                return "admin/login";
+            }
         return "owe/owe-data";
+        }
 
-    }
 
+
+    /*退出*/
     @RequestMapping("logout")
     public String logout(){
         SecurityUtils.getSubject().logout();
         return "admin/login";
     }
 
+    //通过用户名查找pwd
+    @RequestMapping(value = "findByName", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public Admin findByName(String name){
+        return adminService.findByLoginName(name);
+    }
 }

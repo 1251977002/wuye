@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@include file="../basepath/basepath.jsp"%>
+<%@include file="../basepath/basepath.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +37,7 @@
 </head>
 <body class="">
 <jsp:include page="../head.jsp">
-    <jsp:param name="menu" value="user" />
+    <jsp:param name="menu" value="user"/>
 </jsp:include>
 
 <!-- #头部主标题导航-->
@@ -108,8 +108,9 @@
                                 <span class="text-danger">*</span>单元房号
                             </td>
                             <td>
-                                <input type="text" class="form-control unithousenum" name="unithouse" value="" placeholder="">
-                                <span id = "error" style="color: red"></span>
+                                <input type="text" class="form-control unithousenum" name="unithouse" value=""
+                                       placeholder="">
+                                <span id="error" style="color: red"></span>
                             </td>
                         </tr>
                         <tr>
@@ -125,15 +126,24 @@
                         <tr>
                             <td class="form-title">物业费用</td>
                             <td>
-                                <span id = "money"></span>元/年（选择了「户型」，系统会自动计算该楼层的物业费用）
+                                <span id="money"></span>元/年（选择了「户型」，系统会自动计算该楼层的物业费用）
                             </td>
                         </tr>
                         <tr>
-                            <td class="form-title"><span class="text-danger">*</span>
+                            <td class="form-title roleUserName"><span class="text-danger">*</span>
                                 户主姓名
                             </td>
                             <td>
                                 <input type="text" class="form-control" name="username" value="" placeholder="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-title"><span class="text-danger">*</span>
+                                登陆名
+                            </td>
+                            <td>
+                                <input type="text" class="form-control userloginname" name="loginname" value="" placeholder="">
+                                <span id="loginerror" style="color: red"></span>
                             </td>
                         </tr>
                         <tr>
@@ -196,20 +206,20 @@
                     </table>
                 </div>
 
-            <table class="table form-table">
-                <tbody>
-                <tr>
-                    <td class="form-title"></td>
-                    <td>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block savebtn">保存</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table form-table">
+                    <tbody>
+                    <tr>
+                        <td class="form-title"></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block savebtn">保存</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </form>
+        </div>
     </div>
-</div>
 </div>
 <!-- /container -->
 <!-- <script src="./assets/vendors/jquery-1.10.2.min.js"></script> -->
@@ -243,66 +253,87 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#comment").rating();
-    });
-    //楼栋
-    $.ajax({
-        type:"GET",
-        url:"/building/findAll",
-        success:function (json) {
-            console.log(json);
-            $(json).each(function () {
-                $(".buildingselect").append("<option value=" + this.name + ">" + this.name + "</option>");
-            });
-        },
-    });
-    //房型
-    $.ajax({
-        type:"GET",
-        url:"/model/findAll",
-        success:function (json) {
-            console.log(json);
-            $(json).each(function (index) {
-                $(".modelselect").append("<option value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
-                if(index == 0){
-                    $("#money").html(this.propertmoney);
-                }
-            });
-        },
-    });
-    //改变房型、物业费自动更改
-    $(".modelselect").change(function () {
+        //楼栋
         $.ajax({
-            type:"GET",
-            url:"/model/findModelById",
-            data:{
-                modelid:$(".modelselect").val(),
+            type: "GET",
+            url: "/building/findAll",
+            success: function (json) {
+                console.log(json);
+                $(json).each(function () {
+                    $(".buildingselect").append("<option value=" + this.name + ">" + this.name + "</option>");
+                });
             },
-            success:function (json) {
-                $("#money").html("");
-                $("#money").html(json.propertmoney);
-            }
         });
-    });
-    //单元房号离开焦点、查找有没有user住
-    $(".unithousenum").blur(function () {
+        //房型
         $.ajax({
-            type:"GET",
-            url:"/user/findByBuildAndUnitHouse",
-            data:{
-                buildingname:$(".buildingselect").val(),
-                unitname:$(".unithousenum").val().substring(0,3),
-                housenum:$(".unithousenum").val().substring(3),
+            type: "GET",
+            url: "/model/findAll",
+            success: function (json) {
+                console.log(json);
+                $(json).each(function (index) {
+                    $(".modelselect").append("<option value=" + this.id + ">" + this.modelname + "(" + this.area + ")" + "</option>");
+                    if (index == 0) {
+                        $("#money").html(this.propertmoney);
+                    }
+                });
             },
-            success:function (json) {
-                if(json != null && json != "" && json != "null"){
-                    $("#error").html("该房间已有住户");
-                    $(".savebtn").attr("disabled",true);
+        });
+        //改变房型、物业费自动更改
+        $(".modelselect").change(function () {
+            $.ajax({
+                type: "GET",
+                url: "/model/findModelById",
+                data: {
+                    modelid: $(".modelselect").val(),
+                },
+                success: function (json) {
+                    $("#money").html("");
+                    $("#money").html(json.propertmoney);
                 }
-            }
+            });
+        });
+        //单元房号离开焦点、查找有没有user住
+        $(".unithousenum").blur(function () {
+            $.ajax({
+                type: "GET",
+                url: "/user/findByBuildAndUnitHouse",
+                data: {
+                    buildingname: $(".buildingselect").val(),
+                    unitname: $(".unithousenum").val().substring(0, 3),
+                    housenum: $(".unithousenum").val().substring(3),
+                },
+                success: function (json) {
+                    if (json != null && json != "" && json != "null") {
+                        $("#error").html("该房间已有住户");
+                        $(".savebtn").attr("disabled", true);
+                    }
+                }
+            });
         });
         $(".unithousenum").focus(function () {
             $("#error").html("");
-            $(".savebtn").attr("disabled",false);
+            $(".savebtn").attr("disabled", false);
+        });
+        //判断loginname不能重复
+        $(".userloginname").blur(function () {
+            $.ajax({
+                type:"GET",
+                url:"/admin/findByName",
+                data:{
+                    name:$(".userloginname").val(),
+                },
+                success:function (json) {
+                    console.log(json);
+                    if(json != null && json != "" && json != "null"){
+                        $("#loginerror").html("登录名已存在、请重新输入");
+                        $(".savebtn").attr("disabled", true);
+                    }
+                },
+            });
+        });
+        $(".userloginname").focus(function () {
+            $("#loginerror").html("");
+            $(".savebtn").attr("disabled", false);
         });
     });
 </script>

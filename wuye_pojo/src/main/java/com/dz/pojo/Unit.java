@@ -1,8 +1,12 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.ibatis.annotations.Select;
 
-public class Unit {
+import java.io.Serializable;
+
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class Unit implements Serializable {
     /*单元表 和楼栋表是用在一起的*/
 
     private int id;

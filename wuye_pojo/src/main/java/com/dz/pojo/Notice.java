@@ -47,4 +47,7 @@ public class Notice {
     public void setLoginname(String loginname) {
         this.loginname = loginname;
     }
+
+
+
 }
