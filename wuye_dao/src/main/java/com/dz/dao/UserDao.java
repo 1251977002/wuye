@@ -65,6 +65,7 @@ public interface UserDao {
     })
     User findByBuildAndUnitHouse(User user);
 
+
     //删除住户
     @Delete("delete from t_user where id = #{id} ")
     void delUser(int id);

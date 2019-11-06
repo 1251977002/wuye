@@ -2,6 +2,7 @@ package com.dz.controller;
 
 import com.dz.pojo.Admin;
 import com.dz.pojo.User;
+import com.dz.shiro.sendsms;
 import com.dz.service.AdminService;
 import com.dz.service.PropertService;
 import com.dz.service.UserService;
@@ -30,6 +31,13 @@ public class AdminController {
     public String index(){
         return "admin/login";
     }
+
+    /*验证码*/
+    @RequestMapping(value = "code")
+    public void code(String tel){
+        sendsms.getcode(tel);
+    }
+
     /*登录验证 */
     @RequestMapping(value = "login")
     public String viefy(User user,Model model){
@@ -49,10 +57,22 @@ public class AdminController {
         model.addAttribute("countOweMoney",countOweMoney);
         model.addAttribute("countSeven",countSeven);
 
+            try {
+
+                SecurityUtils.getSubject().login(
+                        new UsernamePasswordToken(user.getUsername(), user.getPassword())
+                );
+            } catch (AuthenticationException e) {
+                e.printStackTrace();
+                model.addAttribute("msg", "用户名或密码错误");
+                return "admin/login";
+            }
         return "owe/owe-data";
+        }
 
-    }
 
+
+    /*退出*/
     @RequestMapping("logout")
     public String logout(){
         SecurityUtils.getSubject().logout();

@@ -189,7 +189,7 @@
 
 
 <!-- 添加备注弹出框 -->
-<div style="z-index: 9999" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<%--<div style="z-index: 9999" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -563,7 +563,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 
 
 <script src="${basePath}assets/vendors/jquery-1.11.1.min.js"></script>
@@ -578,7 +578,7 @@
 
 <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
 <script src="${basePath}assets/mustache.js"></script>
-
+<span class="label label-danger"></span>
 
 <script id="template" type="x-tmpl-mustache">
                     <tr>
@@ -588,25 +588,25 @@
                         <td>{{money}}/年</td>
                         <td>{{user.username}}</td>
                         <td>{{user.tel}}</td>
-                        <td>{{paytime}} <span class="label label-default">已延期</span></td>
-                        <td>5天</td>
-                        <td>
-
-                            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
-                                    data-target="#myModal">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                更改
-                            </button>
-                             <a href="javascript:;" rel= "{{id}}" class="btn btn-xs btn-danger" id="del">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                            删除
-                                        </a>
+                        <td>{{endtime}}
+                        {{#isoverday}}
+                        <span class="label label-success">未逾期</span>
+                        <td>未出现逾期</td>
+                        {{/isoverday}}
+                        {{^isoverday}}
+                        <span class="label label-danger">已逾期</span>
+                        <td>{{overday}}天</td>
+                        {{/isoverday}}
                         </td>
+
+                        <shiro:hasRole name="管理员">
+                        <td>
+                        <a href="javascript:;" rel= "{{id}}" class="btn btn-xs btn-danger" id="del">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        删除</a>
+                        </td>
+                        </shiro:hasRole>
                     </tr>
-
-
-
-
 
 </script>
 
@@ -668,7 +668,17 @@
                     var template = $('#template').html();
                     Mustache.parse(template);
                     $(".mytable").html("");
-                    $(data.list).each(function () {
+
+                    /*判断模板中的时间是否逾期*/
+                    $(data.list).each(function (index) {
+                        console.log(data.list[index].overday);
+                        data.list[index].isoverday=function () {
+                            if(data.list[index].overday<=0){
+                                return true;
+                            }
+                            return false;
+                        }
+
                         var rendered = Mustache.render(template, this);
                         $(".mytable").append(rendered);
                     });
@@ -720,8 +730,10 @@
             });
         }
     });
+    $()
 
 </script>
+
 
 </body>
 </html>
