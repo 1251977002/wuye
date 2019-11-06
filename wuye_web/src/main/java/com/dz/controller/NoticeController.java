@@ -54,23 +54,4 @@ public class NoticeController {
         noticeService.delBynoticeid(noticeid);
         return "redirect:noticeList";
     }
-    //分页查找一个用户的所有记录
-    @RequestMapping(value = "findByPage", produces = {"application/json;charset=utf-8"})
-    @ResponseBody
-    public PageInfo<Notice> findByPage(int pageNum,int userid) {
-        PageInfo<Notice> userPageInfo = noticeService.findNoticeByUserId(pageNum,userid);
-        return userPageInfo;
-    }
-    @RequestMapping(value = "saveNewNotice", produces = {"application/json;charset=utf-8"})
-    @ResponseBody
-    public int saveNewNotice(String content,String adminname,int userid){
-        Notice notice = new Notice();
-        notice.setContent(content);
-        notice.setTitle("备注：");
-        notice.setUserid(userid);
-        notice.setCreatetime(sdf.format(new Date()));
-        notice.setAdminname(adminname);
-        noticeService.save(notice);
-        return 0;
-    }
 }

@@ -96,6 +96,11 @@ public interface UserDao {
     /*模糊查询通过username*/
     @Select("SELECT * FROM t_user WHERE username LIKE '%#{username}%'")
     void findUserByusername(String username);
+    @Update("update t_user set username = #{param1},tel = #{param2} where id = #{param3}")
+    void updateNameAndTel(String username,String tel,int id);
+
+    @Select("select * from t_user where username = #{username}")
+    User findByUserName(String username);
 
     /*更新用户与其所欠金额*/
     @Update("update t_user set owemoney = #{owemoney} where id = #{id}")

@@ -29,14 +29,4 @@ public class NoticeService {
         noticeDao.delBynoticeid(notice);
     }
 
-    public void save(Notice notice) {
-        noticeDao.save(notice);
-    }
-
-    public PageInfo<Notice> findNoticeByUserId(int pageNum, int userid) {
-        PageHelper.startPage(pageNum, 3);
-        List<Notice> noticeList = noticeDao.findNoticeByUserId(userid);
-        PageInfo<Notice> pageInfo = new PageInfo<Notice>(noticeList);
-        return  pageInfo;
-    }
 }

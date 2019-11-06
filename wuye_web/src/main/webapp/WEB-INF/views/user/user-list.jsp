@@ -352,14 +352,14 @@
                                     <th>发布时间</th>
                                 </tr>
                                 </thead>
-                                <tbody class="noticeinfo">
+                                <tbody class="recordinfo">
                                 <%--信息修改记录、备注--%>
                                 </tbody>
                             </table>
 
                             <!--页码-->
                             <nav aria-label="Page navigation">
-                                <ul id="mypagenotice"></ul>
+                                <ul id="mypagerecord"></ul>
                             </nav>
                             <!-- #页码-->
 
@@ -373,7 +373,7 @@
                                             备注
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control noticecontent" name="content"
+                                            <input type="text" class="form-control recordcontent" name="content"
                                                    value=""
                                                    placeholder="">
                                         </td>
@@ -381,7 +381,7 @@
                                     <tr>
                                         <td class="form-title"></td>
                                         <td>
-                                            <button type="button" class="btn btn-primary savenotice">保存</button>
+                                            <button type="button" class="btn btn-primary saverecord">保存</button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -724,12 +724,12 @@
             }
 
             //业主信息修改记录备注
-            pageStartNotice();
+            pageStartrecord();
 
-            function pageStartNotice() {//分页函数
+            function pageStartrecord() {//分页函数
                 $.ajax({ //去后台查询第一页数据
                     type: "get",
-                    url: "/notice/findByPage",
+                    url: "/user/findRecordByPage",
                     dataType: "json",
                     data: {
                         pageNum: '1',
@@ -738,10 +738,10 @@
                     success: function (data) {
                         var template3 = $('#template3').html();
                         Mustache.parse(template3);
-                        $(".noticeinfo").html("");
+                        $(".recordinfo").html("");
                         $(data.list).each(function () {
                             var rendered = Mustache.render(template3, this);
-                            $(".noticeinfo").append(rendered);
+                            $(".recordinfo").append(rendered);
                         });
 
                         var options = {//根据后台返回的分页相关信息，设置插件参数
@@ -765,7 +765,7 @@
                             },
                             onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
                                 $.ajax({//根据page去后台加载数据
-                                    url: "/notice/findByPage",
+                                    url: "/user/findRecordByPage",
                                     type: "get",
                                     dataType: "json",
                                     data: {
@@ -775,17 +775,17 @@
                                     success: function (data) {
                                         var template3 = $('#template3').html();
                                         Mustache.parse(template3);
-                                        $(".noticeinfo").html("");
+                                        $(".recordinfo").html("");
                                         $(data.list).each(function () {
                                             var rendered = Mustache.render(template3, this);
-                                            $(".noticeinfo").append(rendered);
+                                            $(".recordinfo").append(rendered);
                                         });
 
                                     }
                                 });
                             }
                         };
-                        $('#mypagenotice').bootstrapPaginator(options);//设置分页
+                        $('#mypagerecord').bootstrapPaginator(options);//设置分页
                     }
                 });
             }
@@ -863,19 +863,19 @@
             }
         });
         //模态框中添加备注
-        $(".savenotice").click(function () {
+        $(".saverecord").click(function () {
             $.ajax({
                 type: "GET",
-                url: "/notice/saveNewNotice",
+                url: "/user/saveNewRecord",
                 data: {
-                    content: $(".noticecontent").val(),
+                    content: $(".recordcontent").val(),
                     userid: id,
                     adminname: $(".adminname").val(),
                 },
                 success: function (json) {
                 },
                 complete: function () {
-                    $(".noticecontent").val("");
+                    $(".recordcontent").val("");
                     $('.modal').modal('hide');
                     pageStart();
                 }

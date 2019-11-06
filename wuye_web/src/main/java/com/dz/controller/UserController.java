@@ -1,13 +1,7 @@
 package com.dz.controller;
 
-import com.dz.pojo.File;
-import com.dz.pojo.Notice;
-import com.dz.pojo.Unit;
-import com.dz.pojo.User;
-import com.dz.service.AdminService;
-import com.dz.service.HouseService;
-import com.dz.service.UnitService;
-import com.dz.service.UserService;
+import com.dz.pojo.*;
+import com.dz.service.*;
 import com.github.pagehelper.PageInfo;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -47,7 +41,7 @@ public class UserController {
     @Autowired
     private FileService fileService;
     @Autowired
-    private NoticeService noticeService;
+    private RecordService recordService;
     private String createtime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
     //住户列表
     @RequestMapping("list")
@@ -104,13 +98,12 @@ public class UserController {
     @ResponseBody
     public int updateUser(User user,String adminname) {
         userService.update(user);
-        Notice notice = new Notice();
-        notice.setTitle("更改：");
-        notice.setContent("更改了业主" + user.getUsername() + "的房间信息！");
-        notice.setUserid(user.getId());
-        notice.setAdminname(adminname);
-        notice.setCreatetime(createtime);
-        noticeService.save(notice);
+        Record record = new Record();
+        record.setContent("更改：更改了业主" + user.getUsername() + "的房间信息！");
+        record.setUserid(user.getId());
+        record.setAdminname(adminname);
+        record.setCreatetime(createtime);
+        recordService.save(record);
         return 0;
     }
 
@@ -119,13 +112,33 @@ public class UserController {
     @ResponseBody
     public int update(String username,String adminname, String tel, int id) {
         userService.updateNameAndTel(username, tel, id);
-        Notice notice = new Notice();
-        notice.setTitle("更改：");
-        notice.setContent("更改了原业主" + username + "的基本信息！");
-        notice.setUserid(id);
-        notice.setAdminname(adminname);
-        notice.setCreatetime(createtime);
-        noticeService.save(notice);
+        Record record = new Record();
+        record.setContent("更改：更改了原业主" + username + "的基本信息！");
+        record.setUserid(id);
+        record.setAdminname(adminname);
+        record.setCreatetime(createtime);
+        recordService.save(record);
+        return 0;
+    }
+
+    //分页查找一个用户的所有记录
+    @RequestMapping(value = "findRecordByPage", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public PageInfo<Record> findRecordByPage(int pageNum,int userid) {
+        PageInfo<Record> recordPageInfo = recordService.findNoticeByUserId(pageNum,userid);
+        return recordPageInfo;
+    }
+
+    //保存以个新记录、备注
+    @RequestMapping(value = "saveNewRecord", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public int saveNewRecord(String content,String adminname,int userid){
+        Record record = new Record();
+        record.setContent("备注：" + content);
+        record.setUserid(userid);
+        record.setCreatetime(createtime);
+        record.setAdminname(adminname);
+        recordService.save(record);
         return 0;
     }
 
@@ -202,13 +215,12 @@ public class UserController {
         try {
             file.transferTo(new java.io.File("g:/upload/wuye/" + filename));
             fileService.save(file1);
-            Notice notice = new Notice();
-            notice.setTitle("上传：");
-            notice.setContent("上传了文件《" + filename  + "》");
-            notice.setUserid(file1.getUserid());
-            notice.setAdminname(file1.getAdminname());
-            notice.setCreatetime(createtime);
-            noticeService.save(notice);
+            Record record = new Record();
+            record.setContent("上传：上传了文件《" + filename  + "》");
+            record.setUserid(file1.getUserid());
+            record.setAdminname(file1.getAdminname());
+            record.setCreatetime(createtime);
+            recordService.save(record);
         } catch (IOException e) {
             e.printStackTrace();
         }
