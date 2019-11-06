@@ -31,6 +31,10 @@ public class AdminController {
     public String index(){
         return "admin/login";
     }
+    @RequestMapping(value = "nopermission")
+    public String nopermission(){
+        return "admin/403";
+    }
 
     /*验证码*/
     @RequestMapping(value = "code")

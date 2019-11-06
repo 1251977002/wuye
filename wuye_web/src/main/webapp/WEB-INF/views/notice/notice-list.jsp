@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@include file="../basepath/basepath.jsp"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,9 +53,11 @@
               <li class='active'>
                 <a href="#">公告板列表</a>
               </li>
-               <li >
+                <shiro:hasRole name="管理员">
+               <li>
                 <a href="/notice/noticePost">发布公告</a>
               </li>
+                </shiro:hasRole>
             </ul>           
           </div>
         </nav>
@@ -130,9 +133,11 @@
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
 					   Tom 发布于{{createtime}}
 					       </span>
+					       <shiro:hasRole name="管理员">
 					      <a class = "del" href="javascript:;" οnclick="js_method()" rel = "{{id}}" title="删除">
 					           <span class="pull-right text-muted glyphicon glyphicon-trash"></span>
 					             </a>
+                            </shiro:hasRole>
 				</div>
 					          <!-- /.box-body -->
 			</div>
