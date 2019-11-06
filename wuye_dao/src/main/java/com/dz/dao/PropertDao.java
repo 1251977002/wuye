@@ -18,14 +18,6 @@ public interface PropertDao {
     String SELECT_BY_UID = "select * from t_propert where userid=#{param1} order by endtime desc";
     String UPDATE_BYID = "update t_propert set paytime=#{param1},payway=#{param2},state=#{param3} where id=#{param4}";
 
-    //分页查询
-    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertSQL")
-    @Results({
-            @Result(id = true,column = "id",property = "id"),
-            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
-    })
-    List<Propert> findByPage(Map<String,Object> map);
-
 
     //通过房间号查找
     @Select(SELECT_BYBH)
@@ -61,9 +53,6 @@ public interface PropertDao {
     })
     List<Propert> findAll(Map<String,Object> map);
 
-
-
-
     /*查找所有的物业费信息*/
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getRoomSQL")//写成动态SQL
     @Results({
@@ -72,17 +61,12 @@ public interface PropertDao {
     })
     List<Propert> findAll1(Map<String,Object> map);
 
-
-
-
-
-
     /*删除room*/
     @Delete("delete from t_propert where id = #{id}")
     void delroom(int id);
 
-    /*所有的buildingname*/
-    @Select("select * from t_propert")
+    /*导出所有的propert，不用分页*/
+    @Select("SELECT t.* FROM (SELECT * FROM t_propert ORDER BY begintime DESC)t GROUP BY userid")
     @Results({
             @Result(id = true,column = "id",property = "id"),
             @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid"))
