@@ -3,6 +3,7 @@ package com.dz.dao;
 
 import com.dz.pojo.Model;
 import com.dz.pojo.User;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

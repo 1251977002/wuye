@@ -100,6 +100,27 @@ public class UserService {
         return userDao.findAllUser(model);
     }
 
+    /*更新user表中的owemoney*/
+    public void updateOweMoney(User user) {
+         userDao.updateOweMoney(user);
+    }
+
+    /*查找逾期总人数*/
+    public Integer findcount() {
+        return userDao.findcount();
+    }
+    /*查找逾期所欠总金额*/
+    public double findCountMoney() {
+        return userDao.findCountMoney();
+    }
+
+    /*首页分页所需的数据*/
+    public PageInfo<User> findByPageNo(int pageNum) {
+        PageHelper.startPage(pageNum, 5);
+        List<User> userList = userDao.findPageByEveryBuildingName();
+        PageInfo<User> pageInfo = new PageInfo<User>(userList);
+        return  pageInfo;
+    }
 
     public void updateNameAndTel(String username,String tel,int id) {
         userDao.updateNameAndTel(username,tel,id);

@@ -89,6 +89,7 @@ public interface PropertDao {
     })
     List<Propert> findAllBuilding();
 
+    /*查找逾期用户信息*/
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertMoreSQL")
     @Results({
             @Result(id = true,column = "id",property = "id"),
@@ -107,4 +108,17 @@ public interface PropertDao {
     void updateById(String paytime,String state,String payway,int propertid);
     @Insert("insert into t_propert(userid) values(#{userid})")
     void save(int userId);
+
+    /*查找七天内到期的用户*/
+    @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getSevenPropertSQL")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
+    })
+    List<Propert> findSevenPropertByPage(Map<String,Object> map);
+
+    /*查找七天内过期的总人数*/
+    @Select("select count(*) from (SELECT * FROM t_propert ORDER BY endtime DESC)t where DATEDIFF(endtime,CURDATE())<7 AND DATEDIFF(endtime,CURDATE())>0 AND state = \"已缴费\"")
+    Integer findSeven();
 }

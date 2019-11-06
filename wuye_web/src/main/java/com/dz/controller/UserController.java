@@ -4,8 +4,12 @@ import com.dz.pojo.File;
 import com.dz.pojo.Notice;
 import com.dz.pojo.Unit;
 import com.dz.pojo.User;
-import com.dz.service.*;
+import com.dz.service.AdminService;
+import com.dz.service.HouseService;
+import com.dz.service.UnitService;
+import com.dz.service.UserService;
 import com.github.pagehelper.PageInfo;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -211,4 +215,9 @@ public class UserController {
         return "redirect:list";
     }
 
+    @RequestMapping(value = "findByPageNo", produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public PageInfo findByPageNo(int pageNum){
+        return userService.findByPageNo(pageNum);
+    }
 }

@@ -1,5 +1,6 @@
 package com.dz.controller;
 
+import com.dz.pojo.Propert;
 import com.dz.pojo.Record;
 import com.dz.pojo.User;
 import com.dz.service.PropertService;
@@ -24,6 +25,8 @@ public class OweController {
     private PropertService propertService;
     @Autowired
     private RecordService recordService;
+    @Autowired
+    private UserService userService;
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     /*跳转到首页*/
     @RequestMapping(value = "owedata")
@@ -43,11 +46,17 @@ public class OweController {
         return "owe/owe-yuqi";
     }
 
-    /*通过owemoney是否为零查找逾期的用户*/
-    @RequestMapping(value = "findPageByOweMoney")
+    /*通过最新的一条账单的endtime和当前时间的比较查找逾期的用户*/
+    @RequestMapping(value = "findPageByEndTime")
     @ResponseBody
-    public PageInfo findPageByOweMoney(int pageNum,String buildingname,String username){
+    public PageInfo findPageByEndTime(int pageNum,String buildingname,String username){
         PageInfo pageInfo = propertService.findPropertByPage(pageNum,buildingname,username);
+        List<Propert> propertList = pageInfo.getList();
+        for (Propert propert1:propertList){
+            User user = propert1.getUser();
+            user.setOwemoney(propert1.getOvermoney());
+            userService.updateOweMoney(user);
+        }
         return pageInfo;
     }
 
@@ -69,5 +78,24 @@ public class OweController {
         record.setUserid(userid);
         recordService.saveRecord(record);
         return "redirect:oweyuqi";
+    }
+
+    @RequestMapping(value = "saveRecordSeven")
+    public String saveRecordSeven(String title,String adminname,Integer userid){
+        Record record = new Record();
+        record.setAdminname(adminname);
+        record.setContent(title);
+        record.setCreatetime(sdf.format(new Date()));
+        record.setUserid(userid);
+        recordService.saveRecord(record);
+        return "redirect:oweqitian";
+    }
+
+    /*通过最新的一条账单的endtime和当前时间的比较查找七天内到期的用户*/
+    @RequestMapping(value = "findPageBySevenDay")
+    @ResponseBody
+    public PageInfo findPageBySevenDay(int pageNum,String buildingname,String username){
+        PageInfo pageInfo = propertService.findSevenPropertByPage(pageNum,buildingname,username);
+        return pageInfo;
     }
 }

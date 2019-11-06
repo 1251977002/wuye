@@ -3,6 +3,8 @@ package com.dz.controller;
 import com.dz.pojo.Admin;
 import com.dz.pojo.User;
 import com.dz.service.AdminService;
+import com.dz.service.PropertService;
+import com.dz.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -18,6 +20,11 @@ public class AdminController {
     //管理人员
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private PropertService propertService;
+
     /*跳转到登录页面*/
     @RequestMapping(value = "index")
     public String index(){
@@ -35,6 +42,13 @@ public class AdminController {
             model.addAttribute("msg","用户名或密码错误");
             return "admin/login";
         }
+        Integer countOwe = userService.findcount();
+        double countOweMoney = userService.findCountMoney();
+        Integer countSeven = propertService.findSeven();
+        model.addAttribute("countOwe",countOwe);
+        model.addAttribute("countOweMoney",countOweMoney);
+        model.addAttribute("countSeven",countSeven);
+
         return "owe/owe-data";
 
     }
