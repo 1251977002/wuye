@@ -109,6 +109,14 @@ public class PropertService {
         return pageInfo;
     }
 
+    /*查找所有逾期用户并不分页*/
+    public List<Propert> findPropertowe() {
+
+        List<Propert> propertList = propertDao.findPropertowe();
+        return propertList;
+
+    }
+
     /*对七天内到期用户进行分页*/
     public PageInfo findSevenPropertByPage(int pageNum,String buildingname,String username) {
         PageHelper.startPage(pageNum, 3);
@@ -122,6 +130,14 @@ public class PropertService {
         List<Propert> propertList = propertDao.findSevenPropertByPage(map);
         PageInfo pageInfo = new PageInfo(propertList);
         return pageInfo;
+    }
+
+    /*查找七天内到期用户不分页*/
+    public List<Propert> findSevenPropertOwe() {
+
+        List<Propert> propertList = propertDao.findSevenPropertOwe();
+
+        return propertList;
     }
 
 

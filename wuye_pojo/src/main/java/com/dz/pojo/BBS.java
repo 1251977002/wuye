@@ -1,11 +1,14 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BBS {
     /*论坛表*/
     private int id;
     private String content;
     private String createtime;
-    private int userid;
+    private String  loginname;
     private String title;
 
     public String getTitle() {
@@ -40,11 +43,11 @@ public class BBS {
         this.createtime = createtime;
     }
 
-    public int getUserid() {
-        return userid;
+    public String getLoginname() {
+        return loginname;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
     }
 }

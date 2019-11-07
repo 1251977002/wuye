@@ -34,8 +34,8 @@ public class BBSController {
     @RequestMapping(value = "findPageBBS")
     @ResponseBody
     public PageInfo<BBS> findPageBBS(int pageNum){
-
-        return bbsService.findBypageNo(pageNum);
+        PageInfo<BBS> bbsPageInfo =  bbsService.findBypageNo(pageNum);
+        return bbsPageInfo;
     }
     /*跳转到bbs-post页面*/
     @RequestMapping(value = "bbspost")
@@ -45,12 +45,12 @@ public class BBSController {
     }
     /*保存一个BBS*/
     @RequestMapping(value = "saveBBS")
-    public String saveBBS(String title,String content){
+    public String saveBBS(String title,String content,String loginname){
         BBS bbs = new BBS();
         bbs.setContent(content);
         bbs.setTitle(title);
         bbs.setCreatetime(sdf.format(new Date()));
-        bbs.setUserid(1);
+        bbs.setLoginname(loginname);
         bbsService.saveBBS(bbs);
         return "redirect:bbslist";
     }
@@ -69,12 +69,12 @@ public class BBSController {
     }
     /*保存一个评论*/
     @RequestMapping(value = "saveBBSComment")
-    public String saveBBSComment(String content,int bbsid){
+    public String saveBBSComment(String content,int bbsid,String loginname){
         BBSComment bbsComment = new BBSComment();
         bbsComment.setContent(content);
         bbsComment.setBbsid(bbsid);
         bbsComment.setCreatetime(sdf.format(new Date()));
-        bbsComment.setUserid(1);
+        bbsComment.setLoginname(loginname);
         bbsCommentService.saveBBSComment(bbsComment);
         return "redirect:bbsshow?bbsid="+bbsid;
 

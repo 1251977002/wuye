@@ -39,12 +39,12 @@ public class NoticeController {
     }
     /*保存一个Notice*/
     @RequestMapping(value = "saveNotice")
-    public String saveNotice(String title,String content){
+    public String saveNotice(String title,String content,String loginname){
         Notice notice = new Notice();
         notice.setContent(content);
         notice.setTitle(title);
         notice.setCreatetime(sdf.format(new Date()));
-        notice.setAdminid(1);
+        notice.setLoginname(loginname);
         noticeService.saveNotice(notice);
         return "redirect:noticeList";
     }
