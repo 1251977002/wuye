@@ -331,7 +331,7 @@
                     var options = {//根据后台返回的分页相关信息，设置插件参数
                         bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
                         currentPage: data.pageNum, //当前页数
-                        totalPages: data.pages, //总页数
+                        totalPages: data.pages == 0 ? "" : data.pages,//总页数
                         numberOfPages: data.pageSize,//每页记录数
                         itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
 
