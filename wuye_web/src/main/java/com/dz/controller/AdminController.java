@@ -1,5 +1,6 @@
 package com.dz.controller;
 
+import com.dz.dao.MD5Utils;
 import com.dz.pojo.Admin;
 import com.dz.pojo.User;
 import com.dz.shiro.sendsms;
@@ -45,9 +46,12 @@ public class AdminController {
     /*登录验证 */
     @RequestMapping(value = "login")
     public String viefy(User user,Model model){
+        String password = user.getPassword();
+        String MD5password = MD5Utils.MD5Encode(password, "utf-8");
+        System.out.println(MD5password);
         try {
             SecurityUtils.getSubject().login(
-                    new UsernamePasswordToken(user.getUsername(), user.getPassword())
+                    new UsernamePasswordToken(user.getUsername(), MD5password)
             );
         } catch (AuthenticationException e) {
             e.printStackTrace();
@@ -64,7 +68,7 @@ public class AdminController {
             try {
 
                 SecurityUtils.getSubject().login(
-                        new UsernamePasswordToken(user.getUsername(), user.getPassword())
+                        new UsernamePasswordToken(user.getUsername(), MD5password)
                 );
             } catch (AuthenticationException e) {
                 e.printStackTrace();

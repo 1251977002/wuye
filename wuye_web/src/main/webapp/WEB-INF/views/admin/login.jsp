@@ -112,7 +112,7 @@
                 $(".login").attr("disabled",true);
             }else{
                 $(".success").show();
-                $(".success").fadeOut(3000);
+                $(".success").fadeOut(2000);
 
 
             }

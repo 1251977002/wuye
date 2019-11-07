@@ -585,7 +585,7 @@
                         <td>{{buildingname}}</td>
                         <td>{{unitname}}{{housenum}}</td>
                         <td>{{user.model.modelname}}</td>
-                        <td>{{money}}/年</td>
+                        <td>{{money}}元/年</td>
                         <td>{{user.username}}</td>
                         <td>{{user.tel}}</td>
                         <td>{{endtime}}
