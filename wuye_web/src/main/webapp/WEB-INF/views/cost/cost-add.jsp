@@ -194,7 +194,7 @@
                                 <div class="modal  bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                     <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
-                                            <h3 class="info">缴费成功</h3>
+                                            <h3 class="info">账单生成成功</h3>
                                             <div class="fee">
                                                 <a target="_blank" class = "print" href = "javascript:;"> <button type="submit" class="btn btn-primary btn-sm btnshouju" >打印收据</button> </a>
                                                 <button type="button"  class="btn btn-primary btn-sm" data-dismiss="modal">返回</button>
