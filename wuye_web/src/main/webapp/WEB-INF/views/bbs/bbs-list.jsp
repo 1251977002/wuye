@@ -108,7 +108,7 @@
 		  <div class="box box-widget">
 			 <div class="box-body ">
 				<!-- post text -->
-				<h4 style="color: #5092BD;"><strong><a href = "/bbs/bbsshow?bbsid={{id}}" target = "_blank">{{title}}</a></strong></h4>
+				<h4 style="color: #5092BD;"><strong><a href = "/bbs/bbsshow?bbsid={{id}}" >{{title}}</a></strong></h4>
 
 				<p>{{content}}</p>
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
