@@ -203,7 +203,7 @@
                     <td>{{overuser}}</td>
                     <td>
                       <div class="progress px">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{rate}}%;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{rate}}%;">
                           {{rate}}%
                         </div>
                       </div>
