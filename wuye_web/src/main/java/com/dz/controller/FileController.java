@@ -42,7 +42,7 @@ public class FileController {
     @RequestMapping("showFile")
     @ResponseBody    //不做跳转
     public void showFile(String filename, HttpServletResponse response) throws Exception {
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new java.io.File("g:/upload/wuye/" + filename)));
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new java.io.File("e:/upload/" + filename)));
         BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
         int len = -1;
         while((len = bis.read()) != -1){
