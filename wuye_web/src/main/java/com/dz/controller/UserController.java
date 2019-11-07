@@ -213,7 +213,7 @@ public class UserController {
         file1.setFilename(filename);
         file1.setCreatetime(createtime);
         try {
-            file.transferTo(new java.io.File("g:/upload/wuye/" + filename));
+            file.transferTo(new java.io.File("e:/upload/" + filename));
             fileService.save(file1);
             Record record = new Record();
             record.setContent("上传：上传了文件《" + filename  + "》");
