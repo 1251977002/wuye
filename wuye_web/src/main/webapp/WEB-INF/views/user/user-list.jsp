@@ -439,7 +439,7 @@
 <%--相关文件模板--%>
 <script id="template2" type="x-tmpl-mustache">
  <tr>
-        <td><a href="#">{{filename}}</a></td>
+        <td><a href="/file/showFile?filename={{filename}}">{{filename}}</a></td>
         <td>{{note}}</td>
         <td>{{createtime}}</td>
         <td>
@@ -448,9 +448,6 @@
             </a>
         </td>
     </tr>
-
-
-
 </script>
 <%--业主信息修改记录模板--%>
 <script id="template3" type="x-tmpl-mustache">
@@ -459,9 +456,6 @@
         <td>{{title}}{{content}}</td>
         <td>{{createtime}}</td>
     </tr>
-
-
-
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -668,7 +662,7 @@
                     dataType: "json",
                     data: {
                         pageNum: '1',
-                        username: username,
+                        userid: id,
                     }, //参数：当前页为1
                     success: function (data) {
                         var template2 = $('#template2').html();
@@ -705,7 +699,7 @@
                                     dataType: "json",
                                     data: {
                                         pageNum: page,
-                                        username: username,
+                                        userid: id,
                                     },
                                     success: function (data) {
                                         var template2 = $('#template2').html();

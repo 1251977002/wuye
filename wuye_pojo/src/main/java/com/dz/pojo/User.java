@@ -15,85 +15,16 @@ public class User implements Serializable {
     private String card;
     private String tel;
     private double owemoney;
-    private int buildingid;
-    private int houseid;
     private String unitname;
     private String buildingname;
     private String housenum;
-
-
-    public String getLoginname() {
-        return loginname;
-    }
-
-    public void setLoginname(String loginname) {
-        this.loginname = loginname;
-    }
-
     private int modelid;
-
-    private int roleid;
     private List<Propert> propertList;
-
     private Model model;
-
-    private String modelname;
-
-    private List<Role> roleList;
     private int totaluser;/*一栋楼的所有业主数*/
     private int payuser;/*一栋楼支付过物业费的所有业主数*/
     private int overuser;/*一栋楼预期的所有业主数*/
     private double rate;/*一栋楼支付过的业主占总业主数的百分比*/
-
-    public int getTotaluser() {
-        return totaluser;
-    }
-
-    public void setTotaluser(int totaluser) {
-        this.totaluser = totaluser;
-    }
-
-    public int getPayuser() {
-        return payuser;
-    }
-
-    public void setPayuser(int payuser) {
-        this.payuser = payuser;
-    }
-
-    public int getOveruser() {
-        return overuser;
-    }
-
-    public void setOveruser(int overuser) {
-        this.overuser = overuser;
-    }
-
-    public double getRate() {
-        return rate;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
-
-    public String getModelname() {
-        return modelname;
-    }
-
-    public void setModelname(String modelname) {
-        this.modelname = modelname;
-    }
-
-
-
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
 
     public int getId() {
         return id;
@@ -111,6 +42,13 @@ public class User implements Serializable {
         this.username = username;
     }
 
+    public String getLoginname() {
+        return loginname;
+    }
+
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
+    }
 
     public String getPassword() {
         return password;
@@ -152,20 +90,12 @@ public class User implements Serializable {
         this.owemoney = owemoney;
     }
 
-    public int getBuildingid() {
-        return buildingid;
+    public String getUnitname() {
+        return unitname;
     }
 
-    public void setBuildingid(int buildingid) {
-        this.buildingid = buildingid;
-    }
-
-    public int getHouseid() {
-        return houseid;
-    }
-
-    public void setHouseid(int houseid) {
-        this.houseid = houseid;
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
     }
 
     public String getBuildingname() {
@@ -182,16 +112,6 @@ public class User implements Serializable {
 
     public void setHousenum(String housenum) {
         this.housenum = housenum;
-
-    }
-
-    public String getUnitname() {
-        return unitname;
-
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
     }
 
     public int getModelid() {
@@ -200,22 +120,6 @@ public class User implements Serializable {
 
     public void setModelid(int modelid) {
         this.modelid = modelid;
-    }
-    public Model getModel() {
-        return model;
-    }
-
-    public void setModel(Model model) {
-        this.model = model;
-    }
-
-
-    public int getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(int roleid) {
-        this.roleid = roleid;
     }
 
     public List<Propert> getPropertList() {
@@ -226,4 +130,43 @@ public class User implements Serializable {
         this.propertList = propertList;
     }
 
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public int getTotaluser() {
+        return totaluser;
+    }
+
+    public void setTotaluser(int totaluser) {
+        this.totaluser = totaluser;
+    }
+
+    public int getPayuser() {
+        return payuser;
+    }
+
+    public void setPayuser(int payuser) {
+        this.payuser = payuser;
+    }
+
+    public int getOveruser() {
+        return overuser;
+    }
+
+    public void setOveruser(int overuser) {
+        this.overuser = overuser;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
 }
