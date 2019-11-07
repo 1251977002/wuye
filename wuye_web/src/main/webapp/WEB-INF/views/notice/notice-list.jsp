@@ -131,7 +131,7 @@
 					<h4 style="color: #5092BD;" align="center"><strong>{{title}}</strong></h4>
 					<p style="text-indent: 2em;">{{content}}</p>
 					<span class="glyphicon glyphicon-user" style="font-size: 12px;">
-					   Tom 发布于{{createtime}}
+					   {{loginname}} 发布于{{createtime}}
 					       </span>
 					       <shiro:hasRole name="管理员">
 					      <a class = "del" href="javascript:;" οnclick="js_method()" rel = "{{id}}" title="删除">
@@ -185,7 +185,7 @@
                       var options = {//根据后台返回的分页相关信息，设置插件参数
                           bootstrapMajorVersion: 3, //如果是bootstrap3版本需要加此标识，并且设置包含分页内容的DOM元素为UL,如果是bootstrap2版本，则DOM包含元素是DIV
                           currentPage: data.pageNum, //当前页数
-                          totalPages: data.pages, //总页数
+                          totalPages: data.pages == 0 ? "" : data.pages,//总页数
                           numberOfPages: data.pageSize,//每页记录数
                           itemTexts: function (type, page, current) {//设置分页按钮显示字体样式
 
