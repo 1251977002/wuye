@@ -133,13 +133,13 @@
                         <li role="presentation" class="active">
                             <a href="#base" aria-controls="base" role="tab" data-toggle="tab">楼栋信息更改</a>
                         </li>
-                        <li role="presentation">
+                        <%--<li role="presentation">
                             <a href="#file" aria-controls="file" role="tab" data-toggle="tab">相关文件</a>
                         </li>
                         <li role="presentation">
                             <a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"
                                id="time">业主信息修改记录</a>
-                        </li>
+                        </li>--%>
 
                     </ul>
                     <!-- Tab panes -->
@@ -190,7 +190,7 @@
                             </div>
                         </div>
 
-                        <!--相关文件-->
+                        <%--<!--相关文件-->
                         <div role="tabpanel" class="tab-pane" id="file">
                             <br/>
                             <table class="table table-striped">
@@ -370,7 +370,7 @@
                                     </table>
                                 </form>
                             </div>
-                        </div>
+                        </div>--%>
 
 
                     </div>

@@ -584,7 +584,7 @@
                     <tr>
                         <td>{{buildingname}}</td>
                         <td>{{unitname}}{{housenum}}</td>
-                        <td>{{user.modelname}}</td>
+                        <td>{{user.model.modelname}}</td>
                         <td>{{money}}/年</td>
                         <td>{{user.username}}</td>
                         <td>{{user.tel}}</td>
@@ -655,7 +655,7 @@
         function pageStart() {//分页函数
             $.ajax({ //去后台查询第一页数据
                 type: "get",
-                url: "/room/findByPage1",
+                url: "/room/findByPage",
                 dataType: "json",
                 data: {
                     pageNum: '1',
@@ -704,7 +704,7 @@
                         },
                         onPageClicked: function (event, originalEvent, type, page) {//分页按钮点击事件
                             $.ajax({//根据page去后台加载数据
-                                url: "/room/findByPage1",
+                                url: "/room/findByPage",
                                 type: "get",
                                 dataType: "json",
                                 data: {
