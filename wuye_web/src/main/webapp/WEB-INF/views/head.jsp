@@ -14,7 +14,9 @@
                 <li class="${(param.menu eq 'owe') ? 'active' : ''}"><a href="/owe/owedata">欠费管理</a></li>
                 <li class="${(param.menu eq 'room') ? 'active' : ''}" ><a href="/room/roomlist">套房管理</a></li>
                 <li class="${(param.menu eq 'cost') ? 'active' : ''}"><a href="/cost/list">收费管理</a></li>
+                <shiro:hasRole name="管理员">
                 <li class="${(param.menu eq 'user') ? 'active' : ''}" ><a href="/user/list">业主管理</a></li>
+                </shiro:hasRole>
                 <li class="${(param.menu eq 'notice') ? 'active' : ''}"><a href="/notice/noticeList">公告板</a></li>
                 <li class="${(param.menu eq 'bbs') ? 'active' : ''}"><a href="/bbs/bbslist">社区论坛</a></li>
             </ul>

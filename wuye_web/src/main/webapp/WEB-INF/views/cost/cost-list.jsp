@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp"%>
 
 <!DOCTYPE html>
@@ -49,9 +50,11 @@
             <li class='active'>
                 <a href="/cost/list">物业费账单</a>
             </li>
+            <shiro:hasRole name="管理员">
             <li>
                 <a href="/cost/add">收取物业费</a>
             </li>
+            </shiro:hasRole>
         </ul>
         <ul class="sub-btns">
             <li>

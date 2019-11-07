@@ -73,7 +73,7 @@ public interface PropertDao {
     })
     List<Propert> findAllBuilding();
 
-    /*查找逾期用户信息*/
+    /*分页查找逾期用户信息*/
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getPropertMoreSQL")
     @Results({
             @Result(id = true,column = "id",property = "id"),
@@ -81,6 +81,19 @@ public interface PropertDao {
             @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
     })
     List<Propert> findPropertByPage(Map<String,Object> map);
+
+    /*查找逾期用户信息*/
+    @Select("SELECT p.*,DATEDIFF(CURTIME(),endtime) AS overday, ROUND(DATEDIFF(CURTIME(),endtime)*propertmoney/365,2) AS overmoney  FROM (SELECT t.* FROM "  +
+           "(SELECT * FROM t_propert ORDER BY endtime DESC)t GROUP BY t.userid)p " +
+           "JOIN t_user u JOIN t_model m " +
+           "WHERE p.userid=u.id AND u.modelid = m.id " +
+           "AND DATEDIFF(CURTIME(),endtime)>0 AND state = \"已缴费\" group by p.userid")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
+    })
+    List<Propert> findPropertowe();
 
 
     /*根据用户id查找物业账单*/
@@ -93,7 +106,7 @@ public interface PropertDao {
     @Insert("insert into t_propert(userid) values(#{userid})")
     void save(int userId);
 
-    /*查找七天内到期的用户*/
+    /*分页查找七天内到期的用户*/
     @SelectProvider(type=com.dz.dao.provider.GetUserSql.class,method="getSevenPropertSQL")
     @Results({
             @Result(id = true,column = "id",property = "id"),
@@ -101,6 +114,17 @@ public interface PropertDao {
             @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
     })
     List<Propert> findSevenPropertByPage(Map<String,Object> map);
+
+    /*查找七天内到期的用户*/
+    @Select("select t.* from (SELECT * FROM t_propert ORDER BY endtime DESC)t where DATEDIFF(endtime,CURDATE())<7 AND DATEDIFF(endtime,CURDATE())>0 AND state = \"已缴费\" group by userid")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "id",property = "user",one= @One(select = "com.dz.dao.UserDao.findByPid")),
+            @Result(column = "userid",property = "record",one = @One(select = "com.dz.dao.RecordDao.findByUseridAndCurTime"))//通过userID查找最新的一条Record;
+    })
+    List<Propert> findSevenPropertOwe();
+
+
 
     /*查找七天内过期的总人数*/
     @Select("select count(*) from (SELECT * FROM t_propert ORDER BY endtime DESC)t where DATEDIFF(endtime,CURDATE())<7 AND DATEDIFF(endtime,CURDATE())>0 AND state = \"已缴费\"")

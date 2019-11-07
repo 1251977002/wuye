@@ -1,12 +1,24 @@
 package com.dz.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BBSComment {
     /*论坛评论表*/
     private int id;
     private String content;
     private String createtime;
     private int bbsid;
-    private int userid;
+    private String  loginname;
+
+
+    public String getLoginname() {
+        return loginname;
+    }
+
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
+    }
 
     public int getId() {
         return id;
@@ -40,11 +52,4 @@ public class BBSComment {
         this.bbsid = bbsid;
     }
 
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
 }

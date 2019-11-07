@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +73,7 @@
             <div class="box-header with-border">
               <div>                
                 <span class="username">
-                	楼主：<a href="#">Jonathan Burke Jr.</a>
+                	楼主：<a href="#">${bbs.loginname}</a>
                 </span>
                 <span class="description">${bbs.createtime}</span>
               </div>
@@ -91,7 +92,6 @@
 
               <p>${bbs.content}</p>
 
-              <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
               <button type = "button" class="btn btn-default btn-xs" id = "comt"><i class="fa fa-comments-o"></i> Comments</button>
               
             </div>
@@ -111,6 +111,7 @@
                       <input type="text"  class="form-control input-sm" id="incomt" placeholder="请输入评论内容"
                              name="content">
                       <input type="hidden" name="bbsid" value="${bbs.id}">
+                      <input type="hidden" name="loginname"  value="<shiro:principal/>">
                       <button type="submit" class="btn btn-default btn-xs send"
                               style="float: right;margin-top: 10px"> 提交
                       </button> </form>
@@ -144,12 +145,12 @@
               <script src="${basePath}assets/vendors/jquery.confirm.min.js"></script>
               <script src="${basePath}assets/yoozi.js"></script>
               <script src="${basePath}assets/common.js"></script>
-              <script src="${basePath}assets/bootstrap-paginator.min.js"></script>
+             <%-- <script src="${basePath}assets/bootstrap-paginator.min.js"></script>--%>
               <script src="${basePath}assets/mustache.js"></script>
               <script id="template" type="x-tmpl-mustache">
                  <div class="box-comment">
                       <span class="username" style="color: #6292CE;">
-                        Nora Havisham：
+                        {{loginname}}：
                         <span class="text-muted pull-right">{{createtime}}</span>
                       </span><!-- /.username -->
                   {{content}}
@@ -217,7 +218,6 @@
                                 }
 
                       });
-                      // $(this).hide();
                   });
                   }
 

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@include file="../basepath/basepath.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +77,8 @@
 										  <div class="form-group">
 												<label class="control-label col-sm-2">标题</label>
 												<div class="col-sm-10">
-												  <input type="text" class="form-control" name="title" id="title" value="">
+                                                    <input type="hidden" name="loginname"  value="<shiro:principal/>">
+												    <input type="text" class="form-control" name="title" id="title" value="">
 												</div>
 										  </div>
 										  

@@ -40,18 +40,28 @@
         <property name="securityManager" ref="securityManager" />
         <property name="loginUrl" value="/admin/index" /><!--去登录页的url-->
         <property name="successUrl" value="owe/owe-data" /><!--登录成功之后的url-->
-        <property name="unauthorizedUrl" value="/admin/403" /><!--没有权限的请求跳转/403-->
+        <property name="unauthorizedUrl" value="/admin/nopermission" /><!--没有权限的请求跳转/403-->
         <property name="filterChainDefinitions">
             <value>
                 /admin/index= anon
                 /admin/login= anon<!--去登录时放行-->
                 /admin/code= anon
+                /admin/nopermission = anon
+
                 /adduser = perms[adduser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
-                /deleteuser = perms[deleteuser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
+                /deleteuser = perms[deleteuser]<!--请求的url 是 /deleteuser 当前的登录者要具有adduser的权限-->
                 /edituser = perms[edituser]<!--请求的url 是 /adduser 当前的登录者要具有adduser的权限-->
+
+                /building/addbuilding = roles[管理员]
+                /unit/addunit = roles[管理员]
+                /model/addmodel = roles[管理员]
+                /cost/add = roles[管理员]
+                /user/add = roles[管理员]
+
                 /assets/**=anon <!--static 静态资源放行-->
                 /** = authc<!--所有的请求都要经过认证-->
-                /* = anon
+                /* = anon<!--除了写好的跳转限定了角色是否可以直接在url栏中跳转，其他的都放行-->
+
             </value>
         </property>
     </bean>

@@ -421,12 +421,14 @@
                         <input type="hidden" class="unithidden" value = "{{unitname}}">
                         <input type="hidden" class="modelhidden" value = "{{model.modelname}}">
                         <input type="hidden" class="delhousenum" value = "{{housenum}}">
+                        <shiro:hasRole name="管理员">
                         <button type="button" class="btn btn-primary btn-xs changebtn" data-toggle="modal" data-target="#myModal" >
                             <span class="glyphicon glyphicon-pencil"></span>
                             更改
                         </button>
                         <a class="btn btn-danger btn-xs deluser" href="javascript:;" ref = "{{id}}">
                         <span class="glyphicon glyphicon-remove"></span>删除</a>
+                        </shiro:hasRole>
                     </td>
                 </tr>
 
