@@ -266,24 +266,28 @@
       });
       $(function () {
          $("#main").on("click",".btnbox",function () {
+           var userid = $(this).siblings(".userid").val();
            $.ajax({
              type: "GET",
              url: "/owe/findbyuserid",
              dataType: "json",
              data: {
-               userid: $(this).siblings(".userid").val(),
+               userid: userid,
              },
              success: function (data) {
-               console.log(data);
                $(".record").html("");
                var template = $('#temp').html();
                Mustache.parse(template);
-               $(data).each(function (index) {
-                 console.log(data[index].userid)
-                 $(".userid1").attr("value",data[index].userid);
-                 var rendered = Mustache.render(template, this);
-                 $(".record").append(rendered);
-               });
+               if(data != null && data.size>0){
+                 $(data).each(function (index) {
+                   console.log(userid);
+                   $(".userid1").attr("value",userid);
+                   var rendered = Mustache.render(template, this);
+                   $(".record").append(rendered);
+                 });
+               }else {
+                 $(".userid1").attr("value",userid);
+               }
              }
            })
          })

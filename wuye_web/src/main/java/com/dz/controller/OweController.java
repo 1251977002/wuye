@@ -167,14 +167,14 @@ public class OweController {
                 c9.setCellValue(propert.getOvermoney());
                 c10.setCellValue(propert.getRecord().getContent());
             }
-            response.setContentType("application/vnd.ms-excel");
-            response.setHeader("Content-Disposition","attachment;filename=\"temp1.xls\"");
-
-            OutputStream os = response.getOutputStream();
-            workbook.write(os);
-            os.close();
 
         }
+        response.setContentType("application/vnd.ms-excel");
+        response.setHeader("Content-Disposition","attachment;filename=\"temp1.xls\"");
+
+        OutputStream os = response.getOutputStream();
+        workbook.write(os);
+        os.close();
 
     }
     /*导出七天过期的Excel表*/
@@ -224,14 +224,14 @@ public class OweController {
                 c7.setCellValue(propert.getUser().getModel().getPropertmoney());
                 c8.setCellValue(propert.getRecord().getContent());
             }
-            response.setContentType("application/vnd.ms-excel");
-            response.setHeader("Content-Disposition","attachment;filename=\"temp1.xls\"");
-
-            OutputStream os = response.getOutputStream();
-            workbook.write(os);
-            os.close();
 
         }
+        response.setContentType("application/vnd.ms-excel");
+        response.setHeader("Content-Disposition","attachment;filename=\"temp1.xls\"");
+
+        OutputStream os = response.getOutputStream();
+        workbook.write(os);
+        os.close();
 
     }
 }
