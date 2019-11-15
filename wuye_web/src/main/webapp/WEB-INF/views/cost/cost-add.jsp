@@ -74,7 +74,9 @@
                   <label>请输入 单元房号</label>
                   <input type="text" class="form-control housename" name="housename" value="${(param.housename == null) ? "" : (param.housename)}" placeholder="">
                 </div>
-                <div class="empty"></div>
+                <div class="empty">
+
+                </div>
                 <div class="form-group-btns">
                   <button type="button" class="btn btn-sm btn-primary selectInfo">查询</button>
                   <button type="button" class="btn btn-sm btn-default resetInfo">重置</button>
@@ -240,7 +242,7 @@
               var buildname = $(".build").val();
               var housename = $(".housename").val();
               if(buildname == "" || buildname == "null" || buildname == null || housename == "" || housename == "null" || housename == null){
-                  $(".empty").html("<span style=\"color: red;font-size: 12px;\" class=\"glyphicon glyphicon-warning-sign\">楼栋和房间号不能为空</span>");
+                  $(".empty").html("<span style=\"color: red;font-size: 12px;\" class=\"glyphicon glyphicon-warning-sign\"> 楼栋和房间号不能为空</span>");
               }else {
                   showInfo();
               }
@@ -264,38 +266,42 @@
                       housenum:$(".housename").val().substring(3),
                   },
                   success:function (json) {
-                      var template = $('#template').html();
-                      Mustache.parse(template);
-                      $(".infolist").html("");
-                      $(".empty").html("");
-                      $(json).each(function () {
-                          console.log(json);
-                          var rendered = Mustache.render(template, this);
-                          $(".infolist").prepend(rendered);
-                      });
+                      console.log(json);
+                      if(json == "" || json == "null" || json == null){
+                          $(".empty").html("<span style=\"color: red;font-size: 12px;\" class=\"glyphicon glyphicon-warning-sign\"> 请填写正确的信息</span>");
+                      }else {
+                          var template = $('#template').html();
+                          Mustache.parse(template);
+                          $(".infolist").html("");
+                          $(".empty").html("");
+                          $(json).each(function () {
+                              var rendered = Mustache.render(template, this);
+                              $(".infolist").prepend(rendered);
 
-                      //并生成年份，并根据第一个年份确定合计应交费用
-                      $.get("/cost/findAllYear",function (json) {
-                          $(".year").empty();
-                          $(json).each(function (index) {
-                              var opt = "<option value="+this.yearno+">" + this.year + "</option>";
-                              $(".year").append(opt);
-                              if(index == 0){
-                                  $.ajax({
-                                      type:"GET",
-                                      url:"/cost/findByYear",
-                                      data:{
-                                          year:1,
-                                          promoney:$(".promoney").text(),
-                                          owemoney:$(".owemoney").text(),
-                                      },
-                                      success:function (json) {
-                                          $(".money").text(json);
+                              //并生成年份，并根据第一个年份确定合计应交费用
+                              $.get("/cost/findAllYear", function (json) {
+                                  $(".year").empty();
+                                  $(json).each(function (index) {
+                                      var opt = "<option value=" + this.yearno + ">" + this.year + "</option>";
+                                      $(".year").append(opt);
+                                      if (index == 0) {
+                                          $.ajax({
+                                              type: "GET",
+                                              url: "/cost/findByYear",
+                                              data: {
+                                                  year: 1,
+                                                  promoney: $(".promoney").text(),
+                                                  owemoney: $(".owemoney").text(),
+                                              },
+                                              success: function (json) {
+                                                  $(".money").text(json);
+                                              }
+                                          });
                                       }
                                   });
-                              }
+                              });
                           });
-                      });
+                      }
                   }
               });
           }
